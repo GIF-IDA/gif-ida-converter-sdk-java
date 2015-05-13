@@ -37,6 +37,7 @@ public class CSVToObjectConverter extends BasicConverter {
 				sb.append(line);
 				sb.append(System.lineSeparator());
 				line = br.readLine();
+
 				if (line == null) {
 					continue;
 				}
@@ -45,7 +46,6 @@ public class CSVToObjectConverter extends BasicConverter {
 
 				System.out.println(user.getFirstName() + " : " + user.getLastName() + " : " + user.getSex());
 			}
-			String everything = sb.toString();
 		} catch (FileNotFoundException e) {
 			throw new RuntimeException();
 		} catch (IOException e) {
