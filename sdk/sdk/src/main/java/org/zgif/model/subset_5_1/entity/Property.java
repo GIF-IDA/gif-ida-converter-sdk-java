@@ -1,10 +1,10 @@
 package org.zgif.model.subset_5_1.entity;
 
-import java.time.LocalDate;
 import java.util.Currency;
 import java.util.List;
 
-import org.zgif.model.annotation.WikiDataField;
+import org.joda.time.LocalDate;
+import org.zgif.model.annotation.DataField;
 import org.zgif.model.datatype.Amount;
 import org.zgif.model.datatype.enumeration.AreaMessurement;
 import org.zgif.model.datatype.enumeration.AreaType;
@@ -17,61 +17,61 @@ import org.zgif.model.subset_4_1.entity.Building;
 
 public class Property extends AbstractProperty {
 
-	@WikiDataField(pageName = "Achitektonische Gültigkeit Ab")
+	@DataField(wikiPageName = "Achitektonische Gültigkeit Ab")
 	private LocalDate archValidFrom;
-	@WikiDataField(pageName = "Achitektonische Gültigkeit bis")
+	@DataField(wikiPageName = "Achitektonische Gültigkeit bis")
 	private LocalDate archValidTo;
-	@WikiDataField(pageName = "Flächenmaß")
+	@DataField(wikiPageName = "Flächenmaß")
 	private AreaMessurement areaMessurement;
-	@WikiDataField(pageName = "Flächenart")
+	@DataField(wikiPageName = "Flächenart")
 	private AreaType areaType;
-	@WikiDataField(pageName = "Asset_Manager")
+	@DataField(wikiPageName = "Asset_Manager")
 	private String assetManager;
 
-	@WikiDataField(pageName = "Objektzustand")
+	@DataField(wikiPageName = "Objektzustand")
 	private ObjectCondition condition;
-	@WikiDataField(pageName = "Datum der Fertigstellung/Errichtung")
+	@DataField(wikiPageName = "Datum der Fertigstellung/Errichtung")
 	private LocalDate constructionDate;
-	@WikiDataField(pageName = "Währung")
+	@DataField(wikiPageName = "Währung")
 	private Currency currency;
 
-	@WikiDataField(pageName = "Facility_Manager")
+	@DataField(wikiPageName = "Facility_Manager")
 	private String facilityManager;
 
-	@WikiDataField(pageName = "Modernisierungsdatum")
+	@DataField(wikiPageName = "Modernisierungsdatum")
 	private LocalDate lastRefurbishmentDate;
 
-	@WikiDataField(pageName = "Modernisierungszustand")
+	@DataField(wikiPageName = "Modernisierungszustand")
 	private RestorationStatus modernisationStatus;
-	@WikiDataField(pageName = "Denkmalschutz")
+	@DataField(wikiPageName = "Denkmalschutz")
 	private MonumentsType monumentProtectionCategory;
 
-	@WikiDataField(pageName = "Notiz")
+	@DataField(wikiPageName = "Notiz")
 	private String note;
-	@WikiDataField(pageName = "Anzahl Parkflächen")
+	@DataField(wikiPageName = "Anzahl Parkflächen")
 	private Integer numberOfParkingSpaces;
-	@WikiDataField(pageName = "Zimmer")
+	@DataField(wikiPageName = "Zimmer")
 	private Integer numberOfRooms;
 
-	@WikiDataField(pageName = "Betriebskosten_ohne_Leerstandsbetriebskosten")
+	@DataField(wikiPageName = "Betriebskosten_ohne_Leerstandsbetriebskosten")
 	private Amount operatingCosts;
-	@WikiDataField(pageName = "Abgerechnete Betriebskosten")
+	@DataField(wikiPageName = "Abgerechnete Betriebskosten")
 	private Amount operatingCostsSettled;
 	// TODO: optRate - eTYPE_OptRate
-	@WikiDataField(pageName = "Eigentumsanteil")
+	@DataField(wikiPageName = "Eigentumsanteil")
 	private Double ownershipShare;
 
-	@WikiDataField(pageName = "Grundstücksgröße")
+	@DataField(wikiPageName = "Grundstücksgröße")
 	private Amount plotArea;
-	@WikiDataField(pageName = "Portfolio")
+	@DataField(wikiPageName = "Portfolio")
 	private String portfolioName;
-	@WikiDataField(pageName = "Portfolioname")
+	@DataField(wikiPageName = "Portfolioname")
 	private String portfolioPartName;
-	@WikiDataField(pageName = "Property Manager")
+	@DataField(wikiPageName = "Property Manager")
 	private String propertyManager;
-	@WikiDataField(pageName = "Ankaufsdatum")
+	@DataField(wikiPageName = "Ankaufsdatum")
 	private LocalDate purchaseDate;
-	@WikiDataField(pageName = "Bruttokaufpreis")
+	@DataField(wikiPageName = "Bruttokaufpreis")
 	private Amount purchaseGrossPrice;
 
 	private EnergyRating lastEnergyRating;

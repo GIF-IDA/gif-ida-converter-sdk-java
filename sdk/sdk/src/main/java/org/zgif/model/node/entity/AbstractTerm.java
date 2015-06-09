@@ -1,8 +1,8 @@
 package org.zgif.model.node.entity;
 
-import org.zgif.model.annotation.WikiEntity;
+import org.zgif.model.annotation.Entity;
 
-@WikiEntity(name = "Vertragsobjekt/Kondition")
+@Entity(wikiName = "Vertragsobjekt/Kondition")
 public abstract class AbstractTerm extends AbstractEntityNode {
 
 	public AbstractTerm() {

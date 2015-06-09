@@ -1,8 +1,7 @@
 package org.zgif.model.subset_4_1.entity;
 
-import java.time.LocalDate;
-
-import org.zgif.model.annotation.WikiDataField;
+import org.joda.time.LocalDate;
+import org.zgif.model.annotation.DataField;
 import org.zgif.model.datatype.Amount;
 import org.zgif.model.datatype.Area;
 import org.zgif.model.datatype.enumeration.ApartmentType;
@@ -17,85 +16,85 @@ import org.zgif.model.node.entity.AbstractUnit;
 import org.zgif.model.node.group.EnergyRating;
 
 public class Unit extends AbstractUnit {
-	@WikiDataField(pageName = "Wohnungskategorie")
+	@DataField(wikiPageName = "Wohnungskategorie")
 	private ApartmentType apartmentType;
-	@WikiDataField(pageName = "Achitektonische Gültigkeit Ab")
+	@DataField(wikiPageName = "Achitektonische Gültigkeit Ab")
 	private LocalDate archValidFrom;
-	@WikiDataField(pageName = "Achitektonische Gültigkeit bis")
+	@DataField(wikiPageName = "Achitektonische Gültigkeit bis")
 	private LocalDate archValidTo;
-	@WikiDataField(pageName = "Flächenmaß")
+	@DataField(wikiPageName = "Flächenmaß")
 	private AreaMessurement areaMessure;
-	@WikiDataField(pageName = "Flächenart")
+	@DataField(wikiPageName = "Flächenart")
 	private AreaType areaType;
-	@WikiDataField(pageName = "Hebebühne")
+	@DataField(wikiPageName = "Hebebühne")
 	private Boolean autoLift;
 
-	@WikiDataField(pageName = "Balkon/Terrasse")
+	@DataField(wikiPageName = "Balkon/Terrasse")
 	private Boolean balcony;
-	@WikiDataField(pageName = "Barrierefrei")
+	@DataField(wikiPageName = "Barrierefrei")
 	private Boolean barrierFree;
 
-	@WikiDataField(pageName = "WBS-Schein erforderlich")
+	@DataField(wikiPageName = "WBS-Schein erforderlich")
 	private Boolean certificateOfEligibility;
-	@WikiDataField(pageName = "Objektzustand")
+	@DataField(wikiPageName = "Objektzustand")
 	private ObjectCondition condition;
-	@WikiDataField(pageName = "Provisionsbetrag")
+	@DataField(wikiPageName = "Provisionsbetrag")
 	private Amount courtage;
 
-	@WikiDataField(pageName = "Gartenbenutzung")
+	@DataField(wikiPageName = "Gartenbenutzung")
 	private Boolean garden;
-	@WikiDataField(pageName = "Gäste WC")
+	@DataField(wikiPageName = "Gäste WC")
 	private Boolean guestToilet;
 
-	@WikiDataField(pageName = "Hallen-/ Geschosshöhe")
+	@DataField(wikiPageName = "Hallen-/ Geschosshöhe")
 	private Double hallHeight;
-	@WikiDataField(pageName = "Einbauküche")
+	@DataField(wikiPageName = "Einbauküche")
 	private Boolean hasBuiltinKitchen;
-	@WikiDataField(pageName = "Möblierung")
+	@DataField(wikiPageName = "Möblierung")
 	private Boolean hasFurniture;
 
-	@WikiDataField(pageName = "Ausstattungsqualität")
+	@DataField(wikiPageName = "Ausstattungsqualität")
 	private InteriorQuality interiorQuality;
-	@WikiDataField(pageName = "Einliegerwohnung")
+	@DataField(wikiPageName = "Einliegerwohnung")
 	private Boolean isLodgerFlat;
 
-	@WikiDataField(pageName = "DV-Verkabelung")
+	@DataField(wikiPageName = "DV-Verkabelung")
 	private Boolean lanCables;
-	@WikiDataField(pageName = "Modernisierungsdatum")
+	@DataField(wikiPageName = "Modernisierungsdatum")
 	private LocalDate lastRefurbishmentDate;
-	@WikiDataField(pageName = "Vermietbare_Fläche")
+	@DataField(wikiPageName = "Vermietbare_Fläche")
 	private Area lettableArea;
-	@WikiDataField(pageName = "Vermietbare_Anzahl")
+	@DataField(wikiPageName = "Vermietbare_Anzahl")
 	private Double lettableUnits;
 
-	@WikiDataField(pageName = "Maximale Anzahl Personen")
+	@DataField(wikiPageName = "Maximale Anzahl Personen")
 	private Integer maxNumberOfPerson;
-	@WikiDataField(pageName = "Teilbar ab")
+	@DataField(wikiPageName = "Teilbar ab")
 	private Integer minimumDivisible;
-	@WikiDataField(pageName = "Modernisierungszustand")
+	@DataField(wikiPageName = "Modernisierungszustand")
 	private RestorationStatus modernisationStatus;
 
-	@WikiDataField(pageName = "Nichtraucher")
+	@DataField(wikiPageName = "Nichtraucher")
 	private Boolean nonSmoker;
-	@WikiDataField(pageName = "Anzahl Badezimmer")
+	@DataField(wikiPageName = "Anzahl Badezimmer")
 	private Integer numberOfBathrooms;
-	@WikiDataField(pageName = "Anzahl Schlafzimmer")
+	@DataField(wikiPageName = "Anzahl Schlafzimmer")
 	private Integer numberOfBedrooms;
-	@WikiDataField(pageName = "Anzahl Parkflächen")
+	@DataField(wikiPageName = "Anzahl Parkflächen")
 	private Integer numberOfParkingSpaces;
-	@WikiDataField(pageName = "Anzahl Zimmer")
+	@DataField(wikiPageName = "Anzahl Zimmer")
 	private Integer numberOfRooms;
 
-	@WikiDataField(pageName = "Parkplatztyp")
+	@DataField(wikiPageName = "Parkplatztyp")
 	private ParkingSpaceType parkingSpaceType;
 
-	@WikiDataField(pageName = "Als Ferienwohnung geeignet")
+	@DataField(wikiPageName = "Als Ferienwohnung geeignet")
 	private Boolean summerResidencePractical;
 
-	@WikiDataField(pageName = "Exposeüberschrift")
+	@DataField(wikiPageName = "Exposeüberschrift")
 	private String titleOfExposee;
 
-	@WikiDataField(pageName = "Nutzungsart")
+	@DataField(wikiPageName = "Nutzungsart")
 	private UseType useType;
 
 	// //////////////////////////////////////

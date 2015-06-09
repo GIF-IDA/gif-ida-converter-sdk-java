@@ -1,9 +1,9 @@
 package org.zgif.model.subset_4_1.entity;
 
-import java.time.LocalDate;
 import java.util.List;
 
-import org.zgif.model.annotation.WikiDataField;
+import org.joda.time.LocalDate;
+import org.zgif.model.annotation.DataField;
 import org.zgif.model.datatype.Amount;
 import org.zgif.model.datatype.Area;
 import org.zgif.model.datatype.enumeration.AreaMessurement;
@@ -17,81 +17,81 @@ import org.zgif.model.node.entity.AbstractBuilding;
 import org.zgif.model.node.group.EnergyRating;
 
 public class Building extends AbstractBuilding {
-	@WikiDataField(pageName="Klimaanlage")
+	@DataField(wikiPageName="Klimaanlage")
 	private Boolean airconditioning;
-	@WikiDataField(pageName="Achitektonische Gültigkeit Ab")
+	@DataField(wikiPageName="Achitektonische Gültigkeit Ab")
 	private LocalDate archValidFrom;
-	@WikiDataField(pageName="Achitektonische Gültigkeit bis")
+	@DataField(wikiPageName="Achitektonische Gültigkeit bis")
 	private LocalDate archValidTo;
-	@WikiDataField(pageName="Flächenmaß")
+	@DataField(wikiPageName="Flächenmaß")
 	private AreaMessurement areaMessurement;
-	@WikiDataField(pageName="Flächenart")
+	@DataField(wikiPageName="Flächenart")
 	private AreaType areaType;
 
-	@WikiDataField(pageName="Balkon/Terrasse")
+	@DataField(wikiPageName="Balkon/Terrasse")
 	private Boolean balcony;
-	@WikiDataField(pageName="Barrierefrei")
+	@DataField(wikiPageName="Barrierefrei")
 	private Boolean barrierFree;
 
-	@WikiDataField(pageName="Objektzustand")
+	@DataField(wikiPageName="Objektzustand")
 	private ObjectCondition condition;
-	@WikiDataField(pageName="Datum der Fertigstellung/Errichtung")
+	@DataField(wikiPageName="Datum der Fertigstellung/Errichtung")
 	private LocalDate constructionDate;
-	@WikiDataField(pageName="Provisionsbetrag")
+	@DataField(wikiPageName="Provisionsbetrag")
 	private Amount courtage;
 
-	@WikiDataField(pageName="Aufzug")
+	@DataField(wikiPageName="Aufzug")
 	private Boolean elevator;
-	@WikiDataField(pageName="Befeuerungsart")
+	@DataField(wikiPageName="Befeuerungsart")
 	private EnergySource energySource;
 
-	@WikiDataField(pageName="Deckenlast")
+	@DataField(wikiPageName="Deckenlast")
 	private Double floorload;
 
-	@WikiDataField(pageName="Gäste WC")
+	@DataField(wikiPageName="Gäste WC")
 	private Boolean guestToilet;
 
-	@WikiDataField(pageName="Starkstrom")
+	@DataField(wikiPageName="Starkstrom")
 	private Boolean highVoltage;
 
-	@WikiDataField(pageName="Ausstattungsqualität")
+	@DataField(wikiPageName="Ausstattungsqualität")
 	private InteriorQuality interiorQuality;
 
-	@WikiDataField(pageName="DV-Verkabelung")
+	@DataField(wikiPageName="DV-Verkabelung")
 	private Boolean lanCables;
-	@WikiDataField(pageName="Modernisierungsdatum")
+	@DataField(wikiPageName="Modernisierungsdatum")
 	private LocalDate lastRefurbishmentDate;
 
-	@WikiDataField(pageName="Modernisierungszustand")
+	@DataField(wikiPageName="Modernisierungszustand")
 	private RestorationStatus modernisationStatus;
-	@WikiDataField(pageName="Denkmalschutz")
+	@DataField(wikiPageName="Denkmalschutz")
 	private MonumentsType monumentProtectionCategory;
 
-	@WikiDataField(pageName="Anzahl Badezimmer")
+	@DataField(wikiPageName="Anzahl Badezimmer")
 	private Integer numberOfBathrooms;
-	@WikiDataField(pageName="Anzahl Schlafzimmer")
+	@DataField(wikiPageName="Anzahl Schlafzimmer")
 	private Integer numberOfBedrooms;
-	@WikiDataField(pageName="Anzahl der Kantinen")
+	@DataField(wikiPageName="Anzahl der Kantinen")
 	private Integer numberOfCanteen;
-	@WikiDataField(pageName="Etagenzahl")
+	@DataField(wikiPageName="Etagenzahl")
 	private Integer numberOfFloors;
-	@WikiDataField(pageName="Anzahl Parkflächen")
+	@DataField(wikiPageName="Anzahl Parkflächen")
 	private Integer numberOfParkingSpaces;
-	@WikiDataField(pageName="Zimmer")
+	@DataField(wikiPageName="Zimmer")
 	private Integer numberOfRooms;
 
-	@WikiDataField(pageName="Eigentumsanteil")
+	@DataField(wikiPageName="Eigentumsanteil")
 	private Double ownershipShare;
 
-	@WikiDataField(pageName="Ankaufsdatum")
+	@DataField(wikiPageName="Ankaufsdatum")
 	private LocalDate purchaseDate;
 
-	@WikiDataField(pageName="Rampe")
+	@DataField(wikiPageName="Rampe")
 	private Boolean ramp;
-	@WikiDataField(pageName="Vermietet")
+	@DataField(wikiPageName="Vermietet")
 	private Boolean rented;
 
-	@WikiDataField(pageName="Nutzfläche")
+	@DataField(wikiPageName="Nutzfläche")
 	private Area usableArea;
 
 	//////////////////////////////////////////////

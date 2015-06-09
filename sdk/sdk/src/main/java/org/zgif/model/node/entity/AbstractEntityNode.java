@@ -1,7 +1,6 @@
 package org.zgif.model.node.entity;
 
-import java.time.LocalDate;
-
+import org.joda.time.LocalDate;
 import org.zgif.model.node.AbstractNode;
 
 public abstract class AbstractEntityNode extends AbstractNode {

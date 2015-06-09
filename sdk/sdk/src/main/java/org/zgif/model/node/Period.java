@@ -1,8 +1,8 @@
 package org.zgif.model.node;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
+import org.joda.time.LocalDate;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.zgif.model.datatype.enumeration.PeriodValueType;
 
 public final class Period<T extends AbstractDataRoot> extends AbstractNode {
@@ -10,7 +10,7 @@ public final class Period<T extends AbstractDataRoot> extends AbstractNode {
 	private LocalDate from;
 	private LocalDate to;
 
-	private java.time.Period periodType;
+	private org.joda.time.Period periodType;
 
 	private PeriodValueType valueType;
 	private String valueTypeLabel;
@@ -19,8 +19,8 @@ public final class Period<T extends AbstractDataRoot> extends AbstractNode {
 
 	public String getIdentifier() {
 		if (this.identifier == null) {
-			DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-			this.identifier = df.format(from) + '_' + df.format(to);
+			DateTimeFormatter df = DateTimeFormat.forPattern("yyyy-MM-dd");
+			this.identifier = df.print(from) + '_' + df.print(to);
 		}
 		return this.identifier;
 	}
@@ -64,11 +64,11 @@ public final class Period<T extends AbstractDataRoot> extends AbstractNode {
 		this.to = to;
 	}
 
-	public java.time.Period getPeriodType() {
+	public org.joda.time.Period getPeriodType() {
 		return periodType;
 	}
 
-	public void setPeriodType(java.time.Period periodType) {
+	public void setPeriodType(org.joda.time.Period periodType) {
 		this.periodType = periodType;
 	}
 

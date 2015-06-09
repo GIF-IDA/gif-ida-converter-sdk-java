@@ -3,14 +3,14 @@ package org.zgif.model.subset_5_1.entity;
 import java.util.Currency;
 import java.util.List;
 
-import org.zgif.model.annotation.WikiDataField;
+import org.zgif.model.annotation.DataField;
 import org.zgif.model.node.entity.AbstractCompany;
 
 public class Company extends AbstractCompany {
-	@WikiDataField(pageName="Währung")
+	@DataField(wikiPageName="Währung")
 	private Currency currency;
 
-	@WikiDataField(pageName="Notiz")
+	@DataField(wikiPageName="Notiz")
 	private String note;
 	
 	private List<Property> listOfProp;

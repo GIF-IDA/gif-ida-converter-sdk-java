@@ -1,9 +1,9 @@
 package org.zgif.model.node.entity;
 
-import org.zgif.model.annotation.WikiEntity;
+import org.zgif.model.annotation.Entity;
 import org.zgif.model.node.group.Address;
 
-@WikiEntity(name = "Wirtschaftseinheit")
+@Entity(wikiName = "Wirtschaftseinheit")
 public abstract class AbstractProperty extends AbstractEntityNode {
 
 	private Address address;

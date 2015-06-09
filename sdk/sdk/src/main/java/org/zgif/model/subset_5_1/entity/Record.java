@@ -1,36 +1,35 @@
 package org.zgif.model.subset_5_1.entity;
 
-import java.time.LocalDate;
-import java.time.Period;
-
-import org.zgif.model.annotation.WikiDataField;
+import org.joda.time.LocalDate;
+import org.joda.time.Period;
+import org.zgif.model.annotation.DataField;
 import org.zgif.model.datatype.Amount;
 import org.zgif.model.datatype.enumeration.BillStatus;
 import org.zgif.model.datatype.enumeration.RecordCategory;
 import org.zgif.model.node.entity.AbstractRecord;
 
 public class Record extends AbstractRecord {
-	@WikiDataField(pageName = "Belegdatum")
+	@DataField(wikiPageName = "Belegdatum")
 	private LocalDate date;
-	@WikiDataField(pageName = "Belegtext")
+	@DataField(wikiPageName = "Belegtext")
 	private String text;
 
-	@WikiDataField(pageName = "")
+	@DataField(wikiPageName = "")
 	private String groupId;
 
-	@WikiDataField(pageName = "Belegtyp")
+	@DataField(wikiPageName = "Belegtyp")
 	private RecordCategory category;
-	@WikiDataField(pageName = "Rechnungsstatus")
+	@DataField(wikiPageName = "Rechnungsstatus")
 	private BillStatus status;
-	@WikiDataField(pageName = "Nettobetrag")
+	@DataField(wikiPageName = "Nettobetrag")
 	private Amount netValue;
-	@WikiDataField(pageName = "Bruttobetrag")
+	@DataField(wikiPageName = "Bruttobetrag")
 	private Amount grossValue;
-	@WikiDataField(pageName = "Mehrwertsteuerbetrag")
+	@DataField(wikiPageName = "Mehrwertsteuerbetrag")
 	private Amount vatValue;
-	@WikiDataField(pageName = "Mehrwertsteuersatz")
+	@DataField(wikiPageName = "Mehrwertsteuersatz")
 	private Double vat;
-	@WikiDataField(pageName = "Zahlungsperiode")
+	@DataField(wikiPageName = "Zahlungsperiode")
 	private Period paymentPeriod;
 
 	public LocalDate getDate() {

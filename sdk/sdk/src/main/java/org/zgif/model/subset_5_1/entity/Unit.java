@@ -1,9 +1,9 @@
 package org.zgif.model.subset_5_1.entity;
 
-import java.time.LocalDate;
 import java.util.List;
 
-import org.zgif.model.annotation.WikiDataField;
+import org.joda.time.LocalDate;
+import org.zgif.model.annotation.DataField;
 import org.zgif.model.datatype.Amount;
 import org.zgif.model.datatype.Area;
 import org.zgif.model.datatype.enumeration.AreaMessurement;
@@ -16,47 +16,47 @@ import org.zgif.model.node.entity.AbstractEntityNode;
 import org.zgif.model.node.group.EnergyRating;
 
 public class Unit extends AbstractEntityNode {
-	@WikiDataField(pageName = "Achitektonische Gültigkeit Ab")
+	@DataField(wikiPageName = "Achitektonische Gültigkeit Ab")
 	private LocalDate archValidFrom;
-	@WikiDataField(pageName = "Achitektonische Gültigkeit bis")
+	@DataField(wikiPageName = "Achitektonische Gültigkeit bis")
 	private LocalDate archValidTo;
-	@WikiDataField(pageName = "Flächenmaß")
+	@DataField(wikiPageName = "Flächenmaß")
 	private AreaMessurement areaMessure;
-	@WikiDataField(pageName = "Flächenart")
+	@DataField(wikiPageName = "Flächenart")
 	private AreaType areaType;
 
-	@WikiDataField(pageName = "Objektzustand")
+	@DataField(wikiPageName = "Objektzustand")
 	private ObjectCondition condition;
 
-	@WikiDataField(pageName = "Mietpreisbindungsende")
+	@DataField(wikiPageName = "Mietpreisbindungsende")
 	private LocalDate endPriceMaintenance;
 
-	@WikiDataField(pageName = "Modernisierungsdatum")
+	@DataField(wikiPageName = "Modernisierungsdatum")
 	private LocalDate lastRefurbishmentDate;
-	@WikiDataField(pageName = "Vermietbare_Fläche")
+	@DataField(wikiPageName = "Vermietbare_Fläche")
 	private Area lettableArea;
-	@WikiDataField(pageName = "Vermietbare_Anzahl")
+	@DataField(wikiPageName = "Vermietbare_Anzahl")
 	private Double lettableUnits;
-	@WikiDataField(pageName = "Ermittelte_ortsübliche_Vergleichsmiete_der_Mieteinheit")
+	@DataField(wikiPageName = "Ermittelte_ortsübliche_Vergleichsmiete_der_Mieteinheit")
 	private Amount localReferenceRent;
 
-	@WikiDataField(pageName = "Modernisierungszustand")
+	@DataField(wikiPageName = "Modernisierungszustand")
 	private RestorationStatus modernisationStatus;
 
-	@WikiDataField(pageName = "Anzahl Parkflächen")
+	@DataField(wikiPageName = "Anzahl Parkflächen")
 	private Integer numberOfParkingSpaces;
-	@WikiDataField(pageName = "Anzahl Zimmer")
+	@DataField(wikiPageName = "Anzahl Zimmer")
 	private Integer numberOfRooms;
 
-	@WikiDataField(pageName = "Property Manager")
+	@DataField(wikiPageName = "Property Manager")
 	private String propertyManager;
 
-	@WikiDataField(pageName = "Nutzungsart")
+	@DataField(wikiPageName = "Nutzungsart")
 	private UseType useType;
-	@WikiDataField(pageName = "Nutzungsart (Kundenausprägung)")
+	@DataField(wikiPageName = "Nutzungsart (Kundenausprägung)")
 	private String useTypeCustomer;
 
-	@WikiDataField(pageName = "Leerstand")
+	@DataField(wikiPageName = "Leerstand")
 	private VacancyReason vacancyReason;
 
 	// //////////////////////////////////////

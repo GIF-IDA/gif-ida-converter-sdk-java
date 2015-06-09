@@ -1,10 +1,10 @@
 package org.zgif.model.subset_5_1.entity;
 
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.Currency;
 
-import org.zgif.model.annotation.WikiDataField;
+import org.joda.time.LocalDate;
+import org.joda.time.Period;
+import org.zgif.model.annotation.DataField;
 import org.zgif.model.datatype.Amount;
 import org.zgif.model.datatype.Area;
 import org.zgif.model.datatype.Country;
@@ -21,109 +21,109 @@ import org.zgif.model.datatype.enumeration.UseType;
 import org.zgif.model.node.entity.AbstractTerm;
 
 public class Term extends AbstractTerm {
-	@WikiDataField(pageName="Basisindexwert")
+	@DataField(wikiPageName="Basisindexwert")
 	private Double baseIndex;
-	@WikiDataField(pageName="Beginn Mietkonzession")
+	@DataField(wikiPageName="Beginn Mietkonzession")
 	private LocalDate beginningRentConcession;
-	@WikiDataField(pageName="Sonderkündigungsrecht")
+	@DataField(wikiPageName="Sonderkündigungsrecht")
 	private LocalDate breakOption;
 
-	@WikiDataField(pageName="Konditionsbetrag")
+	@DataField(wikiPageName="Konditionsbetrag")
 	private Amount conditionAmount;
-	@WikiDataField(pageName="Konditionstyp")
+	@DataField(wikiPageName="Konditionstyp")
 	private String conditionType;
-	@WikiDataField(pageName="Vertragsabschlussdatum")
+	@DataField(wikiPageName="Vertragsabschlussdatum")
 	private LocalDate contractCompletionDate;
-	@WikiDataField(pageName="Vertragsoptionen")
+	@DataField(wikiPageName="Vertragsoptionen")
 	private ContractOption contractOption;
-	@WikiDataField(pageName="Währung")
+	@DataField(wikiPageName="Währung")
 	private Currency currency;
 
-	@WikiDataField(pageName="Absolutbetrag Staffelmieterhöhung")
+	@DataField(wikiPageName="Absolutbetrag Staffelmieterhöhung")
 	private Amount deltaGraduatedRent;
-	@WikiDataField(pageName="Kaution")
+	@DataField(wikiPageName="Kaution")
 	private Boolean depositAgreed;
-	@WikiDataField(pageName="Kautionsbetrag")
+	@DataField(wikiPageName="Kautionsbetrag")
 	private Amount depositAmount;
-	@WikiDataField(pageName="Anpassungsart_Kaution")
+	@DataField(wikiPageName="Anpassungsart_Kaution")
 	private DepositIncreaseType depositIncreaseType;
-	@WikiDataField(pageName="Kautionsstatus")
+	@DataField(wikiPageName="Kautionsstatus")
 	private Boolean depositPayed;
-	@WikiDataField(pageName="Kautionsart")
+	@DataField(wikiPageName="Kautionsart")
 	private DepositType depositType;
-	@WikiDataField(pageName="Vertragsende_nach_Option")
+	@DataField(wikiPageName="Vertragsende_nach_Option")
 	private LocalDate dmiendOption;
 
-	@WikiDataField(pageName="Enddatum Mietkonzession")
+	@DataField(wikiPageName="Enddatum Mietkonzession")
 	private LocalDate endRentConcession;
 
-	@WikiDataField(pageName="Beginn_der_Staffelmietanpassung")
+	@DataField(wikiPageName="Beginn_der_Staffelmietanpassung")
 	private LocalDate graduateRentBegin;
 
-	@WikiDataField(pageName="Erlösschmälerung")
+	@DataField(wikiPageName="Erlösschmälerung")
 	private Amount incomeLoss;
-	@WikiDataField(pageName="Beginn_der_Indexmietanpassung")
+	@DataField(wikiPageName="Beginn_der_Indexmietanpassung")
 	private LocalDate indexAdjustmentBegin;
-	@WikiDataField(pageName="Indexmiet-Senkungs-Sperrklausel")
+	@DataField(wikiPageName="Indexmiet-Senkungs-Sperrklausel")
 	private IndexAdjustmentDirection indexAdjustmentDirection;
-	@WikiDataField(pageName="Methode_der_Mindeständerung_(Punkte_oder_Prozent)")
+	@DataField(wikiPageName="Methode_der_Mindeständerung_(Punkte_oder_Prozent)")
 	private NumberType indexAdjustmentValueType;
-	@WikiDataField(pageName="Basisjahr_der_gewählten_Indexreihe")
+	@DataField(wikiPageName="Basisjahr_der_gewählten_Indexreihe")
 	private LocalDate indexBaseYear;
-	@WikiDataField(pageName="Land_der_Indexreihe")
+	@DataField(wikiPageName="Land_der_Indexreihe")
 	private Country indexCountry;
-	@WikiDataField(pageName="Mindeständerung_in_Prozent")
+	@DataField(wikiPageName="Mindeständerung_in_Prozent")
 	private Double indexMinimumAdjustmentInPercent;
-	@WikiDataField(pageName="Mindeständerung_in_Punkten")
+	@DataField(wikiPageName="Mindeständerung_in_Punkten")
 	private Double indexMinimumAdjustmentInPoints;
-	@WikiDataField(pageName="Indexanpassungsmethode")
+	@DataField(wikiPageName="Indexanpassungsmethode")
 	private IndexationMethod indexModificationMethod;
-	@WikiDataField(pageName="Weitergabeprozentsatz")
+	@DataField(wikiPageName="Weitergabeprozentsatz")
 	private Double indexPassthrough;
-	@WikiDataField(pageName="Indexreihe")
+	@DataField(wikiPageName="Indexreihe")
 	private IndexRow indexRow;
 
-	@WikiDataField(pageName="Datum_der_letzten_Mietanpassung")
+	@DataField(wikiPageName="Datum_der_letzten_Mietanpassung")
 	private LocalDate lastRentAdjustmentDate;
-	@WikiDataField(pageName="Vertragsfläche")
+	@DataField(wikiPageName="Vertragsfläche")
 	private Area leasedArea;
 
-	@WikiDataField(pageName="Optierungssatz")
+	@DataField(wikiPageName="Optierungssatz")
 	private OptRate optRate;
 
-	@WikiDataField(pageName="Betrag Mieteinzahlung")
+	@DataField(wikiPageName="Betrag Mieteinzahlung")
 	private Amount payment;
 
-	@WikiDataField(pageName="Anpassungsverzögerung bei Mietanpassungen")
+	@DataField(wikiPageName="Anpassungsverzögerung bei Mietanpassungen")
 	private Period rentAdjustmentDelay;
-	@WikiDataField(pageName="Datum der nächsten Mietanpassung")
+	@DataField(wikiPageName="Datum der nächsten Mietanpassung")
 	private LocalDate rentAdjustmentDate;
-	@WikiDataField(pageName="Mietanpassungsfrequenz")
-	private java.time.Period rentAdjustmentFrequence;
-	@WikiDataField(pageName="Mietkonzession")
+	@DataField(wikiPageName="Mietanpassungsfrequenz")
+	private org.joda.time.Period rentAdjustmentFrequence;
+	@DataField(wikiPageName="Mietkonzession")
 	private Amount rentConcession;
-	@WikiDataField(pageName="Mieterhöhungsansatz (%)")
+	@DataField(wikiPageName="Mieterhöhungsansatz (%)")
 	private Double rentIncreasePercentage;
-	@WikiDataField(pageName="Anpassungsart")
+	@DataField(wikiPageName="Anpassungsart")
 	private RentIncreaseType rentIncreaseType;
 
-	@WikiDataField(pageName="Kündigungsfrist")
+	@DataField(wikiPageName="Kündigungsfrist")
 	private Period terminationDuration;
-	@WikiDataField(pageName="Datum des Kündigungseingangs")
+	@DataField(wikiPageName="Datum des Kündigungseingangs")
 	private LocalDate terminationReceiptDate;
 	// TODO: TurnoverAjdType - Werttyp (absolut/Prozent)
-	@WikiDataField(pageName="Umsatztestat erforderlich")
+	@DataField(wikiPageName="Umsatztestat erforderlich")
 	private Boolean turnoverCertificate;
-	@WikiDataField(pageName="Umsatzminimum")
+	@DataField(wikiPageName="Umsatzminimum")
 	private Amount turnoverMinimum;
-	@WikiDataField(pageName="Umsatzmietkappung")
+	@DataField(wikiPageName="Umsatzmietkappung")
 	private Amount turnoverRentCap;
-	@WikiDataField(pageName="Umsatzoffenlegungsintervall")
+	@DataField(wikiPageName="Umsatzoffenlegungsintervall")
 	private Period turnoverReportingInterval;
-	@WikiDataField(pageName="Umsatzmietrelevantes Warensortiment")
+	@DataField(wikiPageName="Umsatzmietrelevantes Warensortiment")
 	private String turnoverSortiment;
 
-	@WikiDataField(pageName="Nutzungsart_gemäß_Vertrag")
+	@DataField(wikiPageName="Nutzungsart_gemäß_Vertrag")
 	private UseType useType;
 
 	public Double getBaseIndex() {
@@ -401,11 +401,11 @@ public class Term extends AbstractTerm {
 		this.rentAdjustmentDate = rentAdjustmentDate;
 	}
 
-	public java.time.Period getRentAdjustmentFrequence() {
+	public org.joda.time.Period getRentAdjustmentFrequence() {
 		return rentAdjustmentFrequence;
 	}
 
-	public void setRentAdjustmentFrequence(java.time.Period rentAdjustmentFrequence) {
+	public void setRentAdjustmentFrequence(org.joda.time.Period rentAdjustmentFrequence) {
 		this.rentAdjustmentFrequence = rentAdjustmentFrequence;
 	}
 

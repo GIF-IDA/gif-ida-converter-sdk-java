@@ -3,7 +3,7 @@ package org.zgif.model.subset_5_1.entity;
 import java.util.Currency;
 import java.util.List;
 
-import org.zgif.model.annotation.WikiDataField;
+import org.zgif.model.annotation.DataField;
 import org.zgif.model.datatype.Amount;
 import org.zgif.model.datatype.enumeration.TransactionType;
 import org.zgif.model.node.entity.AbstractBookEntry;
@@ -12,21 +12,21 @@ public class BookEntry extends AbstractBookEntry {
 	// TODO:  AccountingStandard accountingStandard - ggf. AccountingType
 //	private AccountingStandard accountingStandard
 
-	@WikiDataField(pageName="Währung")
+	@DataField(wikiPageName="Währung")
 	private Currency currency;
 	
-	@WikiDataField(pageName="Bruttobetrag")
+	@DataField(wikiPageName="Bruttobetrag")
 	private Amount grossValue;
 
-	@WikiDataField(pageName="Nettobetrag")
+	@DataField(wikiPageName="Nettobetrag")
 	private Amount netValue;
 
-	@WikiDataField(pageName="Transaktionstyp")
+	@DataField(wikiPageName="Transaktionstyp")
 	private TransactionType transactionType;
 
-	@WikiDataField(pageName="Mehrwertsteuersatz")
+	@DataField(wikiPageName="Mehrwertsteuersatz")
 	private Double vat;
-	@WikiDataField(pageName="Mehrwertsteuerbetrag")
+	@DataField(wikiPageName="Mehrwertsteuerbetrag")
 	private Amount vatValue;
 	
 	private List<Record> listOfRec;

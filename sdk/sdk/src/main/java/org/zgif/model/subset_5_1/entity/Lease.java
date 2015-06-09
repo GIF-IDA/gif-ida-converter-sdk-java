@@ -1,11 +1,11 @@
 package org.zgif.model.subset_5_1.entity;
 
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.Currency;
 import java.util.List;
 
-import org.zgif.model.annotation.WikiDataField;
+import org.joda.time.LocalDate;
+import org.joda.time.Period;
+import org.zgif.model.annotation.DataField;
 import org.zgif.model.datatype.Amount;
 import org.zgif.model.datatype.enumeration.DepositIncreaseType;
 import org.zgif.model.datatype.enumeration.DepositType;
@@ -16,96 +16,96 @@ import org.zgif.model.datatype.enumeration.Sector;
 import org.zgif.model.node.entity.AbstractLease;
 
 public class Lease extends AbstractLease {
-	@WikiDataField(pageName = "Akzeptierter Kündigungstermin")
+	@DataField(wikiPageName = "Akzeptierter Kündigungstermin")
 	private LocalDate acceptedTerminationtDate;
 
-	@WikiDataField(pageName = "Ausgebuchte_Forderungen")
+	@DataField(wikiPageName = "Ausgebuchte_Forderungen")
 	private Amount badDebt;
-	@WikiDataField(pageName = "Beginn_der_Mieteinzahlung")
+	@DataField(wikiPageName = "Beginn_der_Mieteinzahlung")
 	private LocalDate beginRentPayment;
-	@WikiDataField(pageName = "Sonderkündigungsrecht")
+	@DataField(wikiPageName = "Sonderkündigungsrecht")
 	private LocalDate breakOption;
 
-	@WikiDataField(pageName = "Sammelvertrag")
+	@DataField(wikiPageName = "Sammelvertrag")
 	private String collectiveObjectIdSender;
-	@WikiDataField(pageName = "Vertragsabschlussdatum")
+	@DataField(wikiPageName = "Vertragsabschlussdatum")
 	private LocalDate contractCompletionDate;
-	@WikiDataField(pageName = "Vertragsverlängerung um")
+	@DataField(wikiPageName = "Vertragsverlängerung um")
 	private Period contractExtensionDuration;
-	@WikiDataField(pageName = "Währung")
+	@DataField(wikiPageName = "Währung")
 	private Currency currency;
 
-	@WikiDataField(pageName = "Debitor")
+	@DataField(wikiPageName = "Debitor")
 	private String debitor;
-	@WikiDataField(pageName = "Debitorennummer")
+	@DataField(wikiPageName = "Debitorennummer")
 	private String debitorId;
-	@WikiDataField(pageName = "Kaution")
+	@DataField(wikiPageName = "Kaution")
 	private Boolean depositAgreed;
-	@WikiDataField(pageName = "Kautionsbetrag")
+	@DataField(wikiPageName = "Kautionsbetrag")
 	private Amount depositAmount;
-	@WikiDataField(pageName = "Anpassungsart_Kaution")
+	@DataField(wikiPageName = "Anpassungsart_Kaution")
 	private DepositIncreaseType depositIncreaseType;
-	@WikiDataField(pageName = "Kautionsstatus")
+	@DataField(wikiPageName = "Kautionsstatus")
 	private Boolean depositPayed;
-	@WikiDataField(pageName = "Kautionsart")
+	@DataField(wikiPageName = "Kautionsart")
 	private DepositType depositType;
-	@WikiDataField(pageName = "Vertragsende nach Option")
+	@DataField(wikiPageName = "Vertragsende nach Option")
 	private LocalDate dmiendOption;
-	@WikiDataField(pageName = "Mahnkennzeichen")
+	@DataField(wikiPageName = "Mahnkennzeichen")
 	private Boolean dunningIndicator;
-	@WikiDataField(pageName = "Mahnstufe")
+	@DataField(wikiPageName = "Mahnstufe")
 	private DunningLevel dunningLevel;
 
-	@WikiDataField(pageName = "Mietvertragsbeginn")
+	@DataField(wikiPageName = "Mietvertragsbeginn")
 	private LocalDate leaseBeginDate;
-	@WikiDataField(pageName = "Double-/Triple-Net_Mietvertrag")
+	@DataField(wikiPageName = "Double-/Triple-Net_Mietvertrag")
 	private LeaseContractType leaseContractType;
-	@WikiDataField(pageName = "Mietvertragsende")
+	@DataField(wikiPageName = "Mietvertragsende")
 	private LocalDate leaseEndDate;
 
-	@WikiDataField(pageName = "Mindestmietdauer")
+	@DataField(wikiPageName = "Mindestmietdauer")
 	private Period minRentalTime;
 
-	@WikiDataField(pageName = "Nationalität")
+	@DataField(wikiPageName = "Nationalität")
 	private String nation;
 
-	@WikiDataField(pageName = "Saldo_Mieterkonto")
+	@DataField(wikiPageName = "Saldo_Mieterkonto")
 	private Amount openItems;
-	@WikiDataField(pageName = "Betriebskostenvorauszahlung")
+	@DataField(wikiPageName = "Betriebskostenvorauszahlung")
 	private Amount operatingCostPrepayment;
-	@WikiDataField(pageName = "Abgerechnete_Betriebskosten")
+	@DataField(wikiPageName = "Abgerechnete_Betriebskosten")
 	private Amount operatingCostsSettled;
-	@WikiDataField(pageName = "Optierung")
+	@DataField(wikiPageName = "Optierung")
 	private Boolean option;
 
-	@WikiDataField(pageName = "Betrag_Mieteinzahlung")
+	@DataField(wikiPageName = "Betrag_Mieteinzahlung")
 	private Amount payment;
-	@WikiDataField(pageName = "Zahlungsrhythmus")
+	@DataField(wikiPageName = "Zahlungsrhythmus")
 	private Period paymentPattern;
-	@WikiDataField(pageName = "Notification_(Umsatzmiete)")
+	@DataField(wikiPageName = "Notification_(Umsatzmiete)")
 	private Period periodsTurnoverRents;
-	@WikiDataField(pageName = "Property_Manager")
+	@DataField(wikiPageName = "Property_Manager")
 	private String propertyManager;
 
-	@WikiDataField(pageName = "Branche")
+	@DataField(wikiPageName = "Branche")
 	private Sector sector;
 
-	@WikiDataField(pageName = "Kündigungsfrist")
+	@DataField(wikiPageName = "Kündigungsfrist")
 	private Period terminationDuration;
-	@WikiDataField(pageName = "Datum des Kündigungseingangs")
+	@DataField(wikiPageName = "Datum des Kündigungseingangs")
 	private LocalDate terminationReceiptDate;
 
-	@WikiDataField(pageName = "Turnover_Type_(Umsatzmiete)")
+	@DataField(wikiPageName = "Turnover_Type_(Umsatzmiete)")
 	private NumberType turnoverAdjType;
-	@WikiDataField(pageName = "Umsatztestat erforderlich")
+	@DataField(wikiPageName = "Umsatztestat erforderlich")
 	private Boolean turnoverCertificate;
-	@WikiDataField(pageName = "Umsatzminimum")
+	@DataField(wikiPageName = "Umsatzminimum")
 	private Amount turnoverMinimum;
-	@WikiDataField(pageName = "Umsatzmietkappung")
+	@DataField(wikiPageName = "Umsatzmietkappung")
 	private Amount turnoverRentCap;
-	@WikiDataField(pageName = "Umsatzoffenlegungsintervall")
+	@DataField(wikiPageName = "Umsatzoffenlegungsintervall")
 	private Period turnoverReportingInterval;
-	@WikiDataField(pageName = "Umsatzmietrelevantes Warensortiment")
+	@DataField(wikiPageName = "Umsatzmietrelevantes Warensortiment")
 	private String turnoverSortiment;
 
 	private List<Unit> listOfUnit;

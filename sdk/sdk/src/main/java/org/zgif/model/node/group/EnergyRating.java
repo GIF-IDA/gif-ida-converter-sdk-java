@@ -1,30 +1,29 @@
 package org.zgif.model.node.group;
 
-import java.time.LocalDate;
-
-import org.zgif.model.annotation.WikiDataField;
+import org.joda.time.LocalDate;
+import org.zgif.model.annotation.DataField;
 import org.zgif.model.datatype.enumeration.EnergyEfficiencyCategory;
 import org.zgif.model.datatype.enumeration.EnergyRatingCategory;
 import org.zgif.model.datatype.enumeration.EnergyRatingType;
 import org.zgif.model.datatype.enumeration.IssuanceReason;
 
 public class EnergyRating extends AbstractGroupNode {
-	@WikiDataField(pageName="Energieausweis-Erstellungsdatum")
+	@DataField(wikiPageName="Energieausweis-Erstellungsdatum")
 	private LocalDate date;
-	@WikiDataField(pageName="Grund der Ausstellung")
+	@DataField(wikiPageName="Grund der Ausstellung")
 	private IssuanceReason reason;
-	@WikiDataField(pageName="Art des Energie Ratings")
+	@DataField(wikiPageName="Art des Energie Ratings")
 	private EnergyRatingType ratingType;
-	@WikiDataField(pageName="Energie_Rating_Kategorie")
+	@DataField(wikiPageName="Energie_Rating_Kategorie")
 	private EnergyRatingCategory ratingCategory;
-	@WikiDataField(pageName="Energieeffizenzklasse")
+	@DataField(wikiPageName="Energieeffizenzklasse")
 	private EnergyEfficiencyCategory efficiencyCategory;
 	
-	@WikiDataField(pageName="Energiekennwert")
+	@DataField(wikiPageName="Energiekennwert")
 	private Double energyConsumption;
-	@WikiDataField(pageName="CO2-Emission")
+	@DataField(wikiPageName="CO2-Emission")
 	private Double co2Emission;
-	@WikiDataField(pageName="Primärenergiebedarf_%22Gesamtenergieeffizienz")
+	@DataField(wikiPageName="Primärenergiebedarf_%22Gesamtenergieeffizienz")
 	private Double primaryEnergyDemand;
 	
 	

@@ -1,7 +1,8 @@
 package org.zgif.model.node;
 
-import java.time.LocalDateTime;
 import java.util.Locale;
+
+import org.joda.time.LocalDateTime;
 
 public final class Meta extends AbstractNode {
 	private String format;

@@ -2,7 +2,7 @@ package org.zgif.model.subset_5_1.entity;
 
 import java.util.List;
 
-import org.zgif.model.annotation.WikiDataField;
+import org.zgif.model.annotation.DataField;
 import org.zgif.model.datatype.Amount;
 import org.zgif.model.node.entity.AbstractAccount;
 
@@ -10,10 +10,10 @@ public class Account extends AbstractAccount {
 	// TODO:  AccountingStandard accountingStandard - ggf. AccountingType
 //	private AccountingStandard accountingStandard
 
-	@WikiDataField(pageName = "Bilanzposition")
+	@DataField(wikiPageName = "Bilanzposition")
 	private String balancePosition;
 	
-	@WikiDataField(pageName = "Kontobetrag")
+	@DataField(wikiPageName = "Kontobetrag")
 	private Amount value;
 	
 	private List<BookEntry> listOfBook;

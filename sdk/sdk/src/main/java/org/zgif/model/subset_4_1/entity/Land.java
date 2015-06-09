@@ -1,9 +1,9 @@
 package org.zgif.model.subset_4_1.entity;
 
-import java.time.LocalDate;
 import java.util.List;
 
-import org.zgif.model.annotation.WikiDataField;
+import org.joda.time.LocalDate;
+import org.zgif.model.annotation.DataField;
 import org.zgif.model.datatype.Amount;
 import org.zgif.model.datatype.enumeration.AreaMessurement;
 import org.zgif.model.datatype.enumeration.AreaType;
@@ -12,43 +12,43 @@ import org.zgif.model.datatype.enumeration.SiteConstrucibleType;
 import org.zgif.model.node.entity.AbstractEntityNode;
 
 public class Land extends AbstractEntityNode {
-	@WikiDataField(pageName = "Flächenmaß")
+	@DataField(wikiPageName = "Flächenmaß")
 	private AreaMessurement areaMessurement;
-	@WikiDataField(pageName = "Flächenart")
+	@DataField(wikiPageName = "Flächenart")
 	private AreaType areaType;
 
-	@WikiDataField(pageName = "Baugenehmigung")
+	@DataField(wikiPageName = "Baugenehmigung")
 	private Boolean buildingPermission;
 
-	@WikiDataField(pageName = "Provisionsbetrag")
+	@DataField(wikiPageName = "Provisionsbetrag")
 	private Amount courtage;
 
-	@WikiDataField(pageName = "Abriss")
+	@DataField(wikiPageName = "Abriss")
 	private Boolean demolition;
 
-	@WikiDataField(pageName = "GFZ")
+	@DataField(wikiPageName = "GFZ")
 	private Double gfz;
-	@WikiDataField(pageName = "GRZ")
+	@DataField(wikiPageName = "GRZ")
 	private Double grz;
 
-	@WikiDataField(pageName = "Denkmalschutz")
+	@DataField(wikiPageName = "Denkmalschutz")
 	private MonumentsType monumentProtectionCategory;
 
-	@WikiDataField(pageName = "Anzahl Parkflächen")
+	@DataField(wikiPageName = "Anzahl Parkflächen")
 	private Integer numberOfParkingSpaces;
 
-	@WikiDataField(pageName = "Grundstücksgröße")
+	@DataField(wikiPageName = "Grundstücksgröße")
 	private Amount plotArea;
-	@WikiDataField(pageName = "Ankaufsdatum")
+	@DataField(wikiPageName = "Ankaufsdatum")
 	private LocalDate purchaseDate;
-	@WikiDataField(pageName = "Bruttokaufspreis")
+	@DataField(wikiPageName = "Bruttokaufspreis")
 	private Amount purchaseGrossPrice;
 
-	@WikiDataField(pageName = "kurzfristig bebaubar")
+	@DataField(wikiPageName = "kurzfristig bebaubar")
 	private Boolean shortTermConstructible;
-	@WikiDataField(pageName = "Bebaubar nach")
+	@DataField(wikiPageName = "Bebaubar nach")
 	private SiteConstrucibleType siteConstrucibleType;
-	@WikiDataField(pageName = "Erschliessungszustand")
+	@DataField(wikiPageName = "Erschliessungszustand")
 	private String siteDevelopmentType;
 
 	private List<Unit> listOfUnit;

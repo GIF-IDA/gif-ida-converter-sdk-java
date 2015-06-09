@@ -1,35 +1,35 @@
 package org.zgif.model.node.group;
 
-import org.zgif.model.annotation.WikiDataField;
+import org.zgif.model.annotation.DataField;
 import org.zgif.model.datatype.Country;
 
 public class Address extends AbstractGroupNode {
-	@WikiDataField(pageName="Bezeichnung")
+	@DataField(wikiPageName="Bezeichnung")
 	private String label;
-	@WikiDataField(pageName="Lage in Etage")
+	@DataField(wikiPageName="Lage in Etage")
 	private String floorLocation;
-	@WikiDataField(pageName="Etage")
+	@DataField(wikiPageName="Etage")
 	private String floor;
-	@WikiDataField(pageName="Hausnummer")
+	@DataField(wikiPageName="Hausnummer")
 	private String housenumber;
-	@WikiDataField(pageName="Straße")
+	@DataField(wikiPageName="Straße")
 	private String street;
-	@WikiDataField(pageName="Stadtteil")
+	@DataField(wikiPageName="Stadtteil")
 	private String district;
-	@WikiDataField(pageName="Postleitzahl")
+	@DataField(wikiPageName="Postleitzahl")
 	private String zip;
-	@WikiDataField(pageName="Stadt")
+	@DataField(wikiPageName="Stadt")
 	private String city;
-	@WikiDataField(pageName="Region")
+	@DataField(wikiPageName="Region")
 	private String region;
-	@WikiDataField(pageName="Land")
+	@DataField(wikiPageName="Land")
 	private Country country;
 
-	@WikiDataField(pageName="Geografische Breite")
+	@DataField(wikiPageName="Geografische Breite")
 	private Double latitude;
-	@WikiDataField(pageName="Geografische Länge")
+	@DataField(wikiPageName="Geografische Länge")
 	private Double longitude;
 
-	@WikiDataField(pageName="Adresse veröffentlichen")
+	@DataField(wikiPageName="Adresse veröffentlichen")
 	private Boolean isPublic;
 }
