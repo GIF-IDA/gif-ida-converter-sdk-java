@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="types_file.xsd"/>
+  
+  <xs:element name="data">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="fTYPE_DATA">
+          <xs:assert test="count(/data/LIST_OF_ACC) = 1" />
+          
+          <xs:assert test="count(//ACC)  >= 0" />
+          <xs:assert test="count(//BOOK) >= 0" />
+          <xs:assert test="count(//REC)  >= 0" />
+          
+          <xs:assert test="count(//ACC[@objectIdSender]) = count(//ACC)" />
+          <xs:assert test="count(//ACC[value]) = count(//ACC)" />
+          <xs:assert test="count(//ACC[balancePosition]) = count(//ACC)" />
+          <xs:assert test="count(//ACC[accountingStandard]) = count(//ACC)" />
+          
+          <xs:assert test="count(//BOOK[@objectIdSender]) = count(//BOOK)" />
+          <xs:assert test="count(//BOOK[balancePosition]) = count(//BOOK)" />
+          <xs:assert test="count(//BOOK[text]) = count(//BOOK)" />
+          <xs:assert test="count(//BOOK[transactionType]) = count(//BOOK)" />
+          <xs:assert test="count(//BOOK[currency]) = count(//BOOK)" />
+          <xs:assert test="count(//BOOK[netValue]) = count(//BOOK)" />
+          <xs:assert test="count(//BOOK[grossValue]) = count(//BOOK)" />
+          <xs:assert test="count(//BOOK[vatValue]) = count(//BOOK)" />
+          <xs:assert test="count(//BOOK[vat]) = count(//BOOK)" />
+          <xs:assert test="count(//BOOK[accountingStandard]) = count(//BOOK)" />
+          
+          <xs:assert test="count(//REC[@objectIdSender]) = count(//REC)" />
+          <xs:assert test="count(//REC[date]) = count(//REC)" />
+          <xs:assert test="count(//REC[text]) = count(//REC)" />
+          <xs:assert test="count(//REC[category]) = count(//REC)" />
+          <xs:assert test="count(//REC[grossValue]) = count(//REC)" />
+          <xs:assert test="count(//REC[vatValue]) = count(//REC)" />
+          <xs:assert test="count(//REC[vat]) = count(//REC)" />
+          <xs:assert test="count(//REC[netValue]) = count(//REC)" />
+          <xs:assert test="count(//REC[status]) = count(//REC)" />
+          <xs:assert test="count(//REC[paymentPeriod]) = count(//REC)" />
+          <xs:assert test="count(//REC[accountingStandard]) = count(//REC)" />
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

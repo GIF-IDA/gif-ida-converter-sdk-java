@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="types_file.xsd"/>
+
+  <xs:element name="data">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="fTYPE_DATA">
+          <xs:assert test="count(/data/LIST_OF_PROP) = 1" />
+          <xs:assert test="count(/data/LIST_OF_ACC)  = 0" />
+          <xs:assert test="count(/data/LIST_OF_COM)  = 0" />
+          
+          <xs:assert test="count(//PROJ)  >= 0" />
+          <xs:assert test="count(//PROP)  >= 0" />
+          <xs:assert test="count(//ACC)   = 0" />
+          <xs:assert test="count(//BOOK)  = 0" />
+          <xs:assert test="count(//BUILD) = 0" />
+          <xs:assert test="count(//COM)   = 0" />
+          <xs:assert test="count(//LAND)  = 0" />
+          <xs:assert test="count(//LEASE) = 0" />
+          <xs:assert test="count(//LOAN)  = 0" />
+          <xs:assert test="count(//REC)   = 0" />
+          <xs:assert test="count(//CON)  = 0" />
+          <xs:assert test="count(//TERM)  = 0" />
+          <xs:assert test="count(//UNIT)  = 0" />
+          <xs:assert test="count(//VAL)   = 0" />
+          
+          
+          <xs:assert test="count(//PROJ[@objectIdSender]) = count(//PROJ)" />
+          <xs:assert test="count(//PROJ[@validFrom]) = count(//PROJ)" />
+          <xs:assert test="count(//PROJ[craft]) = count(//PROJ)" />
+          <xs:assert test="count(//PROJ[contractAmount]) = count(//PROJ)" />
+          <xs:assert test="count(//PROJ[description]) = count(//PROJ)" />
+          <xs:assert test="count(//PROJ[budget]) = count(//PROJ)" />
+          <xs:assert test="count(//PROJ[invoiceAmount]) = count(//PROJ)" />
+          <xs:assert test="count(//PROJ[projectType]) = count(//PROJ)" />
+          <xs:assert test="count(//PROJ[currency]) = count(//PROJ)" />
+          <xs:assert test="count(//PROJ[accountingType]) = count(//PROJ)" />
+          
+          <xs:assert test="count(//PROP[@objectIdSender]) = count(//PROP)" />
+          <xs:assert test="count(//PROP[@validFrom]) = count(//PROP)" />
+          <xs:assert test="count(//PROP[currency]) = count(//PROP)" />
+          <xs:assert test="count(//PROP[operatingCostsSettled]) = 0" />
+          <xs:assert test="count(//PROP[archValidFrom]) = 0" />
+          <xs:assert test="count(//PROP[archValidTo]) = 0" />
+          <xs:assert test="count(//PROP/address[isPublic]) = 0" />
+          <xs:assert test="count(//PROP[purchaseDate]) = 0" />
+          <xs:assert test="count(//PROP[assetAccountType]) = 0" />
+          <xs:assert test="count(//PROP[numberOfBathrooms]) = 0" />
+          <xs:assert test="count(//PROP[numberOfRooms]) = 0" />
+          <xs:assert test="count(//PROP[numberOfCanteen]) = 0" />
+          <xs:assert test="count(//PROP[ownershipType]) = 0" />
+          <xs:assert test="count(//PROP[assetManager]) = 0" />
+          <xs:assert test="count(//PROP[elevator]) = 0" />
+          <xs:assert test="count(//PROP[interiorQuality]) = 0" />
+          <xs:assert test="count(//PROP[balcony]) = 0" />
+          <xs:assert test="count(//PROP[barrierfree]) = 0" />
+          <xs:assert test="count(//PROP[operatingCosts]) = 0" />
+          <xs:assert test="count(//PROP[purchaseGrossPrice]) = 0" />
+          <xs:assert test="count(//PROP[saleGrossPrice]) = 0" />
+          <xs:assert test="count(//PROP[assetValue]) = 0" />
+          <xs:assert test="count(//PROP[lanCables]) = 0" />
+          <xs:assert test="count(//PROP[monumentProtectionCategory]) = 0" />
+          <xs:assert test="count(//PROP[ownerOccupation]) = 0" />
+          <xs:assert test="count(//PROP[ownershipShare]) = 0" />
+          <xs:assert test="count(//PROP/energyRating[energyEfficiencyClass]) = 0" />
+          <xs:assert test="count(//PROP[distanceToRailStation]) = 0" />
+          <xs:assert test="count(//PROP[distanceToAirport]) = 0" />
+          <xs:assert test="count(//PROP[distanceToPublicTransport]) = 0" />
+          <xs:assert test="count(//PROP[distanceToHighway]) = 0" />
+          <xs:assert test="count(//PROP[groundRent]) = 0" />
+          <xs:assert test="count(//PROP[titleOfExposee]) = 0" />
+          <xs:assert test="count(//PROP[facilityManager]) = 0" />
+          <xs:assert test="count(//PROP[areaType]) = 0" />
+          <xs:assert test="count(//PROP[areaMeasurement]) = 0" />
+          <xs:assert test="count(//PROP/address[latitude]) = 0" />
+          <xs:assert test="count(//PROP/address[longitude]) = 0" />
+          <xs:assert test="count(//PROP[totalGrossCosts]) = 0" />
+          <xs:assert test="count(//PROP[totalNetCosts]) = 0" />
+          <xs:assert test="count(//PROP[totalApportionableCosts]) = 0" />
+          <xs:assert test="count(//PROP[purchaseTransferTax]) = 0" />
+          <xs:assert test="count(//PROP[saleTransferTax]) = 0" />
+          <xs:assert test="count(//PROP[plotArea]) = 0" />
+          <xs:assert test="count(//PROP[useTypePrimary]) = 0" />
+          <xs:assert test="count(//PROP[heatingType]) = 0" />
+          <xs:assert test="count(//PROP[ipdObjectId]) = 0" />
+          <xs:assert test="count(//PROP[ipdPortfolioId]) = 0" />
+          <xs:assert test="count(//PROP[retailLocation]) = 0" />
+          <xs:assert test="count(//PROP[maintenanceCosts]) = 0" />
+          <xs:assert test="count(//PROP[capitalIncome]) = 0" />
+          <xs:assert test="count(//PROP[cellar]) = 0" />
+          <xs:assert test="count(//PROP[airconditioning]) = 0" />
+          <xs:assert test="count(//PROP[locationClassificationType]) = 0" />
+          <xs:assert test="count(//PROP[vacancyOperatingCosts]) = 0" />
+          <xs:assert test="count(//PROP[purchaseBrokerage]) = 0" />
+          <xs:assert test="count(//PROP[saleBrokerage]) = 0" />
+          <xs:assert test="count(//PROP[marketRentalValue]) = 0" />
+          <xs:assert test="count(//PROP[lastRefurbishmentDate]) = 0" />
+          <xs:assert test="count(//PROP[modernisationStatus]) = 0" />
+          <xs:assert test="count(//PROP[useTypeSecondary]) = 0" />
+          <xs:assert test="count(//PROP[netIncome]) = 0" />
+          <xs:assert test="count(//PROP[rentalIncomeMain]) = 0" />
+          <xs:assert test="count(//PROP[purchaseNetPrice]) = 0" />
+          <xs:assert test="count(//PROP[saleNetPrice]) = 0" />
+          <xs:assert test="count(//PROP[note]) = 0" />
+          <xs:assert test="count(//PROP[condition]) = 0" />
+          <xs:assert test="count(//PROP[portfolioName]) = 0" />
+          <xs:assert test="count(//PROP[protfolioType]) = 0" />
+          <xs:assert test="count(//PROP[portfolioPartName]) = 0" />
+          <xs:assert test="count(//PROP[propertyManager]) = 0" />
+          <xs:assert test="count(//PROP[courtage]) = 0" />
+          <xs:assert test="count(//PROP[purchaseLegalFees]) = 0" />
+          <xs:assert test="count(//PROP/address[region]) = 0" />
+          <xs:assert test="count(//PROP[riskStyle]) = 0" />
+          <xs:assert test="count(//PROP[purchaseAdditionalCosts]) = 0" />
+          <xs:assert test="count(//PROP[otherCosts]) = 0" />
+          <xs:assert test="count(//PROP[rentalIncomeAdditional]) = 0" />
+          <xs:assert test="count(//PROP[saleAdditionalCosts]) = 0" />
+          <xs:assert test="count(//PROP/address[district]) = 0" />
+          <xs:assert test="count(//PROP[partialPurchase]) = 0" />
+          <xs:assert test="count(//PROP[partialSales]) = 0" />
+          <xs:assert test="count(//PROP[saleDate]) = 0" />
+          <xs:assert test="count(//PROP[fairValue]) = 0" />
+          <xs:assert test="count(//PROP[rented]) = 0" />
+          <xs:assert test="count(//PROP[leasedArea]) = 0" />
+          <xs:assert test="count(//PROP[assetCategory]) = 0" />
+          <xs:assert test="count(//PROP[administrationCosts]) = 0" />
+          <xs:assert test="count(//PROP[valueIncreasingReconstructCosts]) = 0" />
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

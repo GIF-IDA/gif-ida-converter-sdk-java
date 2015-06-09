@@ -1,0 +1,82 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.1">
+  <xs:include schemaLocation="types_internal.xsd"/>
+  <xs:include schemaLocation="types_enumeration.xsd"/>
+  <xs:include schemaLocation="types_sub.xsd"/>
+  <xs:include schemaLocation="entity_TERM.xsd"/>
+  <xs:complexType name="TYPE_LIST_OF_UNIT">
+    <xs:sequence>
+      <xs:element name="UNIT" type="TYPE_UNIT" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TYPE_UNIT">
+    <xs:sequence>
+      <xs:element name="apartmentType" type="eTYPE_ApartmentType" minOccurs="0"/>
+      <xs:element name="archValidFrom" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="archValidTo" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="areaMeasurement" type="eTYPE_AreaMeasurement" minOccurs="0"/>
+      <xs:element name="areaType" type="eTYPE_AreaType" minOccurs="0"/>
+      <xs:element name="autoLift" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="balcony" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="barrierfree" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="certificateOfEligibility" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="condition" type="eTYPE_ObjectCondition" minOccurs="0"/>
+      <xs:element name="courtage" type="TYPE_Amount" minOccurs="0"/>
+      <xs:element name="endPriceMaintenance" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="garden" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="guestToilet" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="hallHeight" type="iTYPE_DOUBLE" minOccurs="0"/>
+      <xs:element name="hasBuiltinKitchen" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="hasFurniture" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="interiorQuality" type="eTYPE_InteriorQuality" minOccurs="0"/>
+      <xs:element name="isLodgerFlat" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="lanCables" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="lastRefurbishmentDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="lettableArea" type="TYPE_Area" minOccurs="0"/>
+      <xs:element name="lettableUnits" type="iTYPE_DOUBLE" minOccurs="0"/>
+      <xs:element name="localReferenceRent" type="TYPE_Amount" minOccurs="0"/>
+      <xs:element name="maxNumberOfPerson" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="minimumDivisible" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="modernisationStatus" type="eTYPE_RestorationStatus" minOccurs="0"/>
+      <xs:element name="nonSmoker" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="numberOfBathrooms" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="numberOfBedrooms" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="numberOfParkingSpaces" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="numberOfRooms" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="parkingSpaceType" type="eTYPE_ParkingSpaceType" minOccurs="0"/>
+      <xs:element name="propertyManager" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="summerResidencePractical" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="titleOfExposee" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="useType" type="eTYPE_UseType" minOccurs="0"/>
+      <xs:element name="useTypeCustomer" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="vacancyReason" type="eTYPE_VacancyReason" minOccurs="0"/>
+      <xs:element name="address" type="TYPE_ADDRESS" minOccurs="0"/>
+      <xs:element name="extensionMap" type="iTYPE_EXTENSION_MAP" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="hash" type="iTYPE_STRING"/>
+    <xs:attribute name="objectIdSender" type="iTYPE_STRING"/>
+    <xs:attribute name="objectIdReceiver" type="iTYPE_STRING"/>
+    <xs:attribute name="validFrom" type="iTYPE_LOCALDATE"/>
+    <xs:attribute name="validTo" type="iTYPE_LOCALDATE"/>
+    <xs:attribute name="label" type="iTYPE_STRING"/>
+  </xs:complexType>
+  <xs:complexType name="TYPE_HUNIT">
+    <xs:all/>
+    <xs:attribute name="hash" type="iTYPE_STRING"/>
+  </xs:complexType>
+  <xs:complexType name="TYPE_LIST_OF_HUNIT">
+    <xs:sequence>
+      <xs:element name="UNIT" type="TYPE_HUNIT" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TYPE_TUNIT">
+    <xs:sequence>
+      <xs:element name="LIST_OF_TERM" type="TYPE_LIST_OF_TERM" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="hash" type="iTYPE_STRING"/>
+  </xs:complexType>
+  <xs:complexType name="TYPE_LIST_OF_TUNIT">
+    <xs:sequence>
+      <xs:element name="UNIT" type="TYPE_TUNIT" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:simpleType name="iTYPE_STRING">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="iTYPE_BOOLEAN">
+    <xs:restriction base="xs:boolean"/>
+  </xs:simpleType>
+  <xs:simpleType name="iTYPE_INTEGER">
+    <xs:restriction base="xs:integer"/>
+  </xs:simpleType>
+  <xs:simpleType name="iTYPE_DECIMAL">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:simpleType name="iTYPE_URI">
+    <xs:restriction base="xs:anyURI"/>
+  </xs:simpleType>
+  <xs:simpleType name="iTYPE_DATE">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(1|2)\d{3}(-(02(-(0[1-9]|(1|2)\d))?|(01|03|05|07|08|10|12)(-(0[1-9]|[1-2]\d|3[0-1]))?|(04|06|09|11)(-(0[1-9]|[1-2]\d|30))?))?">
+        <xs:annotation>
+          <xs:documentation>allows every date in format of "YYYY-MM-DD", "YYYY-MM" or "YYYY", checks for maximum day of specific month - NO leap year!</xs:documentation>
+        </xs:annotation>
+      </xs:pattern>
+      <xs:assertion test="substring($value, 6, 2) != '02' or substring($value, 9, 2) != '29' or (number(substring($value, 1, 4)) mod 4 = 0 and (number(substring($value, 1, 4)) mod 100 != 0 or number(substring($value, 1, 4)) mod 400 = 0))">
+        <xs:annotation>
+          <xs:documentation>checks for last day of febuary in a leap year</xs:documentation>
+        </xs:annotation>
+      </xs:assertion>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="iTYPE_LOCALDATE">
+    <xs:restriction base="iTYPE_DATE"/>
+  </xs:simpleType>
+  <xs:simpleType name="iTYPE_PERIOD">
+    <xs:restriction base="xs:duration"/>
+  </xs:simpleType>
+  <xs:simpleType name="iTYPE_DATE_TIME">
+    <xs:restriction base="xs:dateTime"/>
+  </xs:simpleType>
+  <xs:simpleType name="iTYPE_LANGUAGE">
+    <xs:restriction base="xs:language"/>
+  </xs:simpleType>
+  <xs:simpleType name="iTYPE_LOCALE">
+    <xs:restriction base="iTYPE_LANGUAGE"/>
+  </xs:simpleType>
+  <xs:simpleType name="iTYPE_BIGDECIMAL">
+    <xs:restriction base="iTYPE_DECIMAL"/>
+  </xs:simpleType>
+  <xs:simpleType name="iTYPE_DOUBLE">
+    <xs:restriction base="iTYPE_DECIMAL"/>
+  </xs:simpleType>
+  <xs:simpleType name="iTYPE_CURRENCY">
+    <xs:restriction base="iTYPE_STRING">
+      <xs:pattern value="[A-Z]{3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="iTYPE_PROJECT_COST_CATEGORY">
+    <xs:restriction base="iTYPE_STRING">
+      <xs:pattern value="[0-9]{3}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="iTYPE_EXTENSION_MAP">
+    <xs:sequence>
+      <xs:element name="KEY" type="iTYPE_EXTENSION_MAP_KEY" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="SUB_MAP" type="iTYPE_EXTENSION_SUB_MAP" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="SUB_LIST" type="iTYPE_EXTENSION_SUB_LIST" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="iTYPE_EXTENSION_MAP_KEY">
+    <xs:simpleContent>
+      <xs:extension base="iTYPE_STRING">
+        <xs:attribute name="NAME" type="iTYPE_EXTENSION_NAME" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="iTYPE_EXTENSION_NAME">
+    <xs:restriction base="iTYPE_STRING"/>
+  </xs:simpleType>
+  <xs:complexType name="iTYPE_EXTENSION_SUB_MAP">
+    <xs:sequence>
+      <xs:element name="KEY" type="iTYPE_EXTENSION_MAP_KEY" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="SUB_MAP" type="iTYPE_EXTENSION_SUB_MAP" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="SUB_LIST" type="iTYPE_EXTENSION_SUB_LIST" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="NAME" type="iTYPE_EXTENSION_NAME" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="iTYPE_EXTENSION_SUB_LIST">
+    <xs:sequence>
+      <xs:element name="ITEM" type="iTYPE_EXTENSION_SUB_LIST_ITEM" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="NAME" type="iTYPE_EXTENSION_NAME"/>
+  </xs:complexType>
+  <xs:complexType name="iTYPE_EXTENSION_SUB_LIST_ITEM">
+    <xs:simpleContent>
+      <xs:extension base="iTYPE_STRING"/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="iTYPE_PROCESS">
+    <xs:restriction base="iTYPE_STRING">
+      <xs:pattern value="(0.0|[1-9]+[0-9]*\.[1-9]+[0-9]*)"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="iTYPE_VERSION">
+    <xs:restriction base="iTYPE_STRING">
+      <xs:pattern value="1-0\.4\.3"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

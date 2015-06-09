@@ -1,0 +1,72 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.1">
+  <xs:include schemaLocation="types_internal.xsd"/>
+  <xs:include schemaLocation="types_enumeration.xsd"/>
+  <xs:include schemaLocation="types_sub.xsd"/>
+  <xs:include schemaLocation="entity_TERM.xsd"/>
+  <xs:complexType name="TYPE_LIST_OF_LEASE">
+    <xs:sequence>
+      <xs:element name="LEASE" type="TYPE_LEASE" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TYPE_LEASE">
+    <xs:sequence>
+      <xs:element name="acceptedTerminationDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="badDebt" type="TYPE_Amount" minOccurs="0"/>
+      <xs:element name="beginRentPayment" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="breakOption" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="collectiveObjectIdSender" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="contractCompletionDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="contractExtensionDuration" type="iTYPE_PERIOD" minOccurs="0"/>
+      <xs:element name="courtage" type="TYPE_Amount" minOccurs="0"/>
+      <xs:element name="currency" type="iTYPE_CURRENCY" minOccurs="0"/>
+      <xs:element name="debitor" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="debitorId" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="depositAgreed" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="depositAmount" type="TYPE_Amount" minOccurs="0"/>
+      <xs:element name="depositIncreaseType" type="eTYPE_DepositIncreaseType" minOccurs="0"/>
+      <xs:element name="depositPayed" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="depositType" type="eTYPE_DepositType" minOccurs="0"/>
+      <xs:element name="dmiendOption" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="dunningIndicator" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="dunningLevel" type="eTYPE_DunningLevel" minOccurs="0"/>
+      <xs:element name="freeFrom" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="heatingCosts" type="TYPE_Amount" minOccurs="0"/>
+      <xs:element name="leaseBeginDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="leaseContractType" type="eTYPE_LeaseContractType" minOccurs="0"/>
+      <xs:element name="leaseEndDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="maxNumberOfPerson" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="maxRentalTime" type="iTYPE_PERIOD" minOccurs="0"/>
+      <xs:element name="minRentalTime" type="iTYPE_PERIOD" minOccurs="0"/>
+      <xs:element name="nation" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="openItems" type="TYPE_Amount" minOccurs="0"/>
+      <xs:element name="operatingCostPrepayment" type="TYPE_Amount" minOccurs="0"/>
+      <xs:element name="operatingCostsSettled" type="TYPE_Amount" minOccurs="0"/>
+      <xs:element name="option" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="parkingSpaceCosts" type="TYPE_Amount" minOccurs="0"/>
+      <xs:element name="payment" type="TYPE_Amount" minOccurs="0"/>
+      <xs:element name="paymentPattern" type="iTYPE_PERIOD" minOccurs="0"/>
+      <xs:element name="periodsTurnoverRents" type="iTYPE_PERIOD" minOccurs="0"/>
+      <xs:element name="petsAllowed" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="propertyManager" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="sector" type="eTYPE_Sector" minOccurs="0"/>
+      <xs:element name="tenancy" type="iTYPE_PERIOD" minOccurs="0"/>
+      <xs:element name="terminated" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="terminationDuration" type="iTYPE_PERIOD" minOccurs="0"/>
+      <xs:element name="terminationReceiptDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="turnoverAdjType" type="eTYPE_NumberType" minOccurs="0"/>
+      <xs:element name="turnoverCertificate" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="turnoverMinimum" type="TYPE_Amount" minOccurs="0"/>
+      <xs:element name="turnoverRentCap" type="TYPE_Amount" minOccurs="0"/>
+      <xs:element name="turnoverReportingInterval" type="iTYPE_PERIOD" minOccurs="0"/>
+      <xs:element name="turnoverSortiment" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="extensionMap" type="iTYPE_EXTENSION_MAP" minOccurs="0"/>
+      <xs:element name="LIST_OF_UNIT" type="TYPE_LIST_OF_TUNIT" minOccurs="0"/>
+      <xs:element name="LIST_OF_TERM" type="TYPE_LIST_OF_TERM" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="objectIdSender" type="iTYPE_STRING"/>
+    <xs:attribute name="objectIdReceiver" type="iTYPE_STRING"/>
+    <xs:attribute name="validFrom" type="iTYPE_LOCALDATE"/>
+    <xs:attribute name="validTo" type="iTYPE_LOCALDATE"/>
+    <xs:attribute name="label" type="iTYPE_STRING"/>
+  </xs:complexType>
+</xs:schema>

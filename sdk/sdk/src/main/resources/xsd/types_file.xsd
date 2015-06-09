@@ -1,0 +1,83 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.1">
+  <xs:include schemaLocation="types_internal.xsd"/>
+  <xs:include schemaLocation="types_enumeration.xsd"/>
+  <xs:include schemaLocation="types_sub.xsd"/>
+  <xs:include schemaLocation="entity_COM.xsd"/>
+  <xs:include schemaLocation="entity_PROP.xsd"/>
+  <xs:include schemaLocation="entity_ACC.xsd"/>
+  <xs:complexType name="fTYPE_MANIFEST">
+    <xs:sequence>
+      <xs:element name="file-entry" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="path" type="iTYPE_URI" use="required"/>
+          <xs:attribute name="mimetype" type="iTYPE_STRING" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fTYPE_META">
+    <xs:sequence>
+      <xs:element name="format">
+        <xs:simpleType>
+          <xs:restriction base="iTYPE_STRING">
+            <xs:pattern value="application/vnd\.gif-ev\.zgif"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="version" type="iTYPE_VERSION"/>
+      <xs:element name="process" type="iTYPE_PROCESS"/>
+      <xs:element name="language" type="iTYPE_LANGUAGE"/>
+      <xs:element name="created" type="iTYPE_DATE_TIME"/>
+      <xs:element name="validated" type="iTYPE_DATE_TIME" minOccurs="0"/>
+      <xs:element name="publisher" type="iTYPE_STRING"/>
+      <xs:element name="creator" type="iTYPE_STRING"/>
+      <xs:element name="validator" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="description" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="extension_map" type="iTYPE_EXTENSION_MAP" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fTYPE_PERIODS">
+    <xs:sequence>
+      <xs:element name="period" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="identifier" type="iTYPE_STRING"/>
+          <xs:attribute name="from" type="iTYPE_DATE" use="required"/>
+          <xs:attribute name="to" type="iTYPE_DATE" use="required"/>
+          <xs:attribute name="periodType" type="iTYPE_PERIOD" use="required"/>
+          <xs:attribute name="valueType" type="eTYPE_PeriodValueType" use="required"/>
+          <xs:attribute name="valueTypeName" type="iTYPE_STRING"/>
+          <xs:assert test="substring(concat(@from, '-01-01'), 1, 10) &lt;= substring(concat(@to, '-01-01'), 1, 10)">
+            <xs:annotation>
+              <xs:documentation>checks "from" is prior to "to"</xs:documentation>
+              <xs:documentation xml:lang="de">prüft ob "from" zeitlich vor "to" ist</xs:documentation>
+            </xs:annotation>
+          </xs:assert>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fTYPE_DATA">
+    <xs:choice>
+      <xs:sequence>
+        <xs:element name="LIST_OF_COM" type="TYPE_LIST_OF_COM"/>
+      </xs:sequence>
+      <xs:sequence>
+        <xs:element name="LIST_OF_PROP" type="TYPE_LIST_OF_PROP"/>
+      </xs:sequence>
+      <xs:sequence>
+        <xs:element name="LIST_OF_ACC" type="TYPE_LIST_OF_ACC"/>
+      </xs:sequence>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="fTYPE_ZGIF">
+    <xs:sequence>
+      <xs:element name="manifest" type="fTYPE_MANIFEST"/>
+      <xs:element name="periods" type="fTYPE_PERIODS"/>
+      <xs:element name="meta" type="fTYPE_META"/>
+      <xs:element name="maindata" type="fTYPE_DATA"/>
+    </xs:sequence>
+    <xs:attribute name="filePath" type="iTYPE_STRING"/>
+    <xs:attribute name="mimetype" type="iTYPE_STRING"/>
+    <xs:attribute name="type" type="iTYPE_STRING"/>
+  </xs:complexType>
+</xs:schema>

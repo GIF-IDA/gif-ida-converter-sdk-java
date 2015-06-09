@@ -1,0 +1,684 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.1">
+	<xs:include schemaLocation="types_internal.xsd"/>
+	<xs:simpleType name="eTYPE_AccountingType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="INVOICE_FOR_PARTIAL_DELIVERY"/>
+			<xs:enumeration value="FINAL_INVOICE"/>
+			<xs:enumeration value="INDIVIDUAL_PAYMENT_PLAN"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_AccountingStandard">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="HGB"/>
+			<xs:enumeration value="UGB"/>
+			<xs:enumeration value="IFRS"/>
+			<xs:enumeration value="US_GAAP"/>
+			<xs:enumeration value="LUX_GAAP"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_AdjustmentType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="INDEX_ADJUSTMENT"/>
+			<xs:enumeration value="INDEX"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_ApartmentType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="ROOF_STOREY"/>
+			<xs:enumeration value="LOFT"/>
+			<xs:enumeration value="MAISONETTE"/>
+			<xs:enumeration value="PENTHOUSE"/>
+			<xs:enumeration value="TERRACED_FLAT"/>
+			<xs:enumeration value="GROUND_FLAT"/>
+			<xs:enumeration value="APARTMENT"/>
+			<xs:enumeration value="RAISED_GROUND_FLOOR"/>
+			<xs:enumeration value="HALF_BASEMENT"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_AreaMeasurement">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="SQM"/>
+			<xs:enumeration value="SQFT"/>
+			<xs:enumeration value="NOT_SPECIFIED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_AreaType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="OTHER"/>
+			<xs:enumeration value="DIN277"/>
+			<xs:enumeration value="MF_W"/>
+			<xs:enumeration value="MF_V"/>
+			<xs:enumeration value="MF_G"/>
+			<xs:enumeration value="SEVERAL"/>
+			<xs:enumeration value="NOT_SPECIFIED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_AssetAccountType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NOT_SPECIFIED"/>
+			<xs:enumeration value="CURRENT_ASSETS_UNDER_CONSTRUCTION"/>
+			<xs:enumeration value="CURRENT_LAND_AND_LAND_RIGHTS_WITHOUT_BUILDINGS"/>
+			<xs:enumeration value="CURRENT_LAND_WITH_BUILDINGS"/>
+			<xs:enumeration value="CAPITAL_ASSETS_UNDER_CONSTRUCTION"/>
+			<xs:enumeration value="CAPITAL_BUILDINGS_ON_THIRD_PARTY_LAND"/>
+			<xs:enumeration value="CAPITAL_LAND_WITH_THIRD_PARTY_LEASEHOLD_RIGHTS"/>
+			<xs:enumeration value="CAPITAL_LAND_AND_LAND_RIGHTS_WITHOUT_BUILDINGS"/>
+			<xs:enumeration value="CAPITAL_LAND_AND_LAND_RIGHTS_WITH_COMMERCIAL_AND_OTHER_BUILDINGS"/>
+			<xs:enumeration value="CAPITAL_LAND_WITH_BUILDINGS"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_AssetCategory">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NOT_SPECIFIED"/>
+			<xs:enumeration value="CAPITAL"/>
+			<xs:enumeration value="WORKING"/>
+			<xs:enumeration value="LEASING"/>
+			<xs:enumeration value="ADMINISTRATION"/>
+			<xs:enumeration value="GERMAN_CONDOMINIUM_ACT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_BillStatus">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NONE"/>
+			<xs:enumeration value="RECORDED"/>
+			<xs:enumeration value="CONTROLLED"/>
+			<xs:enumeration value="PAID"/>
+			<xs:enumeration value="CANCELED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_BuildingType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NOT_APPLIED"/>
+			<xs:enumeration value="RETAIL_BUILDING"/>
+			<xs:enumeration value="SHOWROOM"/>
+			<xs:enumeration value="ART_GALLERY"/>
+			<xs:enumeration value="KIOSK"/>
+			<xs:enumeration value="BANK"/>
+			<xs:enumeration value="POST"/>
+			<xs:enumeration value="PUBS_BARS"/>
+			<xs:enumeration value="RESTAURANT_GASTRONOMIE"/>
+			<xs:enumeration value="OTHER_RETAIL_BUILDING"/>
+			<xs:enumeration value="PASSAGE_SHOPPING_GALLERY"/>
+			<xs:enumeration value="INTEGRATED_SHOPPING_CENTER"/>
+			<xs:enumeration value="FACTORY_OUTLET_CENTER"/>
+			<xs:enumeration value="OTHER_SHOPPING_CENTER"/>
+			<xs:enumeration value="RETAIL_MARKET"/>
+			<xs:enumeration value="RETAIL_MARKET_CENTER"/>
+			<xs:enumeration value="CONSUMER_MARKET"/>
+			<xs:enumeration value="SELF_SERVICE_GENERAL_STORE"/>
+			<xs:enumeration value="DEPARTMENT_STORE"/>
+			<xs:enumeration value="GENERAL_STORE"/>
+			<xs:enumeration value="OTHER_RETAIL_BUILDINGS"/>
+			<xs:enumeration value="DETACHED_OFFICE_BUILDING"/>
+			<xs:enumeration value="NON_DETACHED_OFFICE_BUILDING"/>
+			<xs:enumeration value="OFFICE_PARK_LOCATION"/>
+			<xs:enumeration value="OTHER_OFFICE_BUILDING"/>
+			<xs:enumeration value="FACTORY"/>
+			<xs:enumeration value="PRODUCTION"/>
+			<xs:enumeration value="WAREHOUSE_LOGISTIC"/>
+			<xs:enumeration value="OTHER_INDUSTRY_PROPERTY"/>
+			<xs:enumeration value="DETACHED_HOUSE"/>
+			<xs:enumeration value="SEMI_DETACHED_HOUSE"/>
+			<xs:enumeration value="TERRACE_HOUSE"/>
+			<xs:enumeration value="DOUPLEX_MAISONETTE"/>
+			<xs:enumeration value="APARTMENT_BUILDING_ONE_ENTRANCE"/>
+			<xs:enumeration value="APARTMENT_BUILDING_SEPARATE_ENTRANCES"/>
+			<xs:enumeration value="SENIOR_HOUSING_WITHOUT_CARE"/>
+			<xs:enumeration value="NURSING_HOME"/>
+			<xs:enumeration value="HOLIDAY_PROPERTY"/>
+			<xs:enumeration value="GARDEN_CITY"/>
+			<xs:enumeration value="SONSTIGE_WOHNGEB_UDE"/>
+			<xs:enumeration value="HOTEL"/>
+			<xs:enumeration value="LEISURE_PARK"/>
+			<xs:enumeration value="CINEMA"/>
+			<xs:enumeration value="THEATRE"/>
+			<xs:enumeration value="HOLIDAY_RESORT"/>
+			<xs:enumeration value="RETAIL_OTHER"/>
+			<xs:enumeration value="CLINIC"/>
+			<xs:enumeration value="MEDICAL_CENTRE"/>
+			<xs:enumeration value="RESEARCH_EDUCATION"/>
+			<xs:enumeration value="CAR_PARK"/>
+			<xs:enumeration value="UNBUILT_AREA"/>
+			<xs:enumeration value="EXHIBITION_AND_CONVENTION_CENTRE"/>
+			<xs:enumeration value="LABORATORY"/>
+			<xs:enumeration value="OTHER_USAGE"/>
+			<xs:enumeration value="FARMLAND"/>
+			<xs:enumeration value="FORREST"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_ConditionType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="BASE_RENT"/>
+			<xs:enumeration value="DEDUCTIONS"/>
+			<xs:enumeration value="SALES_DEDUCTION"/>
+			<xs:enumeration value="RENT_CONCESSION"/>
+			<xs:enumeration value="SURCHARGES_SUBTENANCY"/>
+			<xs:enumeration value="SURCHARGES_MODERNIZATION"/>
+			<xs:enumeration value="SURCHARGES_SOCIAL_ROOMS"/>
+			<xs:enumeration value="SURCHARGES_TRAFFIC_AREA"/>
+			<xs:enumeration value="SURCHARGES_CENTER_MANAGEMENT"/>
+			<xs:enumeration value="SURCHARGES_PARKING_LOT"/>
+			<xs:enumeration value="RENTAL_GUARANTEE"/>
+			<xs:enumeration value="GROUND_RENT"/>
+			<xs:enumeration value="LEASE_PAYMENTS"/>
+			<xs:enumeration value="SALES_RENT"/>
+			<xs:enumeration value="INVESTMENT_RENT"/>
+			<xs:enumeration value="ADMINISTRATIVE_COSTS"/>
+			<xs:enumeration value="FLAT_RATE_OPERATING_COSTS"/>
+			<xs:enumeration value="FLAT_RATE_HEATING_COSTS"/>
+			<xs:enumeration value="FLAT_RATE__OPERATING_COSTS/HEATING_COSTS"/>
+			<xs:enumeration value="FLAT_RATE_ADMINISTRATIVE_COSTS"/>
+			<xs:enumeration value="FLAT_RATE_ADVERTISING_COSTS"/>
+			<xs:enumeration value="FLAT_RATE_CENTER_MANAGEMENT"/>
+			<xs:enumeration value="ADVANCE_PAYMENTS_OPERATIONAL_COSTS"/>
+			<xs:enumeration value="ADVANCE_PAYMENTS_HEATING_COSTS"/>
+			<xs:enumeration value="ADVANCE_PAYMENTS_OPERATING_COSTS/HEATING_COSTS"/>
+			<xs:enumeration value="CURRENT_PUBLIC_CHARGES"/>
+			<xs:enumeration value="WATER_WATER_SUPPLY"/>
+			<xs:enumeration value="WASTE_WATER_DRAINAGE"/>
+			<xs:enumeration value="HEATING_COSTS"/>
+			<xs:enumeration value="HOT_WATER"/>
+			<xs:enumeration value="CONNECTED_HEATING_AND_HOT_WATER_SYSTEMS"/>
+			<xs:enumeration value="LIFT_MAINTENANCE"/>
+			<xs:enumeration value="LIFT_MALFUNCTION"/>
+			<xs:enumeration value="LIFT_OTHER_COSTS"/>
+			<xs:enumeration value="GARBAGE_COLLECTION"/>
+			<xs:enumeration value="STREET_CLEANING"/>
+			<xs:enumeration value="CLEANING_INDUSTRIAL_CLEANING"/>
+			<xs:enumeration value="PEST_AND_VERMIN_CONTROL"/>
+			<xs:enumeration value="GARDENING_OUTDOOR_FACILITIES"/>
+			<xs:enumeration value="LIGHTING_ELECTRICITY_IN_GENERAL"/>
+			<xs:enumeration value="CHIMNEY_SWEEPER"/>
+			<xs:enumeration value="INSURANCE_PROPERTY_AND_LIABILITY_INSURANCE"/>
+			<xs:enumeration value="CARETAKER"/>
+			<xs:enumeration value="COMMUNITY_ANTENNA_SYSTEM"/>
+			<xs:enumeration value="FACILITIES_FOR_LAUNDRY_CARE_LAUNDRY_ROOM"/>
+			<xs:enumeration value="WINTER_SERVICE"/>
+			<xs:enumeration value="OTHER_OPERATING_COSTS"/>
+			<xs:enumeration value="FIRE_ALARM_SYSTEMS_OPERATION_OF_FIRE-FIGHTING_SYSTEMS"/>
+			<xs:enumeration value="OPERATION_OF_VENTILATION_SYSTEMS"/>
+			<xs:enumeration value="OPERATION_OF_ELECTRICAL_POWER_INSTALLATIONS"/>
+			<xs:enumeration value="OPERATION_OF_TELECOMMUNICATIONS_AND_INFORMATION_SYSTEMS"/>
+			<xs:enumeration value="OPERATION_OF_ANOTHER_CONVEYOR_TECHNOLOGY"/>
+			<xs:enumeration value="OPERATION_OF_USE-SPECIFIC_INSTALLATIONS"/>
+			<xs:enumeration value="OPERATION_OF_THE_BUILDING_AUTOMATION"/>
+			<xs:enumeration value="OPERATION_OF_OTHER_PLANTS_AND_FACILITIES"/>
+			<xs:enumeration value="PROPERTY_AND_CENTER_MANAGEMENT"/>
+			<xs:enumeration value="PLANT_REPRESENTATIVE"/>
+			<xs:enumeration value="PROVISION_OF_A_FAULT_AND_EMERGENCY_CALL_CENTER"/>
+			<xs:enumeration value="ADMINISTRATION_COSTS_PROPERTY_MANAGEMENT"/>
+			<xs:enumeration value="SECURITY_SERVICES_GUARDING"/>
+			<xs:enumeration value="CHARGES_FOR_BUSINESS_IMPROVEMENT_DISTRICTS"/>
+			<xs:enumeration value="CONTRIBUTIONS_FOR_ADVERTISING_CAMPAIGNS_AND_INITIATIVE_OF_THE_LESSOR"/>
+			<xs:enumeration value="MAINTENANCE_COSTS"/>
+			<xs:enumeration value="FACILITY_MANAGEMENT"/>
+			<xs:enumeration value="TECHNICAL_SUPPORT"/>
+			<xs:enumeration value="OTHER_ADDITIONAL_COSTS"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_ContractOption">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="PERMANENT"/>
+			<xs:enumeration value="TEMPORARY"/>
+			<xs:enumeration value="TEMPORARY_REAL_OPTION"/>
+			<xs:enumeration value="TEMPORARY_FICTIOUS_OPTION"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_DepositIncreaseType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NONE"/>
+			<xs:enumeration value="INDEX"/>
+			<xs:enumeration value="SCALE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_DepositType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NOT_AVAILABLE"/>
+			<xs:enumeration value="CASH_BOND"/>
+			<xs:enumeration value="BONDED_SAVINGS_ACCOUNT_PASS_BOOK"/>
+			<xs:enumeration value="ASSIGNMENT_FOR_SECURITY"/>
+			<xs:enumeration value="GUARANTEE_OF_PAYMENT_OF_A_LOAN"/>
+			<xs:enumeration value="GUARANTEE_PAYMENT_INSURANCE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_DevelopmentState">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="DEVELOPMENT"/>
+			<xs:enumeration value="COMPLETED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_Dummy">
+		<xs:restriction base="iTYPE_STRING"/>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_DunningLevel">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NOT_AVAILABLE"/>
+			<xs:enumeration value="FIRST_REMINDER"/>
+			<xs:enumeration value="SECOND_REMINDER"/>
+			<xs:enumeration value="TERMINATION"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_EncumbranceType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="MORTGAGE"/>
+			<xs:enumeration value="LAND_CHARGE"/>
+			<xs:enumeration value="ANNUITY_CHARGE"/>
+			<xs:enumeration value="OTHER"/>
+			<xs:enumeration value="NOT_SPECIFIED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_EnergyEfficiencyCategory">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="A_1PLUS"/>
+			<xs:enumeration value="A"/>
+			<xs:enumeration value="B"/>
+			<xs:enumeration value="C"/>
+			<xs:enumeration value="D"/>
+			<xs:enumeration value="E"/>
+			<xs:enumeration value="F"/>
+			<xs:enumeration value="G"/>
+			<xs:enumeration value="H"/>
+			<xs:enumeration value="I"/>
+			<xs:enumeration value="J"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_EnergyRatingCategory">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="RESIDENTIAL"/>
+			<xs:enumeration value="NON_RESIDENTIAL"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_EnergyRatingType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="USAGE_DEPENDING"/>
+			<xs:enumeration value="REQUIREMENTS_DEPENDING"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_EnergySource">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="OIL"/>
+			<xs:enumeration value="LOCAL_DISTRICT_HEATING"/>
+			<xs:enumeration value="GAS"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_HeatingType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="CENTRAL_HEATING"/>
+			<xs:enumeration value="SINGLE_STORY_GAS_HEATING"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_IndexAdjustmentDirection">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="BOTH_DIRECTION"/>
+			<xs:enumeration value="POSITIVE_ONLY"/>
+			<xs:enumeration value="NOT_SPECIFIED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_IndexationMethod">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="BY_RHYTHM"/>
+			<xs:enumeration value="BY_MINIMUM_CHANGE"/>
+			<xs:enumeration value="NOT_SPECIFIED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_IndexRow">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="CPI"/>
+			<xs:enumeration value="BPI"/>
+			<xs:enumeration value="CPI_BW"/>
+			<xs:enumeration value="CPI_BY"/>
+			<xs:enumeration value="CPI_BE"/>
+			<xs:enumeration value="CPI_BB"/>
+			<xs:enumeration value="CPI_HB"/>
+			<xs:enumeration value="CPI_HH"/>
+			<xs:enumeration value="CPI_HE"/>
+			<xs:enumeration value="CPI_MV"/>
+			<xs:enumeration value="CPI_NI"/>
+			<xs:enumeration value="CPI_NW"/>
+			<xs:enumeration value="CPI_RP"/>
+			<xs:enumeration value="CPI_SL"/>
+			<xs:enumeration value="CPI_SN"/>
+			<xs:enumeration value="CPI_ST"/>
+			<xs:enumeration value="CPI_SH"/>
+			<xs:enumeration value="CPI_TH"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_InteriorQuality">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="LUXURY"/>
+			<xs:enumeration value="SOPHISTICATED"/>
+			<xs:enumeration value="NORMAL"/>
+			<xs:enumeration value="SIMPLE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_IssuanceReason">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NEW_CONSTRUCTION"/>
+			<xs:enumeration value="MODERNISATION"/>
+			<xs:enumeration value="RENT_SALE"/>
+			<xs:enumeration value="NOTICE_PUBLIC_BUILDING"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_LeaseContractType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NOT_SPECIFIED"/>
+			<xs:enumeration value="SINGLE_NET"/>
+			<xs:enumeration value="DOUBLE_NET"/>
+			<xs:enumeration value="TRIPLE_NET"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_LegitTerminationDeadline">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NOT_SPECIFIED"/>
+			<xs:enumeration value="EVERYDAY"/>
+			<xs:enumeration value="END_OF_MONTH"/>
+			<xs:enumeration value="END_OF_QUARTER"/>
+			<xs:enumeration value="END_OF_HALFYEAR"/>
+			<xs:enumeration value="END_OF_YEAR"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_LoanType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="ANNUITY"/>
+			<xs:enumeration value="REDEEMABLE"/>
+			<xs:enumeration value="FIXED_INTEREST"/>
+			<xs:enumeration value="VARIABLE_INTEREST"/>
+			<xs:enumeration value="OTHER"/>
+			<xs:enumeration value="NOT_SPECIFIED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_LocationType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NOT_SPECIFIED"/>
+			<xs:enumeration value="WS"/>
+			<xs:enumeration value="WR"/>
+			<xs:enumeration value="WA"/>
+			<xs:enumeration value="WB"/>
+			<xs:enumeration value="MD"/>
+			<xs:enumeration value="MI"/>
+			<xs:enumeration value="MK"/>
+			<xs:enumeration value="GE"/>
+			<xs:enumeration value="GI"/>
+			<xs:enumeration value="SO"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_MassUnit">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="TONNE"/>
+			<xs:enumeration value="KILOGRAM"/>
+			<xs:enumeration value="GRAM"/>
+			<xs:enumeration value="MILLIGRAM"/>
+			<xs:enumeration value="STONE"/>
+			<xs:enumeration value="POUND"/>
+			<xs:enumeration value="OUNCE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_Month">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="JANUARY"/>
+			<xs:enumeration value="FEBRUARY"/>
+			<xs:enumeration value="MARCH"/>
+			<xs:enumeration value="APRIL"/>
+			<xs:enumeration value="MAI"/>
+			<xs:enumeration value="JUNE"/>
+			<xs:enumeration value="JULI"/>
+			<xs:enumeration value="AUGUST"/>
+			<xs:enumeration value="SEPTEMBER"/>
+			<xs:enumeration value="OCTOBER"/>
+			<xs:enumeration value="NOVEMBER"/>
+			<xs:enumeration value="DECEMBER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_MonumentsType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NO"/>
+			<xs:enumeration value="NOT_AVAILABLE"/>
+			<xs:enumeration value="SINGLE"/>
+			<xs:enumeration value="ENSEMBLE"/>
+			<xs:enumeration value="OTHERS"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_NumberType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NOT_SPECIFIED"/>
+			<xs:enumeration value="PERCENT"/>
+			<xs:enumeration value="ABSOLUTE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_ObjectCondition">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NOT_AVAILABLE"/>
+			<xs:enumeration value="NEW"/>
+			<xs:enumeration value="AGE_APPROPRIATE"/>
+			<xs:enumeration value="IN_NEED_OF_REPAIR"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_OccupancyState">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="RENTED_AND_OCCUPIED_LEASER"/>
+			<xs:enumeration value="RENTED_AND_OCCUPIED_OWNER"/>
+			<xs:enumeration value="RENTED_NOT_OCCUPIED"/>
+			<xs:enumeration value="OUTSTANDING_RENT_WRITTEN_OFF"/>
+			<xs:enumeration value="PREARRANGED"/>
+			<xs:enumeration value="VACANCY"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_OptRate">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NOT_DEFINED"/>
+			<xs:enumeration value="FULL_TAX"/>
+			<xs:enumeration value="REDUCED_TAX"/>
+			<xs:enumeration value="NO_TAX"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_OwnershipType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="DIRECT_PROPERTY"/>
+			<xs:enumeration value="LEASEHOLD"/>
+			<xs:enumeration value="OTHER"/>
+			<xs:enumeration value="FREEHOLDER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_ParkingSpaceType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NOT_AVAILABLE"/>
+			<xs:enumeration value="OUTDOOR"/>
+			<xs:enumeration value="UNDERGROUND"/>
+			<xs:enumeration value="CARPORT"/>
+			<xs:enumeration value="GARAGE"/>
+			<xs:enumeration value="CAR_PARK"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_PeriodValueType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="ACTUAL"/>
+			<xs:enumeration value="PLAN"/>
+			<xs:enumeration value="FORECAST"/>
+			<xs:enumeration value="BUDGET"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_PortfolioType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="INSURANCE"/>
+			<xs:enumeration value="OPEN_PROPERTY_FUND"/>
+			<xs:enumeration value="PENSIONS_FUND"/>
+			<xs:enumeration value="REAL_ESTATE_COMPANIES"/>
+			<xs:enumeration value="UNLISTED_REAL_ESTATE_COMPANIES"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_Process">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NONE"/>
+			<xs:enumeration value="3-1"/>
+			<xs:enumeration value="4-1"/>
+			<xs:enumeration value="4-2"/>
+			<xs:enumeration value="5-1"/>
+			<xs:enumeration value="5-2"/>
+			<xs:enumeration value="5-3"/>
+			<xs:enumeration value="5-4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_ProjectType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NONE"/>
+			<xs:enumeration value="MAINTENANCE"/>
+			<xs:enumeration value="INSPECTION"/>
+			<xs:enumeration value="REPAIR"/>
+			<xs:enumeration value="OPTIMIZATION"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_RecordCategory">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="INVOICE"/>
+			<xs:enumeration value="CREDIT"/>
+			<xs:enumeration value="NOT_SPECIFIED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_RentIncreaseType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NOT_SPECIFIED"/>
+			<xs:enumeration value="INDEX"/>
+			<xs:enumeration value="INDEX_SCALE"/>
+			<xs:enumeration value="INDEX_TURNOVER"/>
+			<xs:enumeration value="SCALE"/>
+			<xs:enumeration value="FREE"/>
+			<xs:enumeration value="GERMAN_CIVIL_CODE"/>
+			<xs:enumeration value="TURNOVER"/>
+			<xs:enumeration value="SCALE_TURNOVER"/>
+			<xs:enumeration value="INDEX_SCALE_TURNOVER"/>
+			<xs:enumeration value="RENT_REVIEW"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_RestorationStatus">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NOT_AVAILABLE"/>
+			<xs:enumeration value="FULLY_REFURBISHED"/>
+			<xs:enumeration value="PARTLY_REFURBISHED"/>
+			<xs:enumeration value="NOT_REFURBISHED"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_RetailLocationType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="HIGH_STREET"/>
+			<xs:enumeration value="HIGH_STREET_BORDER_AREA"/>
+			<xs:enumeration value="CITY_CENTRE_OTHER"/>
+			<xs:enumeration value="SUBURBAN_CENTRE"/>
+			<xs:enumeration value="MAJOR_ROUTE"/>
+			<xs:enumeration value="SUBURBAN_OTHER"/>
+			<xs:enumeration value="NON_URBAN"/>
+			<xs:enumeration value="OTHER"/>
+			<xs:enumeration value="UNKNOWN"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_RiskSegment">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NOT_DEFINED"/>
+			<xs:enumeration value="CORE"/>
+			<xs:enumeration value="CORE_PLUS"/>
+			<xs:enumeration value="VALUE_ADDED"/>
+			<xs:enumeration value="OPPORTUNISTIC"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_Sector">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NOT_AVAILABLE"/>
+			<xs:enumeration value="AUTOMOTIVE"/>
+			<xs:enumeration value="CARRIYING"/>
+			<xs:enumeration value="FINANCIAL"/>
+			<xs:enumeration value="PHARMACEUTICAL"/>
+			<xs:enumeration value="BUILDING"/>
+			<xs:enumeration value="CONSUMER_GOODS"/>
+			<xs:enumeration value="RETAIL"/>
+			<xs:enumeration value="GASTRONOMY"/>
+			<xs:enumeration value="INSURANCE"/>
+			<xs:enumeration value="ENGINEERING_RESOURCES"/>
+			<xs:enumeration value="TECHNOLOGY"/>
+			<xs:enumeration value="UTILITIES"/>
+			<xs:enumeration value="CONSULTING"/>
+			<xs:enumeration value="AUTHORITIES"/>
+			<xs:enumeration value="MEDIA"/>
+			<xs:enumeration value="MEDICAL"/>
+			<xs:enumeration value="OTHERS"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_ServiceType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NOT_SPECIFIED"/>
+			<xs:enumeration value="LIFT_MAINTENACE"/>
+			<xs:enumeration value="GUARDING"/>
+			<xs:enumeration value="GARDENING"/>
+			<xs:enumeration value="WINTER_SERVICE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_SiteConstrucibleType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="CONSTRUCTIONPLAN"/>
+			<xs:enumeration value="NEIGHBOURCONSTRUCTION"/>
+			<xs:enumeration value="EXTERNALAREA"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_SyncMode">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="DISABLED"/>
+			<xs:enumeration value="ENABLED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_TransactionType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="RECEIPT"/>
+			<xs:enumeration value="BALANCE"/>
+			<xs:enumeration value="NOT_SPECIFIED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_UseType">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="NOT_SPECIFIED"/>
+			<xs:enumeration value="RETAIL"/>
+			<xs:enumeration value="GASTRONOMY"/>
+			<xs:enumeration value="OFFICE"/>
+			<xs:enumeration value="INDUSTRY"/>
+			<xs:enumeration value="PRODUCTION"/>
+			<xs:enumeration value="RESIDENTIAL"/>
+			<xs:enumeration value="WAREHOUSES_HALLS_LOGISTICS"/>
+			<xs:enumeration value="HOTEL"/>
+			<xs:enumeration value="LEISURE"/>
+			<xs:enumeration value="INDOOR_PARKING"/>
+			<xs:enumeration value="OUTDOOR_PARKING"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_VacancyReason">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="MARKET_RELATED"/>
+			<xs:enumeration value="FUTURE_CONTRACT"/>
+			<xs:enumeration value="UNECONOMIC"/>
+			<xs:enumeration value="DEMOLITION"/>
+			<xs:enumeration value="SALES_RELATED"/>
+			<xs:enumeration value="TECHNICAL_REASONS"/>
+			<xs:enumeration value="NOT_SPECIFIED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eTYPE_ValuationMethod">
+		<xs:restriction base="iTYPE_STRING">
+			<xs:enumeration value="DISCOUNTED_CASH_FLOW"/>
+			<xs:enumeration value="CAPITALIZATION_OF_INCOME"/>
+			<xs:enumeration value="REFERENCE_VALUE_METHOD"/>
+			<xs:enumeration value="ASSET_VALUE_METHOD"/>
+			<xs:enumeration value="INCOME_METHOD"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
