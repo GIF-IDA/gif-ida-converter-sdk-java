@@ -7,6 +7,6 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface WikiDataField {
-	String pageName();
+public @interface DataField {
+	String wikiPageName();
 }
