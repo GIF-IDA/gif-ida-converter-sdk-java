@@ -2,9 +2,8 @@ package org.zgif.model.subset_4_1;
 
 import java.util.List;
 
-import org.zgif.model.full.entity.Property;
 import org.zgif.model.node.AbstractDataRoot;
-
+import org.zgif.model.subset_4_1.entity.Property;
 
 public class DataRoot extends AbstractDataRoot {
 	private List<Property> listOfProp;
