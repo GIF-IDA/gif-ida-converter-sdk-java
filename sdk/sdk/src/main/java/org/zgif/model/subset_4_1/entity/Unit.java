@@ -1,5 +1,7 @@
 package org.zgif.model.subset_4_1.entity;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import org.joda.time.LocalDate;
 import org.zgif.model.annotation.DataField;
 import org.zgif.model.datatype.Amount;
@@ -15,18 +17,19 @@ import org.zgif.model.datatype.enumeration.UseType;
 import org.zgif.model.node.entity.AbstractUnit;
 import org.zgif.model.node.group.EnergyRating;
 
+@XmlRootElement
 public class Unit extends AbstractUnit {
 	@DataField(wikiPageName = "Wohnungskategorie")
 	private ApartmentType apartmentType;
-	@DataField(wikiPageName = "Achitektonische Gültigkeit Ab")
+	@DataField(wikiPageName = "Achitektonische Gï¿½ltigkeit Ab")
 	private LocalDate archValidFrom;
-	@DataField(wikiPageName = "Achitektonische Gültigkeit bis")
+	@DataField(wikiPageName = "Achitektonische Gï¿½ltigkeit bis")
 	private LocalDate archValidTo;
-	@DataField(wikiPageName = "Flächenmaß")
+	@DataField(wikiPageName = "Flï¿½chenmaï¿½")
 	private AreaMessurement areaMessure;
-	@DataField(wikiPageName = "Flächenart")
+	@DataField(wikiPageName = "Flï¿½chenart")
 	private AreaType areaType;
-	@DataField(wikiPageName = "Hebebühne")
+	@DataField(wikiPageName = "Hebebï¿½hne")
 	private Boolean autoLift;
 
 	@DataField(wikiPageName = "Balkon/Terrasse")
@@ -43,17 +46,17 @@ public class Unit extends AbstractUnit {
 
 	@DataField(wikiPageName = "Gartenbenutzung")
 	private Boolean garden;
-	@DataField(wikiPageName = "Gäste WC")
+	@DataField(wikiPageName = "Gï¿½ste WC")
 	private Boolean guestToilet;
 
-	@DataField(wikiPageName = "Hallen-/ Geschosshöhe")
+	@DataField(wikiPageName = "Hallen-/ Geschosshï¿½he")
 	private Double hallHeight;
-	@DataField(wikiPageName = "Einbauküche")
+	@DataField(wikiPageName = "Einbaukï¿½che")
 	private Boolean hasBuiltinKitchen;
-	@DataField(wikiPageName = "Möblierung")
+	@DataField(wikiPageName = "Mï¿½blierung")
 	private Boolean hasFurniture;
 
-	@DataField(wikiPageName = "Ausstattungsqualität")
+	@DataField(wikiPageName = "Ausstattungsqualitï¿½t")
 	private InteriorQuality interiorQuality;
 	@DataField(wikiPageName = "Einliegerwohnung")
 	private Boolean isLodgerFlat;
@@ -62,7 +65,7 @@ public class Unit extends AbstractUnit {
 	private Boolean lanCables;
 	@DataField(wikiPageName = "Modernisierungsdatum")
 	private LocalDate lastRefurbishmentDate;
-	@DataField(wikiPageName = "Vermietbare_Fläche")
+	@DataField(wikiPageName = "Vermietbare_Flï¿½che")
 	private Area lettableArea;
 	@DataField(wikiPageName = "Vermietbare_Anzahl")
 	private Double lettableUnits;
@@ -80,7 +83,7 @@ public class Unit extends AbstractUnit {
 	private Integer numberOfBathrooms;
 	@DataField(wikiPageName = "Anzahl Schlafzimmer")
 	private Integer numberOfBedrooms;
-	@DataField(wikiPageName = "Anzahl Parkflächen")
+	@DataField(wikiPageName = "Anzahl Parkflï¿½chen")
 	private Integer numberOfParkingSpaces;
 	@DataField(wikiPageName = "Anzahl Zimmer")
 	private Integer numberOfRooms;
@@ -91,7 +94,7 @@ public class Unit extends AbstractUnit {
 	@DataField(wikiPageName = "Als Ferienwohnung geeignet")
 	private Boolean summerResidencePractical;
 
-	@DataField(wikiPageName = "Exposeüberschrift")
+	@DataField(wikiPageName = "Exposeï¿½berschrift")
 	private String titleOfExposee;
 
 	@DataField(wikiPageName = "Nutzungsart")
