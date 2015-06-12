@@ -1,8 +1,10 @@
 package org.zgif.model.node.group;
 
 import org.zgif.model.annotation.DataField;
+import org.zgif.model.annotation.Node;
 import org.zgif.model.datatype.Country;
 
+@Node(parentNodes={})
 public class Address extends AbstractGroupNode {
 	@DataField(wikiPageName="Bezeichnung")
 	private String label;
@@ -12,7 +14,7 @@ public class Address extends AbstractGroupNode {
 	private String floor;
 	@DataField(wikiPageName="Hausnummer")
 	private String housenumber;
-	@DataField(wikiPageName="Straße")
+	@DataField(wikiPageName="Straï¿½e")
 	private String street;
 	@DataField(wikiPageName="Stadtteil")
 	private String district;
@@ -27,9 +29,9 @@ public class Address extends AbstractGroupNode {
 
 	@DataField(wikiPageName="Geografische Breite")
 	private Double latitude;
-	@DataField(wikiPageName="Geografische Länge")
+	@DataField(wikiPageName="Geografische Lï¿½nge")
 	private Double longitude;
 
-	@DataField(wikiPageName="Adresse veröffentlichen")
+	@DataField(wikiPageName="Adresse verï¿½ffentlichen")
 	private Boolean isPublic;
 }

@@ -1,6 +1,6 @@
 package org.zgif.model.subset_5_1;
 
-import java.util.List;
+import java.util.Map;
 
 import org.zgif.model.node.AbstractZGif;
 import org.zgif.model.node.Period;
@@ -8,7 +8,7 @@ import org.zgif.model.node.Period;
 public class ZGif extends AbstractZGif {
 
 	DataRoot data;
-	List<Period<DataRoot>> periods;
+	Map<String, Period<DataRoot>> periods;
 
 	public ZGif() {
 	}
@@ -21,11 +21,11 @@ public class ZGif extends AbstractZGif {
 		this.data = data;
 	}
 
-	public List<Period<DataRoot>> getPeriods() {
-		return periods;
-	}
+    public Map<String, Period<DataRoot>> getPeriods() {
+        return periods;
+    }
 
-	public void setPeriods(List<Period<DataRoot>> periods) {
-		this.periods = periods;
-	}
+    public void setPeriods(Map<String, Period<DataRoot>> periods) {
+        this.periods = periods;
+    }
 }

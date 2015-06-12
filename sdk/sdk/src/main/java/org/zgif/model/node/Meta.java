@@ -3,17 +3,31 @@ package org.zgif.model.node;
 import java.util.Locale;
 
 import org.joda.time.LocalDateTime;
+import org.zgif.model.annotation.DataField;
+import org.zgif.model.annotation.Node;
+import org.zgif.model.datatype.enumeration.Process;
 
+@Node(parentNodes={AbstractZGif.class})
 public final class Meta extends AbstractNode {
+    @DataField(wikiPageName="")
 	private String format;
+    @DataField(wikiPageName="")
 	private String version;
+    @DataField(wikiPageName="")
 	private Process process;
+    @DataField(wikiPageName="")
 	private Locale language = Locale.GERMANY;
+    @DataField(wikiPageName="")
 	private LocalDateTime created;
+    @DataField(wikiPageName="")
 	private LocalDateTime validated;
+    @DataField(wikiPageName="")
 	private String publisher;
+    @DataField(wikiPageName="")
 	private String creator;
+    @DataField(wikiPageName="")
 	private String validator;
+    @DataField(wikiPageName="")
 	private String description;
 
 	public Meta() {

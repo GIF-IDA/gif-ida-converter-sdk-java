@@ -12,17 +12,17 @@ import org.zgif.model.datatype.enumeration.ObjectCondition;
 import org.zgif.model.datatype.enumeration.RestorationStatus;
 import org.zgif.model.datatype.enumeration.UseType;
 import org.zgif.model.datatype.enumeration.VacancyReason;
-import org.zgif.model.node.entity.AbstractEntityNode;
+import org.zgif.model.node.entity.AbstractUnit;
 import org.zgif.model.node.group.EnergyRating;
 
-public class Unit extends AbstractEntityNode {
-	@DataField(wikiPageName = "Achitektonische Gültigkeit Ab")
+public class Unit extends AbstractUnit {
+	@DataField(wikiPageName = "Achitektonische Gï¿½ltigkeit Ab")
 	private LocalDate archValidFrom;
-	@DataField(wikiPageName = "Achitektonische Gültigkeit bis")
+	@DataField(wikiPageName = "Achitektonische Gï¿½ltigkeit bis")
 	private LocalDate archValidTo;
-	@DataField(wikiPageName = "Flächenmaß")
+	@DataField(wikiPageName = "Flï¿½chenmaï¿½")
 	private AreaMessurement areaMessure;
-	@DataField(wikiPageName = "Flächenart")
+	@DataField(wikiPageName = "Flï¿½chenart")
 	private AreaType areaType;
 
 	@DataField(wikiPageName = "Objektzustand")
@@ -33,17 +33,17 @@ public class Unit extends AbstractEntityNode {
 
 	@DataField(wikiPageName = "Modernisierungsdatum")
 	private LocalDate lastRefurbishmentDate;
-	@DataField(wikiPageName = "Vermietbare_Fläche")
+	@DataField(wikiPageName = "Vermietbare_Flï¿½che")
 	private Area lettableArea;
 	@DataField(wikiPageName = "Vermietbare_Anzahl")
 	private Double lettableUnits;
-	@DataField(wikiPageName = "Ermittelte_ortsübliche_Vergleichsmiete_der_Mieteinheit")
+	@DataField(wikiPageName = "Ermittelte_ortsï¿½bliche_Vergleichsmiete_der_Mieteinheit")
 	private Amount localReferenceRent;
 
 	@DataField(wikiPageName = "Modernisierungszustand")
 	private RestorationStatus modernisationStatus;
 
-	@DataField(wikiPageName = "Anzahl Parkflächen")
+	@DataField(wikiPageName = "Anzahl Parkflï¿½chen")
 	private Integer numberOfParkingSpaces;
 	@DataField(wikiPageName = "Anzahl Zimmer")
 	private Integer numberOfRooms;
@@ -53,7 +53,7 @@ public class Unit extends AbstractEntityNode {
 
 	@DataField(wikiPageName = "Nutzungsart")
 	private UseType useType;
-	@DataField(wikiPageName = "Nutzungsart (Kundenausprägung)")
+	@DataField(wikiPageName = "Nutzungsart (Kundenausprï¿½gung)")
 	private String useTypeCustomer;
 
 	@DataField(wikiPageName = "Leerstand")

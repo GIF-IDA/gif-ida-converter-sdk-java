@@ -1,8 +1,9 @@
 package org.zgif.model.node.entity;
 
-import org.zgif.model.annotation.Entity;
+import org.zgif.model.annotation.Node;
+import org.zgif.model.node.AbstractDataRoot;
 
-@Entity(wikiName="Mandanten")
+@Node(wikiName="Mandanten", parentNodes = {AbstractDataRoot.class})
 public abstract class AbstractCompany extends AbstractEntityNode {
 
 	public AbstractCompany() {

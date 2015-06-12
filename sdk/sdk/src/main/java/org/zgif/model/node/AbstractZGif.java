@@ -1,19 +1,21 @@
 package org.zgif.model.node;
 
+import org.zgif.model.annotation.Node;
 
+@Node(parentNodes = {})
 public abstract class AbstractZGif {
 
-	private Meta meta;
-	
-	public AbstractZGif() {
-	}
+    private Meta meta;
 
-	public Meta getMeta() {
-		return meta;
-	}
+    public AbstractZGif() {
+    }
 
-	public void setMeta(Meta meta) {
-		this.meta = meta;
-	}
+    public Meta getMeta() {
+        return meta;
+    }
+
+    public void setMeta(Meta meta) {
+        this.meta = meta;
+    }
 
 }

@@ -7,6 +7,7 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface Entity {
-	String wikiName();
+public @interface Node {
+	String wikiName() default "";
+	Class<?>[] parentNodes();
 }

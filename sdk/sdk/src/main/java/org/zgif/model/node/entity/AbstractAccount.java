@@ -1,8 +1,8 @@
 package org.zgif.model.node.entity;
 
-import org.zgif.model.annotation.Entity;
+import org.zgif.model.annotation.Node;
 
-@Entity(wikiName="Konto")
+@Node(wikiName="Konto", parentNodes = {AbstractProperty.class})
 public abstract class AbstractAccount extends AbstractEntityNode {
 
 	public AbstractAccount() {

@@ -2,11 +2,13 @@ package org.zgif.model.node.group;
 
 import org.joda.time.LocalDate;
 import org.zgif.model.annotation.DataField;
+import org.zgif.model.annotation.Node;
 import org.zgif.model.datatype.enumeration.EnergyEfficiencyCategory;
 import org.zgif.model.datatype.enumeration.EnergyRatingCategory;
 import org.zgif.model.datatype.enumeration.EnergyRatingType;
 import org.zgif.model.datatype.enumeration.IssuanceReason;
 
+@Node(parentNodes={})
 public class EnergyRating extends AbstractGroupNode {
 	@DataField(wikiPageName="Energieausweis-Erstellungsdatum")
 	private LocalDate date;
@@ -23,7 +25,7 @@ public class EnergyRating extends AbstractGroupNode {
 	private Double energyConsumption;
 	@DataField(wikiPageName="CO2-Emission")
 	private Double co2Emission;
-	@DataField(wikiPageName="Primärenergiebedarf_%22Gesamtenergieeffizienz")
+	@DataField(wikiPageName="Primï¿½renergiebedarf_%22Gesamtenergieeffizienz")
 	private Double primaryEnergyDemand;
 	
 	

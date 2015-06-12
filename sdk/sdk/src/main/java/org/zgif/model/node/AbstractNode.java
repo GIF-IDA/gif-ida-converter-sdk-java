@@ -1,6 +1,7 @@
 package org.zgif.model.node;
 
 
+
 public class AbstractNode {
 	private ExtensionMap extensionMap = new ExtensionMap();
 	

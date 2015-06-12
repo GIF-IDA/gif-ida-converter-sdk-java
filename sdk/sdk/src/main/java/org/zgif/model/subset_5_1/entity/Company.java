@@ -7,7 +7,7 @@ import org.zgif.model.annotation.DataField;
 import org.zgif.model.node.entity.AbstractCompany;
 
 public class Company extends AbstractCompany {
-	@DataField(wikiPageName="Währung")
+	@DataField(wikiPageName="Wï¿½hrung")
 	private Currency currency;
 
 	@DataField(wikiPageName="Notiz")
@@ -37,7 +37,5 @@ public class Company extends AbstractCompany {
 
 	public void setListOfProp(List<Property> listOfProp) {
 		this.listOfProp = listOfProp;
-	}
-	
-	
+	}	
 }
