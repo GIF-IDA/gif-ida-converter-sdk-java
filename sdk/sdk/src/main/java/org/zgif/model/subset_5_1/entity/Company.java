@@ -1,7 +1,7 @@
 package org.zgif.model.subset_5_1.entity;
 
 import java.util.Currency;
-import java.util.List;
+import java.util.Map;
 
 import org.zgif.model.annotation.DataField;
 import org.zgif.model.node.entity.AbstractCompany;
@@ -13,7 +13,7 @@ public class Company extends AbstractCompany {
 	@DataField(wikiPageName="Notiz")
 	private String note;
 	
-	private List<Property> listOfProp;
+	private Map<String, Property> listOfProp;
 
 	public Currency getCurrency() {
 		return currency;
@@ -31,11 +31,11 @@ public class Company extends AbstractCompany {
 		this.note = note;
 	}
 
-	public List<Property> getListOfProp() {
+	public Map<String, Property> getListOfProp() {
 		return listOfProp;
 	}
 
-	public void setListOfProp(List<Property> listOfProp) {
+	public void setListOfProp(Map<String, Property> listOfProp) {
 		this.listOfProp = listOfProp;
 	}	
 }

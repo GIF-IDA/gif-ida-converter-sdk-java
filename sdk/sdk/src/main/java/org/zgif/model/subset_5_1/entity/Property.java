@@ -1,7 +1,7 @@
 package org.zgif.model.subset_5_1.entity;
 
 import java.util.Currency;
-import java.util.List;
+import java.util.Map;
 
 import org.joda.time.LocalDate;
 import org.zgif.model.annotation.DataField;
@@ -13,17 +13,16 @@ import org.zgif.model.datatype.enumeration.ObjectCondition;
 import org.zgif.model.datatype.enumeration.RestorationStatus;
 import org.zgif.model.node.entity.AbstractProperty;
 import org.zgif.model.node.group.EnergyRating;
-import org.zgif.model.subset_4_1.entity.Building;
 
 public class Property extends AbstractProperty {
 
-	@DataField(wikiPageName = "Achitektonische Gültigkeit Ab")
+	@DataField(wikiPageName = "Achitektonische Gï¿½ltigkeit Ab")
 	private LocalDate archValidFrom;
-	@DataField(wikiPageName = "Achitektonische Gültigkeit bis")
+	@DataField(wikiPageName = "Achitektonische Gï¿½ltigkeit bis")
 	private LocalDate archValidTo;
-	@DataField(wikiPageName = "Flächenmaß")
+	@DataField(wikiPageName = "Flï¿½chenmaï¿½")
 	private AreaMessurement areaMessurement;
-	@DataField(wikiPageName = "Flächenart")
+	@DataField(wikiPageName = "Flï¿½chenart")
 	private AreaType areaType;
 	@DataField(wikiPageName = "Asset_Manager")
 	private String assetManager;
@@ -32,7 +31,7 @@ public class Property extends AbstractProperty {
 	private ObjectCondition condition;
 	@DataField(wikiPageName = "Datum der Fertigstellung/Errichtung")
 	private LocalDate constructionDate;
-	@DataField(wikiPageName = "Währung")
+	@DataField(wikiPageName = "Wï¿½hrung")
 	private Currency currency;
 
 	@DataField(wikiPageName = "Facility_Manager")
@@ -48,7 +47,7 @@ public class Property extends AbstractProperty {
 
 	@DataField(wikiPageName = "Notiz")
 	private String note;
-	@DataField(wikiPageName = "Anzahl Parkflächen")
+	@DataField(wikiPageName = "Anzahl Parkflï¿½chen")
 	private Integer numberOfParkingSpaces;
 	@DataField(wikiPageName = "Zimmer")
 	private Integer numberOfRooms;
@@ -61,7 +60,7 @@ public class Property extends AbstractProperty {
 	@DataField(wikiPageName = "Eigentumsanteil")
 	private Double ownershipShare;
 
-	@DataField(wikiPageName = "Grundstücksgröße")
+	@DataField(wikiPageName = "Grundstï¿½cksgrï¿½ï¿½e")
 	private Amount plotArea;
 	@DataField(wikiPageName = "Portfolio")
 	private String portfolioName;
@@ -76,9 +75,9 @@ public class Property extends AbstractProperty {
 
 	private EnergyRating lastEnergyRating;
 
-	private List<Building> listOfBuild;
-	private List<Lease> listOfLease;
-	private List<Account> listOfAcc;
+	private Map<String, Building> listOfBuild;
+	private Map<String, Lease> listOfLease;
+	private Map<String, Account> listOfAcc;
 
 	public LocalDate getArchValidFrom() {
 		return archValidFrom;
@@ -281,27 +280,28 @@ public class Property extends AbstractProperty {
 		this.lastEnergyRating = lastEnergyRating;
 	}
 
-	public List<Building> getListOfBuild() {
-		return listOfBuild;
-	}
+    public Map<String, Building> getListOfBuild() {
+        return listOfBuild;
+    }
 
-	public void setListOfBuild(List<Building> listOfBuild) {
-		this.listOfBuild = listOfBuild;
-	}
+    public void setListOfBuild(Map<String, Building> listOfBuild) {
+        this.listOfBuild = listOfBuild;
+    }
 
-	public List<Lease> getListOfLease() {
-		return listOfLease;
-	}
+    public Map<String, Lease> getListOfLease() {
+        return listOfLease;
+    }
 
-	public void setListOfLease(List<Lease> listOfLease) {
-		this.listOfLease = listOfLease;
-	}
+    public void setListOfLease(Map<String, Lease> listOfLease) {
+        this.listOfLease = listOfLease;
+    }
 
-	public List<Account> getListOfAcc() {
-		return listOfAcc;
-	}
+    public Map<String, Account> getListOfAcc() {
+        return listOfAcc;
+    }
 
-	public void setListOfAcc(List<Account> listOfAcc) {
-		this.listOfAcc = listOfAcc;
-	}
+    public void setListOfAcc(Map<String, Account> listOfAcc) {
+        this.listOfAcc = listOfAcc;
+    }
+
 }

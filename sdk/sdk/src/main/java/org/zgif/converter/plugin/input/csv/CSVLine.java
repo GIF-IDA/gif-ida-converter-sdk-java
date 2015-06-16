@@ -1,5 +1,6 @@
 package org.zgif.converter.plugin.input.csv;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -11,8 +12,6 @@ public class CSVLine<A extends AbstractNode> extends HashMap<String, String> {
     private static final long                             serialVersionUID = -9068446495268025416L;
 
     private static Map<Class<AbstractNode>, Set<String>> staticDatafieldMap;
-
-    
 
     private static void initializeDatafields(Class<AbstractNode> type) throws Exception {
         if (staticDatafieldMap == null) {
@@ -27,16 +26,19 @@ public class CSVLine<A extends AbstractNode> extends HashMap<String, String> {
     // ////////////////////////////
 
     private Set<String> datafields;
+    private Map<String, String> originalFields;
 
     @SuppressWarnings("unchecked")
     public CSVLine(Class<A> type) throws Exception {
         initializeDatafields((Class<AbstractNode>) type);
 
+        originalFields = new HashMap<String, String>();
         datafields = staticDatafieldMap.get(type);
     }
 
     @Override
     public String put(String key, String value) {
+        originalFields.put(key, value);
         String keyName = upperCase2CamelCase(key);
         if (datafields.contains(keyName)) {
             return super.put(keyName, value);
@@ -67,4 +69,10 @@ public class CSVLine<A extends AbstractNode> extends HashMap<String, String> {
     private static String camelCase2UpperCase(String camelCase) {
         return camelCase.replaceAll("(.)(\\p{Upper})", "$1_$2").toUpperCase();
     }
+
+    public Map<String, String> getOriginalFields() {
+        return Collections.unmodifiableMap(originalFields);
+    }
+    
+    
 }

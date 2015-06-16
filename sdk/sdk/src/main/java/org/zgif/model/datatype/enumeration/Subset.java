@@ -1,7 +1,7 @@
 package org.zgif.model.datatype.enumeration;
 
-public enum Process {
-    NONE, P3_1, P4_1, P4_2, P5_1, P5_2, P5_3, P5_4;
+public enum Subset {
+    NONE, S3_1, S4_1, S4_2, S5_1, S5_2, S5_3, S5_4;
 
     public String toString() {
         String name = this.name();
@@ -12,11 +12,11 @@ public enum Process {
         }
     }
 
-    public static Process fromString(String value) {
+    public static Subset fromString(String value) {
         if (value.toLowerCase().equals("none")) {
-            return Process.NONE;
+            return Subset.NONE;
         } else {
-            return Process.valueOf("P" + value.replaceAll("[.]", "_"));
+            return Subset.valueOf("P" + value.replaceAll("[.]", "_"));
         }
     }
 }

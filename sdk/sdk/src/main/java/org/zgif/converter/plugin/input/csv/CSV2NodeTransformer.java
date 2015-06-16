@@ -14,7 +14,7 @@ import org.joda.time.LocalDateTime;
 import org.joda.time.Period;
 import org.zgif.converter.sdk.ITransformContext;
 import org.zgif.converter.sdk.impl.BasicTransformer;
-import org.zgif.model.datatype.enumeration.Process;
+import org.zgif.model.datatype.enumeration.Subset;
 import org.zgif.model.node.AbstractNode;
 
 public class CSV2NodeTransformer<A extends AbstractNode> extends BasicTransformer<CSVLine<A>, A> {
@@ -69,7 +69,7 @@ public class CSV2NodeTransformer<A extends AbstractNode> extends BasicTransforme
                 } else if (Locale.class.isAssignableFrom(targetType)) {
                     // TODO: überprüfen
                     setValue = Locale.forLanguageTag(value);
-                } else if (targetType.getPackage() == Process.class.getPackage()) {
+                } else if (targetType.getPackage() == Subset.class.getPackage()) {
                     try {
                         Method fromString = targetType.getDeclaredMethod("fromString", String.class);
                         setValue = fromString.invoke(null, value);
@@ -98,7 +98,6 @@ public class CSV2NodeTransformer<A extends AbstractNode> extends BasicTransforme
 
         try {
             object = type.newInstance();
-          logger.debug(this.getClass().getSimpleName() + ".doTransform -> csvLine=" + csvLine);
             for (Entry<String, String> dataField : csvLine.entrySet()) {
                 try {
                     setValue(object, dataField.getKey(), dataField.getValue());

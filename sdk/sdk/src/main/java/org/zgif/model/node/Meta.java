@@ -5,7 +5,7 @@ import java.util.Locale;
 import org.joda.time.LocalDateTime;
 import org.zgif.model.annotation.DataField;
 import org.zgif.model.annotation.Node;
-import org.zgif.model.datatype.enumeration.Process;
+import org.zgif.model.datatype.enumeration.Subset;
 
 @Node(parentNodes={AbstractZGif.class})
 public final class Meta extends AbstractNode {
@@ -14,7 +14,7 @@ public final class Meta extends AbstractNode {
     @DataField(wikiPageName="")
 	private String version;
     @DataField(wikiPageName="")
-	private Process process;
+	private Subset process;
     @DataField(wikiPageName="")
 	private Locale language = Locale.GERMANY;
     @DataField(wikiPageName="")
@@ -50,11 +50,11 @@ public final class Meta extends AbstractNode {
 		this.version = version;
 	}
 
-	public Process getProcess() {
+	public Subset getProcess() {
 		return process;
 	}
 
-	public void setProcess(Process process) {
+	public void setProcess(Subset process) {
 		this.process = process;
 	}
 
