@@ -5,7 +5,7 @@
 Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-Generiert: 2015.06.18 um 11:56:39 AM CEST 
+Generiert: 2015.06.18 um 01:19:59 PM CEST 
 
   -->
   <jaxb:bindings scd="x-schema::">
@@ -17,21 +17,6 @@ Generiert: 2015.06.18 um 11:56:39 AM CEST
     </jaxb:bindings>
     <jaxb:bindings scd="~fTYPE_PERIODS">
       <jaxb:class ref="generated.FTYPEPERIODS"/>
-    </jaxb:bindings>
-    <jaxb:bindings scd="data">
-      <jaxb:class ref="generated.Data"/>
-    </jaxb:bindings>
-    <jaxb:bindings scd="~fTYPE_DATA">
-      <jaxb:class ref="generated.FTYPEDATA"/>
-    </jaxb:bindings>
-    <jaxb:bindings scd="~Companies">
-      <jaxb:class ref="generated.Companies"/>
-    </jaxb:bindings>
-    <jaxb:bindings scd="~Properties">
-      <jaxb:class ref="generated.Properties"/>
-    </jaxb:bindings>
-    <jaxb:bindings scd="~Accounts">
-      <jaxb:class ref="generated.Accounts"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~fTYPE_META">
       <jaxb:class ref="generated.FTYPEMETA"/>
@@ -60,6 +45,9 @@ Generiert: 2015.06.18 um 11:56:39 AM CEST
     <jaxb:bindings scd="~iTYPE_EXTENSION_MAP_KEY">
       <jaxb:class ref="generated.ITYPEEXTENSIONMAPKEY"/>
     </jaxb:bindings>
+    <jaxb:bindings scd="~Companies">
+      <jaxb:class ref="generated.Companies"/>
+    </jaxb:bindings>
     <jaxb:bindings scd="~Term">
       <jaxb:class ref="generated.Term"/>
     </jaxb:bindings>
@@ -71,6 +59,9 @@ Generiert: 2015.06.18 um 11:56:39 AM CEST
     </jaxb:bindings>
     <jaxb:bindings scd="~Unit">
       <jaxb:class ref="generated.Unit"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Properties">
+      <jaxb:class ref="generated.Properties"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~BookEntries">
       <jaxb:class ref="generated.BookEntries"/>
@@ -132,6 +123,9 @@ Generiert: 2015.06.18 um 11:56:39 AM CEST
     <jaxb:bindings scd="~Valuation">
       <jaxb:class ref="generated.Valuation"/>
     </jaxb:bindings>
+    <jaxb:bindings scd="~fTYPE_DATA">
+      <jaxb:class ref="generated.FTYPEDATA"/>
+    </jaxb:bindings>
     <jaxb:bindings scd="~TUNIT">
       <jaxb:class ref="generated.TUNIT"/>
     </jaxb:bindings>
@@ -143,6 +137,9 @@ Generiert: 2015.06.18 um 11:56:39 AM CEST
     </jaxb:bindings>
     <jaxb:bindings scd="~Company">
       <jaxb:class ref="generated.Company"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Accounts">
+      <jaxb:class ref="generated.Accounts"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~iTYPE_EXTENSION_MAP">
       <jaxb:class ref="generated.ITYPEEXTENSIONMAP"/>

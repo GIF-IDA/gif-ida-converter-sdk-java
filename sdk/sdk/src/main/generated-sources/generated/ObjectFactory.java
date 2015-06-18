@@ -2,7 +2,7 @@
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.06.18 um 11:56:39 AM CEST 
+// Generiert: 2015.06.18 um 01:19:59 PM CEST 
 //
 
 
@@ -56,46 +56,6 @@ public class ObjectFactory {
      */
     public FTYPEPERIODS createFTYPEPERIODS() {
         return new FTYPEPERIODS();
-    }
-
-    /**
-     * Create an instance of {@link Data }
-     * 
-     */
-    public Data createData() {
-        return new Data();
-    }
-
-    /**
-     * Create an instance of {@link FTYPEDATA }
-     * 
-     */
-    public FTYPEDATA createFTYPEDATA() {
-        return new FTYPEDATA();
-    }
-
-    /**
-     * Create an instance of {@link Companies }
-     * 
-     */
-    public Companies createCompanies() {
-        return new Companies();
-    }
-
-    /**
-     * Create an instance of {@link Properties }
-     * 
-     */
-    public Properties createProperties() {
-        return new Properties();
-    }
-
-    /**
-     * Create an instance of {@link Accounts }
-     * 
-     */
-    public Accounts createAccounts() {
-        return new Accounts();
     }
 
     /**
@@ -171,6 +131,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Companies }
+     * 
+     */
+    public Companies createCompanies() {
+        return new Companies();
+    }
+
+    /**
      * Create an instance of {@link Term }
      * 
      */
@@ -200,6 +168,14 @@ public class ObjectFactory {
      */
     public Unit createUnit() {
         return new Unit();
+    }
+
+    /**
+     * Create an instance of {@link Properties }
+     * 
+     */
+    public Properties createProperties() {
+        return new Properties();
     }
 
     /**
@@ -363,6 +339,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link FTYPEDATA }
+     * 
+     */
+    public FTYPEDATA createFTYPEDATA() {
+        return new FTYPEDATA();
+    }
+
+    /**
      * Create an instance of {@link TUNIT }
      * 
      */
@@ -392,6 +376,14 @@ public class ObjectFactory {
      */
     public Company createCompany() {
         return new Company();
+    }
+
+    /**
+     * Create an instance of {@link Accounts }
+     * 
+     */
+    public Accounts createAccounts() {
+        return new Accounts();
     }
 
     /**
