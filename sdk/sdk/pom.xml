@@ -5,6 +5,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>sdk</name>
 
+
+
+	<properties>
+		<jaxb.output.directory>${basedir}/src/main/generated-sources/</jaxb.output.directory>
+		<resourcesDir>${basedir}/src/main/resources</resourcesDir>
+	</properties>
+
 	<dependencies>
 
 		<dependency>
@@ -33,5 +40,140 @@
 		</dependency>
 
 	</dependencies>
+	
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${jaxb.output.directory}</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.3.2</version>
+					<configuration>
+						<source>1.7</source>
+						<target>1.7</target>
+						<compilerArgument></compilerArgument>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<configuration>
+						<archive>
+						</archive>
+						<descriptorRefs>
+							<descriptorRef>jar-with-dependencies</descriptorRef>
+						</descriptorRefs>
+						<finalName>api-java-sdk-${project.version}</finalName>
+						<appendAssemblyId>false</appendAssemblyId>
+					</configuration>
+					<executions>
+						<execution>
+							<phase>package</phase>
+							<goals>
+								<goal>single</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<profiles>
+		<profile>
+			<id>generateSources</id>
+			<build>
+				<plugins>
+					<!-- generate sources -->
+
+					<plugin>
+						<groupId>org.jvnet.jaxb2.maven2</groupId>
+						<artifactId>maven-jaxb2-plugin</artifactId>
+						<!-- <version>0.8.3</version>-->
+						 <version>0.9.1</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>generate</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<schemaDirectory>${resourcesDir}</schemaDirectory>
+							<catalog>${resourcesDir}/de/is24/common/webservice/xml/catalog.cat</catalog>
+							<catalogResolver>org.jvnet.jaxb2.maven2.resolver.tools.ClasspathCatalogResolver</catalogResolver>
+							<schemaIncludes>
+								<schemaInclude>**/*.xsd</schemaInclude>
+							</schemaIncludes>
+							<bindingIncludes>
+								<bindingInclude>**/*.xjb</bindingInclude>
+							</bindingIncludes>
+							<args>
+								<arg>-Xifins</arg>
+								<arg>-Xannotate</arg>
+							</args>
+							<verbose>true</verbose>
+							<extension>true</extension>
+							<generateDirectory>${jaxb.output.directory}</generateDirectory>
+							<plugins>
+								<plugin>
+									<groupId>org.jvnet.jaxb2_commons</groupId>
+									<artifactId>jaxb2-basics</artifactId>
+									<version>0.6.3</version>
+								</plugin>
+								<plugin>
+									<groupId>org.jvnet.jaxb2_commons</groupId>
+									<artifactId>jaxb2-basics-annotate</artifactId>
+									<version>0.6.3</version>
+								</plugin>
+							</plugins>
+						</configuration>
+						<dependencies>
+							<dependency>
+								<groupId>net.java.dev.jaxb2-commons</groupId>
+								<artifactId>jaxb-interface-insertion-plugin</artifactId>
+								<version>2.0</version>
+							</dependency>
+							<dependency>
+								<groupId>com.sun.xml.bind</groupId>
+								<artifactId>jaxb-impl</artifactId>
+								<version>2.2.7</version>
+								<type>jar</type>
+								<scope>compile</scope>
+							</dependency>
+							<dependency>
+								<groupId>com.sun.xml.bind</groupId>
+								<artifactId>jaxb-xjc</artifactId>
+								<version>2.2.7</version>
+								<type>jar</type>
+								<scope>compile</scope>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	
 
 </project>

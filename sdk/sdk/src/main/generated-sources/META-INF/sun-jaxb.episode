@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jaxb:bindings version="2.1" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
+Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
+Generiert: 2015.06.18 um 11:56:39 AM CEST 
+
+  -->
+  <jaxb:bindings scd="x-schema::">
+    <jaxb:schemaBindings map="false">
+      <jaxb:package name="generated"/>
+    </jaxb:schemaBindings>
+    <jaxb:bindings scd="~fTYPE_MANIFEST">
+      <jaxb:class ref="generated.FTYPEMANIFEST"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~fTYPE_PERIODS">
+      <jaxb:class ref="generated.FTYPEPERIODS"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="data">
+      <jaxb:class ref="generated.Data"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~fTYPE_DATA">
+      <jaxb:class ref="generated.FTYPEDATA"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Companies">
+      <jaxb:class ref="generated.Companies"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Properties">
+      <jaxb:class ref="generated.Properties"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Accounts">
+      <jaxb:class ref="generated.Accounts"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~fTYPE_META">
+      <jaxb:class ref="generated.FTYPEMETA"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Land">
+      <jaxb:class ref="generated.Land"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Building">
+      <jaxb:class ref="generated.Building"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Property">
+      <jaxb:class ref="generated.Property"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~LIST_OF_TUNIT">
+      <jaxb:class ref="generated.LISTOFTUNIT"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Lease">
+      <jaxb:class ref="generated.Lease"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Project">
+      <jaxb:class ref="generated.Project"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~BookEntry">
+      <jaxb:class ref="generated.BookEntry"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~iTYPE_EXTENSION_MAP_KEY">
+      <jaxb:class ref="generated.ITYPEEXTENSIONMAPKEY"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Term">
+      <jaxb:class ref="generated.Term"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~LIST_OF_HUNIT">
+      <jaxb:class ref="generated.LISTOFHUNIT"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~ServiceContract">
+      <jaxb:class ref="generated.ServiceContract"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Unit">
+      <jaxb:class ref="generated.Unit"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~BookEntries">
+      <jaxb:class ref="generated.BookEntries"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~iTYPE_EXTENSION_SUB_MAP">
+      <jaxb:class ref="generated.ITYPEEXTENSIONSUBMAP"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Lands">
+      <jaxb:class ref="generated.Lands"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~ServiceContracts">
+      <jaxb:class ref="generated.ServiceContracts"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~fTYPE_ZGIF">
+      <jaxb:class ref="generated.FTYPEZGIF"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~LIST_OF_HREC">
+      <jaxb:class ref="generated.LISTOFHREC"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Address">
+      <jaxb:class ref="generated.Address"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Area">
+      <jaxb:class ref="generated.Area"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Leases">
+      <jaxb:class ref="generated.Leases"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~HREC">
+      <jaxb:class ref="generated.HREC"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Projects">
+      <jaxb:class ref="generated.Projects"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~EnergyRating">
+      <jaxb:class ref="generated.EnergyRating"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Records">
+      <jaxb:class ref="generated.Records"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Valuations">
+      <jaxb:class ref="generated.Valuations"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Amount">
+      <jaxb:class ref="generated.Amount"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~iTYPE_EXTENSION_SUB_LIST_ITEM">
+      <jaxb:class ref="generated.ITYPEEXTENSIONSUBLISTITEM"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Terms">
+      <jaxb:class ref="generated.Terms"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Buildings">
+      <jaxb:class ref="generated.Buildings"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~iTYPE_EXTENSION_SUB_LIST">
+      <jaxb:class ref="generated.ITYPEEXTENSIONSUBLIST"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Valuation">
+      <jaxb:class ref="generated.Valuation"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~TUNIT">
+      <jaxb:class ref="generated.TUNIT"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Account">
+      <jaxb:class ref="generated.Account"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Units">
+      <jaxb:class ref="generated.Units"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Company">
+      <jaxb:class ref="generated.Company"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~iTYPE_EXTENSION_MAP">
+      <jaxb:class ref="generated.ITYPEEXTENSIONMAP"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Record">
+      <jaxb:class ref="generated.Record"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~HUNIT">
+      <jaxb:class ref="generated.HUNIT"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~SyncMode">
+      <jaxb:typesafeEnumClass ref="generated.SyncMode"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~DepositType">
+      <jaxb:typesafeEnumClass ref="generated.DepositType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~SiteConstrucibleType">
+      <jaxb:typesafeEnumClass ref="generated.SiteConstrucibleType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~MassUnit">
+      <jaxb:typesafeEnumClass ref="generated.MassUnit"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~RecordCategory">
+      <jaxb:typesafeEnumClass ref="generated.RecordCategory"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~EnergyEfficiencyCategory">
+      <jaxb:typesafeEnumClass ref="generated.EnergyEfficiencyCategory"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~AssetCategory">
+      <jaxb:typesafeEnumClass ref="generated.AssetCategory"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~ContractOption">
+      <jaxb:typesafeEnumClass ref="generated.ContractOption"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~AreaMeasurement">
+      <jaxb:typesafeEnumClass ref="generated.AreaMeasurement"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~LocationType">
+      <jaxb:typesafeEnumClass ref="generated.LocationType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~DevelopmentState">
+      <jaxb:typesafeEnumClass ref="generated.DevelopmentState"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~InteriorQuality">
+      <jaxb:typesafeEnumClass ref="generated.InteriorQuality"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~RetailLocationType">
+      <jaxb:typesafeEnumClass ref="generated.RetailLocationType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~UseType">
+      <jaxb:typesafeEnumClass ref="generated.UseType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~IndexAdjustmentDirection">
+      <jaxb:typesafeEnumClass ref="generated.IndexAdjustmentDirection"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Country">
+      <jaxb:typesafeEnumClass ref="generated.Country"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~IssuanceReason">
+      <jaxb:typesafeEnumClass ref="generated.IssuanceReason"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~RentIncreaseType">
+      <jaxb:typesafeEnumClass ref="generated.RentIncreaseType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~AccountingStandard">
+      <jaxb:typesafeEnumClass ref="generated.AccountingStandard"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~EnergyRatingType">
+      <jaxb:typesafeEnumClass ref="generated.EnergyRatingType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~DepositIncreaseType">
+      <jaxb:typesafeEnumClass ref="generated.DepositIncreaseType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~BillStatus">
+      <jaxb:typesafeEnumClass ref="generated.BillStatus"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~PortfolioType">
+      <jaxb:typesafeEnumClass ref="generated.PortfolioType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~TransactionType">
+      <jaxb:typesafeEnumClass ref="generated.TransactionType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~NumberType">
+      <jaxb:typesafeEnumClass ref="generated.NumberType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~RiskSegment">
+      <jaxb:typesafeEnumClass ref="generated.RiskSegment"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~EncumbranceType">
+      <jaxb:typesafeEnumClass ref="generated.EncumbranceType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~ConditionType">
+      <jaxb:typesafeEnumClass ref="generated.ConditionType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~ParkingSpaceType">
+      <jaxb:typesafeEnumClass ref="generated.ParkingSpaceType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~IndexationMethod">
+      <jaxb:typesafeEnumClass ref="generated.IndexationMethod"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~EnergySource">
+      <jaxb:typesafeEnumClass ref="generated.EnergySource"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~IndexRow">
+      <jaxb:typesafeEnumClass ref="generated.IndexRow"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~AssetAccountType">
+      <jaxb:typesafeEnumClass ref="generated.AssetAccountType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Sector">
+      <jaxb:typesafeEnumClass ref="generated.Sector"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~ServiceType">
+      <jaxb:typesafeEnumClass ref="generated.ServiceType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~Month">
+      <jaxb:typesafeEnumClass ref="generated.Month"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~ProjectType">
+      <jaxb:typesafeEnumClass ref="generated.ProjectType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~ApartmentType">
+      <jaxb:typesafeEnumClass ref="generated.ApartmentType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~RestorationStatus">
+      <jaxb:typesafeEnumClass ref="generated.RestorationStatus"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~LeaseContractType">
+      <jaxb:typesafeEnumClass ref="generated.LeaseContractType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~LoanType">
+      <jaxb:typesafeEnumClass ref="generated.LoanType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~DunningLevel">
+      <jaxb:typesafeEnumClass ref="generated.DunningLevel"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~HeatingType">
+      <jaxb:typesafeEnumClass ref="generated.HeatingType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~MonumentsType">
+      <jaxb:typesafeEnumClass ref="generated.MonumentsType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~EnergyRatingCategory">
+      <jaxb:typesafeEnumClass ref="generated.EnergyRatingCategory"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~ObjectCondition">
+      <jaxb:typesafeEnumClass ref="generated.ObjectCondition"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~ValuationMethod">
+      <jaxb:typesafeEnumClass ref="generated.ValuationMethod"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~VacancyReason">
+      <jaxb:typesafeEnumClass ref="generated.VacancyReason"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~AreaType">
+      <jaxb:typesafeEnumClass ref="generated.AreaType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~AccountingType">
+      <jaxb:typesafeEnumClass ref="generated.AccountingType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~OccupancyState">
+      <jaxb:typesafeEnumClass ref="generated.OccupancyState"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~OptRate">
+      <jaxb:typesafeEnumClass ref="generated.OptRate"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~PeriodValueType">
+      <jaxb:typesafeEnumClass ref="generated.PeriodValueType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~LegitTerminationDeadline">
+      <jaxb:typesafeEnumClass ref="generated.LegitTerminationDeadline"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~OwnershipType">
+      <jaxb:typesafeEnumClass ref="generated.OwnershipType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~AdjustmentType">
+      <jaxb:typesafeEnumClass ref="generated.AdjustmentType"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~BuildingType">
+      <jaxb:typesafeEnumClass ref="generated.BuildingType"/>
+    </jaxb:bindings>
+  </jaxb:bindings>
+</jaxb:bindings>
+

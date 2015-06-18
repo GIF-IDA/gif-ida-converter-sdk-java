@@ -1,0 +1,27 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.1">
+  <xs:include schemaLocation="types_internal.xsd"/>
+  <xs:include schemaLocation="types_enumeration.xsd"/>
+  <xs:include schemaLocation="types_sub.xsd"/>
+  <xs:include schemaLocation="entity_Record.xsd"/>
+  <xs:complexType name="BookEntries">
+    <xs:sequence>
+      <xs:element name="BOOK" type="BookEntry" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BookEntry">
+    <xs:sequence>
+      <xs:element name="accountingStandard" type="AccountingStandard" minOccurs="0"/>
+      <xs:element name="currency" type="iTYPE_CURRENCY" minOccurs="0"/>
+      <xs:element name="grossValue" type="Amount" minOccurs="0"/>
+      <xs:element name="netValue" type="Amount" minOccurs="0"/>
+      <xs:element name="text" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="transactionType" type="TransactionType" minOccurs="0"/>
+      <xs:element name="vat" type="iTYPE_DOUBLE" minOccurs="0"/>
+      <xs:element name="vatValue" type="Amount" minOccurs="0"/>
+      <xs:element name="extensionMap" type="iTYPE_EXTENSION_MAP" minOccurs="0"/>
+      <xs:element name="HREC" type="HREC" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="objectIdSender" type="iTYPE_STRING"/>
+    <xs:attribute name="objectIdReceiver" type="iTYPE_STRING"/>
+  </xs:complexType>
+</xs:schema>

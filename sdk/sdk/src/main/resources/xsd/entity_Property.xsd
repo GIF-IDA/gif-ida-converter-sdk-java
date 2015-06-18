@@ -1,0 +1,125 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.1">
+  <xs:include schemaLocation="types_internal.xsd"/>
+  <xs:include schemaLocation="types_enumeration.xsd"/>
+  <xs:include schemaLocation="types_sub.xsd"/>
+  <xs:include schemaLocation="entity_Unit.xsd"/>
+  <xs:include schemaLocation="entity_Project.xsd"/>
+  <xs:include schemaLocation="entity_Land.xsd"/>
+  <xs:include schemaLocation="entity_Building.xsd"/>
+  <xs:include schemaLocation="entity_Lease.xsd"/>
+  <xs:include schemaLocation="entity_ServiceContract.xsd"/>
+  <xs:include schemaLocation="entity_Valuation.xsd"/>
+  <xs:include schemaLocation="entity_Account.xsd"/>
+  <xs:include schemaLocation="entity_Record.xsd"/>
+  <xs:complexType name="Properties">
+    <xs:sequence>
+      <xs:element name="PROP" type="Property" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Property">
+    <xs:sequence>
+      <xs:element name="administrationCosts" type="Amount" minOccurs="0"/>
+      <xs:element name="airconditioning" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="archValidFrom" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="archValidTo" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="areaMeasurement" type="AreaMeasurement" minOccurs="0"/>
+      <xs:element name="areaType" type="AreaType" minOccurs="0"/>
+      <xs:element name="assetAccountType" type="AssetAccountType" minOccurs="0"/>
+      <xs:element name="assetCategory" type="AssetCategory" minOccurs="0"/>
+      <xs:element name="assetManager" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="assetValue" type="Amount" minOccurs="0"/>
+      <xs:element name="balcony" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="barrierfree" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="capitalIncome" type="Amount" minOccurs="0"/>
+      <xs:element name="cellar" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="condition" type="ObjectCondition" minOccurs="0"/>
+      <xs:element name="constructionDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="courtage" type="Amount" minOccurs="0"/>
+      <xs:element name="currency" type="iTYPE_CURRENCY" minOccurs="0"/>
+      <xs:element name="distanceToAirport" type="iTYPE_DOUBLE" minOccurs="0"/>
+      <xs:element name="distanceToHighway" type="iTYPE_DOUBLE" minOccurs="0"/>
+      <xs:element name="distanceToPublicTransport" type="iTYPE_DOUBLE" minOccurs="0"/>
+      <xs:element name="distanceToRailStation" type="iTYPE_DOUBLE" minOccurs="0"/>
+      <xs:element name="economicConstructionDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="elevator" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="facilityManager" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="fairValue" type="Amount" minOccurs="0"/>
+      <xs:element name="groundRent" type="Amount" minOccurs="0"/>
+      <xs:element name="heatingType" type="HeatingType" minOccurs="0"/>
+      <xs:element name="interiorQuality" type="InteriorQuality" minOccurs="0"/>
+      <xs:element name="ipdObjectId" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="ipdPortfolioId" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="lanCables" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="lastRefurbishmentDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="leasedArea" type="Area" minOccurs="0"/>
+      <xs:element name="locationClassificationType" type="LocationType" minOccurs="0"/>
+      <xs:element name="maintenanceCosts" type="Amount" minOccurs="0"/>
+      <xs:element name="marketRentalValue" type="Amount" minOccurs="0"/>
+      <xs:element name="modernisationStatus" type="RestorationStatus" minOccurs="0"/>
+      <xs:element name="monumentProtectionCategory" type="MonumentsType" minOccurs="0"/>
+      <xs:element name="netIncome" type="Amount" minOccurs="0"/>
+      <xs:element name="note" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="numberOfBathrooms" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="numberOfBedrooms" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="numberOfCanteen" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="numberOfParkingSpaces" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="numberOfRooms" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="operatingCosts" type="Amount" minOccurs="0"/>
+      <xs:element name="operatingCostsSettled" type="Amount" minOccurs="0"/>
+      <xs:element name="optRate" type="OptRate" minOccurs="0"/>
+      <xs:element name="otherCosts" type="Amount" minOccurs="0"/>
+      <xs:element name="ownerOccupation" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="ownershipShare" type="iTYPE_DOUBLE" minOccurs="0"/>
+      <xs:element name="ownershipType" type="OwnershipType" minOccurs="0"/>
+      <xs:element name="partialPurchase" type="Amount" minOccurs="0"/>
+      <xs:element name="partialSales" type="Amount" minOccurs="0"/>
+      <xs:element name="plotArea" type="Area" minOccurs="0"/>
+      <xs:element name="portfolioName" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="portfolioPartName" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="protfolioType" type="PortfolioType" minOccurs="0"/>
+      <xs:element name="propertyManager" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="purchaseAdditionalCosts" type="Amount" minOccurs="0"/>
+      <xs:element name="purchaseBrokerage" type="Amount" minOccurs="0"/>
+      <xs:element name="purchaseDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="purchaseGrossPrice" type="Amount" minOccurs="0"/>
+      <xs:element name="purchaseLegalFees" type="Amount" minOccurs="0"/>
+      <xs:element name="purchaseNetPrice" type="Amount" minOccurs="0"/>
+      <xs:element name="purchaseTransferTax" type="Amount" minOccurs="0"/>
+      <xs:element name="rentalIncomeAdditional" type="Amount" minOccurs="0"/>
+      <xs:element name="rentalIncomeMain" type="Amount" minOccurs="0"/>
+      <xs:element name="rented" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="retailLocation" type="RetailLocationType" minOccurs="0"/>
+      <xs:element name="riskStyle" type="RiskSegment" minOccurs="0"/>
+      <xs:element name="saleAdditionalCosts" type="Amount" minOccurs="0"/>
+      <xs:element name="saleBrokerage" type="Amount" minOccurs="0"/>
+      <xs:element name="saleDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="saleGrossPrice" type="Amount" minOccurs="0"/>
+      <xs:element name="saleNetPrice" type="Amount" minOccurs="0"/>
+      <xs:element name="saleTransferTax" type="Amount" minOccurs="0"/>
+      <xs:element name="titleOfExposee" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="totalApportionableCosts" type="Amount" minOccurs="0"/>
+      <xs:element name="totalGrossCosts" type="Amount" minOccurs="0"/>
+      <xs:element name="totalNetCosts" type="Amount" minOccurs="0"/>
+      <xs:element name="useTypePrimary" type="BuildingType" minOccurs="0"/>
+      <xs:element name="useTypeSecondary" type="BuildingType" minOccurs="0"/>
+      <xs:element name="vacancyOperatingCosts" type="Amount" minOccurs="0"/>
+      <xs:element name="valueIncreasingReconstructCosts" type="Amount" minOccurs="0"/>
+      <xs:element name="address" type="Address" minOccurs="0"/>
+      <xs:element name="extensionMap" type="iTYPE_EXTENSION_MAP" minOccurs="0"/>
+      <xs:element name="LIST_OF_UNIT" type="Units" minOccurs="0"/>
+      <xs:element name="LIST_OF_PROJ" type="Projects" minOccurs="0"/>
+      <xs:element name="LIST_OF_LAND" type="Lands" minOccurs="0"/>
+      <xs:element name="LIST_OF_BUILD" type="Buildings" minOccurs="0"/>
+      <xs:element name="LIST_OF_LEASE" type="Leases" minOccurs="0"/>
+      <xs:element name="LIST_OF_CON" type="ServiceContracts" minOccurs="0"/>
+      <xs:element name="LIST_OF_VAL" type="Valuations" minOccurs="0"/>
+      <xs:element name="LIST_OF_REC" type="Records" minOccurs="0"/>
+      <xs:element name="LIST_OF_ACC" type="Accounts" minOccurs="0" />
+    </xs:sequence>
+    <xs:attribute name="objectIdSender" type="iTYPE_STRING"/>
+    <xs:attribute name="objectIdReceiver" type="iTYPE_STRING"/>
+    <xs:attribute name="validFrom" type="iTYPE_LOCALDATE"/>
+    <xs:attribute name="validTo" type="iTYPE_LOCALDATE"/>
+    <xs:attribute name="label" type="iTYPE_STRING"/>
+  </xs:complexType>
+</xs:schema>

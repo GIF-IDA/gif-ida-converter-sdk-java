@@ -56,7 +56,7 @@ public class Property extends AbstractProperty {
 	private Amount operatingCosts;
 	@DataField(wikiPageName = "Abgerechnete Betriebskosten")
 	private Amount operatingCostsSettled;
-	// TODO: optRate - eTYPE_OptRate
+	// TODO: optRate - OptRate
 	@DataField(wikiPageName = "Eigentumsanteil")
 	private Double ownershipShare;
 

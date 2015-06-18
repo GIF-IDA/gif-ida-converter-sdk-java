@@ -1,13 +1,13 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.1">
 	<xs:include schemaLocation="types_internal.xsd"/>
-	<xs:simpleType name="eTYPE_AccountingType">
+	<xs:simpleType name="AccountingType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="INVOICE_FOR_PARTIAL_DELIVERY"/>
 			<xs:enumeration value="FINAL_INVOICE"/>
 			<xs:enumeration value="INDIVIDUAL_PAYMENT_PLAN"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_AccountingStandard">
+	<xs:simpleType name="AccountingStandard">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="HGB"/>
 			<xs:enumeration value="UGB"/>
@@ -17,14 +17,14 @@
 			<xs:enumeration value="OTHER"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_AdjustmentType">
+	<xs:simpleType name="AdjustmentType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="INDEX_ADJUSTMENT"/>
 			<xs:enumeration value="INDEX"/>
 			<xs:enumeration value="OTHER"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_ApartmentType">
+	<xs:simpleType name="ApartmentType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="ROOF_STOREY"/>
 			<xs:enumeration value="LOFT"/>
@@ -38,14 +38,14 @@
 			<xs:enumeration value="OTHER"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_AreaMeasurement">
+	<xs:simpleType name="AreaMeasurement">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="SQM"/>
 			<xs:enumeration value="SQFT"/>
 			<xs:enumeration value="NOT_SPECIFIED"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_AreaType">
+	<xs:simpleType name="AreaType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="OTHER"/>
 			<xs:enumeration value="DIN277"/>
@@ -56,7 +56,7 @@
 			<xs:enumeration value="NOT_SPECIFIED"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_AssetAccountType">
+	<xs:simpleType name="AssetAccountType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NOT_SPECIFIED"/>
 			<xs:enumeration value="CURRENT_ASSETS_UNDER_CONSTRUCTION"/>
@@ -70,7 +70,7 @@
 			<xs:enumeration value="CAPITAL_LAND_WITH_BUILDINGS"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_AssetCategory">
+	<xs:simpleType name="AssetCategory">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NOT_SPECIFIED"/>
 			<xs:enumeration value="CAPITAL"/>
@@ -80,7 +80,7 @@
 			<xs:enumeration value="GERMAN_CONDOMINIUM_ACT"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_BillStatus">
+	<xs:simpleType name="BillStatus">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NONE"/>
 			<xs:enumeration value="RECORDED"/>
@@ -89,7 +89,7 @@
 			<xs:enumeration value="CANCELED"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_BuildingType">
+	<xs:simpleType name="BuildingType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NOT_APPLIED"/>
 			<xs:enumeration value="RETAIL_BUILDING"/>
@@ -150,7 +150,7 @@
 			<xs:enumeration value="OTHER"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_ConditionType">
+	<xs:simpleType name="ConditionType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="BASE_RENT"/>
 			<xs:enumeration value="DEDUCTIONS"/>
@@ -220,7 +220,7 @@
 			<xs:enumeration value="OTHER_ADDITIONAL_COSTS"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_ContractOption">
+	<xs:simpleType name="ContractOption">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="PERMANENT"/>
 			<xs:enumeration value="TEMPORARY"/>
@@ -229,14 +229,14 @@
 			<xs:enumeration value="OTHER"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_DepositIncreaseType">
+	<xs:simpleType name="DepositIncreaseType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NONE"/>
 			<xs:enumeration value="INDEX"/>
 			<xs:enumeration value="SCALE"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_DepositType">
+	<xs:simpleType name="DepositType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NOT_AVAILABLE"/>
 			<xs:enumeration value="CASH_BOND"/>
@@ -246,16 +246,16 @@
 			<xs:enumeration value="GUARANTEE_PAYMENT_INSURANCE"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_DevelopmentState">
+	<xs:simpleType name="DevelopmentState">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="DEVELOPMENT"/>
 			<xs:enumeration value="COMPLETED"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_Dummy">
+	<xs:simpleType name="Dummy">
 		<xs:restriction base="iTYPE_STRING"/>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_DunningLevel">
+	<xs:simpleType name="DunningLevel">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NOT_AVAILABLE"/>
 			<xs:enumeration value="FIRST_REMINDER"/>
@@ -263,7 +263,7 @@
 			<xs:enumeration value="TERMINATION"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_EncumbranceType">
+	<xs:simpleType name="EncumbranceType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="MORTGAGE"/>
 			<xs:enumeration value="LAND_CHARGE"/>
@@ -272,7 +272,7 @@
 			<xs:enumeration value="NOT_SPECIFIED"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_EnergyEfficiencyCategory">
+	<xs:simpleType name="EnergyEfficiencyCategory">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="A_1PLUS"/>
 			<xs:enumeration value="A"/>
@@ -287,19 +287,19 @@
 			<xs:enumeration value="J"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_EnergyRatingCategory">
+	<xs:simpleType name="EnergyRatingCategory">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="RESIDENTIAL"/>
 			<xs:enumeration value="NON_RESIDENTIAL"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_EnergyRatingType">
+	<xs:simpleType name="EnergyRatingType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="USAGE_DEPENDING"/>
 			<xs:enumeration value="REQUIREMENTS_DEPENDING"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_EnergySource">
+	<xs:simpleType name="EnergySource">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="OIL"/>
 			<xs:enumeration value="LOCAL_DISTRICT_HEATING"/>
@@ -307,28 +307,28 @@
 			<xs:enumeration value="OTHER"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_HeatingType">
+	<xs:simpleType name="HeatingType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="CENTRAL_HEATING"/>
 			<xs:enumeration value="SINGLE_STORY_GAS_HEATING"/>
 			<xs:enumeration value="OTHER"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_IndexAdjustmentDirection">
+	<xs:simpleType name="IndexAdjustmentDirection">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="BOTH_DIRECTION"/>
 			<xs:enumeration value="POSITIVE_ONLY"/>
 			<xs:enumeration value="NOT_SPECIFIED"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_IndexationMethod">
+	<xs:simpleType name="IndexationMethod">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="BY_RHYTHM"/>
 			<xs:enumeration value="BY_MINIMUM_CHANGE"/>
 			<xs:enumeration value="NOT_SPECIFIED"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_IndexRow">
+	<xs:simpleType name="IndexRow">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="CPI"/>
 			<xs:enumeration value="BPI"/>
@@ -351,7 +351,7 @@
 			<xs:enumeration value="OTHER"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_InteriorQuality">
+	<xs:simpleType name="InteriorQuality">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="LUXURY"/>
 			<xs:enumeration value="SOPHISTICATED"/>
@@ -359,7 +359,7 @@
 			<xs:enumeration value="SIMPLE"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_IssuanceReason">
+	<xs:simpleType name="IssuanceReason">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NEW_CONSTRUCTION"/>
 			<xs:enumeration value="MODERNISATION"/>
@@ -368,7 +368,7 @@
 			<xs:enumeration value="OTHER"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_LeaseContractType">
+	<xs:simpleType name="LeaseContractType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NOT_SPECIFIED"/>
 			<xs:enumeration value="SINGLE_NET"/>
@@ -376,7 +376,7 @@
 			<xs:enumeration value="TRIPLE_NET"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_LegitTerminationDeadline">
+	<xs:simpleType name="LegitTerminationDeadline">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NOT_SPECIFIED"/>
 			<xs:enumeration value="EVERYDAY"/>
@@ -386,7 +386,7 @@
 			<xs:enumeration value="END_OF_YEAR"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_LoanType">
+	<xs:simpleType name="LoanType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="ANNUITY"/>
 			<xs:enumeration value="REDEEMABLE"/>
@@ -396,7 +396,7 @@
 			<xs:enumeration value="NOT_SPECIFIED"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_LocationType">
+	<xs:simpleType name="LocationType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NOT_SPECIFIED"/>
 			<xs:enumeration value="WS"/>
@@ -411,7 +411,7 @@
 			<xs:enumeration value="SO"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_MassUnit">
+	<xs:simpleType name="MassUnit">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="TONNE"/>
 			<xs:enumeration value="KILOGRAM"/>
@@ -422,7 +422,7 @@
 			<xs:enumeration value="OUNCE"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_Month">
+	<xs:simpleType name="Month">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="JANUARY"/>
 			<xs:enumeration value="FEBRUARY"/>
@@ -438,7 +438,7 @@
 			<xs:enumeration value="DECEMBER"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_MonumentsType">
+	<xs:simpleType name="MonumentsType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NO"/>
 			<xs:enumeration value="NOT_AVAILABLE"/>
@@ -447,14 +447,14 @@
 			<xs:enumeration value="OTHERS"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_NumberType">
+	<xs:simpleType name="NumberType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NOT_SPECIFIED"/>
 			<xs:enumeration value="PERCENT"/>
 			<xs:enumeration value="ABSOLUTE"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_ObjectCondition">
+	<xs:simpleType name="ObjectCondition">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NOT_AVAILABLE"/>
 			<xs:enumeration value="NEW"/>
@@ -462,7 +462,7 @@
 			<xs:enumeration value="IN_NEED_OF_REPAIR"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_OccupancyState">
+	<xs:simpleType name="OccupancyState">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="RENTED_AND_OCCUPIED_LEASER"/>
 			<xs:enumeration value="RENTED_AND_OCCUPIED_OWNER"/>
@@ -472,7 +472,7 @@
 			<xs:enumeration value="VACANCY"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_OptRate">
+	<xs:simpleType name="OptRate">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NOT_DEFINED"/>
 			<xs:enumeration value="FULL_TAX"/>
@@ -480,7 +480,7 @@
 			<xs:enumeration value="NO_TAX"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_OwnershipType">
+	<xs:simpleType name="OwnershipType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="DIRECT_PROPERTY"/>
 			<xs:enumeration value="LEASEHOLD"/>
@@ -488,7 +488,7 @@
 			<xs:enumeration value="FREEHOLDER"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_ParkingSpaceType">
+	<xs:simpleType name="ParkingSpaceType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NOT_AVAILABLE"/>
 			<xs:enumeration value="OUTDOOR"/>
@@ -498,7 +498,7 @@
 			<xs:enumeration value="CAR_PARK"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_PeriodValueType">
+	<xs:simpleType name="PeriodValueType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="ACTUAL"/>
 			<xs:enumeration value="PLAN"/>
@@ -507,7 +507,7 @@
 			<xs:enumeration value="OTHER"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_PortfolioType">
+	<xs:simpleType name="PortfolioType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="INSURANCE"/>
 			<xs:enumeration value="OPEN_PROPERTY_FUND"/>
@@ -517,7 +517,7 @@
 			<xs:enumeration value="OTHER"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_Process">
+	<xs:simpleType name="Process">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NONE"/>
 			<xs:enumeration value="3-1"/>
@@ -529,7 +529,7 @@
 			<xs:enumeration value="5-4"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_ProjectType">
+	<xs:simpleType name="ProjectType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NONE"/>
 			<xs:enumeration value="MAINTENANCE"/>
@@ -539,14 +539,14 @@
 			<xs:enumeration value="OTHER"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_RecordCategory">
+	<xs:simpleType name="RecordCategory">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="INVOICE"/>
 			<xs:enumeration value="CREDIT"/>
 			<xs:enumeration value="NOT_SPECIFIED"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_RentIncreaseType">
+	<xs:simpleType name="RentIncreaseType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NOT_SPECIFIED"/>
 			<xs:enumeration value="INDEX"/>
@@ -561,7 +561,7 @@
 			<xs:enumeration value="RENT_REVIEW"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_RestorationStatus">
+	<xs:simpleType name="RestorationStatus">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NOT_AVAILABLE"/>
 			<xs:enumeration value="FULLY_REFURBISHED"/>
@@ -570,7 +570,7 @@
 			<xs:enumeration value="OTHER"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_RetailLocationType">
+	<xs:simpleType name="RetailLocationType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="HIGH_STREET"/>
 			<xs:enumeration value="HIGH_STREET_BORDER_AREA"/>
@@ -583,7 +583,7 @@
 			<xs:enumeration value="UNKNOWN"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_RiskSegment">
+	<xs:simpleType name="RiskSegment">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NOT_DEFINED"/>
 			<xs:enumeration value="CORE"/>
@@ -592,7 +592,7 @@
 			<xs:enumeration value="OPPORTUNISTIC"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_Sector">
+	<xs:simpleType name="Sector">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NOT_AVAILABLE"/>
 			<xs:enumeration value="AUTOMOTIVE"/>
@@ -614,7 +614,7 @@
 			<xs:enumeration value="OTHERS"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_ServiceType">
+	<xs:simpleType name="ServiceType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NOT_SPECIFIED"/>
 			<xs:enumeration value="LIFT_MAINTENACE"/>
@@ -623,27 +623,27 @@
 			<xs:enumeration value="WINTER_SERVICE"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_SiteConstrucibleType">
+	<xs:simpleType name="SiteConstrucibleType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="CONSTRUCTIONPLAN"/>
 			<xs:enumeration value="NEIGHBOURCONSTRUCTION"/>
 			<xs:enumeration value="EXTERNALAREA"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_SyncMode">
+	<xs:simpleType name="SyncMode">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="DISABLED"/>
 			<xs:enumeration value="ENABLED"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_TransactionType">
+	<xs:simpleType name="TransactionType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="RECEIPT"/>
 			<xs:enumeration value="BALANCE"/>
 			<xs:enumeration value="NOT_SPECIFIED"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_UseType">
+	<xs:simpleType name="UseType">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="NOT_SPECIFIED"/>
 			<xs:enumeration value="RETAIL"/>
@@ -660,7 +660,7 @@
 			<xs:enumeration value="OTHER"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_VacancyReason">
+	<xs:simpleType name="VacancyReason">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="MARKET_RELATED"/>
 			<xs:enumeration value="FUTURE_CONTRACT"/>
@@ -671,7 +671,7 @@
 			<xs:enumeration value="NOT_SPECIFIED"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="eTYPE_ValuationMethod">
+	<xs:simpleType name="ValuationMethod">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:enumeration value="DISCOUNTED_CASH_FLOW"/>
 			<xs:enumeration value="CAPITALIZATION_OF_INCOME"/>

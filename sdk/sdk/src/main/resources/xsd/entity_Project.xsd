@@ -1,0 +1,37 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.1">
+  <xs:include schemaLocation="types_internal.xsd"/>
+  <xs:include schemaLocation="types_enumeration.xsd"/>
+  <xs:include schemaLocation="types_sub.xsd"/>
+  <xs:complexType name="Projects">
+    <xs:sequence>
+      <xs:element name="PROJ" type="Project" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Project">
+    <xs:sequence>
+      <xs:element name="accountingType" type="AccountingType" minOccurs="0"/>
+      <xs:element name="budget" type="Amount" minOccurs="0"/>
+      <xs:element name="capitalization" type="iTYPE_DECIMAL" minOccurs="0"/>
+      <xs:element name="contractAmount" type="Amount" minOccurs="0"/>
+      <xs:element name="costGroup" type="ProjectCostCategory" minOccurs="0"/>
+      <xs:element name="costTransfer" type="iTYPE_DECIMAL" minOccurs="0"/>
+      <xs:element name="craft" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="creditor" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="currency" type="iTYPE_CURRENCY" minOccurs="0"/>
+      <xs:element name="description" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="invoiceAmount" type="Amount" minOccurs="0"/>
+      <xs:element name="numberOfInvoices" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="projectType" type="ProjectType" minOccurs="0"/>
+      <xs:element name="serviceContractId" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="serviceType" type="ServiceType" minOccurs="0"/>
+      <xs:element name="specifications" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="address" type="Address" minOccurs="0"/>
+      <xs:element name="extensionMap" type="iTYPE_EXTENSION_MAP" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="objectIdSender" type="iTYPE_STRING"/>
+    <xs:attribute name="objectIdReceiver" type="iTYPE_STRING"/>
+    <xs:attribute name="validFrom" type="iTYPE_LOCALDATE"/>
+    <xs:attribute name="validTo" type="iTYPE_LOCALDATE"/>
+    <xs:attribute name="label" type="iTYPE_STRING"/>
+  </xs:complexType>
+</xs:schema>

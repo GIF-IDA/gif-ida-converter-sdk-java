@@ -1,27 +1,27 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.1">
 	<xs:include schemaLocation="types_internal.xsd"/>
 	<xs:include schemaLocation="types_enumeration.xsd"/>
-	<xs:complexType name="TYPE_Amount">
+	<xs:complexType name="Amount">
 		<xs:simpleContent>
 			<xs:extension base="iTYPE_DOUBLE">
 				<xs:attribute name="currency" type="iTYPE_CURRENCY" use="required"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:complexType name="TYPE_Area">
+	<xs:complexType name="Area">
 		<xs:simpleContent>
 			<xs:extension base="iTYPE_DOUBLE">
-				<xs:attribute name="areaType" type="eTYPE_AreaType" use="required"/>
-				<xs:attribute name="areaMeasurement" type="eTYPE_AreaMeasurement" use="required"/>
+				<xs:attribute name="areaType" type="AreaType" use="required"/>
+				<xs:attribute name="areaMeasurement" type="AreaMeasurement" use="required"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	<xs:simpleType name="TYPE_ProjectCostCategory">
+	<xs:simpleType name="ProjectCostCategory">
 		<xs:restriction base="iTYPE_STRING">
 			<xs:pattern value="[1-9][0-9]{2}"/>
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:simpleType name="TYPE_Country">
+	<xs:simpleType name="Country">
 		<xs:annotation>
 			<xs:documentation>Two-letter (alpha-2) ISO 3166-1 code for one of the 243 countries.</xs:documentation>
 		</xs:annotation>
@@ -514,7 +514,7 @@
 			<!-- ZIMBABWE -->
 		</xs:restriction>
 	</xs:simpleType>
-	<xs:complexType name="TYPE_ADDRESS">
+	<xs:complexType name="Address">
 		<xs:all>
 			<xs:element name="label" type="iTYPE_STRING" minOccurs="0"/>
 			<xs:element name="floorLocation" type="iTYPE_STRING" minOccurs="0"/>
@@ -525,19 +525,19 @@
 			<xs:element name="zip" type="iTYPE_STRING" minOccurs="0"/>
 			<xs:element name="city" type="iTYPE_STRING" minOccurs="0"/>
 			<xs:element name="region" type="iTYPE_STRING" minOccurs="0"/>
-			<xs:element name="country" type="TYPE_Country" minOccurs="0"/>
+			<xs:element name="country" type="Country" minOccurs="0"/>
 			<xs:element name="latitude" type="iTYPE_DOUBLE" minOccurs="0"/>
 			<xs:element name="longitude" type="iTYPE_DOUBLE" minOccurs="0"/>
 			<xs:element name="isPublic" type="iTYPE_BOOLEAN" minOccurs="0"/>
 		</xs:all>
 	</xs:complexType>
-	<xs:complexType name="TYPE_ENERGY_RATING">
+	<xs:complexType name="EnergyRating">
 		<xs:all>
 			<xs:element name="date" type="iTYPE_LOCALDATE" minOccurs="0"/>
-			<xs:element name="reason" type="eTYPE_IssuanceReason" minOccurs="0"/>
-			<xs:element name="ratingType" type="eTYPE_EnergyRatingType" minOccurs="0"/>
-			<xs:element name="ratingCategory" type="eTYPE_EnergyRatingCategory" minOccurs="0"/>
-			<xs:element name="energyEfficiencyClass" type="eTYPE_EnergyEfficiencyCategory" minOccurs="0"/>
+			<xs:element name="reason" type="IssuanceReason" minOccurs="0"/>
+			<xs:element name="ratingType" type="EnergyRatingType" minOccurs="0"/>
+			<xs:element name="ratingCategory" type="EnergyRatingCategory" minOccurs="0"/>
+			<xs:element name="energyEfficiencyClass" type="EnergyEfficiencyCategory" minOccurs="0"/>
 			<xs:element name="energyConsumption" type="iTYPE_DOUBLE" minOccurs="0"/>
 			<xs:element name="co2Emission" type="iTYPE_DOUBLE" minOccurs="0"/>
 			<xs:element name="primaryEnergyDemand" type="iTYPE_DOUBLE" minOccurs="0"/>

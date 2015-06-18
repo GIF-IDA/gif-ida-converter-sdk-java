@@ -1,0 +1,55 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.1">
+  <xs:include schemaLocation="types_internal.xsd"/>
+  <xs:include schemaLocation="types_enumeration.xsd"/>
+  <xs:include schemaLocation="types_sub.xsd"/>
+  <xs:complexType name="Valuations">
+    <xs:sequence>
+      <xs:element name="VAL" type="Valuation" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Valuation">
+    <xs:sequence>
+      <xs:element name="buildingInDevelopmentState" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="contractRentDebit" type="Amount" minOccurs="0"/>
+      <xs:element name="currency" type="iTYPE_CURRENCY" minOccurs="0"/>
+      <xs:element name="discountRate" type="iTYPE_DOUBLE" minOccurs="0"/>
+      <xs:element name="effectiveArea" type="Area" minOccurs="0"/>
+      <xs:element name="effectiveAreaIndustry" type="Area" minOccurs="0"/>
+      <xs:element name="effectiveAreaOffice" type="Area" minOccurs="0"/>
+      <xs:element name="effectiveAreaOther" type="Area" minOccurs="0"/>
+      <xs:element name="effectiveAreaResidential" type="Area" minOccurs="0"/>
+      <xs:element name="effectiveAreaTrade" type="Area" minOccurs="0"/>
+      <xs:element name="expertName" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="fairValue" type="Amount" minOccurs="0"/>
+      <xs:element name="grossFairValue" type="Amount" minOccurs="0"/>
+      <xs:element name="internalValuation" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="lostSustainablyGrossYield" type="Amount" minOccurs="0"/>
+      <xs:element name="lostSustainablyGrossYieldIndustry" type="Amount" minOccurs="0"/>
+      <xs:element name="lostSustainablyGrossYieldOffice" type="Amount" minOccurs="0"/>
+      <xs:element name="lostSustainablyGrossYieldOther" type="Amount" minOccurs="0"/>
+      <xs:element name="lostSustainablyGrossYieldResidential" type="Amount" minOccurs="0"/>
+      <xs:element name="lostSustainablyGrossYieldTrade" type="Amount" minOccurs="0"/>
+      <xs:element name="method" type="ValuationMethod" minOccurs="0"/>
+      <xs:element name="ownershipShare" type="iTYPE_DOUBLE" minOccurs="0"/>
+      <xs:element name="sustainablyGrossYield" type="Amount" minOccurs="0"/>
+      <xs:element name="sustainablyGrossYieldIndustry" type="Amount" minOccurs="0"/>
+      <xs:element name="sustainablyGrossYieldOffice" type="Amount" minOccurs="0"/>
+      <xs:element name="sustainablyGrossYieldOther" type="Amount" minOccurs="0"/>
+      <xs:element name="sustainablyGrossYieldResidential" type="Amount" minOccurs="0"/>
+      <xs:element name="sustainablyGrossYieldTrade" type="Amount" minOccurs="0"/>
+      <xs:element name="vacantEffectiveAreaIndustry" type="Area" minOccurs="0"/>
+      <xs:element name="vacantEffectiveAreaOffice" type="Area" minOccurs="0"/>
+      <xs:element name="vacantEffectiveAreaOther" type="Area" minOccurs="0"/>
+      <xs:element name="vacantEffectiveAreaResidential" type="Area" minOccurs="0"/>
+      <xs:element name="vacantEffectiveAreaTrade" type="Area" minOccurs="0"/>
+      <xs:element name="valuationDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="energyRating" type="EnergyRating" minOccurs="0"/>
+      <xs:element name="extensionMap" type="iTYPE_EXTENSION_MAP" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="objectIdSender" type="iTYPE_STRING"/>
+    <xs:attribute name="objectIdReceiver" type="iTYPE_STRING"/>
+    <xs:attribute name="validFrom" type="iTYPE_LOCALDATE"/>
+    <xs:attribute name="validTo" type="iTYPE_LOCALDATE"/>
+    <xs:attribute name="label" type="iTYPE_STRING"/>
+  </xs:complexType>
+</xs:schema>

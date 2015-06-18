@@ -2,9 +2,9 @@
   <xs:include schemaLocation="types_internal.xsd"/>
   <xs:include schemaLocation="types_enumeration.xsd"/>
   <xs:include schemaLocation="types_sub.xsd"/>
-  <xs:include schemaLocation="entity_COM.xsd"/>
-  <xs:include schemaLocation="entity_PROP.xsd"/>
-  <xs:include schemaLocation="entity_ACC.xsd"/>
+  <xs:include schemaLocation="entity_Company.xsd"/>
+  <xs:include schemaLocation="entity_Property.xsd"/>
+  <xs:include schemaLocation="entity_Account.xsd"/>
   <xs:complexType name="fTYPE_MANIFEST">
     <xs:sequence>
       <xs:element name="file-entry" minOccurs="0" maxOccurs="unbounded">
@@ -44,14 +44,14 @@
           <xs:attribute name="from" type="iTYPE_DATE" use="required"/>
           <xs:attribute name="to" type="iTYPE_DATE" use="required"/>
           <xs:attribute name="periodType" type="iTYPE_PERIOD" use="required"/>
-          <xs:attribute name="valueType" type="eTYPE_PeriodValueType" use="required"/>
+          <xs:attribute name="valueType" type="PeriodValueType" use="required"/>
           <xs:attribute name="valueTypeName" type="iTYPE_STRING"/>
-          <xs:assert test="substring(concat(@from, '-01-01'), 1, 10) &lt;= substring(concat(@to, '-01-01'), 1, 10)">
+<!--           <xs:assert test="substring(concat(@from, '-01-01'), 1, 10) &lt;= substring(concat(@to, '-01-01'), 1, 10)">
             <xs:annotation>
               <xs:documentation>checks "from" is prior to "to"</xs:documentation>
               <xs:documentation xml:lang="de">prüft ob "from" zeitlich vor "to" ist</xs:documentation>
             </xs:annotation>
-          </xs:assert>
+          </xs:assert>-->
         </xs:complexType>
       </xs:element>
     </xs:sequence>
@@ -59,13 +59,13 @@
   <xs:complexType name="fTYPE_DATA">
     <xs:choice>
       <xs:sequence>
-        <xs:element name="LIST_OF_COM" type="TYPE_LIST_OF_COM"/>
+        <xs:element name="LIST_OF_COM" type="Companies"/>
       </xs:sequence>
       <xs:sequence>
-        <xs:element name="LIST_OF_PROP" type="TYPE_LIST_OF_PROP"/>
+        <xs:element name="LIST_OF_PROP" type="Properties"/>
       </xs:sequence>
       <xs:sequence>
-        <xs:element name="LIST_OF_ACC" type="TYPE_LIST_OF_ACC"/>
+        <xs:element name="LIST_OF_ACC" type="Accounts"/>
       </xs:sequence>
     </xs:choice>
   </xs:complexType>

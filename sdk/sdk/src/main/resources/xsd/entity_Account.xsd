@@ -1,0 +1,21 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.1">
+  <xs:include schemaLocation="types_enumeration.xsd"/>
+  <xs:include schemaLocation="entity_Record.xsd"/>
+  <xs:include schemaLocation="entity_BookEntry.xsd"/>
+  <xs:complexType name="Accounts">
+    <xs:sequence>
+      <xs:element name="ACC" type="Account" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Account">
+    <xs:sequence>
+      <xs:element name="accountingStandard" type="AccountingStandard" minOccurs="0"/>
+      <xs:element name="balancePosition" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="value" type="Amount" minOccurs="0"/>
+      <xs:element name="LIST_OF_REC" type="Records" minOccurs="0"/>
+      <xs:element name="LIST_OF_BOOK" type="BookEntries" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="objectIdSender" type="iTYPE_STRING"/>
+    <xs:attribute name="objectIdReceiver" type="iTYPE_STRING"/>
+  </xs:complexType>
+</xs:schema>

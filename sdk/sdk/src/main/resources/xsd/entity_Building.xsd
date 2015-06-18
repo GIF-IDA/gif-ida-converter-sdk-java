@@ -1,0 +1,64 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.1">
+  <xs:include schemaLocation="types_internal.xsd"/>
+  <xs:include schemaLocation="types_enumeration.xsd"/>
+  <xs:include schemaLocation="types_sub.xsd"/>
+  <xs:include schemaLocation="entity_Unit.xsd"/>
+  <xs:complexType name="Buildings">
+    <xs:sequence>
+      <xs:element name="BUILD" type="Building" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Building">
+    <xs:sequence>
+      <xs:element name="airconditioning" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="archValidFrom" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="archValidTo" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="areaMeasurement" type="AreaMeasurement" minOccurs="0"/>
+      <xs:element name="areaType" type="AreaType" minOccurs="0"/>
+      <xs:element name="assetAccountType" type="AssetAccountType" minOccurs="0"/>
+      <xs:element name="balcony" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="barrierFree" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="condition" type="ObjectCondition" minOccurs="0"/>
+      <xs:element name="constructionDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="courtage" type="Amount" minOccurs="0"/>
+      <xs:element name="cubature" type="iTYPE_DOUBLE" minOccurs="0"/>
+      <xs:element name="economicConstructionDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="elevator" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="energySource" type="EnergySource" minOccurs="0"/>
+      <xs:element name="floorload" type="iTYPE_DOUBLE" minOccurs="0"/>
+      <xs:element name="guestToilet" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="highVoltage" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="interiorQuality" type="InteriorQuality" minOccurs="0"/>
+      <xs:element name="lanCables" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="lastRefurbishmentDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="modernisationStatus" type="RestorationStatus" minOccurs="0"/>
+      <xs:element name="monumentProtectionCategory" type="MonumentsType" minOccurs="0"/>
+      <xs:element name="numberOfBathrooms" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="numberOfBedrooms" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="numberOfCanteen" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="numberOfFloors" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="numberOfParkingSpaces" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="numberOfRooms" type="iTYPE_INTEGER" minOccurs="0"/>
+      <xs:element name="ownerOccupation" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="ownershipShare" type="iTYPE_DOUBLE" minOccurs="0"/>
+      <xs:element name="propertyManager" type="iTYPE_STRING" minOccurs="0"/>
+      <xs:element name="purchaseDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
+      <xs:element name="ramp" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="rented" type="iTYPE_BOOLEAN" minOccurs="0"/>
+      <xs:element name="riskStyle" type="RiskSegment" minOccurs="0"/>
+      <xs:element name="saleGrossPrice" type="Amount" minOccurs="0"/>
+      <xs:element name="usableArea" type="Area" minOccurs="0"/>
+      <xs:element name="useTypePrimary" type="BuildingType" minOccurs="0"/>
+      <xs:element name="useTypeSecondary" type="BuildingType" minOccurs="0"/>
+      <xs:element name="address" type="Address" minOccurs="0"/>
+      <xs:element name="lastEnergyRating" type="EnergyRating" minOccurs="0"/>
+      <xs:element name="extensionMap" type="iTYPE_EXTENSION_MAP" minOccurs="0"/>
+      <xs:element name="LIST_OF_UNIT" type="LIST_OF_HUNIT" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="objectIdSender" type="iTYPE_STRING"/>
+    <xs:attribute name="objectIdReceiver" type="iTYPE_STRING"/>
+    <xs:attribute name="validFrom" type="iTYPE_LOCALDATE"/>
+    <xs:attribute name="validTo" type="iTYPE_LOCALDATE"/>
+    <xs:attribute name="label" type="iTYPE_STRING"/>
+  </xs:complexType>
+</xs:schema>
