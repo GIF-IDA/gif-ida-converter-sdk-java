@@ -9,7 +9,7 @@
 
 	<properties>
 		<jaxb.output.directory>${basedir}/src/main/generated-sources/</jaxb.output.directory>
-		<resourcesDir>${basedir}/src/main/resources</resourcesDir>
+		<resourcesDir>${basedir}/src/main/resources/xsd/model</resourcesDir>
 	</properties>
 
 	<dependencies>

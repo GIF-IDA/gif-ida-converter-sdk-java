@@ -6,7 +6,7 @@
     <xs:complexType>
       <xs:complexContent>
         <xs:extension base="fTYPE_DATA">
-       <!--    <xs:assert test="count(/data/LIST_OF_PROP) = 1" />
+           <xs:assert test="count(/data/LIST_OF_PROP) = 1" />
           <xs:assert test="count(/data/LIST_OF_ACC)  = 0" />
           <xs:assert test="count(/data/LIST_OF_COM)  = 0" />
           
@@ -152,7 +152,7 @@
           <xs:assert test="count(//UNIT[vacancyReason]) = 0" />
           <xs:assert test="count(//UNIT[endPriceMaintenance]) = 0" />
           <xs:assert test="count(//UNIT[useTypeCustomer]) = 0" />
-          <xs:assert test="count(//UNIT[propertyManager]) = 0" />-->
+          <xs:assert test="count(//UNIT[propertyManager]) = 0" />
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
