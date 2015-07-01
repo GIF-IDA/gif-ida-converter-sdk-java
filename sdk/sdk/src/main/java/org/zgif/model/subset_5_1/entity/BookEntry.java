@@ -9,26 +9,26 @@ import org.zgif.model.datatype.enumeration.TransactionType;
 import org.zgif.model.node.entity.AbstractBookEntry;
 
 public class BookEntry extends AbstractBookEntry {
-	// TODO:  AccountingStandard accountingStandard - ggf. AccountingType
-//	private AccountingStandard accountingStandard
+	// TODO: AccountingStandard accountingStandard - ggf. AccountingType
+	// private AccountingStandard accountingStandard
 
-	@DataField(wikiPageName="Währung")
+	@DataField(wikiPageName = "WÃ¤hrung")
 	private Currency currency;
-	
-	@DataField(wikiPageName="Bruttobetrag")
+
+	@DataField(wikiPageName = "Bruttobetrag")
 	private Amount grossValue;
 
-	@DataField(wikiPageName="Nettobetrag")
+	@DataField(wikiPageName = "Nettobetrag")
 	private Amount netValue;
 
-	@DataField(wikiPageName="Transaktionstyp")
+	@DataField(wikiPageName = "Transaktionstyp")
 	private TransactionType transactionType;
 
-	@DataField(wikiPageName="Mehrwertsteuersatz")
+	@DataField(wikiPageName = "Mehrwertsteuersatz")
 	private Double vat;
-	@DataField(wikiPageName="Mehrwertsteuerbetrag")
+	@DataField(wikiPageName = "Mehrwertsteuerbetrag")
 	private Amount vatValue;
-	
+
 	private List<Record> listOfRec;
 
 	public Currency getCurrency() {

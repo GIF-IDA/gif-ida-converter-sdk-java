@@ -19,13 +19,13 @@ import org.zgif.model.node.entity.AbstractProperty;
 public class Property extends AbstractProperty {
 	@DataField(wikiPageName = "Klimaanlage")
 	private Boolean airconditioning;
-	@DataField(wikiPageName = "Achitektonische G¸ltigkeit Ab")
+	@DataField(wikiPageName = "Achitektonische G√ºltigkeit Ab")
 	private LocalDate archValidFrom;
-	@DataField(wikiPageName = "Achitektonische G¸ltigkeit bis")
+	@DataField(wikiPageName = "Achitektonische G√ºltigkeit bis")
 	private LocalDate archValidTo;
-	@DataField(wikiPageName = "Fl‰chenmaﬂ")
+	@DataField(wikiPageName = "Fl√§chenma√ü")
 	private AreaMessurement areaMessurement;
-	@DataField(wikiPageName = "Fl‰chenart")
+	@DataField(wikiPageName = "Fl√§chenart")
 	private AreaType areaType;
 
 	@DataField(wikiPageName = "Balkon/Terrasse")
@@ -41,16 +41,16 @@ public class Property extends AbstractProperty {
 	private LocalDate constructionDate;
 	@DataField(wikiPageName = "Provisionsbetrag")
 	private Amount courtage;
-	@DataField(wikiPageName = "W‰hrung")
+	@DataField(wikiPageName = "W√§hrung")
 	private Currency currency;
 
-	@DataField(wikiPageName = "Entfernung zum n‰chsten Flughafen")
+	@DataField(wikiPageName = "Entfernung zum n√§chsten Flughafen")
 	private Double distanceToAirport;
-	@DataField(wikiPageName = "Entfernung zur n‰chsten Autobahn")
+	@DataField(wikiPageName = "Entfernung zur n√§chsten Autobahn")
 	private Double distanceToHighway;
-	@DataField(wikiPageName = "Entfernung zum ÷PNV")
+	@DataField(wikiPageName = "Entfernung zum √ñPNV")
 	private Double distanceToPublicTransport;
-	@DataField(wikiPageName = "Entfernung zum n‰chsten Bahnhof")
+	@DataField(wikiPageName = "Entfernung zum n√§chsten Bahnhof")
 	private Double distanceToRailStation;
 
 	@DataField(wikiPageName = "Aufzug")
@@ -59,7 +59,7 @@ public class Property extends AbstractProperty {
 	@DataField(wikiPageName = "Heizungsart")
 	private HeatingType heatingType;
 
-	@DataField(wikiPageName = "Ausstattungsqualit‰t")
+	@DataField(wikiPageName = "Ausstattungsqualit√§t")
 	private InteriorQuality interiorQuality;
 
 	@DataField(wikiPageName = "DV-Verkabelung")
@@ -80,7 +80,7 @@ public class Property extends AbstractProperty {
 	private Integer numberOfBedrooms;
 	@DataField(wikiPageName = "Anzahl der Kantinen")
 	private Integer numberOfCanteen;
-	@DataField(wikiPageName = "Anzahl Parkfl‰chen")
+	@DataField(wikiPageName = "Anzahl Parkfl√§chen")
 	private Integer numberOfParkingSpaces;
 	@DataField(wikiPageName = "Zimmer")
 	private Integer numberOfRooms;
@@ -88,7 +88,7 @@ public class Property extends AbstractProperty {
 	@DataField(wikiPageName = "Eigentumsanteil")
 	private Double ownershipShare;
 
-	@DataField(wikiPageName = "Grundst¸cksgrˆﬂe")
+	@DataField(wikiPageName = "Grundst√ºcksgr√∂√üe")
 	private Amount plotArea;
 	@DataField(wikiPageName = "Ankaufsdatum")
 	private LocalDate purchaseDate;
@@ -98,7 +98,7 @@ public class Property extends AbstractProperty {
 	@DataField(wikiPageName = "Vermietet")
 	private Boolean rented;
 
-	@DataField(wikiPageName = "Expose¸berschrift")
+	@DataField(wikiPageName = "Expose√ºberschrift")
 	private String titleOfExposee;
 
 	private List<Building> listOfBuild;
@@ -279,8 +279,7 @@ public class Property extends AbstractProperty {
 		return locationClassificationType;
 	}
 
-	public void setLocationClassificationType(
-			LocationType locationClassificationType) {
+	public void setLocationClassificationType(LocationType locationClassificationType) {
 		this.locationClassificationType = locationClassificationType;
 	}
 
@@ -296,8 +295,7 @@ public class Property extends AbstractProperty {
 		return monumentProtectionCategory;
 	}
 
-	public void setMonumentProtectionCategory(
-			MonumentsType monumentProtectionCategory) {
+	public void setMonumentProtectionCategory(MonumentsType monumentProtectionCategory) {
 		this.monumentProtectionCategory = monumentProtectionCategory;
 	}
 

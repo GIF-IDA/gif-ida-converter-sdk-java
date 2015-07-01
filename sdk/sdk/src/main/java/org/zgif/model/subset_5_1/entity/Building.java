@@ -15,13 +15,13 @@ import org.zgif.model.node.group.EnergyRating;
 
 public class Building extends AbstractBuilding {
 
-	@DataField(wikiPageName = "Achitektonische G¸ltigkeit Ab")
+	@DataField(wikiPageName = "Achitektonische G√ºltigkeit Ab")
 	private LocalDate archValidFrom;
-	@DataField(wikiPageName = "Achitektonische G¸ltigkeit bis")
+	@DataField(wikiPageName = "Achitektonische G√ºltigkeit bis")
 	private LocalDate archValidTo;
-	@DataField(wikiPageName = "Fl‰chenmaﬂ")
+	@DataField(wikiPageName = "Fl√§chenma√ü")
 	private AreaMessurement areaMessurement;
-	@DataField(wikiPageName = "Fl‰chenart")
+	@DataField(wikiPageName = "Fl√§chenart")
 	private AreaType areaType;
 
 	@DataField(wikiPageName = "Objektzustand")
@@ -41,7 +41,7 @@ public class Building extends AbstractBuilding {
 
 	@DataField(wikiPageName = "Etagenzahl")
 	private Integer numberOfFloors;
-	@DataField(wikiPageName = "Anzahl Parkfl‰chen")
+	@DataField(wikiPageName = "Anzahl Parkfl√§chen")
 	private Integer numberOfParkingSpaces;
 	@DataField(wikiPageName = "Zimmer")
 	private Integer numberOfRooms;
@@ -54,7 +54,7 @@ public class Building extends AbstractBuilding {
 	@DataField(wikiPageName = "Ankaufsdatum")
 	private LocalDate purchaseDate;
 
-	@DataField(wikiPageName = "Nutzfl‰che")
+	@DataField(wikiPageName = "Nutzfl√§che")
 	private Area usableArea;
 
 	// ////////////////////////////////////////////
@@ -139,8 +139,7 @@ public class Building extends AbstractBuilding {
 		return monumentProtectionCategory;
 	}
 
-	public void setMonumentProtectionCategory(
-			MonumentsType monumentProtectionCategory) {
+	public void setMonumentProtectionCategory(MonumentsType monumentProtectionCategory) {
 		this.monumentProtectionCategory = monumentProtectionCategory;
 	}
 

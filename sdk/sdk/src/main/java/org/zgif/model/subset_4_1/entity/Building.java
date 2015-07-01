@@ -17,89 +17,89 @@ import org.zgif.model.node.entity.AbstractBuilding;
 import org.zgif.model.node.group.EnergyRating;
 
 public class Building extends AbstractBuilding {
-	@DataField(wikiPageName="Klimaanlage")
+	@DataField(wikiPageName = "Klimaanlage")
 	private Boolean airconditioning;
-	@DataField(wikiPageName="Achitektonische G¸ltigkeit Ab")
+	@DataField(wikiPageName = "Achitektonische G√ºltigkeit Ab")
 	private LocalDate archValidFrom;
-	@DataField(wikiPageName="Achitektonische G¸ltigkeit bis")
+	@DataField(wikiPageName = "Achitektonische G√ºltigkeit bis")
 	private LocalDate archValidTo;
-	@DataField(wikiPageName="Fl‰chenmaﬂ")
+	@DataField(wikiPageName = "Fl√§chenma√ü")
 	private AreaMessurement areaMessurement;
-	@DataField(wikiPageName="Fl‰chenart")
+	@DataField(wikiPageName = "Fl√§chenart")
 	private AreaType areaType;
 
-	@DataField(wikiPageName="Balkon/Terrasse")
+	@DataField(wikiPageName = "Balkon/Terrasse")
 	private Boolean balcony;
-	@DataField(wikiPageName="Barrierefrei")
+	@DataField(wikiPageName = "Barrierefrei")
 	private Boolean barrierFree;
 
-	@DataField(wikiPageName="Objektzustand")
+	@DataField(wikiPageName = "Objektzustand")
 	private ObjectCondition condition;
-	@DataField(wikiPageName="Datum der Fertigstellung/Errichtung")
+	@DataField(wikiPageName = "Datum der Fertigstellung/Errichtung")
 	private LocalDate constructionDate;
-	@DataField(wikiPageName="Provisionsbetrag")
+	@DataField(wikiPageName = "Provisionsbetrag")
 	private Amount courtage;
 
-	@DataField(wikiPageName="Aufzug")
+	@DataField(wikiPageName = "Aufzug")
 	private Boolean elevator;
-	@DataField(wikiPageName="Befeuerungsart")
+	@DataField(wikiPageName = "Befeuerungsart")
 	private EnergySource energySource;
 
-	@DataField(wikiPageName="Deckenlast")
+	@DataField(wikiPageName = "Deckenlast")
 	private Double floorload;
 
-	@DataField(wikiPageName="G‰ste WC")
+	@DataField(wikiPageName = "G√§ste WC")
 	private Boolean guestToilet;
 
-	@DataField(wikiPageName="Starkstrom")
+	@DataField(wikiPageName = "Starkstrom")
 	private Boolean highVoltage;
 
-	@DataField(wikiPageName="Ausstattungsqualit‰t")
+	@DataField(wikiPageName = "Ausstattungsqualit√§t")
 	private InteriorQuality interiorQuality;
 
-	@DataField(wikiPageName="DV-Verkabelung")
+	@DataField(wikiPageName = "DV-Verkabelung")
 	private Boolean lanCables;
-	@DataField(wikiPageName="Modernisierungsdatum")
+	@DataField(wikiPageName = "Modernisierungsdatum")
 	private LocalDate lastRefurbishmentDate;
 
-	@DataField(wikiPageName="Modernisierungszustand")
+	@DataField(wikiPageName = "Modernisierungszustand")
 	private RestorationStatus modernisationStatus;
-	@DataField(wikiPageName="Denkmalschutz")
+	@DataField(wikiPageName = "Denkmalschutz")
 	private MonumentsType monumentProtectionCategory;
 
-	@DataField(wikiPageName="Anzahl Badezimmer")
+	@DataField(wikiPageName = "Anzahl Badezimmer")
 	private Integer numberOfBathrooms;
-	@DataField(wikiPageName="Anzahl Schlafzimmer")
+	@DataField(wikiPageName = "Anzahl Schlafzimmer")
 	private Integer numberOfBedrooms;
-	@DataField(wikiPageName="Anzahl der Kantinen")
+	@DataField(wikiPageName = "Anzahl der Kantinen")
 	private Integer numberOfCanteen;
-	@DataField(wikiPageName="Etagenzahl")
+	@DataField(wikiPageName = "Etagenzahl")
 	private Integer numberOfFloors;
-	@DataField(wikiPageName="Anzahl Parkfl‰chen")
+	@DataField(wikiPageName = "Anzahl Parkfl√§chen")
 	private Integer numberOfParkingSpaces;
-	@DataField(wikiPageName="Zimmer")
+	@DataField(wikiPageName = "Zimmer")
 	private Integer numberOfRooms;
 
-	@DataField(wikiPageName="Eigentumsanteil")
+	@DataField(wikiPageName = "Eigentumsanteil")
 	private Double ownershipShare;
 
-	@DataField(wikiPageName="Ankaufsdatum")
+	@DataField(wikiPageName = "Ankaufsdatum")
 	private LocalDate purchaseDate;
 
-	@DataField(wikiPageName="Rampe")
+	@DataField(wikiPageName = "Rampe")
 	private Boolean ramp;
-	@DataField(wikiPageName="Vermietet")
+	@DataField(wikiPageName = "Vermietet")
 	private Boolean rented;
 
-	@DataField(wikiPageName="Nutzfl‰che")
+	@DataField(wikiPageName = "Nutzfl√§che")
 	private Area usableArea;
 
-	//////////////////////////////////////////////
+	// ////////////////////////////////////////////
 
 	private EnergyRating lastEnergyRating;
-	
+
 	private List<Unit> listOfUnit;
-	
+
 	public Building() {
 	}
 
@@ -259,8 +259,7 @@ public class Building extends AbstractBuilding {
 		return monumentProtectionCategory;
 	}
 
-	public void setMonumentProtectionCategory(
-			MonumentsType monumentProtectionCategory) {
+	public void setMonumentProtectionCategory(MonumentsType monumentProtectionCategory) {
 		this.monumentProtectionCategory = monumentProtectionCategory;
 	}
 
@@ -367,6 +366,5 @@ public class Building extends AbstractBuilding {
 	public void setListOfUnit(List<Unit> listOfUnit) {
 		this.listOfUnit = listOfUnit;
 	}
-	
-	
+
 }

@@ -12,9 +12,9 @@ import org.zgif.model.datatype.enumeration.SiteConstrucibleType;
 import org.zgif.model.node.entity.AbstractEntityNode;
 
 public class Land extends AbstractEntityNode {
-	@DataField(wikiPageName = "Fl‰chenmaﬂ")
+	@DataField(wikiPageName = "Fl√§chenma√ü")
 	private AreaMessurement areaMessurement;
-	@DataField(wikiPageName = "Fl‰chenart")
+	@DataField(wikiPageName = "Fl√§chenart")
 	private AreaType areaType;
 
 	@DataField(wikiPageName = "Baugenehmigung")
@@ -34,10 +34,10 @@ public class Land extends AbstractEntityNode {
 	@DataField(wikiPageName = "Denkmalschutz")
 	private MonumentsType monumentProtectionCategory;
 
-	@DataField(wikiPageName = "Anzahl Parkfl‰chen")
+	@DataField(wikiPageName = "Anzahl Parkfl√§chen")
 	private Integer numberOfParkingSpaces;
 
-	@DataField(wikiPageName = "Grundst¸cksgrˆﬂe")
+	@DataField(wikiPageName = "Grundst√ºcksgr√∂√üe")
 	private Amount plotArea;
 	@DataField(wikiPageName = "Ankaufsdatum")
 	private LocalDate purchaseDate;
@@ -113,8 +113,7 @@ public class Land extends AbstractEntityNode {
 		return monumentProtectionCategory;
 	}
 
-	public void setMonumentProtectionCategory(
-			MonumentsType monumentProtectionCategory) {
+	public void setMonumentProtectionCategory(MonumentsType monumentProtectionCategory) {
 		this.monumentProtectionCategory = monumentProtectionCategory;
 	}
 
@@ -162,8 +161,7 @@ public class Land extends AbstractEntityNode {
 		return siteConstrucibleType;
 	}
 
-	public void setSiteConstrucibleType(
-			SiteConstrucibleType siteConstrucibleType) {
+	public void setSiteConstrucibleType(SiteConstrucibleType siteConstrucibleType) {
 		this.siteConstrucibleType = siteConstrucibleType;
 	}
 

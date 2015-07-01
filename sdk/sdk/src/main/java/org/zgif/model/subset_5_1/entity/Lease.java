@@ -16,23 +16,23 @@ import org.zgif.model.datatype.enumeration.Sector;
 import org.zgif.model.node.entity.AbstractLease;
 
 public class Lease extends AbstractLease {
-	@DataField(wikiPageName = "Akzeptierter Kündigungstermin")
+	@DataField(wikiPageName = "Akzeptierter KÃ¼ndigungstermin")
 	private LocalDate acceptedTerminationtDate;
 
 	@DataField(wikiPageName = "Ausgebuchte_Forderungen")
 	private Amount badDebt;
 	@DataField(wikiPageName = "Beginn_der_Mieteinzahlung")
 	private LocalDate beginRentPayment;
-	@DataField(wikiPageName = "Sonderkündigungsrecht")
+	@DataField(wikiPageName = "SonderkÃ¼ndigungsrecht")
 	private LocalDate breakOption;
 
 	@DataField(wikiPageName = "Sammelvertrag")
 	private String collectiveObjectIdSender;
 	@DataField(wikiPageName = "Vertragsabschlussdatum")
 	private LocalDate contractCompletionDate;
-	@DataField(wikiPageName = "Vertragsverlängerung um")
+	@DataField(wikiPageName = "VertragsverlÃ¤ngerung um")
 	private Period contractExtensionDuration;
-	@DataField(wikiPageName = "Währung")
+	@DataField(wikiPageName = "WÃ¤hrung")
 	private Currency currency;
 
 	@DataField(wikiPageName = "Debitor")
@@ -66,7 +66,7 @@ public class Lease extends AbstractLease {
 	@DataField(wikiPageName = "Mindestmietdauer")
 	private Period minRentalTime;
 
-	@DataField(wikiPageName = "Nationalität")
+	@DataField(wikiPageName = "NationalitÃ¤t")
 	private String nation;
 
 	@DataField(wikiPageName = "Saldo_Mieterkonto")
@@ -90,9 +90,9 @@ public class Lease extends AbstractLease {
 	@DataField(wikiPageName = "Branche")
 	private Sector sector;
 
-	@DataField(wikiPageName = "Kündigungsfrist")
+	@DataField(wikiPageName = "KÃ¼ndigungsfrist")
 	private Period terminationDuration;
-	@DataField(wikiPageName = "Datum des Kündigungseingangs")
+	@DataField(wikiPageName = "Datum des KÃ¼ndigungseingangs")
 	private LocalDate terminationReceiptDate;
 
 	@DataField(wikiPageName = "Turnover_Type_(Umsatzmiete)")
