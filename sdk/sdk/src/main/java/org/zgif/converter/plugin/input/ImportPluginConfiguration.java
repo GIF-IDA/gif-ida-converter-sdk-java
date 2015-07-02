@@ -12,15 +12,16 @@ import java.util.Map.Entry;
 import java.util.Properties;
 
 import org.zgif.converter.plugin.PluginConfiguration;
+import org.zgif.converter.plugin.output.ExportPluginConfiguration;
 
 /**
  * @author phoudek
- *
+ * 
  */
 public class ImportPluginConfiguration extends PluginConfiguration {
 
     private Map<String, InputStream> streams = new HashMap<String, InputStream>();
-    
+
     /**
      * @author phoudek
      * @param streams
@@ -31,7 +32,6 @@ public class ImportPluginConfiguration extends PluginConfiguration {
         this.streams = streams;
     }
 
-
     /**
      * @author phoudek
      * @return the streams
@@ -40,22 +40,25 @@ public class ImportPluginConfiguration extends PluginConfiguration {
         return streams;
     }
 
-
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see org.zgif.converter.plugin.PluginConfiguration#getAll()
      */
     @Override
     public Map<String, Object> getAll() {
         Map<String, Object> all = super.getAll();
-        
+
         all.putAll(this.streams);
-        
+
         return all;
     }
 
-
-    /* (non-Javadoc)
-     * @see org.zgif.converter.plugin.PluginConfiguration#load(java.lang.String, java.lang.Object)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.zgif.converter.plugin.PluginConfiguration#load(java.lang.String,
+     * java.lang.Object)
      */
     @Override
     protected void load(String key, Object value) {
@@ -70,14 +73,21 @@ public class ImportPluginConfiguration extends PluginConfiguration {
         }
     }
 
-
+    /**
+     * converted {@link Properties} object to {@link ImportPluginConfiguration}
+     * object
+     * 
+     * @param props
+     *            properties
+     * @return import plugin configuration
+     */
     public static ImportPluginConfiguration getConfigFromProperties(Properties props) {
         ImportPluginConfiguration config = new ImportPluginConfiguration();
-        
+
         for (Entry<Object, Object> entry : props.entrySet()) {
             config.load(entry.getKey().toString(), entry.getValue());
         }
-        
+
         return config;
     }
 }

@@ -2,10 +2,7 @@ package org.zgif.converter.plugin.output;
 
 import java.util.List;
 
-import javax.swing.JComponent;
-
 import org.zgif.converter.plugin.PluginComponent;
-import org.zgif.converter.plugin.PluginConfiguration;
 import org.zgif.model.datatype.enumeration.Subset;
 import org.zgif.model.node.AbstractZGif;
 

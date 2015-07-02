@@ -19,6 +19,7 @@ import org.zgif.model.subset_5_1.entity.Property;
  * 
  */
 public class PropertyConverter extends NodeConverter<Property> {
+    @SuppressWarnings("unused")
     private static Logger logger = Logger.getLogger(PropertyConverter.class);
 
     public PropertyConverter() {

@@ -29,6 +29,7 @@ import org.zgif.model.node.Meta;
  * 
  */
 public class Converter extends BasicConverter implements ImportPlugin {
+    @SuppressWarnings("unused")
     private static Logger        logger            = Logger.getLogger(Converter.class);
 
     public static final Subset[] SUPPORTED_SUBSETS = { Subset.S5_1 };
@@ -181,11 +182,7 @@ public class Converter extends BasicConverter implements ImportPlugin {
      * PluginConfiguration)
      */
     public void load(PluginConfiguration config) {
-        if (config instanceof ImportPluginConfiguration) {
-            load((ImportPluginConfiguration) config);
-        } else {
-            // TODO throw execption
-        }
+        load((ImportPluginConfiguration) config);
     }
 
     /*

@@ -8,16 +8,24 @@ import java.io.InputStreamReader;
 import org.apache.log4j.Logger;
 import org.zgif.model.node.AbstractNode;
 
-class CSVReader<A extends AbstractNode> {
-    private static Logger  logger       = Logger.getLogger(CSVReader.class);
+/**
+ * reader for a csv file
+ * 
+ * @author phoudek
+ * 
+ * @param <NodeType>
+ *            type of AbstractNode
+ */
+class CSVReader<NodeType extends AbstractNode> {
+    private static Logger   logger       = Logger.getLogger(CSVReader.class);
 
-    private String[]       headerData   = null;
-    private BufferedReader reader;
-    private Class<A>       type;
+    private String[]        headerData   = null;
+    private BufferedReader  reader;
+    private Class<NodeType> type;
 
-    private final String   seperateChar = ";(?=([^\\\"]*\\\"[^\\\"]*\\\")*(?![^\\\"]*\\\"))";
+    private final String    seperateChar = ";(?=([^\\\"]*\\\"[^\\\"]*\\\")*(?![^\\\"]*\\\"))";
 
-    public CSVReader(Class<A> type, InputStream stream) throws Exception {
+    public CSVReader(Class<NodeType> type, InputStream stream) throws IOException, Exception {
         this.type = type;
         this.reader = new BufferedReader(new InputStreamReader(stream));
 
@@ -32,14 +40,19 @@ class CSVReader<A extends AbstractNode> {
         headerData = header.split(this.seperateChar);
     }
 
-    public CSVLine<A> readLine() throws Exception {
+    /**
+     * reads a csv line
+     * @return csv line object of type <NodeType>
+     * @throws Exception 
+     */
+    public CSVLine<NodeType> readLine() throws Exception {
         String curLine = reader.readLine();
 
         if (curLine == null || curLine.isEmpty()) {
             return null;
         }
 
-        CSVLine<A> result = new CSVLine<A>(type);
+        CSVLine<NodeType> result = new CSVLine<NodeType>(type);
 
         String[] curData = curLine.split(this.seperateChar);
         for (int i = 0; i < curData.length; i++) {

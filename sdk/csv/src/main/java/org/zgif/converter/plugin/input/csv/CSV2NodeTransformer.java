@@ -17,16 +17,32 @@ import org.zgif.converter.sdk.impl.BasicTransformer;
 import org.zgif.model.datatype.enumeration.Subset;
 import org.zgif.model.node.AbstractNode;
 
-public class CSV2NodeTransformer<A extends AbstractNode> extends BasicTransformer<CSVLine<A>, A> {
-    private static Logger logger = Logger.getLogger(CSV2NodeTransformer.class);
+/**
+ * transforms a <code>CSVLine<A></code> to an <code>AbstractNode</code> of type
+ * <NodeType>
+ * 
+ * @author phoudek
+ * 
+ * @param <NodeType>
+ *            Type of the <code>AbstractNode</code> for transformer target
+ */
+public class CSV2NodeTransformer<NodeType extends AbstractNode> extends BasicTransformer<CSVLine<NodeType>, NodeType> {
+    private static Logger     logger = Logger.getLogger(CSV2NodeTransformer.class);
 
-    protected Class<A>    type;
+    protected Class<NodeType> type;
 
-    public CSV2NodeTransformer(Class<A> type) {
+    public CSV2NodeTransformer(Class<NodeType> type) {
         super();
         this.type = type;
     }
 
+    /**
+     * creates a map with all setters of a specific <code>AbstractNode</code>
+     * 
+     * @param type
+     *            type of the AbstractNode
+     * @return map of setters
+     */
     private Map<String, Method> getMethodMap(Class<?> type) {
         Map<String, Method> methodMap = new HashMap<String, Method>();
         Method[] methods = type.getMethods();
@@ -40,8 +56,17 @@ public class CSV2NodeTransformer<A extends AbstractNode> extends BasicTransforme
         return methodMap;
     }
 
-    protected void setValue(A object, String key, String value) throws NoSuchFieldException, IllegalAccessException, IllegalArgumentException,
-        InvocationTargetException, NoSuchMethodException, SecurityException {
+    /**
+     * calls the setter for an object
+     * 
+     * @param object
+     *            object to set the value
+     * @param key
+     *            name of the datafield / setter
+     * @param value
+     *            value to set
+     */
+    protected void setValue(NodeType object, String key, String value) {
         Map<String, Method> methodMap = getMethodMap(object.getClass());
         String methodName = "set" + key.substring(0, 1).toUpperCase() + key.substring(1);
 
@@ -70,6 +95,7 @@ public class CSV2NodeTransformer<A extends AbstractNode> extends BasicTransforme
                     // TODO: korrigieren
                     setValue = Locale.GERMANY;
                 } else if (targetType.getPackage() == Subset.class.getPackage()) {
+                    // type is enumeration:
                     try {
                         Method fromString = targetType.getDeclaredMethod("fromString", String.class);
                         setValue = fromString.invoke(null, value);
@@ -81,53 +107,49 @@ public class CSV2NodeTransformer<A extends AbstractNode> extends BasicTransforme
                         setValue = valueOf.invoke(null, value);
                     }
                 } else {
+                    // unknown type
                     setValue = null;
-                    logger.warn("unknown data type: " + targetType);
+                    logger.warn("unknown data type: " + targetType + " - value will be set to empty");
                 }
-            } catch (Exception ex) {
-                logger.error("error at converting value: " + value, ex);
-            }
 
-            method.invoke(object, setValue);
+                method.invoke(object, setValue);
+            } catch (IllegalArgumentException e) {
+                logger.error("could not set '" + key + "' to object " + object.toString() + " (plugin bug - please report bug of plugin)", e);
+            } catch (IllegalAccessException e) {
+                logger.error("could not set '" + key + "' to object " + object.toString() + " (plugin bug - please report bug of plugin)", e);
+            } catch (InvocationTargetException e) {
+                logger.error("could not set '" + key + "' to object " + object.toString() + " (plugin bug - please report bug of plugin)", e);
+            } catch (SecurityException e) {
+                logger.error("could not set '" + key + "' to object " + object.toString() + " (plugin bug - please report bug of plugin)", e);
+            } catch (NoSuchMethodException e) {
+                logger.error("could not set '" + key + "' to object " + object.toString() + " (plugin bug - please report bug of plugin)", e);
+            }
+        } else {
+            logger.error("could not set '" + key + "' to object " + object.toString() + ": no setter found for key (please report bug of plugin)");
         }
     }
 
+    /**
+     * (non-Javadoc)
+     * 
+     * @see org.zgif.converter.sdk.impl.BasicTransformer#doTransform
+     */
     @Override
-    protected A doTransform(CSVLine<A> csvLine, ITransformContext context) {
-        A object = null;
+    protected NodeType doTransform(CSVLine<NodeType> csvLine, ITransformContext context) {
+        NodeType object = null;
 
         try {
             object = type.newInstance();
             for (Entry<String, String> dataField : csvLine.entrySet()) {
-                try {
-                    setValue(object, dataField.getKey(), dataField.getValue());
-                } catch (SecurityException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (IllegalArgumentException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (NoSuchFieldException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (InvocationTargetException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } catch (NoSuchMethodException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
+                setValue(object, dataField.getKey(), dataField.getValue());
             }
-
-        } catch (IllegalAccessException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        } catch (InstantiationException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
+        } catch (IllegalAccessException e) {
+            logger.error("could not create object of type '" + type.toString() + "' (plugin bug - please report bug of plugin)", e);
+        } catch (InstantiationException e) {
+            logger.error("could not create object of type '" + type.toString() + "' (plugin bug - please report bug of plugin)", e);
         }
 
-        return (A) object;
+        return (NodeType) object;
     }
 
 }

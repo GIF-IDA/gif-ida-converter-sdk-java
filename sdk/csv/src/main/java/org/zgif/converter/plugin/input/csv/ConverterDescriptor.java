@@ -3,7 +3,6 @@ package org.zgif.converter.plugin.input.csv;
 import java.io.InputStream;
 
 import org.zgif.converter.sdk.IConverterDescriptor;
-import org.zgif.model.datatype.enumeration.Subset;
 
 /**
  * bean with csv data streams

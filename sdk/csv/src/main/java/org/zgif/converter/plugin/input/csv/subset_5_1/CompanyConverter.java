@@ -18,6 +18,7 @@ import org.zgif.model.subset_5_1.entity.Company;
  * 
  */
 public class CompanyConverter extends NodeConverter<Company> {
+    @SuppressWarnings("unused")
     private static Logger logger = Logger.getLogger(CompanyConverter.class);
 
     public CompanyConverter() {

@@ -65,9 +65,8 @@ abstract public class NodeConverter<Node extends AbstractNode> extends BasicConv
 
                 connectObjectWithZGif(obj, line);
             }
-        } catch (Exception e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
+        } catch (Exception e) {
+            logger.error("unable to read csv data and transform to model object", e);
         }
     }
 
@@ -106,8 +105,7 @@ abstract public class NodeConverter<Node extends AbstractNode> extends BasicConv
                 } catch ( SecurityException e) {
                     logger.info("no identifier getter found for class: " + type);
                 } catch (NoSuchMethodException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
+                    logger.info("no identifier getter found for class: " + type);
                 }
             }
         }

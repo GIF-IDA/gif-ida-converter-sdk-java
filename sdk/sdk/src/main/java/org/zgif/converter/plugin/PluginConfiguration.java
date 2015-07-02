@@ -3,28 +3,25 @@
  */
 package org.zgif.converter.plugin;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 import java.util.Map.Entry;
+import java.util.Properties;
 
 /**
  * @author phoudek
  * 
  */
 public class PluginConfiguration {
-    
-    private Map<String, Boolean> booleans = new HashMap<String, Boolean>();
-    private Map<String, Double>  doubles = new HashMap<String, Double>();
-    private Map<String, Integer> integers = new HashMap<String, Integer>();
-    private Map<String, Object>  objects = new HashMap<String, Object>();
-    private Map<String, String>  strings = new HashMap<String, String>();
-    protected Map<String, Object>  all        = new HashMap<String, Object>();
 
-    protected boolean              changedAll = false;
+    private Map<String, Boolean>  booleans   = new HashMap<String, Boolean>();
+    private Map<String, Double>   doubles    = new HashMap<String, Double>();
+    private Map<String, Integer>  integers   = new HashMap<String, Integer>();
+    private Map<String, Object>   objects    = new HashMap<String, Object>();
+    private Map<String, String>   strings    = new HashMap<String, String>();
+    protected Map<String, Object> all        = new HashMap<String, Object>();
+
+    protected boolean             changedAll = false;
 
     /**
      * @author phoudek
@@ -132,20 +129,46 @@ public class PluginConfiguration {
         }
         return all;
     }
-    
+
     protected void load(String key, Object value) {
-        this.objects.put(key, value);
+        if (key.startsWith("boolean-")) {
+            if (value instanceof Boolean) {
+                this.booleans.put(key.substring(8), (Boolean) value);
+            } else {
+                this.booleans.put(key.substring(8), Boolean.parseBoolean(value.toString()));
+            }
+        } else if (key.startsWith("double-")) {
+            if (value instanceof Double) {
+                this.doubles.put(key.substring(8), (Double) value);
+            } else {
+                this.doubles.put(key.substring(8), Double.parseDouble(value.toString()));
+            }
+        } else if (key.startsWith("integer-")) {
+            if (value instanceof Integer) {
+                this.integers.put(key.substring(8), (Integer) value);
+            } else {
+                this.integers.put(key.substring(8), Integer.parseInt(value.toString()));
+            }
+        } else if (key.startsWith("string-")) {
+            this.strings.put(key.substring(8), value.toString());
+        } else {
+            this.objects.put(key, value);
+        }
     }
 
+    /**
+     * converted {@link Properties} object to {@link PluginConfiguration} object 
+     * @param props properties
+     * @return plugin configuration
+     */
     public static PluginConfiguration getConfigFromProperties(Properties props) {
         PluginConfiguration config = new PluginConfiguration();
         for (Entry<Object, Object> entry : props.entrySet()) {
             String key = entry.getKey().toString();
 
-            // TODO: cast / convert
             config.load(key, entry.getValue());
         }
-        
+
         return config;
     }
 }
