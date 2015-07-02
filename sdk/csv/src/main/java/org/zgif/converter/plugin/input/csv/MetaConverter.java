@@ -11,9 +11,11 @@ public class MetaConverter extends NodeConverter<Meta> {
 
     @Override
     public void connectObjectWithZGif(Meta meta, CSVLine<Meta> csvLine) {
-        AbstractZGif zgif = this.descriptor.getZgif();
+        AbstractZGif zgif = Converter.getZGifBySubset(meta.getProcess());
         
-        zgif.setMeta(meta);        
+        zgif.setMeta(meta);      
+        
+        this.descriptor.setZgif(zgif);
     }
 
 }

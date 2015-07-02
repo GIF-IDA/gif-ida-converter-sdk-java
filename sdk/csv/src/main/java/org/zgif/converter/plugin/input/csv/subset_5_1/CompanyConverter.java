@@ -11,6 +11,12 @@ import org.zgif.model.subset_5_1.DataRoot;
 import org.zgif.model.subset_5_1.ZGif;
 import org.zgif.model.subset_5_1.entity.Company;
 
+/**
+ * converter for company zgif object
+ * 
+ * @author phoudek
+ * 
+ */
 public class CompanyConverter extends NodeConverter<Company> {
     private static Logger logger = Logger.getLogger(CompanyConverter.class);
 
@@ -18,6 +24,10 @@ public class CompanyConverter extends NodeConverter<Company> {
         super(Company.class);
     }
 
+    /**
+     * @see NodeConverter#connectObjectWithZGif(org.zgif.model.node.AbstractNode,
+     *      CSVLine)
+     */
     @Override
     public void connectObjectWithZGif(Company company, CSVLine<Company> csvLine) {
         ZGif zgif = (ZGif) descriptor.getZgif();

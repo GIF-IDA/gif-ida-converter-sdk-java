@@ -18,9 +18,9 @@ import org.zgif.model.datatype.enumeration.Subset;
 import org.zgif.model.node.AbstractNode;
 
 public class CSV2NodeTransformer<A extends AbstractNode> extends BasicTransformer<CSVLine<A>, A> {
-    private static Logger logger = Logger.getLogger( CSV2NodeTransformer.class );
-    
-    protected Class<A> type;
+    private static Logger logger = Logger.getLogger(CSV2NodeTransformer.class);
+
+    protected Class<A>    type;
 
     public CSV2NodeTransformer(Class<A> type) {
         super();
@@ -67,8 +67,8 @@ public class CSV2NodeTransformer<A extends AbstractNode> extends BasicTransforme
                     // TODO: überprüfen
                     setValue = Period.parse(value);
                 } else if (Locale.class.isAssignableFrom(targetType)) {
-                    // TODO: überprüfen
-                    setValue = Locale.forLanguageTag(value);
+                    // TODO: korrigieren
+                    setValue = Locale.GERMANY;
                 } else if (targetType.getPackage() == Subset.class.getPackage()) {
                     try {
                         Method fromString = targetType.getDeclaredMethod("fromString", String.class);
@@ -101,14 +101,28 @@ public class CSV2NodeTransformer<A extends AbstractNode> extends BasicTransforme
             for (Entry<String, String> dataField : csvLine.entrySet()) {
                 try {
                     setValue(object, dataField.getKey(), dataField.getValue());
-                } catch (NoSuchFieldException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException
-                    | SecurityException e) {
+                } catch (SecurityException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (IllegalArgumentException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (NoSuchFieldException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (NoSuchMethodException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
 
-        } catch (InstantiationException | IllegalAccessException e1) {
+        } catch (IllegalAccessException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (InstantiationException e1) {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }

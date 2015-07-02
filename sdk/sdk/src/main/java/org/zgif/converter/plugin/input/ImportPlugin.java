@@ -1,12 +1,28 @@
 package org.zgif.converter.plugin.input;
 
-import java.util.List;
-
-import org.zgif.model.datatype.enumeration.Subset;
+import org.zgif.converter.plugin.Plugin;
+import org.zgif.converter.plugin.PluginComponent;
 import org.zgif.model.node.AbstractZGif;
 
-public interface ImportPlugin {
-    public void doImport();
-    public List<Subset> getSupportedSubsets();
+/**
+ * interface for an import plugin
+ * 
+ * @author phoudek
+ * 
+ */
+public interface ImportPlugin extends Plugin {
+
+    public void load(ImportPluginConfiguration config);
+    
+    public ImportPluginConfiguration getRequiredConfigurationArguments();
+    
+    public PluginComponent<ImportPluginConfiguration> getConfigGui();
+    
+    /**
+     * returns the imported zgif object instance type depends of the subset
+     * definition in the meta data
+     * 
+     * @return zgif object
+     */
     public AbstractZGif getZgif();
 }

@@ -5,11 +5,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
 import org.zgif.model.Information;
 import org.zgif.model.node.AbstractNode;
 
 public class CSVLine<A extends AbstractNode> extends HashMap<String, String> {
-    private static final long                             serialVersionUID = -9068446495268025416L;
+    @SuppressWarnings("unused")
+    private static Logger                                logger           = Logger.getLogger(CSVLine.class);
+    private static final long                            serialVersionUID = -9068446495268025416L;
 
     private static Map<Class<AbstractNode>, Set<String>> staticDatafieldMap;
 
@@ -25,7 +28,7 @@ public class CSVLine<A extends AbstractNode> extends HashMap<String, String> {
 
     // ////////////////////////////
 
-    private Set<String> datafields;
+    private Set<String>         datafields;
     private Map<String, String> originalFields;
 
     @SuppressWarnings("unchecked")
@@ -46,17 +49,17 @@ public class CSVLine<A extends AbstractNode> extends HashMap<String, String> {
             return null;
         }
     }
-    
+
     private static String upperCase2CamelCase(String upperCase) {
         StringBuilder sb = new StringBuilder(upperCase.length());
-        
+
         boolean lastWasUnderscore = upperCase.contains(".");
         for (int i = 0; i < upperCase.length(); i++) {
             char curChar = upperCase.charAt(i);
-            
-            if(curChar == '_') {
+
+            if (curChar == '_') {
                 lastWasUnderscore = true;
-            } else if(lastWasUnderscore) {
+            } else if (lastWasUnderscore) {
                 sb.append(curChar);
                 lastWasUnderscore = false;
             } else {
@@ -65,7 +68,7 @@ public class CSVLine<A extends AbstractNode> extends HashMap<String, String> {
         }
         return sb.toString();
     }
-    
+
     private static String camelCase2UpperCase(String camelCase) {
         return camelCase.replaceAll("(.)(\\p{Upper})", "$1_$2").toUpperCase();
     }
@@ -73,6 +76,5 @@ public class CSVLine<A extends AbstractNode> extends HashMap<String, String> {
     public Map<String, String> getOriginalFields() {
         return Collections.unmodifiableMap(originalFields);
     }
-    
-    
+
 }

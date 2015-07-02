@@ -13,6 +13,12 @@ import org.zgif.model.subset_5_1.entity.Building;
 import org.zgif.model.subset_5_1.entity.Company;
 import org.zgif.model.subset_5_1.entity.Property;
 
+/**
+ * converter for building zgif object
+ * 
+ * @author phoudek
+ * 
+ */
 public class BuildingConverter extends NodeConverter<Building> {
     private static Logger logger = Logger.getLogger(BuildingConverter.class);
 
@@ -20,6 +26,9 @@ public class BuildingConverter extends NodeConverter<Building> {
         super(Building.class);
     }
 
+    /**
+     * @see NodeConverter#connectObjectWithZGif(org.zgif.model.node.AbstractNode, CSVLine)
+     */
     @Override
     public void connectObjectWithZGif(Building building, CSVLine<Building> csvLine) {
         ZGif zgif = (ZGif) descriptor.getZgif();

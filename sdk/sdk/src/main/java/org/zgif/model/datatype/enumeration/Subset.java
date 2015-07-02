@@ -16,7 +16,7 @@ public enum Subset {
         if (value.toLowerCase().equals("none")) {
             return Subset.NONE;
         } else {
-            return Subset.valueOf("P" + value.replaceAll("[.]", "_"));
+            return Subset.valueOf("S" + value.replaceAll("[.]", "_"));
         }
     }
 }
