@@ -21,7 +21,6 @@ import javax.swing.filechooser.FileFilter;
 import org.zgif.converter.plugin.PluginComponent;
 import org.zgif.converter.plugin.PluginConfiguration;
 import org.zgif.converter.plugin.input.ImportPluginConfiguration;
-import org.zgif.converter.plugin.output.ExportPluginConfiguration;
 
 /**
  * @author phoudek

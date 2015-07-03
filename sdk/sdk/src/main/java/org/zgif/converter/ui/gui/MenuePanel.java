@@ -10,8 +10,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import org.zgif.converter.ui.gui.SubsetComboBox.SubsetComboBoxModel;
-
 /**
  * @author phoudek
  * 

@@ -5,321 +5,321 @@
 Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-Generiert: 2015.06.18 um 01:19:59 PM CEST 
+Generiert: 2015.07.03 um 11:52:11 AM CEST 
 
   -->
   <jaxb:bindings scd="x-schema::">
     <jaxb:schemaBindings map="false">
-      <jaxb:package name="generated"/>
+      <jaxb:package name="org.zgif.model"/>
     </jaxb:schemaBindings>
     <jaxb:bindings scd="~fTYPE_MANIFEST">
-      <jaxb:class ref="generated.FTYPEMANIFEST"/>
+      <jaxb:class ref="org.zgif.model.FTYPEMANIFEST"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~fTYPE_PERIODS">
-      <jaxb:class ref="generated.FTYPEPERIODS"/>
+      <jaxb:class ref="org.zgif.model.FTYPEPERIODS"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~fTYPE_META">
-      <jaxb:class ref="generated.FTYPEMETA"/>
+      <jaxb:class ref="org.zgif.model.FTYPEMETA"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Land">
-      <jaxb:class ref="generated.Land"/>
+      <jaxb:class ref="org.zgif.model.Land"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Building">
-      <jaxb:class ref="generated.Building"/>
+      <jaxb:class ref="org.zgif.model.Building"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Property">
-      <jaxb:class ref="generated.Property"/>
+      <jaxb:class ref="org.zgif.model.Property"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~LIST_OF_TUNIT">
-      <jaxb:class ref="generated.LISTOFTUNIT"/>
+      <jaxb:class ref="org.zgif.model.LISTOFTUNIT"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Lease">
-      <jaxb:class ref="generated.Lease"/>
+      <jaxb:class ref="org.zgif.model.Lease"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Project">
-      <jaxb:class ref="generated.Project"/>
+      <jaxb:class ref="org.zgif.model.Project"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~BookEntry">
-      <jaxb:class ref="generated.BookEntry"/>
+      <jaxb:class ref="org.zgif.model.BookEntry"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~iTYPE_EXTENSION_MAP_KEY">
-      <jaxb:class ref="generated.ITYPEEXTENSIONMAPKEY"/>
+      <jaxb:class ref="org.zgif.model.ITYPEEXTENSIONMAPKEY"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Companies">
-      <jaxb:class ref="generated.Companies"/>
+      <jaxb:class ref="org.zgif.model.Companies"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Term">
-      <jaxb:class ref="generated.Term"/>
+      <jaxb:class ref="org.zgif.model.Term"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~LIST_OF_HUNIT">
-      <jaxb:class ref="generated.LISTOFHUNIT"/>
+      <jaxb:class ref="org.zgif.model.LISTOFHUNIT"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~ServiceContract">
-      <jaxb:class ref="generated.ServiceContract"/>
+      <jaxb:class ref="org.zgif.model.ServiceContract"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Unit">
-      <jaxb:class ref="generated.Unit"/>
+      <jaxb:class ref="org.zgif.model.Unit"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Properties">
-      <jaxb:class ref="generated.Properties"/>
+      <jaxb:class ref="org.zgif.model.Properties"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~BookEntries">
-      <jaxb:class ref="generated.BookEntries"/>
+      <jaxb:class ref="org.zgif.model.BookEntries"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~iTYPE_EXTENSION_SUB_MAP">
-      <jaxb:class ref="generated.ITYPEEXTENSIONSUBMAP"/>
+      <jaxb:class ref="org.zgif.model.ITYPEEXTENSIONSUBMAP"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Lands">
-      <jaxb:class ref="generated.Lands"/>
+      <jaxb:class ref="org.zgif.model.Lands"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~ServiceContracts">
-      <jaxb:class ref="generated.ServiceContracts"/>
+      <jaxb:class ref="org.zgif.model.ServiceContracts"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~fTYPE_ZGIF">
-      <jaxb:class ref="generated.FTYPEZGIF"/>
+      <jaxb:class ref="org.zgif.model.FTYPEZGIF"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~LIST_OF_HREC">
-      <jaxb:class ref="generated.LISTOFHREC"/>
+      <jaxb:class ref="org.zgif.model.LISTOFHREC"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Address">
-      <jaxb:class ref="generated.Address"/>
+      <jaxb:class ref="org.zgif.model.Address"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Area">
-      <jaxb:class ref="generated.Area"/>
+      <jaxb:class ref="org.zgif.model.Area"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Leases">
-      <jaxb:class ref="generated.Leases"/>
+      <jaxb:class ref="org.zgif.model.Leases"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~HREC">
-      <jaxb:class ref="generated.HREC"/>
+      <jaxb:class ref="org.zgif.model.HREC"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Projects">
-      <jaxb:class ref="generated.Projects"/>
+      <jaxb:class ref="org.zgif.model.Projects"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~EnergyRating">
-      <jaxb:class ref="generated.EnergyRating"/>
+      <jaxb:class ref="org.zgif.model.EnergyRating"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Records">
-      <jaxb:class ref="generated.Records"/>
+      <jaxb:class ref="org.zgif.model.Records"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Valuations">
-      <jaxb:class ref="generated.Valuations"/>
+      <jaxb:class ref="org.zgif.model.Valuations"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Amount">
-      <jaxb:class ref="generated.Amount"/>
+      <jaxb:class ref="org.zgif.model.Amount"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~iTYPE_EXTENSION_SUB_LIST_ITEM">
-      <jaxb:class ref="generated.ITYPEEXTENSIONSUBLISTITEM"/>
+      <jaxb:class ref="org.zgif.model.ITYPEEXTENSIONSUBLISTITEM"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Terms">
-      <jaxb:class ref="generated.Terms"/>
+      <jaxb:class ref="org.zgif.model.Terms"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Buildings">
-      <jaxb:class ref="generated.Buildings"/>
+      <jaxb:class ref="org.zgif.model.Buildings"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~iTYPE_EXTENSION_SUB_LIST">
-      <jaxb:class ref="generated.ITYPEEXTENSIONSUBLIST"/>
+      <jaxb:class ref="org.zgif.model.ITYPEEXTENSIONSUBLIST"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Valuation">
-      <jaxb:class ref="generated.Valuation"/>
+      <jaxb:class ref="org.zgif.model.Valuation"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~fTYPE_DATA">
-      <jaxb:class ref="generated.FTYPEDATA"/>
+      <jaxb:class ref="org.zgif.model.FTYPEDATA"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~TUNIT">
-      <jaxb:class ref="generated.TUNIT"/>
+      <jaxb:class ref="org.zgif.model.TUNIT"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Account">
-      <jaxb:class ref="generated.Account"/>
+      <jaxb:class ref="org.zgif.model.Account"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Units">
-      <jaxb:class ref="generated.Units"/>
+      <jaxb:class ref="org.zgif.model.Units"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Company">
-      <jaxb:class ref="generated.Company"/>
+      <jaxb:class ref="org.zgif.model.Company"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Accounts">
-      <jaxb:class ref="generated.Accounts"/>
+      <jaxb:class ref="org.zgif.model.Accounts"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~iTYPE_EXTENSION_MAP">
-      <jaxb:class ref="generated.ITYPEEXTENSIONMAP"/>
+      <jaxb:class ref="org.zgif.model.ITYPEEXTENSIONMAP"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Record">
-      <jaxb:class ref="generated.Record"/>
+      <jaxb:class ref="org.zgif.model.Record"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~HUNIT">
-      <jaxb:class ref="generated.HUNIT"/>
+      <jaxb:class ref="org.zgif.model.HUNIT"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~SyncMode">
-      <jaxb:typesafeEnumClass ref="generated.SyncMode"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.SyncMode"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~DepositType">
-      <jaxb:typesafeEnumClass ref="generated.DepositType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.DepositType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~SiteConstrucibleType">
-      <jaxb:typesafeEnumClass ref="generated.SiteConstrucibleType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.SiteConstrucibleType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~MassUnit">
-      <jaxb:typesafeEnumClass ref="generated.MassUnit"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.MassUnit"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~RecordCategory">
-      <jaxb:typesafeEnumClass ref="generated.RecordCategory"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.RecordCategory"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~EnergyEfficiencyCategory">
-      <jaxb:typesafeEnumClass ref="generated.EnergyEfficiencyCategory"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.EnergyEfficiencyCategory"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~AssetCategory">
-      <jaxb:typesafeEnumClass ref="generated.AssetCategory"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.AssetCategory"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~ContractOption">
-      <jaxb:typesafeEnumClass ref="generated.ContractOption"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.ContractOption"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~AreaMeasurement">
-      <jaxb:typesafeEnumClass ref="generated.AreaMeasurement"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.AreaMeasurement"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~LocationType">
-      <jaxb:typesafeEnumClass ref="generated.LocationType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.LocationType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~DevelopmentState">
-      <jaxb:typesafeEnumClass ref="generated.DevelopmentState"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.DevelopmentState"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~InteriorQuality">
-      <jaxb:typesafeEnumClass ref="generated.InteriorQuality"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.InteriorQuality"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~RetailLocationType">
-      <jaxb:typesafeEnumClass ref="generated.RetailLocationType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.RetailLocationType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~UseType">
-      <jaxb:typesafeEnumClass ref="generated.UseType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.UseType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~IndexAdjustmentDirection">
-      <jaxb:typesafeEnumClass ref="generated.IndexAdjustmentDirection"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.IndexAdjustmentDirection"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Country">
-      <jaxb:typesafeEnumClass ref="generated.Country"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.Country"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~IssuanceReason">
-      <jaxb:typesafeEnumClass ref="generated.IssuanceReason"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.IssuanceReason"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~RentIncreaseType">
-      <jaxb:typesafeEnumClass ref="generated.RentIncreaseType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.RentIncreaseType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~AccountingStandard">
-      <jaxb:typesafeEnumClass ref="generated.AccountingStandard"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.AccountingStandard"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~EnergyRatingType">
-      <jaxb:typesafeEnumClass ref="generated.EnergyRatingType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.EnergyRatingType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~DepositIncreaseType">
-      <jaxb:typesafeEnumClass ref="generated.DepositIncreaseType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.DepositIncreaseType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~BillStatus">
-      <jaxb:typesafeEnumClass ref="generated.BillStatus"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.BillStatus"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~PortfolioType">
-      <jaxb:typesafeEnumClass ref="generated.PortfolioType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.PortfolioType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~TransactionType">
-      <jaxb:typesafeEnumClass ref="generated.TransactionType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.TransactionType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~NumberType">
-      <jaxb:typesafeEnumClass ref="generated.NumberType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.NumberType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~RiskSegment">
-      <jaxb:typesafeEnumClass ref="generated.RiskSegment"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.RiskSegment"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~EncumbranceType">
-      <jaxb:typesafeEnumClass ref="generated.EncumbranceType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.EncumbranceType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~ConditionType">
-      <jaxb:typesafeEnumClass ref="generated.ConditionType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.ConditionType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~ParkingSpaceType">
-      <jaxb:typesafeEnumClass ref="generated.ParkingSpaceType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.ParkingSpaceType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~IndexationMethod">
-      <jaxb:typesafeEnumClass ref="generated.IndexationMethod"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.IndexationMethod"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~EnergySource">
-      <jaxb:typesafeEnumClass ref="generated.EnergySource"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.EnergySource"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~IndexRow">
-      <jaxb:typesafeEnumClass ref="generated.IndexRow"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.IndexRow"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~AssetAccountType">
-      <jaxb:typesafeEnumClass ref="generated.AssetAccountType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.AssetAccountType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Sector">
-      <jaxb:typesafeEnumClass ref="generated.Sector"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.Sector"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~ServiceType">
-      <jaxb:typesafeEnumClass ref="generated.ServiceType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.ServiceType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Month">
-      <jaxb:typesafeEnumClass ref="generated.Month"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.Month"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~ProjectType">
-      <jaxb:typesafeEnumClass ref="generated.ProjectType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.ProjectType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~ApartmentType">
-      <jaxb:typesafeEnumClass ref="generated.ApartmentType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.ApartmentType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~RestorationStatus">
-      <jaxb:typesafeEnumClass ref="generated.RestorationStatus"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.RestorationStatus"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~LeaseContractType">
-      <jaxb:typesafeEnumClass ref="generated.LeaseContractType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.LeaseContractType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~LoanType">
-      <jaxb:typesafeEnumClass ref="generated.LoanType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.LoanType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~DunningLevel">
-      <jaxb:typesafeEnumClass ref="generated.DunningLevel"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.DunningLevel"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~HeatingType">
-      <jaxb:typesafeEnumClass ref="generated.HeatingType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.HeatingType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~MonumentsType">
-      <jaxb:typesafeEnumClass ref="generated.MonumentsType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.MonumentsType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~EnergyRatingCategory">
-      <jaxb:typesafeEnumClass ref="generated.EnergyRatingCategory"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.EnergyRatingCategory"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~ObjectCondition">
-      <jaxb:typesafeEnumClass ref="generated.ObjectCondition"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.ObjectCondition"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~ValuationMethod">
-      <jaxb:typesafeEnumClass ref="generated.ValuationMethod"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.ValuationMethod"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~VacancyReason">
-      <jaxb:typesafeEnumClass ref="generated.VacancyReason"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.VacancyReason"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~AreaType">
-      <jaxb:typesafeEnumClass ref="generated.AreaType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.AreaType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~AccountingType">
-      <jaxb:typesafeEnumClass ref="generated.AccountingType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.AccountingType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~OccupancyState">
-      <jaxb:typesafeEnumClass ref="generated.OccupancyState"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.OccupancyState"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~OptRate">
-      <jaxb:typesafeEnumClass ref="generated.OptRate"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.OptRate"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~PeriodValueType">
-      <jaxb:typesafeEnumClass ref="generated.PeriodValueType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.PeriodValueType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~LegitTerminationDeadline">
-      <jaxb:typesafeEnumClass ref="generated.LegitTerminationDeadline"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.LegitTerminationDeadline"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~OwnershipType">
-      <jaxb:typesafeEnumClass ref="generated.OwnershipType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.OwnershipType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~AdjustmentType">
-      <jaxb:typesafeEnumClass ref="generated.AdjustmentType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.AdjustmentType"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~BuildingType">
-      <jaxb:typesafeEnumClass ref="generated.BuildingType"/>
+      <jaxb:typesafeEnumClass ref="org.zgif.model.BuildingType"/>
     </jaxb:bindings>
   </jaxb:bindings>
 </jaxb:bindings>

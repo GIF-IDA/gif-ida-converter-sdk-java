@@ -1,0 +1,133 @@
+<jxb:bindings xmlns:jxb="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2.0">
+
+
+	<!--  org.zgif.model.entity  -->
+	<jxb:bindings schemaLocation="entity_Unit.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.entity" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+	<jxb:bindings schemaLocation="entity_Building.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.entity" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+	<jxb:bindings schemaLocation="entity_Land.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.entity" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+	<jxb:bindings schemaLocation="entity_Property.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.entity" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+	<!-- ! -->
+	<jxb:bindings schemaLocation="entity_Account.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.entity" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+	<jxb:bindings schemaLocation="entity_BookEntry.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.entity" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+	<jxb:bindings schemaLocation="entity_Company.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.entity" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+	<jxb:bindings schemaLocation="entity_Lease.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.entity" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+	<jxb:bindings schemaLocation="entity_Record.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.entity" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+	<jxb:bindings schemaLocation="entity_Term.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.entity" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+	<jxb:bindings schemaLocation="entity_Project.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.entity" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+	<jxb:bindings schemaLocation="entity_ServiceContract.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.entity" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+	<jxb:bindings schemaLocation="entity_Valuation.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.entity" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+	<!-- org.zgif.model.instance -->
+
+	<jxb:bindings schemaLocation="instance_manifest.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.instance" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+	<jxb:bindings schemaLocation="instance_meta.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.instance" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+	<jxb:bindings schemaLocation="instance_periods.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.instance" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+	<!-- org.zgif.model.types -->
+
+	<jxb:bindings schemaLocation="types_enumeration.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.types" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+
+	<jxb:bindings schemaLocation="types_file.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.types" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+
+	<jxb:bindings schemaLocation="types_internal.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.types" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+
+	<jxb:bindings schemaLocation="types_sub.xsd" node="/xs:schema">
+		<jxb:schemaBindings>
+			<jxb:package name="org.zgif.model.types" />
+		</jxb:schemaBindings>
+	</jxb:bindings>
+
+</jxb:bindings>

@@ -12,7 +12,6 @@ import java.util.Map.Entry;
 import java.util.Properties;
 
 import org.zgif.converter.plugin.PluginConfiguration;
-import org.zgif.converter.plugin.output.ExportPluginConfiguration;
 
 /**
  * @author phoudek
