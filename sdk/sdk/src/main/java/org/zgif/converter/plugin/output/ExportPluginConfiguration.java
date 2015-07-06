@@ -1,3 +1,14 @@
+/*******************************************************************************
+ * Copyright (c) 2015 Martin Fluegge (Berlin, Germany) and others..
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *  
+ * Contributors:
+ *    Pascal Houdek - initial API and implementation and/or initial documentation
+ *  
+ *******************************************************************************/
 /**
  * 
  */
@@ -19,74 +30,74 @@ import org.zgif.converter.plugin.PluginConfiguration;
  */
 public class ExportPluginConfiguration extends PluginConfiguration {
 
-    private Map<String, OutputStream> streams = new HashMap<String, OutputStream>();
+	private Map<String, OutputStream> streams = new HashMap<String, OutputStream>();
 
-    /**
-     * @author phoudek
-     * @param streams
-     *            the streams to set
-     */
-    public void setStreams(Map<String, OutputStream> streams) {
-        this.changedAll = true;
-        this.streams = streams;
-    }
+	/**
+	 * @author phoudek
+	 * @param streams
+	 *            the streams to set
+	 */
+	public void setStreams(Map<String, OutputStream> streams) {
+		this.changedAll = true;
+		this.streams = streams;
+	}
 
-    /**
-     * @author phoudek
-     * @return the streams
-     */
-    public Map<String, OutputStream> getStreams() {
-        return streams;
-    }
+	/**
+	 * @author phoudek
+	 * @return the streams
+	 */
+	public Map<String, OutputStream> getStreams() {
+		return streams;
+	}
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.zgif.converter.plugin.PluginConfiguration#getAll()
-     */
-    @Override
-    public Map<String, Object> getAll() {
-        Map<String, Object> all = super.getAll();
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.zgif.converter.plugin.PluginConfiguration#getAll()
+	 */
+	@Override
+	public Map<String, Object> getAll() {
+		Map<String, Object> all = super.getAll();
 
-        all.putAll(this.streams);
+		all.putAll(this.streams);
 
-        return all;
-    }
+		return all;
+	}
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.zgif.converter.plugin.PluginConfiguration#load(java.lang.String,
-     * java.lang.Object)
-     */
-    @Override
-    protected void load(String key, Object value) {
-        if (key.startsWith("filepath-")) {
-            try {
-                this.streams.put(key.substring(9), new FileOutputStream(value.toString()));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            super.load(key, value);
-        }
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.zgif.converter.plugin.PluginConfiguration#load(java.lang.String,
+	 * java.lang.Object)
+	 */
+	@Override
+	protected void load(String key, Object value) {
+		if (key.startsWith("filepath-")) {
+			try {
+				this.streams.put(key.substring(9), new FileOutputStream(value.toString()));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			super.load(key, value);
+		}
+	}
 
-    /**
-     * converted {@link Properties} object to {@link ExportPluginConfiguration}
-     * object
-     * 
-     * @param props
-     *            properties
-     * @return export plugin configuration
-     */
-    public static ExportPluginConfiguration getConfigFromProperties(Properties props) {
-        ExportPluginConfiguration config = new ExportPluginConfiguration();
+	/**
+	 * converted {@link Properties} object to {@link ExportPluginConfiguration}
+	 * object
+	 * 
+	 * @param props
+	 *            properties
+	 * @return export plugin configuration
+	 */
+	public static ExportPluginConfiguration getConfigFromProperties(Properties props) {
+		ExportPluginConfiguration config = new ExportPluginConfiguration();
 
-        for (Entry<Object, Object> entry : props.entrySet()) {
-            config.load(entry.getKey().toString(), entry.getValue());
-        }
+		for (Entry<Object, Object> entry : props.entrySet()) {
+			config.load(entry.getKey().toString(), entry.getValue());
+		}
 
-        return config;
-    }
+		return config;
+	}
 }
