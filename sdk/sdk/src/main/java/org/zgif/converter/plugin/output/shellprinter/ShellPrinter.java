@@ -20,7 +20,7 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.zgif.converter.plugin.PluginComponent;
-import org.zgif.converter.plugin.output.ExportPlugin;
+import org.zgif.converter.plugin.output.IExportPlugin;
 import org.zgif.converter.plugin.output.ExportPluginConfiguration;
 import org.zgif.model.datatype.enumeration.Subset;
 import org.zgif.model.node.AbstractDataRoot;
@@ -36,7 +36,7 @@ import org.zgif.model.node.entity.AbstractEntityNode;
  * @author phoudek
  * 
  */
-public class ShellPrinter implements ExportPlugin {
+public class ShellPrinter implements IExportPlugin {
     private static Logger        logger            = Logger.getLogger(ShellPrinter.class);
     public static final Subset[] SUPPORTED_SUBSETS = { Subset.S5_1 };
 
@@ -57,7 +57,7 @@ public class ShellPrinter implements ExportPlugin {
 
     /**
      * @author phoudek
-     * @see ExportPlugin#doExport()
+     * @see IExportPlugin#doExport()
      */
     @Override
     public void doExport() {

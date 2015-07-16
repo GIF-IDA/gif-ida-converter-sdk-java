@@ -9,10 +9,12 @@
  *    Pascal Houdek - initial API and implementation and/or initial documentation
  *  
  *******************************************************************************/
-package org.zgif.converter.plugin.input;
+package org.zgif.converter.plugin.output;
 
-import org.zgif.converter.plugin.Plugin;
+import java.util.List;
+
 import org.zgif.converter.plugin.PluginComponent;
+import org.zgif.model.datatype.enumeration.Subset;
 import org.zgif.model.node.AbstractZGif;
 
 /**
@@ -21,19 +23,23 @@ import org.zgif.model.node.AbstractZGif;
  * @author phoudek
  * 
  */
-public interface ImportPlugin extends Plugin {
-
-	public void load(ImportPluginConfiguration config);
-
-	public ImportPluginConfiguration getRequiredConfigurationArguments();
-
-	public PluginComponent<ImportPluginConfiguration> getConfigGui();
+public interface IExportPlugin {
 
 	/**
-	 * returns the imported zgif object instance type depends of the subset
-	 * definition in the meta data
+	 * returns the supported subsets of this plugin
 	 * 
-	 * @return zgif object
+	 * @return list of supported subsets
 	 */
-	public AbstractZGif getZgif();
+	public List<Subset> getSupportedSubsets();
+
+	/**
+	 * method triggers the export job
+	 */
+	public void doExport();
+
+	public void load(ExportPluginConfiguration config, AbstractZGif zgif);
+
+	public void unload();
+
+	public PluginComponent<ExportPluginConfiguration> getConfigGui();
 }

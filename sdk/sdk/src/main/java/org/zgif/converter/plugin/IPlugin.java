@@ -22,7 +22,7 @@ import org.zgif.model.datatype.enumeration.Subset;
  * @author phoudek
  * 
  */
-public interface Plugin {
+public interface IPlugin {
 	/**
 	 * returns the supported subsets of this plugin
 	 * 

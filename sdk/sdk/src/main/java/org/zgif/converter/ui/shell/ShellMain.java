@@ -29,9 +29,9 @@ import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
-import org.zgif.converter.plugin.input.ImportPlugin;
+import org.zgif.converter.plugin.input.IImportPlugin;
 import org.zgif.converter.plugin.input.ImportPluginConfiguration;
-import org.zgif.converter.plugin.output.ExportPlugin;
+import org.zgif.converter.plugin.output.IExportPlugin;
 import org.zgif.converter.plugin.output.ExportPluginConfiguration;
 import org.zgif.converter.plugin.output.zgif.ZGifWriter;
 import org.zgif.model.node.AbstractZGif;
@@ -110,11 +110,11 @@ public class ShellMain {
         String importPluginClassName = pluginProps.getProperty("import");
         String exportPluginClassName = pluginProps.getProperty("export");
 
-        ImportPlugin importPlugin = null;
-        ExportPlugin exportPlugin = null;
+        IImportPlugin importPlugin = null;
+        IExportPlugin exportPlugin = null;
         try {
-            importPlugin = (ImportPlugin) Class.forName(importPluginClassName).newInstance();
-            exportPlugin = (ExportPlugin) Class.forName(exportPluginClassName).newInstance();
+            importPlugin = (IImportPlugin) Class.forName(importPluginClassName).newInstance();
+            exportPlugin = (IExportPlugin) Class.forName(exportPluginClassName).newInstance();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
@@ -137,7 +137,7 @@ public class ShellMain {
         exportPlugin.doExport();
         exportPlugin.unload();
 
-        ExportPlugin zgifWriter = new ZGifWriter();
+        IExportPlugin zgifWriter = new ZGifWriter();
         zgifWriter.load(exportConfig, zgif);
         zgifWriter.doExport();
         zgifWriter.unload();

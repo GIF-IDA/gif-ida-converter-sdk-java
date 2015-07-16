@@ -26,7 +26,7 @@ import javax.xml.stream.XMLStreamWriter;
 
 import org.apache.log4j.Logger;
 import org.zgif.converter.plugin.PluginComponent;
-import org.zgif.converter.plugin.output.ExportPlugin;
+import org.zgif.converter.plugin.output.IExportPlugin;
 import org.zgif.converter.plugin.output.ExportPluginConfiguration;
 import org.zgif.model.datatype.enumeration.Subset;
 import org.zgif.model.node.AbstractZGif;
@@ -36,7 +36,7 @@ import org.zgif.model.node.Meta;
  * @author phoudek
  * 
  */
-public class ZGifWriter implements ExportPlugin {
+public class ZGifWriter implements IExportPlugin {
     private static Logger             logger            = Logger.getLogger(ZGifWriter.class);
 
     public static final Subset[]      SUPPORTED_SUBSETS = { Subset.S5_1 };

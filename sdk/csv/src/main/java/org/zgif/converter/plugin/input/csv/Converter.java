@@ -8,7 +8,7 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.zgif.converter.plugin.PluginComponent;
 import org.zgif.converter.plugin.PluginConfiguration;
-import org.zgif.converter.plugin.input.ImportPlugin;
+import org.zgif.converter.plugin.input.IImportPlugin;
 import org.zgif.converter.plugin.input.ImportPluginConfiguration;
 import org.zgif.converter.plugin.input.csv.subset_5_1.BuildingConverter;
 import org.zgif.converter.plugin.input.csv.subset_5_1.CompanyConverter;
@@ -28,7 +28,7 @@ import org.zgif.model.node.Meta;
  * @author phoudek
  * 
  */
-public class Converter extends BasicConverter implements ImportPlugin {
+public class Converter extends BasicConverter implements IImportPlugin {
     @SuppressWarnings("unused")
     private static Logger        logger            = Logger.getLogger(Converter.class);
 
