@@ -89,8 +89,9 @@ public class ShellMain {
         logger.addAppender(consoleAppender);
         logger.setLevel(Level.ALL);
 
-        args = getArgs(args);
-
+        if (args.length == 0) {
+            args = getArgs(args);
+        }
         Options options = new Options();
 
         Option pluginOption = Option.builder("p").longOpt("plugin").required().argName("plugin=classpath").numberOfArgs(2).valueSeparator()
