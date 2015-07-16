@@ -15,33 +15,33 @@ package org.zgif.samples.model.a;
  * @author Martin Fluegge
  * 
  */
-public class Nutzer {
+public class Customer {
 
-	private String vorName;
-	private String nachName;
-	private String geschlecht;
+	private String name;
+	private String lastName;
+	private String gender;
 
-	public String getVorName() {
-		return vorName;
+	public String getName() {
+		return name;
 	}
 
-	public void setVorName(String vorName) {
-		this.vorName = vorName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getNachName() {
-		return nachName;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setNachName(String nachName) {
-		this.nachName = nachName;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getGeschlecht() {
-		return geschlecht;
+	public String getGender() {
+		return gender;
 	}
 
-	public void setGeschlecht(String geschlecht) {
-		this.geschlecht = geschlecht;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 }

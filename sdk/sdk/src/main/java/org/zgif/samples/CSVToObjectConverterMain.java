@@ -9,8 +9,9 @@
  *    Martin Fluegge - initial API and implementation and/or initial documentation
  *  
  *******************************************************************************/
-package org.zgif.samples.validator.converter;
+package org.zgif.samples;
 
+import org.zgif.samples.validator.converter.CSVToObjectConverter;
 import org.zgif.samples.validator.converter.CSVToObjectConverter.CSVToObjectConverterDescriptor;
 
 /**

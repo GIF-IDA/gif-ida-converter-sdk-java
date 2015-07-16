@@ -16,43 +16,42 @@ import java.util.List;
 
 import org.zgif.converter.sdk.ValidationError;
 import org.zgif.converter.sdk.impl.Validator;
-import org.zgif.samples.model.a.Nutzer;
+import org.zgif.samples.model.a.Customer;
 
 /**
  * @author Martin Fluegge
  * 
  */
-public class NutzerValidator extends Validator<Nutzer> {
+public class NutzerValidator extends Validator<Customer> {
 
 	@Override
-	public List<ValidationError> validate(Nutzer nutzer) {
+	public List<ValidationError> validate(Customer customer) {
 
 		List<ValidationError> results = new ArrayList<ValidationError>();
 
-		validateVorname(nutzer, results);
-		validateNachname(nutzer, results);
-		validateGeschlecht(nutzer, results);
+		validateVorname(customer, results);
+		validateNachname(customer, results);
+		validateGeschlecht(customer, results);
 
 		return results;
 	}
 
-	private void validateGeschlecht(Nutzer nutzer, List<ValidationError> results) {
-		String geschlecht = nutzer.getGeschlecht();
+	private void validateGeschlecht(Customer customer, List<ValidationError> results) {
+		String geschlecht = customer.getGender();
 		if (!("m".equals(geschlecht) || "w".equals(geschlecht))) {
-			createAndAddValidationError(null, "'Geschlecht must be 'm' or 'w''", results);
-		}
-
-	}
-
-	private void validateNachname(Nutzer nutzer, List<ValidationError> results) {
-		if (nutzer.getNachName() == null) {
-			createAndAddValidationError(null, "'Nachname' must not be null", results);
+			createAndAddValidationError(null, "'Gender must be 'm' or 'w''", results);
 		}
 	}
 
-	private void validateVorname(Nutzer nutzer, List<ValidationError> results) {
-		if (nutzer.getVorName() == null) {
-			createAndAddValidationError(null, "'Vorname' must not be null", results);
+	private void validateNachname(Customer customer, List<ValidationError> results) {
+		if (customer.getLastName() == null) {
+			createAndAddValidationError(null, "'Lastname' must not be null", results);
+		}
+	}
+
+	private void validateVorname(Customer customer, List<ValidationError> results) {
+		if (customer.getName() == null) {
+			createAndAddValidationError(null, "'name' must not be null", results);
 		}
 	}
 }

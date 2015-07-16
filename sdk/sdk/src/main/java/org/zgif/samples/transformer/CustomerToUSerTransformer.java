@@ -13,32 +13,32 @@ package org.zgif.samples.transformer;
 
 import org.zgif.converter.sdk.ITransformContext;
 import org.zgif.converter.sdk.impl.BasicTransformer;
+import org.zgif.samples.model.a.Customer;
 import org.zgif.samples.model.a.Human.Sex;
-import org.zgif.samples.model.a.Nutzer;
 import org.zgif.samples.model.a.User;
 
 /**
  * @author Martin Fluegge
  * 
  */
-public class NutzerTransformer extends BasicTransformer<Nutzer, User> {
+public class CustomerToUSerTransformer extends BasicTransformer<Customer, User> {
 
 	@Override
-	protected User doTransform(Nutzer nutzer, ITransformContext context) {
+	protected User doTransform(Customer customer, ITransformContext context) {
 		User user = new User();
 
-		user.setFirstName(nutzer.getVorName());
-		user.setLastName(nutzer.getNachName());
-		transformSex(nutzer, user);
+		user.setFirstName(customer.getName());
+		user.setLastName(customer.getLastName());
+		transformSex(customer, user);
 
 		return user;
 	}
 
-	private void transformSex(Nutzer nutzer, User user) {
+	private void transformSex(Customer customer, User user) {
 
-		if ("m".equals(nutzer.getGeschlecht())) {
+		if ("m".equals(customer.getGender())) {
 			user.setSex(Sex.MALE);
-		} else if ("w".equals(nutzer.getGeschlecht())) {
+		} else if ("w".equals(customer.getGender())) {
 			user.setSex(Sex.FEMALE);
 		} else {
 			user.setSex(Sex.UNKNOWN);

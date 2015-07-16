@@ -13,8 +13,8 @@ package org.zgif.samples.transformer;
 
 import org.zgif.converter.sdk.ITransformContext;
 import org.zgif.converter.sdk.impl.BasicTransformer;
+import org.zgif.samples.model.a.Customer;
 import org.zgif.samples.model.a.Human.Sex;
-import org.zgif.samples.model.a.Nutzer;
 import org.zgif.samples.model.a.User;
 import org.zgif.samples.validator.UserValidator;
 
@@ -22,29 +22,29 @@ import org.zgif.samples.validator.UserValidator;
  * @author Martin Fluegge
  * 
  */
-public class UserTransformer extends BasicTransformer<User, Nutzer> {
+public class UserToCustomerTransformer extends BasicTransformer<User, Customer> {
 
-	public UserTransformer() {
+	public UserToCustomerTransformer() {
 		setValidator(new UserValidator());
 	}
 
 	@Override
-	protected Nutzer doTransform(User user, ITransformContext context) {
+	protected Customer doTransform(User user, ITransformContext context) {
 
-		Nutzer nutzer = new Nutzer();
+		Customer customer = new Customer();
 
-		nutzer.setVorName(user.getFirstName());
-		nutzer.setNachName(user.getLastName());
-		transformGeschlecht(user, nutzer);
+		customer.setName(user.getFirstName());
+		customer.setLastName(user.getLastName());
+		transformGeschlecht(user, customer);
 
-		return nutzer;
+		return customer;
 	}
 
-	private void transformGeschlecht(User user, Nutzer nutzer) {
+	private void transformGeschlecht(User user, Customer customer) {
 		if (Sex.MALE.equals(user.getSex())) {
-			nutzer.setGeschlecht("m");
+			customer.setGender("m");
 		} else if (Sex.FEMALE.equals(user.getSex())) {
-			nutzer.setGeschlecht("w");
+			customer.setGender("w");
 		}
 	}
 }

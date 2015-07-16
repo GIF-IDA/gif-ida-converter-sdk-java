@@ -15,10 +15,10 @@ import java.util.List;
 
 import org.zgif.converter.sdk.MapperValidationException;
 import org.zgif.converter.sdk.ValidationError;
+import org.zgif.samples.model.a.Customer;
 import org.zgif.samples.model.a.Human.Sex;
-import org.zgif.samples.model.a.Nutzer;
 import org.zgif.samples.model.a.User;
-import org.zgif.samples.transformer.UserTransformer;
+import org.zgif.samples.transformer.UserToCustomerTransformer;
 
 /**
  * @author Martin Fluegge
@@ -26,40 +26,40 @@ import org.zgif.samples.transformer.UserTransformer;
  */
 public class TransformerExampleMain {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-        User user = new User();
+		User user = new User();
 
-        user.setFirstName("Martin");
-        user.setLastName("Flügge");
-        user.setSex(Sex.MALE);
+		user.setFirstName("Martin");
+		user.setLastName("Flügge");
+		user.setSex(Sex.MALE);
 
-        UserTransformer userTransformer = new UserTransformer();
-        userTransformer.setValidate(false);
-        Nutzer nutzer;
+		UserToCustomerTransformer userToCustomerTransformer = new UserToCustomerTransformer();
+		userToCustomerTransformer.setValidate(false);
+		Customer customer;
 
-        try {
-            nutzer = userTransformer.transform(user, null);
-        } catch (MapperValidationException e) {
-            throw new RuntimeException();
-        }
+		try {
+			customer = userToCustomerTransformer.transform(user, null);
+		} catch (MapperValidationException e) {
+			throw new RuntimeException();
+		}
 
-        System.out.println(nutzer.getVorName());
-        System.out.println(nutzer.getNachName());
-        System.out.println(nutzer.getGeschlecht());
+		System.out.println(customer.getName());
+		System.out.println(customer.getLastName());
+		System.out.println(customer.getGender());
 
-        userTransformer.setValidate(true);
-        user.setFirstName(null);
-        user.setSex(null);
+		userToCustomerTransformer.setValidate(true);
+		user.setFirstName(null);
+		user.setSex(null);
 
-        try {
-            nutzer = userTransformer.transform(user, null);
-        } catch (MapperValidationException e) {
+		try {
+			customer = userToCustomerTransformer.transform(user, null);
+		} catch (MapperValidationException e) {
 
-            List<ValidationError> results = e.getResults();
-            for (ValidationError validationError : results) {
-                System.out.println(validationError.getMessage());
-            }
-        }
-    }
+			List<ValidationError> results = e.getResults();
+			for (ValidationError validationError : results) {
+				System.out.println(validationError.getMessage());
+			}
+		}
+	}
 }
