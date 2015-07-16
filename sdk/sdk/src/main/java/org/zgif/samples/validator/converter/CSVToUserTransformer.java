@@ -24,9 +24,9 @@ public class CSVToUserTransformer extends BasicTransformer<String[], User> {
 
 	private void transformSex(String sex, User user) {
 
-		if ("m".equals(sex)) {
+		if ("MALE".equals(sex)) {
 			user.setSex(Sex.MALE);
-		} else if ("w".equals(sex)) {
+		} else if ("FEMALE".equals(sex)) {
 			user.setSex(Sex.FEMALE);
 		} else {
 			user.setSex(Sex.UNKNOWN);
