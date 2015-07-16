@@ -22,7 +22,7 @@ import org.zgif.samples.model.a.Customer;
  * @author Martin Fluegge
  * 
  */
-public class NutzerValidator extends Validator<Customer> {
+public class CustomerValidator extends Validator<Customer> {
 
 	@Override
 	public List<ValidationError> validate(Customer customer) {
