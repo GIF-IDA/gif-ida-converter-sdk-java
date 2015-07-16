@@ -21,7 +21,7 @@ import org.zgif.samples.model.a.User;
  * @author Martin Fluegge
  * 
  */
-public class CustomerToUSerTransformer extends BasicTransformer<Customer, User> {
+public class CustomerToUserTransformer extends BasicTransformer<Customer, User> {
 
 	@Override
 	protected User doTransform(Customer customer, ITransformContext context) {
