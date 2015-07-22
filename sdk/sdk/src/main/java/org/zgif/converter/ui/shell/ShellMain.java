@@ -14,9 +14,10 @@
  */
 package org.zgif.converter.ui.shell;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.beans.IntrospectionException;
+import java.beans.PropertyDescriptor;
+import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.Properties;
 
 import org.apache.commons.cli.CommandLine;
@@ -31,10 +32,10 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 import org.zgif.converter.plugin.input.IImportPlugin;
 import org.zgif.converter.plugin.input.ImportPluginConfiguration;
-import org.zgif.converter.plugin.output.IExportPlugin;
 import org.zgif.converter.plugin.output.ExportPluginConfiguration;
-import org.zgif.converter.plugin.output.zgif.ZGifWriter;
+import org.zgif.converter.plugin.output.IExportPlugin;
 import org.zgif.model.node.AbstractZGif;
+import org.zgif.model.subset_5_1.entity.Building;
 
 /**
  * @author phoudek
@@ -45,60 +46,23 @@ public class ShellMain {
     private static Logger logger = Logger.getRootLogger();
 
     /**
-     * @author phoudek
-     */
-    public ShellMain() {
-    }
-
-    public static void dump(Object o) {
-        if (o instanceof List) {
-            System.out.println(Arrays.asList(o));
-        }
-        System.out.println(0);
-    }
-
-    public static String[] getArgs(String[] args) {
-
-        List<String> listArgs = new ArrayList<String>();
-
-        listArgs.addAll(Arrays.asList("-p", "import=org.zgif.converter.plugin.input.csv.Converter"));
-        listArgs.addAll(Arrays.asList("-p", "export=org.zgif.converter.plugin.output.shellprinter.ShellPrinter"));
-
-        listArgs.addAll(Arrays.asList("-i", "filepath-meta=D:\\workspace\\eclipse\\zgif-converter\\data\\input\\csv\\handwritten\\0_HEADER.csv"));
-        listArgs.addAll(Arrays.asList("-i", "filepath-periods=D:\\workspace\\eclipse\\zgif-converter\\data\\input\\csv\\handwritten\\1_PERIODS.csv"));
-        listArgs.addAll(Arrays.asList("-i", "filepath-company=D:\\workspace\\eclipse\\zgif-converter\\data\\input\\csv\\handwritten\\2_COM.csv"));
-        listArgs.addAll(Arrays.asList("-i", "filepath-property=D:\\workspace\\eclipse\\zgif-converter\\data\\input\\csv\\handwritten\\3_PROP.csv"));
-        listArgs.addAll(Arrays.asList("-i", "filepath-build=D:\\workspace\\eclipse\\zgif-converter\\data\\input\\csv\\handwritten\\4_BUILD.csv"));
-        listArgs.addAll(Arrays.asList("-i", "filepath-unit=D:\\workspace\\eclipse\\zgif-converter\\data\\input\\csv\\handwritten\\5_UNIT.csv"));
-        listArgs.addAll(Arrays.asList("-i", "filepath-lease=D:\\workspace\\eclipse\\zgif-converter\\data\\input\\csv\\handwritten\\6_LEASE.csv"));
-        listArgs.addAll(Arrays.asList("-i", "filepath-term=D:\\workspace\\eclipse\\zgif-converter\\data\\input\\csv\\handwritten\\7_TERM.csv"));
-
-        listArgs.addAll(Arrays.asList("-e", "filepath-zgif=D:\\workspace\\eclipse\\zgif-converter\\data\\output\\zgif\\handwritten.zgif"));
-
-        args = listArgs.toArray(args);
-        return args;
-    }
-
-    /**
      * @param args
-     * @throws ParseException
+     * @throws Exception 
      */
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws Exception {        
         PatternLayout layout = new PatternLayout("%d{ISO8601} %-5p [%t] %c: %m%n");
         ConsoleAppender consoleAppender = new ConsoleAppender(layout);
         logger.addAppender(consoleAppender);
         logger.setLevel(Level.ALL);
-
-        if (args.length == 0) {
-            args = getArgs(args);
-        }
         Options options = new Options();
 
+        Option guiOption = Option.builder("g").longOpt("gui").desc("start the GUI").build();
         Option pluginOption = Option.builder("p").longOpt("plugin").required().argName("plugin=classpath").numberOfArgs(2).valueSeparator()
             .desc("set classpath for plugins (import and export)").build();
         Option importOption = Option.builder("i").longOpt("import").numberOfArgs(2).valueSeparator().desc("config for import plugin").build();
         Option exportOption = Option.builder("e").longOpt("export").numberOfArgs(2).valueSeparator().desc("config for export plugin").build();
 
+        options.addOption(guiOption);
         options.addOption(pluginOption);
         options.addOption(importOption);
         options.addOption(exportOption);
@@ -107,40 +71,43 @@ public class ShellMain {
         CommandLine cmd = parser.parse(options, args);
 
         Properties pluginProps = cmd.getOptionProperties("plugin");
-        String importPluginClassName = pluginProps.getProperty("import");
-        String exportPluginClassName = pluginProps.getProperty("export");
 
+        String importPluginClassName = pluginProps.getProperty("import");
         IImportPlugin importPlugin = null;
-        IExportPlugin exportPlugin = null;
         try {
             importPlugin = (IImportPlugin) Class.forName(importPluginClassName).newInstance();
-            exportPlugin = (IExportPlugin) Class.forName(exportPluginClassName).newInstance();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            logger.fatal("unable to load import plugin", e);
         } catch (InstantiationException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.fatal("unable to load import plugin", e);
         } catch (IllegalAccessException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.fatal("unable to load import plugin", e);
         }
 
-        Properties importProps = cmd.getOptionProperties("import");
-        ImportPluginConfiguration importConfig = ImportPluginConfiguration.getConfigFromProperties(importProps);
-        importPlugin.load(importConfig);
-        AbstractZGif zgif = importPlugin.getZgif();
-        importPlugin.unload();
+        String exportPluginClassName = pluginProps.getProperty("export");
+        IExportPlugin exportPlugin = null;
+        try {
+            exportPlugin = (IExportPlugin) Class.forName(exportPluginClassName).newInstance();
+        } catch (ClassNotFoundException e) {
+            logger.fatal("unable to load export plugin", e);
+        } catch (InstantiationException e) {
+            logger.fatal("unable to load export plugin", e);
+        } catch (IllegalAccessException e) {
+            logger.fatal("unable to load export plugin", e);
+        }
 
-        Properties exportProps = cmd.getOptionProperties("export");
-        ExportPluginConfiguration exportConfig = ExportPluginConfiguration.getConfigFromProperties(exportProps);
-        exportPlugin.load(exportConfig, zgif);
-        exportPlugin.doExport();
-        exportPlugin.unload();
-
-        IExportPlugin zgifWriter = new ZGifWriter();
-        zgifWriter.load(exportConfig, zgif);
-        zgifWriter.doExport();
-        zgifWriter.unload();
+        if(importPlugin != null && exportPlugin != null) {
+            Properties importProps = cmd.getOptionProperties("import");
+            ImportPluginConfiguration importConfig = ImportPluginConfiguration.getConfigFromProperties(importProps);
+            importPlugin.load(importConfig);
+            AbstractZGif zgif = importPlugin.getZgif();
+            importPlugin.unload();
+    
+            Properties exportProps = cmd.getOptionProperties("export");
+            ExportPluginConfiguration exportConfig = ExportPluginConfiguration.getConfigFromProperties(exportProps);
+            exportPlugin.load(exportConfig, zgif);
+            exportPlugin.unload();
+        }
     }
 
 }

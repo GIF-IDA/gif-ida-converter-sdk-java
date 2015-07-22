@@ -14,8 +14,14 @@ import org.joda.time.LocalDateTime;
 import org.joda.time.Period;
 import org.zgif.converter.sdk.ITransformContext;
 import org.zgif.converter.sdk.impl.BasicTransformer;
+import org.zgif.model.datatype.Amount;
+import org.zgif.model.datatype.Area;
+import org.zgif.model.datatype.Country;
+import org.zgif.model.datatype.enumeration.AreaMessurement;
+import org.zgif.model.datatype.enumeration.AreaType;
 import org.zgif.model.datatype.enumeration.Subset;
 import org.zgif.model.node.AbstractNode;
+import org.zgif.model.node.group.AbstractGroupNode;
 
 /**
  * transforms a <code>CSVLine<A></code> to an <code>AbstractNode</code> of type
@@ -68,9 +74,45 @@ public class CSV2NodeTransformer<NodeType extends AbstractNode> extends BasicTra
      */
     protected void setValue(NodeType object, String key, String value) {
         Map<String, Method> methodMap = getMethodMap(object.getClass());
-        String methodName = "set" + key.substring(0, 1).toUpperCase() + key.substring(1);
 
-        Method method = methodMap.get(methodName);
+        Method method = null;
+        NodeType methodInvokeObject = object;
+
+        Integer separatorPos = key.indexOf(".");
+        if (separatorPos >= 0) {
+            // nested object:
+            String objectName = key.substring(0, separatorPos);
+            String attributeName = key.substring(separatorPos + 1);
+
+            Method getNestedObjectMethod = null;
+            try {
+                getNestedObjectMethod = getMethodDeep(object.getClass(), "get" + objectName);
+                if (getNestedObjectMethod != null) {
+                    methodInvokeObject = (NodeType) getNestedObjectMethod.invoke(object);
+                }
+                if (methodInvokeObject == null) {
+                    Class invokeObjectClass = Class.forName(AbstractGroupNode.class.getPackage().getName() + "." + objectName);
+                    methodInvokeObject = (NodeType) invokeObjectClass.newInstance();
+                    Method setNestedObjectMethod = getMethodDeep(object.getClass(), "set" + objectName, invokeObjectClass);
+                    setNestedObjectMethod.invoke(object, methodInvokeObject);
+                }
+                String methodName = "set" + attributeName.substring(0, 1).toUpperCase() + attributeName.substring(1);
+                Method[] methods = methodInvokeObject.getClass().getDeclaredMethods();
+                for (int i = 0; i < methods.length; i++) {
+                    Method invokeObjectMethod = methods[i];
+                    if (invokeObjectMethod.getName().equals(methodName)) {
+                        method = invokeObjectMethod;
+                        break;
+                    }
+                }
+            } catch (Exception e) {
+                Exception x = e;
+            }
+        } else {
+            String methodName = "set" + key.substring(0, 1).toUpperCase() + key.substring(1);
+            method = methodMap.get(methodName);
+        }
+
         if (method != null) {
             Object setValue = null;
             Class<?> targetType = method.getParameterTypes()[0];
@@ -80,6 +122,8 @@ public class CSV2NodeTransformer<NodeType extends AbstractNode> extends BasicTra
                     setValue = null;
                 } else if (String.class.isAssignableFrom(targetType)) {
                     setValue = value;
+                } else if (Double.class.isAssignableFrom(targetType)) {
+                    setValue = Double.parseDouble(value);
                 } else if (Currency.class.isAssignableFrom(targetType)) {
                     setValue = Currency.getInstance(value);
                 } else if (LocalDate.class.isAssignableFrom(targetType)) {
@@ -94,6 +138,28 @@ public class CSV2NodeTransformer<NodeType extends AbstractNode> extends BasicTra
                 } else if (Locale.class.isAssignableFrom(targetType)) {
                     // TODO: korrigieren
                     setValue = Locale.GERMANY;
+                } else if (Amount.class.isAssignableFrom(targetType)) {
+                    String[] parts = value.split(" ");
+                    if(parts.length == 1) {
+                        setValue = new Amount(Double.parseDouble(parts[0]), Currency.getInstance("EUR"));;
+                    } else if(parts.length == 2) {
+                        setValue = new Amount(Double.parseDouble(parts[0]), Currency.getInstance(parts[1]));;
+                    } else {
+                        logger.warn("invalid value '" + value + "' for type '" + targetType + "' - value will be set to empty");
+                    }
+                } else if (Area.class.isAssignableFrom(targetType)) {
+                    String[] parts = value.split(" ");
+                    if(parts.length == 1) {
+                        setValue = new Area(Double.parseDouble(parts[0]), AreaMessurement.NOT_SPECIFIED, AreaType.NOT_SPECIFIED);
+                    } else if(parts.length == 2) {
+                        setValue = new Area(Double.parseDouble(parts[0]), AreaMessurement.valueOf(parts[1]), AreaType.NOT_SPECIFIED);
+                    } else if(parts.length == 3) {
+                            setValue = new Area(Double.parseDouble(parts[0]), AreaMessurement.valueOf(parts[1]), AreaType.valueOf(parts[2]));;
+                    } else {
+                        logger.warn("invalid value '" + value + "' for type '" + targetType + "' - value will be set to empty");
+                    }
+                } else if (Country.class.isAssignableFrom(targetType)) {
+                    setValue = new Country(value);
                 } else if (targetType.getPackage() == Subset.class.getPackage()) {
                     // type is enumeration:
                     try {
@@ -112,7 +178,7 @@ public class CSV2NodeTransformer<NodeType extends AbstractNode> extends BasicTra
                     logger.warn("unknown data type: " + targetType + " - value will be set to empty");
                 }
 
-                method.invoke(object, setValue);
+                method.invoke(methodInvokeObject, setValue);
             } catch (IllegalArgumentException e) {
                 logger.error("could not set '" + key + "' to object " + object.toString() + " (plugin bug - please report bug of plugin)", e);
             } catch (IllegalAccessException e) {
@@ -125,7 +191,9 @@ public class CSV2NodeTransformer<NodeType extends AbstractNode> extends BasicTra
                 logger.error("could not set '" + key + "' to object " + object.toString() + " (plugin bug - please report bug of plugin)", e);
             }
         } else {
-            logger.error("could not set '" + key + "' to object " + object.toString() + ": no setter found for key (please report bug of plugin)");
+            if (!key.endsWith(".identifier") && !key.endsWith(".objectIdSender")) {
+                logger.error("could not set '" + key + "' to object " + object.toString() + ": no setter found for key (please report bug of plugin)");
+            }
         }
     }
 
@@ -152,4 +220,20 @@ public class CSV2NodeTransformer<NodeType extends AbstractNode> extends BasicTra
         return (NodeType) object;
     }
 
+    private Method getMethodDeep(Class clazz, String methodName, Class... parameterTypes) {
+        Method m = null;
+
+        do {
+            try {
+
+                m = clazz.getMethod(methodName, parameterTypes);
+            } catch (Exception e) {
+            }
+            if (m == null) {
+                clazz = clazz.getSuperclass();
+            }
+        } while (m == null && !clazz.equals(Object.class));
+
+        return m;
+    }
 }

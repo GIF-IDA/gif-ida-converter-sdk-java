@@ -20,6 +20,7 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.zgif.converter.plugin.PluginComponent;
+import org.zgif.converter.plugin.PluginConfiguration;
 import org.zgif.converter.plugin.output.IExportPlugin;
 import org.zgif.converter.plugin.output.ExportPluginConfiguration;
 import org.zgif.model.datatype.enumeration.Subset;
@@ -30,6 +31,8 @@ import org.zgif.model.node.Meta;
 import org.zgif.model.node.Period;
 import org.zgif.model.node.entity.AbstractEntityNode;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * simple export plugin that prints the hierarchy of a zgif object to console
  * 
@@ -38,7 +41,7 @@ import org.zgif.model.node.entity.AbstractEntityNode;
  */
 public class ShellPrinter implements IExportPlugin {
     private static Logger        logger            = Logger.getLogger(ShellPrinter.class);
-    public static final Subset[] SUPPORTED_SUBSETS = { Subset.S5_1 };
+    public static final Subset[] SUPPORTED_SUBSETS = Subset.values();
 
     protected AbstractZGif       zgif              = null;
 
@@ -55,12 +58,7 @@ public class ShellPrinter implements IExportPlugin {
         return Arrays.asList(SUPPORTED_SUBSETS);
     }
 
-    /**
-     * @author phoudek
-     * @see IExportPlugin#doExport()
-     */
-    @Override
-    public void doExport() {
+    private void doExport() {
         exportMeta(zgif.getMeta());
 
         System.out.println(prefix + "Data:");
@@ -88,7 +86,6 @@ public class ShellPrinter implements IExportPlugin {
                 e.printStackTrace();
             }
         }
-        
 
         Method getData = null;
         try {
@@ -186,6 +183,7 @@ public class ShellPrinter implements IExportPlugin {
     @Override
     public void load(ExportPluginConfiguration config, AbstractZGif zgif) {
         this.zgif = zgif;
+        doExport();
     }
 
     /*
@@ -205,5 +203,27 @@ public class ShellPrinter implements IExportPlugin {
     @Override
     public PluginComponent<ExportPluginConfiguration> getConfigGui() {
         return null;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.zgif.converter.plugin.IPlugin#load(org.zgif.converter.plugin.
+     * PluginConfiguration)
+     */
+    @Override
+    public void load(PluginConfiguration config) {
+        throw new NotImplementedException();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.zgif.converter.plugin.output.IExportPlugin#
+     * getRequiredConfigurationArguments()
+     */
+    @Override
+    public ExportPluginConfiguration getRequiredConfigurationArguments() {
+        return new ExportPluginConfiguration();
     }
 }

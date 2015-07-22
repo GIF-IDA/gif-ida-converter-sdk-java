@@ -15,22 +15,29 @@
 package org.zgif.converter.plugin.output.zgif;
 
 import java.io.IOException;
+import java.io.OutputStream;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import javax.xml.stream.XMLOutputFactory;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.XMLStreamWriter;
-
 import org.apache.log4j.Logger;
 import org.zgif.converter.plugin.PluginComponent;
-import org.zgif.converter.plugin.output.IExportPlugin;
+import org.zgif.converter.plugin.PluginConfiguration;
 import org.zgif.converter.plugin.output.ExportPluginConfiguration;
+import org.zgif.converter.plugin.output.IExportPlugin;
+import org.zgif.converter.ui.gui.DefaultPluginGui;
 import org.zgif.model.datatype.enumeration.Subset;
+import org.zgif.model.node.AbstractDataRoot;
 import org.zgif.model.node.AbstractZGif;
 import org.zgif.model.node.Meta;
+import org.zgif.model.node.Period;
+
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * @author phoudek
@@ -39,16 +46,13 @@ import org.zgif.model.node.Meta;
 public class ZGifWriter implements IExportPlugin {
     private static Logger             logger            = Logger.getLogger(ZGifWriter.class);
 
-    public static final Subset[]      SUPPORTED_SUBSETS = { Subset.S5_1 };
+    public static final Subset[]      SUPPORTED_SUBSETS = Subset.values();
+    private static String             PARAMETER_NAME    = "zgif";
 
     private AbstractZGif              zgif              = null;
+    private ZipOutputStream           zipOut;
+    private List<String>              fileList          = new ArrayList<String>();
     private ExportPluginConfiguration config;
-
-    /**
-     * @author phoudek
-     */
-    public ZGifWriter() {
-    }
 
     /*
      * (non-Javadoc)
@@ -63,72 +67,38 @@ public class ZGifWriter implements IExportPlugin {
     /*
      * (non-Javadoc)
      * 
-     * @see org.zgif.converter.plugin.output.ExportPlugin#doExport()
+     * @see org.zgif.converter.plugin.output.IExportPlugin#
+     * getRequiredConfigurationArguments()
      */
     @Override
-    public void doExport() {
-        ZipOutputStream zipOut = new ZipOutputStream(config.getStreams().get("zgif"));
-        zipOut.setLevel(ZipOutputStream.STORED);
-        try {
-            Meta meta = zgif.getMeta();
-            zipOut.putNextEntry(new ZipEntry("mimetype"));
-            zipOut.write(meta.getFormat().getBytes());
-            zipOut.closeEntry();
+    public ExportPluginConfiguration getRequiredConfigurationArguments() {
+        return new ExportPluginConfiguration() {
+            {
+                Map<String, OutputStream> streams = getStreams();
+                streams.put(PARAMETER_NAME, null);
+            }
+        };
+    }
 
-            zipOut.putNextEntry(new ZipEntry("type"));
-            zipOut.write("XML".getBytes());
-            zipOut.closeEntry();
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.zgif.converter.plugin.output.ExportPlugin#getConfigGui()
+     */
+    @Override
+    public PluginComponent<ExportPluginConfiguration> getConfigGui() {
+        return new DefaultPluginGui<ExportPluginConfiguration>(getRequiredConfigurationArguments());
+    }
 
-            zipOut.setLevel(ZipOutputStream.DEFLATED);
-
-            zipOut.putNextEntry(new ZipEntry("meta.xml"));
-            XMLOutputFactory factory = XMLOutputFactory.newInstance();
-            XMLStreamWriter metaWriter = factory.createXMLStreamWriter(zipOut);
-            metaWriter.writeStartDocument();
-            metaWriter.writeStartElement("meta");
-
-            metaWriter.writeStartElement("format");
-            metaWriter.writeCharacters(meta.getFormat());
-            metaWriter.writeEndElement();
-
-            metaWriter.writeStartElement("version");
-            metaWriter.writeCharacters(meta.getVersion());
-            metaWriter.writeEndElement();
-
-            metaWriter.writeStartElement("process");
-            metaWriter.writeCharacters(meta.getProcess().toString());
-            metaWriter.writeEndElement();
-
-            metaWriter.writeStartElement("language");
-            metaWriter.writeCharacters(meta.getLanguage().toString());
-            metaWriter.writeEndElement();
-
-            metaWriter.writeStartElement("created");
-            metaWriter.writeCharacters(meta.getCreated().toString());
-            metaWriter.writeEndElement();
-
-            metaWriter.writeStartElement("publisher");
-            metaWriter.writeCharacters(meta.getPublisher());
-            metaWriter.writeEndElement();
-
-            metaWriter.writeStartElement("creator");
-            metaWriter.writeCharacters(meta.getCreator());
-            metaWriter.writeEndElement();
-
-            metaWriter.writeStartElement("description");
-            metaWriter.writeCharacters(meta.getDescription());
-            metaWriter.writeEndElement();
-
-            metaWriter.writeEndDocument();
-            metaWriter.flush();
-            zipOut.closeEntry();
-            zipOut.close();
-        } catch (XMLStreamException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.zgif.converter.plugin.IPlugin#load(org.zgif.converter.plugin.
+     * PluginConfiguration)
+     */
+    @Override
+    public void load(PluginConfiguration config) {
+        throw new NotImplementedException();
     }
 
     /*
@@ -142,6 +112,8 @@ public class ZGifWriter implements IExportPlugin {
     public void load(ExportPluginConfiguration config, AbstractZGif zgif) {
         this.zgif = zgif;
         this.config = config;
+
+        doExport();
     }
 
     /*
@@ -153,13 +125,84 @@ public class ZGifWriter implements IExportPlugin {
     public void unload() {
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.zgif.converter.plugin.output.ExportPlugin#getConfigGui()
-     */
-    @Override
-    public PluginComponent<ExportPluginConfiguration> getConfigGui() {
-        return null;
+    // //////////////////////////////////////////////////////////
+
+    private void doExport() {
+        zipOut = new ZipOutputStream(config.getStreams().get(PARAMETER_NAME));
+        zipOut.setLevel(ZipOutputStream.STORED);
+        try {
+
+            Meta meta = zgif.getMeta();
+            nextZipEntry("mimetype");
+            zipOut.write(meta.getFormat().getBytes());
+            zipOut.closeEntry();
+
+            nextZipEntry("type");
+            zipOut.write("XML".getBytes());
+            zipOut.closeEntry();
+
+            zipOut.setLevel(ZipOutputStream.DEFLATED);
+
+            nextZipEntry("meta.xml");
+            MetaWriter metaWriter = new MetaWriter(zipOut);
+            metaWriter.write(meta);
+
+            Method getData = null;
+            AbstractDataRoot data = null;
+            try {
+                getData = zgif.getClass().getMethod("getData");
+                data = (AbstractDataRoot) getData.invoke(zgif);
+            } catch (Exception e) {
+            }
+            if (data != null) {
+                exportData(data, "maindata.xml");
+            }
+
+            Method getPeriods = null;
+            Map<String, Period<?>> periods = null;
+            try {
+                getPeriods = zgif.getClass().getMethod("getPeriods");
+                periods = (Map<String, Period<?>>) getPeriods.invoke(zgif);
+            } catch (Exception e) {
+            }
+            exportPeriods(periods.values());
+
+            if (data == null && periods == null) {
+                logger.error("data and periods of zgif is null!");
+            }
+
+            nextZipEntry("META-INF/manifest.xml");
+            ManifestWriter manifestWriter = new ManifestWriter(zipOut);
+            manifestWriter.write(fileList);
+
+            zipOut.closeEntry();
+            zipOut.close();
+        } catch (IOException e) {
+            logger.error("Error writing zgif file", e);
+        }
+    }
+
+    private void nextZipEntry(String path) throws IOException {
+        zipOut.putNextEntry(new ZipEntry(path));
+        fileList.add(path);
+    }
+
+    private void exportData(AbstractDataRoot data, String path) throws IOException {
+        nextZipEntry(path);
+        DataWriter dataWriter = new DataWriter(zipOut);
+        dataWriter.write(data);
+    }
+
+    private void exportPeriods(Collection<Period<?>> periods) throws IOException {
+
+        for (Period<?> period : periods) {
+            nextZipEntry("periods/" + period.getIdentifier() + ".xml");
+            DataWriter dataWriter = new DataWriter(zipOut);
+            dataWriter.write(period.getData());
+        }
+
+        nextZipEntry("periods.xml");
+        new PeriodsWriter(zipOut).write(periods);
+
     }
 }

@@ -14,6 +14,7 @@ import org.zgif.converter.plugin.input.csv.subset_5_1.BuildingConverter;
 import org.zgif.converter.plugin.input.csv.subset_5_1.CompanyConverter;
 import org.zgif.converter.plugin.input.csv.subset_5_1.PeriodConverter;
 import org.zgif.converter.plugin.input.csv.subset_5_1.PropertyConverter;
+import org.zgif.converter.plugin.input.csv.subset_5_1.UnitConverter;
 import org.zgif.converter.sdk.IConverterDescriptor;
 import org.zgif.converter.sdk.ITransformer;
 import org.zgif.converter.sdk.impl.BasicConverter;
@@ -111,26 +112,32 @@ public class Converter extends BasicConverter implements IImportPlugin {
         NodeConverterDescriptor periodConverterDescr = new NodeConverterDescriptor();
         periodConverterDescr.setCsvStream(myDesc.getCsvStreamPeriods());
         periodConverterDescr.setZgif(zgif);
-        periodConverter.convertData((IConverterDescriptor) periodConverterDescr);
+        periodConverter.convertData(periodConverterDescr);
 
         CompanyConverter comConverter = new CompanyConverter();
         NodeConverterDescriptor comConverterDescr = new NodeConverterDescriptor();
         comConverterDescr.setCsvStream(myDesc.getCsvStreamCompany());
         comConverterDescr.setZgif(zgif);
-        comConverter.convertData((IConverterDescriptor) comConverterDescr);
+        comConverter.convertData(comConverterDescr);
 
         PropertyConverter propConverter = new PropertyConverter();
         NodeConverterDescriptor propConverterDescr = new NodeConverterDescriptor();
         propConverterDescr.setCsvStream(myDesc.getCsvStreamProperty());
         propConverterDescr.setZgif(zgif);
-        propConverter.convertData((IConverterDescriptor) propConverterDescr);
+        propConverter.convertData(propConverterDescr);
 
         BuildingConverter buildConverter = new BuildingConverter();
         NodeConverterDescriptor buildConverterDescr = new NodeConverterDescriptor();
         buildConverterDescr.setCsvStream(myDesc.getCsvStreamBuild());
         buildConverterDescr.setZgif(zgif);
-        buildConverter.convertData((IConverterDescriptor) buildConverterDescr);
+        buildConverter.convertData(buildConverterDescr);
 
+        UnitConverter unitConverter = new UnitConverter();
+        NodeConverterDescriptor unitConverterDesc = new NodeConverterDescriptor();
+        unitConverterDesc.setCsvStream(myDesc.getCsvStreamUnit());
+        unitConverterDesc.setZgif(zgif);
+        unitConverter.convertData(unitConverterDesc);
+        
     }
 
     /**
