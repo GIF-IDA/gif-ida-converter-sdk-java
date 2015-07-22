@@ -11,10 +11,12 @@
  *******************************************************************************/
 package org.zgif.model.subset_5_1.entity;
 
-import java.util.List;
+import java.util.Map;
 
 import org.joda.time.LocalDate;
 import org.zgif.model.annotation.DataField;
+import org.zgif.model.annotation.GroupNode;
+import org.zgif.model.annotation.NodeList;
 import org.zgif.model.datatype.Area;
 import org.zgif.model.datatype.enumeration.AreaMessurement;
 import org.zgif.model.datatype.enumeration.AreaType;
@@ -26,203 +28,205 @@ import org.zgif.model.node.group.EnergyRating;
 
 public class Building extends AbstractBuilding {
 
-	@DataField(wikiPageName = "Achitektonische Gültigkeit Ab")
-	private LocalDate archValidFrom;
-	@DataField(wikiPageName = "Achitektonische Gültigkeit bis")
-	private LocalDate archValidTo;
-	@DataField(wikiPageName = "Flächenmaß")
-	private AreaMessurement areaMessurement;
-	@DataField(wikiPageName = "Flächenart")
-	private AreaType areaType;
+    @DataField(wikiPageName = "Achitektonische Gültigkeit Ab")
+    private LocalDate         archValidFrom;
+    @DataField(wikiPageName = "Achitektonische Gültigkeit bis")
+    private LocalDate         archValidTo;
+    @DataField(wikiPageName = "Flächenmaß")
+    private AreaMessurement   areaMessurement;
+    @DataField(wikiPageName = "Flächenart")
+    private AreaType          areaType;
 
-	@DataField(wikiPageName = "Objektzustand")
-	private ObjectCondition condition;
-	@DataField(wikiPageName = "Datum der Fertigstellung/Errichtung")
-	private LocalDate constructionDate;
-	@DataField(wikiPageName = "Kubatur")
-	private Double cubature;
+    @DataField(wikiPageName = "Objektzustand")
+    private ObjectCondition   condition;
+    @DataField(wikiPageName = "Datum der Fertigstellung/Errichtung")
+    private LocalDate         constructionDate;
+    @DataField(wikiPageName = "Kubatur")
+    private Double            cubature;
 
-	@DataField(wikiPageName = "Modernisierungsdatum")
-	private LocalDate lastRefurbishmentDate;
+    @DataField(wikiPageName = "Modernisierungsdatum")
+    private LocalDate         lastRefurbishmentDate;
 
-	@DataField(wikiPageName = "Modernisierungszustand")
-	private RestorationStatus modernisationStatus;
-	@DataField(wikiPageName = "Denkmalschutz")
-	private MonumentsType monumentProtectionCategory;
+    @DataField(wikiPageName = "Modernisierungszustand")
+    private RestorationStatus modernisationStatus;
+    @DataField(wikiPageName = "Denkmalschutz")
+    private MonumentsType     monumentProtectionCategory;
 
-	@DataField(wikiPageName = "Etagenzahl")
-	private Integer numberOfFloors;
-	@DataField(wikiPageName = "Anzahl Parkflächen")
-	private Integer numberOfParkingSpaces;
-	@DataField(wikiPageName = "Zimmer")
-	private Integer numberOfRooms;
+    @DataField(wikiPageName = "Etagenzahl")
+    private Integer           numberOfFloors;
+    @DataField(wikiPageName = "Anzahl Parkflächen")
+    private Integer           numberOfParkingSpaces;
+    @DataField(wikiPageName = "Zimmer")
+    private Integer           numberOfRooms;
 
-	@DataField(wikiPageName = "Eigentumsanteil")
-	private Double ownershipShare;
+    @DataField(wikiPageName = "Eigentumsanteil")
+    private Double            ownershipShare;
 
-	@DataField(wikiPageName = "Property Manager")
-	private String propertyManager;
-	@DataField(wikiPageName = "Ankaufsdatum")
-	private LocalDate purchaseDate;
+    @DataField(wikiPageName = "Property Manager")
+    private String            propertyManager;
+    @DataField(wikiPageName = "Ankaufsdatum")
+    private LocalDate         purchaseDate;
 
-	@DataField(wikiPageName = "Nutzfläche")
-	private Area usableArea;
+    @DataField(wikiPageName = "Nutzfläche")
+    private Area              usableArea;
 
-	// ////////////////////////////////////////////
+    // ////////////////////////////////////////////
 
-	private EnergyRating lastEnergyRating;
+    @GroupNode
+    private EnergyRating      lastEnergyRating;
 
-	private List<Unit> listOfUnit;
+    @NodeList
+    private Map<String, Unit> listOfUnit;
 
-	public LocalDate getArchValidFrom() {
-		return archValidFrom;
-	}
+    public LocalDate getArchValidFrom() {
+        return archValidFrom;
+    }
 
-	public void setArchValidFrom(LocalDate archValidFrom) {
-		this.archValidFrom = archValidFrom;
-	}
+    public void setArchValidFrom(LocalDate archValidFrom) {
+        this.archValidFrom = archValidFrom;
+    }
 
-	public LocalDate getArchValidTo() {
-		return archValidTo;
-	}
+    public LocalDate getArchValidTo() {
+        return archValidTo;
+    }
 
-	public void setArchValidTo(LocalDate archValidTo) {
-		this.archValidTo = archValidTo;
-	}
+    public void setArchValidTo(LocalDate archValidTo) {
+        this.archValidTo = archValidTo;
+    }
 
-	public AreaMessurement getAreaMessurement() {
-		return areaMessurement;
-	}
+    public AreaMessurement getAreaMessurement() {
+        return areaMessurement;
+    }
 
-	public void setAreaMessurement(AreaMessurement areaMessurement) {
-		this.areaMessurement = areaMessurement;
-	}
+    public void setAreaMessurement(AreaMessurement areaMessurement) {
+        this.areaMessurement = areaMessurement;
+    }
 
-	public AreaType getAreaType() {
-		return areaType;
-	}
+    public AreaType getAreaType() {
+        return areaType;
+    }
 
-	public void setAreaType(AreaType areaType) {
-		this.areaType = areaType;
-	}
+    public void setAreaType(AreaType areaType) {
+        this.areaType = areaType;
+    }
 
-	public ObjectCondition getCondition() {
-		return condition;
-	}
+    public ObjectCondition getCondition() {
+        return condition;
+    }
 
-	public void setCondition(ObjectCondition condition) {
-		this.condition = condition;
-	}
+    public void setCondition(ObjectCondition condition) {
+        this.condition = condition;
+    }
 
-	public LocalDate getConstructionDate() {
-		return constructionDate;
-	}
+    public LocalDate getConstructionDate() {
+        return constructionDate;
+    }
 
-	public void setConstructionDate(LocalDate constructionDate) {
-		this.constructionDate = constructionDate;
-	}
+    public void setConstructionDate(LocalDate constructionDate) {
+        this.constructionDate = constructionDate;
+    }
 
-	public Double getCubature() {
-		return cubature;
-	}
+    public Double getCubature() {
+        return cubature;
+    }
 
-	public void setCubature(Double cubature) {
-		this.cubature = cubature;
-	}
+    public void setCubature(Double cubature) {
+        this.cubature = cubature;
+    }
 
-	public LocalDate getLastRefurbishmentDate() {
-		return lastRefurbishmentDate;
-	}
+    public LocalDate getLastRefurbishmentDate() {
+        return lastRefurbishmentDate;
+    }
 
-	public void setLastRefurbishmentDate(LocalDate lastRefurbishmentDate) {
-		this.lastRefurbishmentDate = lastRefurbishmentDate;
-	}
+    public void setLastRefurbishmentDate(LocalDate lastRefurbishmentDate) {
+        this.lastRefurbishmentDate = lastRefurbishmentDate;
+    }
 
-	public RestorationStatus getModernisationStatus() {
-		return modernisationStatus;
-	}
+    public RestorationStatus getModernisationStatus() {
+        return modernisationStatus;
+    }
 
-	public void setModernisationStatus(RestorationStatus modernisationStatus) {
-		this.modernisationStatus = modernisationStatus;
-	}
+    public void setModernisationStatus(RestorationStatus modernisationStatus) {
+        this.modernisationStatus = modernisationStatus;
+    }
 
-	public MonumentsType getMonumentProtectionCategory() {
-		return monumentProtectionCategory;
-	}
+    public MonumentsType getMonumentProtectionCategory() {
+        return monumentProtectionCategory;
+    }
 
-	public void setMonumentProtectionCategory(MonumentsType monumentProtectionCategory) {
-		this.monumentProtectionCategory = monumentProtectionCategory;
-	}
+    public void setMonumentProtectionCategory(MonumentsType monumentProtectionCategory) {
+        this.monumentProtectionCategory = monumentProtectionCategory;
+    }
 
-	public Integer getNumberOfFloors() {
-		return numberOfFloors;
-	}
+    public Integer getNumberOfFloors() {
+        return numberOfFloors;
+    }
 
-	public void setNumberOfFloors(Integer numberOfFloors) {
-		this.numberOfFloors = numberOfFloors;
-	}
+    public void setNumberOfFloors(Integer numberOfFloors) {
+        this.numberOfFloors = numberOfFloors;
+    }
 
-	public Integer getNumberOfParkingSpaces() {
-		return numberOfParkingSpaces;
-	}
+    public Integer getNumberOfParkingSpaces() {
+        return numberOfParkingSpaces;
+    }
 
-	public void setNumberOfParkingSpaces(Integer numberOfParkingSpaces) {
-		this.numberOfParkingSpaces = numberOfParkingSpaces;
-	}
+    public void setNumberOfParkingSpaces(Integer numberOfParkingSpaces) {
+        this.numberOfParkingSpaces = numberOfParkingSpaces;
+    }
 
-	public Integer getNumberOfRooms() {
-		return numberOfRooms;
-	}
+    public Integer getNumberOfRooms() {
+        return numberOfRooms;
+    }
 
-	public void setNumberOfRooms(Integer numberOfRooms) {
-		this.numberOfRooms = numberOfRooms;
-	}
+    public void setNumberOfRooms(Integer numberOfRooms) {
+        this.numberOfRooms = numberOfRooms;
+    }
 
-	public Double getOwnershipShare() {
-		return ownershipShare;
-	}
+    public Double getOwnershipShare() {
+        return ownershipShare;
+    }
 
-	public void setOwnershipShare(Double ownershipShare) {
-		this.ownershipShare = ownershipShare;
-	}
+    public void setOwnershipShare(Double ownershipShare) {
+        this.ownershipShare = ownershipShare;
+    }
 
-	public String getPropertyManager() {
-		return propertyManager;
-	}
+    public String getPropertyManager() {
+        return propertyManager;
+    }
 
-	public void setPropertyManager(String propertyManager) {
-		this.propertyManager = propertyManager;
-	}
+    public void setPropertyManager(String propertyManager) {
+        this.propertyManager = propertyManager;
+    }
 
-	public LocalDate getPurchaseDate() {
-		return purchaseDate;
-	}
+    public LocalDate getPurchaseDate() {
+        return purchaseDate;
+    }
 
-	public void setPurchaseDate(LocalDate purchaseDate) {
-		this.purchaseDate = purchaseDate;
-	}
+    public void setPurchaseDate(LocalDate purchaseDate) {
+        this.purchaseDate = purchaseDate;
+    }
 
-	public Area getUsableArea() {
-		return usableArea;
-	}
+    public Area getUsableArea() {
+        return usableArea;
+    }
 
-	public void setUsableArea(Area usableArea) {
-		this.usableArea = usableArea;
-	}
+    public void setUsableArea(Area usableArea) {
+        this.usableArea = usableArea;
+    }
 
-	public EnergyRating getLastEnergyRating() {
-		return lastEnergyRating;
-	}
+    public EnergyRating getLastEnergyRating() {
+        return lastEnergyRating;
+    }
 
-	public void setLastEnergyRating(EnergyRating lastEnergyRating) {
-		this.lastEnergyRating = lastEnergyRating;
-	}
+    public void setLastEnergyRating(EnergyRating lastEnergyRating) {
+        this.lastEnergyRating = lastEnergyRating;
+    }
 
-	public List<Unit> getListOfUnit() {
-		return listOfUnit;
-	}
+    public Map<String, Unit> getListOfUnit() {
+        return listOfUnit;
+    }
 
-	public void setListOfUnit(List<Unit> listOfUnit) {
-		this.listOfUnit = listOfUnit;
-	}
+    public void setListOfUnit(Map<String, Unit> listOfUnit) {
+        this.listOfUnit = listOfUnit;
+    }
 }

@@ -15,38 +15,40 @@ import java.util.Currency;
 import java.util.Map;
 
 import org.zgif.model.annotation.DataField;
+import org.zgif.model.annotation.NodeList;
 import org.zgif.model.node.entity.AbstractCompany;
 
 public class Company extends AbstractCompany {
-	@DataField(wikiPageName="W�hrung")
-	private Currency currency;
+    @DataField(wikiPageName = "W�hrung")
+    private Currency              currency;
 
-	@DataField(wikiPageName="Notiz")
-	private String note;
-	
-	private Map<String, Property> listOfProp;
+    @DataField(wikiPageName = "Notiz")
+    private String                note;
 
-	public Currency getCurrency() {
-		return currency;
-	}
+    @NodeList
+    private Map<String, Property> listOfProp;
 
-	public void setCurrency(Currency currency) {
-		this.currency = currency;
-	}
+    public Currency getCurrency() {
+        return currency;
+    }
 
-	public String getNote() {
-		return note;
-	}
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
+    }
 
-	public void setNote(String note) {
-		this.note = note;
-	}
+    public String getNote() {
+        return note;
+    }
 
-	public Map<String, Property> getListOfProp() {
-		return listOfProp;
-	}
+    public void setNote(String note) {
+        this.note = note;
+    }
 
-	public void setListOfProp(Map<String, Property> listOfProp) {
-		this.listOfProp = listOfProp;
-	}	
+    public Map<String, Property> getListOfProp() {
+        return listOfProp;
+    }
+
+    public void setListOfProp(Map<String, Property> listOfProp) {
+        this.listOfProp = listOfProp;
+    }
 }

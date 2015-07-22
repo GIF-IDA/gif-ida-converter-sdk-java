@@ -13,13 +13,16 @@ package org.zgif.model.subset_5_1;
 
 import java.util.Map;
 
+import org.zgif.model.annotation.NodeList;
 import org.zgif.model.node.AbstractDataRoot;
 import org.zgif.model.subset_5_1.entity.Company;
 import org.zgif.model.subset_5_1.entity.Property;
 
 public class DataRoot extends AbstractDataRoot {
+    @NodeList
 	private Map<String, Company> listOfCom;
-	private Map<String, Property> listOfProp;
+    @NodeList
+    private Map<String, Property> listOfProp;
 	
     public Map<String, Company> getListOfCom() {
         return listOfCom;

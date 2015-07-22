@@ -18,15 +18,15 @@ import org.zgif.model.node.AbstractNode;
 
 @Node(parentNodes={})
 public abstract class AbstractEntityNode extends AbstractNode {
-    @DataField(wikiPageName = "", isObjectIdentifier = true)
+    @DataField(wikiPageName = "", isAttribute = true, isObjectIdentifier = true)
     private String    objectIdSender;
-    @DataField(wikiPageName = "")
+    @DataField(wikiPageName = "", isAttribute = true)
     private String    objectIdReceiver;
-    @DataField(wikiPageName = "")
+    @DataField(wikiPageName = "", isAttribute = true)
     private LocalDate validFrom;
-    @DataField(wikiPageName = "")
+    @DataField(wikiPageName = "", isAttribute = true)
     private LocalDate validTo;
-    @DataField(wikiPageName = "")
+    @DataField(wikiPageName = "", isAttribute = true)
     private String    label;
 
     public String getObjectIdSender() {

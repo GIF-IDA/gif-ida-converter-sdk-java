@@ -20,5 +20,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface DataField {
 	String wikiPageName();
-	boolean isObjectIdentifier() default false;
+    boolean isObjectIdentifier() default false;
+    boolean isAttribute() default false;
 }

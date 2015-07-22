@@ -11,46 +11,48 @@
  *******************************************************************************/
 package org.zgif.model.subset_5_1.entity;
 
-import java.util.List;
+import java.util.Map;
 
 import org.zgif.model.annotation.DataField;
+import org.zgif.model.annotation.NodeList;
 import org.zgif.model.datatype.Amount;
 import org.zgif.model.node.entity.AbstractAccount;
 
 public class Account extends AbstractAccount {
-	// TODO:  AccountingStandard accountingStandard - ggf. AccountingType
-//	private AccountingStandard accountingStandard
+    // TODO: AccountingStandard accountingStandard - ggf. AccountingType
+    // private AccountingStandard accountingStandard
 
-	@DataField(wikiPageName = "Bilanzposition")
-	private String balancePosition;
-	
-	@DataField(wikiPageName = "Kontobetrag")
-	private Amount value;
-	
-	private List<BookEntry> listOfBook;
+    @DataField(wikiPageName = "Bilanzposition")
+    private String                 balancePosition;
 
-	public Amount getValue() {
-		return value;
-	}
+    @DataField(wikiPageName = "Kontobetrag")
+    private Amount                 value;
 
-	public void setValue(Amount value) {
-		this.value = value;
-	}
+    @NodeList
+    private Map<String, BookEntry> listOfBook;
 
-	public String getBalancePosition() {
-		return balancePosition;
-	}
+    public Amount getValue() {
+        return value;
+    }
 
-	public void setBalancePosition(String balancePosition) {
-		this.balancePosition = balancePosition;
-	}
+    public void setValue(Amount value) {
+        this.value = value;
+    }
 
-	public List<BookEntry> getListOfBook() {
-		return listOfBook;
-	}
+    public String getBalancePosition() {
+        return balancePosition;
+    }
 
-	public void setListOfBook(List<BookEntry> listOfBook) {
-		this.listOfBook = listOfBook;
-	}
-	
+    public void setBalancePosition(String balancePosition) {
+        this.balancePosition = balancePosition;
+    }
+
+    public Map<String, BookEntry> getListOfBook() {
+        return listOfBook;
+    }
+
+    public void setListOfBook(Map<String, BookEntry> listOfBook) {
+        this.listOfBook = listOfBook;
+    }
+
 }

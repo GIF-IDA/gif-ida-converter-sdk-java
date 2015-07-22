@@ -11,10 +11,11 @@
  *******************************************************************************/
 package org.zgif.model.subset_4_1.entity;
 
-import java.util.List;
+import java.util.Map;
 
 import org.joda.time.LocalDate;
 import org.zgif.model.annotation.DataField;
+import org.zgif.model.annotation.NodeList;
 import org.zgif.model.datatype.Amount;
 import org.zgif.model.datatype.enumeration.AreaMessurement;
 import org.zgif.model.datatype.enumeration.AreaType;
@@ -23,173 +24,174 @@ import org.zgif.model.datatype.enumeration.SiteConstrucibleType;
 import org.zgif.model.node.entity.AbstractEntityNode;
 
 public class Land extends AbstractEntityNode {
-	@DataField(wikiPageName = "Flächenmaß")
-	private AreaMessurement areaMessurement;
-	@DataField(wikiPageName = "Flächenart")
-	private AreaType areaType;
+    @DataField(wikiPageName = "Flächenmaß")
+    private AreaMessurement      areaMessurement;
+    @DataField(wikiPageName = "Flächenart")
+    private AreaType             areaType;
 
-	@DataField(wikiPageName = "Baugenehmigung")
-	private Boolean buildingPermission;
+    @DataField(wikiPageName = "Baugenehmigung")
+    private Boolean              buildingPermission;
 
-	@DataField(wikiPageName = "Provisionsbetrag")
-	private Amount courtage;
+    @DataField(wikiPageName = "Provisionsbetrag")
+    private Amount               courtage;
 
-	@DataField(wikiPageName = "Abriss")
-	private Boolean demolition;
+    @DataField(wikiPageName = "Abriss")
+    private Boolean              demolition;
 
-	@DataField(wikiPageName = "GFZ")
-	private Double gfz;
-	@DataField(wikiPageName = "GRZ")
-	private Double grz;
+    @DataField(wikiPageName = "GFZ")
+    private Double               gfz;
+    @DataField(wikiPageName = "GRZ")
+    private Double               grz;
 
-	@DataField(wikiPageName = "Denkmalschutz")
-	private MonumentsType monumentProtectionCategory;
+    @DataField(wikiPageName = "Denkmalschutz")
+    private MonumentsType        monumentProtectionCategory;
 
-	@DataField(wikiPageName = "Anzahl Parkflächen")
-	private Integer numberOfParkingSpaces;
+    @DataField(wikiPageName = "Anzahl Parkflächen")
+    private Integer              numberOfParkingSpaces;
 
-	@DataField(wikiPageName = "Grundstücksgröße")
-	private Amount plotArea;
-	@DataField(wikiPageName = "Ankaufsdatum")
-	private LocalDate purchaseDate;
-	@DataField(wikiPageName = "Bruttokaufspreis")
-	private Amount purchaseGrossPrice;
+    @DataField(wikiPageName = "Grundstücksgröße")
+    private Amount               plotArea;
+    @DataField(wikiPageName = "Ankaufsdatum")
+    private LocalDate            purchaseDate;
+    @DataField(wikiPageName = "Bruttokaufspreis")
+    private Amount               purchaseGrossPrice;
 
-	@DataField(wikiPageName = "kurzfristig bebaubar")
-	private Boolean shortTermConstructible;
-	@DataField(wikiPageName = "Bebaubar nach")
-	private SiteConstrucibleType siteConstrucibleType;
-	@DataField(wikiPageName = "Erschliessungszustand")
-	private String siteDevelopmentType;
+    @DataField(wikiPageName = "kurzfristig bebaubar")
+    private Boolean              shortTermConstructible;
+    @DataField(wikiPageName = "Bebaubar nach")
+    private SiteConstrucibleType siteConstrucibleType;
+    @DataField(wikiPageName = "Erschliessungszustand")
+    private String               siteDevelopmentType;
 
-	private List<Unit> listOfUnit;
+    @NodeList
+    private Map<String, Unit>    listOfUnit;
 
-	public AreaMessurement getAreaMessurement() {
-		return areaMessurement;
-	}
+    public AreaMessurement getAreaMessurement() {
+        return areaMessurement;
+    }
 
-	public void setAreaMessurement(AreaMessurement areaMessurement) {
-		this.areaMessurement = areaMessurement;
-	}
+    public void setAreaMessurement(AreaMessurement areaMessurement) {
+        this.areaMessurement = areaMessurement;
+    }
 
-	public AreaType getAreaType() {
-		return areaType;
-	}
+    public AreaType getAreaType() {
+        return areaType;
+    }
 
-	public void setAreaType(AreaType areaType) {
-		this.areaType = areaType;
-	}
+    public void setAreaType(AreaType areaType) {
+        this.areaType = areaType;
+    }
 
-	public Boolean getBuildingPermission() {
-		return buildingPermission;
-	}
+    public Boolean getBuildingPermission() {
+        return buildingPermission;
+    }
 
-	public void setBuildingPermission(Boolean buildingPermission) {
-		this.buildingPermission = buildingPermission;
-	}
+    public void setBuildingPermission(Boolean buildingPermission) {
+        this.buildingPermission = buildingPermission;
+    }
 
-	public Amount getCourtage() {
-		return courtage;
-	}
+    public Amount getCourtage() {
+        return courtage;
+    }
 
-	public void setCourtage(Amount courtage) {
-		this.courtage = courtage;
-	}
+    public void setCourtage(Amount courtage) {
+        this.courtage = courtage;
+    }
 
-	public Boolean getDemolition() {
-		return demolition;
-	}
+    public Boolean getDemolition() {
+        return demolition;
+    }
 
-	public void setDemolition(Boolean demolition) {
-		this.demolition = demolition;
-	}
+    public void setDemolition(Boolean demolition) {
+        this.demolition = demolition;
+    }
 
-	public Double getGfz() {
-		return gfz;
-	}
+    public Double getGfz() {
+        return gfz;
+    }
 
-	public void setGfz(Double gfz) {
-		this.gfz = gfz;
-	}
+    public void setGfz(Double gfz) {
+        this.gfz = gfz;
+    }
 
-	public Double getGrz() {
-		return grz;
-	}
+    public Double getGrz() {
+        return grz;
+    }
 
-	public void setGrz(Double grz) {
-		this.grz = grz;
-	}
+    public void setGrz(Double grz) {
+        this.grz = grz;
+    }
 
-	public MonumentsType getMonumentProtectionCategory() {
-		return monumentProtectionCategory;
-	}
+    public MonumentsType getMonumentProtectionCategory() {
+        return monumentProtectionCategory;
+    }
 
-	public void setMonumentProtectionCategory(MonumentsType monumentProtectionCategory) {
-		this.monumentProtectionCategory = monumentProtectionCategory;
-	}
+    public void setMonumentProtectionCategory(MonumentsType monumentProtectionCategory) {
+        this.monumentProtectionCategory = monumentProtectionCategory;
+    }
 
-	public Integer getNumberOfParkingSpaces() {
-		return numberOfParkingSpaces;
-	}
+    public Integer getNumberOfParkingSpaces() {
+        return numberOfParkingSpaces;
+    }
 
-	public void setNumberOfParkingSpaces(Integer numberOfParkingSpaces) {
-		this.numberOfParkingSpaces = numberOfParkingSpaces;
-	}
+    public void setNumberOfParkingSpaces(Integer numberOfParkingSpaces) {
+        this.numberOfParkingSpaces = numberOfParkingSpaces;
+    }
 
-	public Amount getPlotArea() {
-		return plotArea;
-	}
+    public Amount getPlotArea() {
+        return plotArea;
+    }
 
-	public void setPlotArea(Amount plotArea) {
-		this.plotArea = plotArea;
-	}
+    public void setPlotArea(Amount plotArea) {
+        this.plotArea = plotArea;
+    }
 
-	public LocalDate getPurchaseDate() {
-		return purchaseDate;
-	}
+    public LocalDate getPurchaseDate() {
+        return purchaseDate;
+    }
 
-	public void setPurchaseDate(LocalDate purchaseDate) {
-		this.purchaseDate = purchaseDate;
-	}
+    public void setPurchaseDate(LocalDate purchaseDate) {
+        this.purchaseDate = purchaseDate;
+    }
 
-	public Amount getPurchaseGrossPrice() {
-		return purchaseGrossPrice;
-	}
+    public Amount getPurchaseGrossPrice() {
+        return purchaseGrossPrice;
+    }
 
-	public void setPurchaseGrossPrice(Amount purchaseGrossPrice) {
-		this.purchaseGrossPrice = purchaseGrossPrice;
-	}
+    public void setPurchaseGrossPrice(Amount purchaseGrossPrice) {
+        this.purchaseGrossPrice = purchaseGrossPrice;
+    }
 
-	public Boolean getShortTermConstructible() {
-		return shortTermConstructible;
-	}
+    public Boolean getShortTermConstructible() {
+        return shortTermConstructible;
+    }
 
-	public void setShortTermConstructible(Boolean shortTermConstructible) {
-		this.shortTermConstructible = shortTermConstructible;
-	}
+    public void setShortTermConstructible(Boolean shortTermConstructible) {
+        this.shortTermConstructible = shortTermConstructible;
+    }
 
-	public SiteConstrucibleType getSiteConstrucibleType() {
-		return siteConstrucibleType;
-	}
+    public SiteConstrucibleType getSiteConstrucibleType() {
+        return siteConstrucibleType;
+    }
 
-	public void setSiteConstrucibleType(SiteConstrucibleType siteConstrucibleType) {
-		this.siteConstrucibleType = siteConstrucibleType;
-	}
+    public void setSiteConstrucibleType(SiteConstrucibleType siteConstrucibleType) {
+        this.siteConstrucibleType = siteConstrucibleType;
+    }
 
-	public String getSiteDevelopmentType() {
-		return siteDevelopmentType;
-	}
+    public String getSiteDevelopmentType() {
+        return siteDevelopmentType;
+    }
 
-	public void setSiteDevelopmentType(String siteDevelopmentType) {
-		this.siteDevelopmentType = siteDevelopmentType;
-	}
+    public void setSiteDevelopmentType(String siteDevelopmentType) {
+        this.siteDevelopmentType = siteDevelopmentType;
+    }
 
-	public List<Unit> getListOfUnit() {
-		return listOfUnit;
-	}
+    public Map<String, Unit> getListOfUnit() {
+        return listOfUnit;
+    }
 
-	public void setListOfUnit(List<Unit> listOfUnit) {
-		this.listOfUnit = listOfUnit;
-	}
+    public void setListOfUnit(Map<String, Unit> listOfUnit) {
+        this.listOfUnit = listOfUnit;
+    }
 
 }
