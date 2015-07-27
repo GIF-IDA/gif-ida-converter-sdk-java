@@ -1,19 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2015 Martin Fluegge (Berlin, Germany) and others..
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *  
- * Contributors:
- *    Martin Fluegge - initial API and implementation and/or initial documentation
- *  
- *******************************************************************************/
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.03 um 01:14:56 PM CEST 
+// Generiert: 2015.07.27 um 11:43:51 AM CEST 
 //
 
 
@@ -29,18 +18,18 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für iTYPE_EXTENSION_SUB_LIST complex type.
+ * <p>Java-Klasse für ExtensionSubList complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
- * &lt;complexType name="iTYPE_EXTENSION_SUB_LIST">
+ * &lt;complexType name="ExtensionSubList">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="ITEM" type="{}iTYPE_EXTENSION_SUB_LIST_ITEM" maxOccurs="unbounded"/>
+ *         &lt;element name="item" type="{}ExtensionSubListItem" maxOccurs="unbounded"/>
  *       &lt;/sequence>
- *       &lt;attribute name="NAME" type="{}iTYPE_EXTENSION_NAME" />
+ *       &lt;attribute name="name" type="{}ExtensionName" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -49,14 +38,14 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "iTYPE_EXTENSION_SUB_LIST", propOrder = {
+@XmlType(name = "ExtensionSubList", propOrder = {
     "item"
 })
-public class ITYPEEXTENSIONSUBLIST {
+public class ExtensionSubList {
 
-    @XmlElement(name = "ITEM", required = true)
-    protected List<ITYPEEXTENSIONSUBLISTITEM> item;
-    @XmlAttribute(name = "NAME")
+    @XmlElement(required = true)
+    protected List<ExtensionSubListItem> item;
+    @XmlAttribute(name = "name")
     protected String name;
 
     /**
@@ -71,19 +60,19 @@ public class ITYPEEXTENSIONSUBLIST {
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getITEM().add(newItem);
+     *    getItem().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ITYPEEXTENSIONSUBLISTITEM }
+     * {@link ExtensionSubListItem }
      * 
      * 
      */
-    public List<ITYPEEXTENSIONSUBLISTITEM> getITEM() {
+    public List<ExtensionSubListItem> getItem() {
         if (item == null) {
-            item = new ArrayList<ITYPEEXTENSIONSUBLISTITEM>();
+            item = new ArrayList<ExtensionSubListItem>();
         }
         return this.item;
     }
@@ -96,7 +85,7 @@ public class ITYPEEXTENSIONSUBLIST {
      *     {@link String }
      *     
      */
-    public String getNAME() {
+    public String getName() {
         return name;
     }
 
@@ -108,7 +97,7 @@ public class ITYPEEXTENSIONSUBLIST {
      *     {@link String }
      *     
      */
-    public void setNAME(String value) {
+    public void setName(String value) {
         this.name = value;
     }
 

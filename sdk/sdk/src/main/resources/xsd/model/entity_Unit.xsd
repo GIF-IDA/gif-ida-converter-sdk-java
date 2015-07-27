@@ -5,7 +5,7 @@
   <xs:include schemaLocation="entity_Term.xsd"/>
   <xs:complexType name="Units">
     <xs:sequence>
-      <xs:element name="UNIT" type="Unit" maxOccurs="unbounded"/>
+      <xs:element name="unit" type="Unit" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Unit">
@@ -50,7 +50,7 @@
       <xs:element name="useTypeCustomer" type="iTYPE_STRING" minOccurs="0"/>
       <xs:element name="vacancyReason" type="VacancyReason" minOccurs="0"/>
       <xs:element name="address" type="Address" minOccurs="0"/>
-      <xs:element name="extensionMap" type="iTYPE_EXTENSION_MAP" minOccurs="0"/>
+      <xs:element name="extensionMap" type="ExtensionMap" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="hash" type="iTYPE_STRING"/>
     <xs:attribute name="objectIdSender" type="iTYPE_STRING"/>
@@ -59,24 +59,24 @@
     <xs:attribute name="validTo" type="iTYPE_LOCALDATE"/>
     <xs:attribute name="label" type="iTYPE_STRING"/>
   </xs:complexType>
-  <xs:complexType name="HUNIT">
+  <xs:complexType name="HashUnit">
     <xs:all/>
     <xs:attribute name="hash" type="iTYPE_STRING"/>
   </xs:complexType>
-  <xs:complexType name="LIST_OF_HUNIT">
+  <xs:complexType name="HashUnits">
     <xs:sequence>
-      <xs:element name="UNIT" type="HUNIT" maxOccurs="unbounded"/>
+      <xs:element name="unit" type="HashUnit" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="TUNIT">
+  <xs:complexType name="TermUnit">
     <xs:sequence>
-      <xs:element name="LIST_OF_TERM" type="Terms" minOccurs="0"/>
+      <xs:element name="terms" type="Terms" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="hash" type="iTYPE_STRING"/>
   </xs:complexType>
-  <xs:complexType name="LIST_OF_TUNIT">
+  <xs:complexType name="TermUnits">
     <xs:sequence>
-      <xs:element name="UNIT" type="TUNIT" maxOccurs="unbounded"/>
+      <xs:element name="termUnit" type="TermUnit" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

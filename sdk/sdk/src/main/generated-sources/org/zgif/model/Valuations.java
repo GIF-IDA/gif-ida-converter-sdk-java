@@ -1,19 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2015 Martin Fluegge (Berlin, Germany) and others..
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *  
- * Contributors:
- *    Martin Fluegge - initial API and implementation and/or initial documentation
- *  
- *******************************************************************************/
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.03 um 01:14:56 PM CEST 
+// Generiert: 2015.07.27 um 11:43:51 AM CEST 
 //
 
 
@@ -37,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="VAL" type="{}Valuation" maxOccurs="unbounded"/>
+ *         &lt;element name="valuation" type="{}Valuation" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -48,26 +37,26 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Valuations", propOrder = {
-    "val"
+    "valuation"
 })
 public class Valuations {
 
-    @XmlElement(name = "VAL", required = true)
-    protected List<Valuation> val;
+    @XmlElement(required = true)
+    protected List<Valuation> valuation;
 
     /**
-     * Gets the value of the val property.
+     * Gets the value of the valuation property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the val property.
+     * This is why there is not a <CODE>set</CODE> method for the valuation property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getVAL().add(newItem);
+     *    getValuation().add(newItem);
      * </pre>
      * 
      * 
@@ -77,11 +66,11 @@ public class Valuations {
      * 
      * 
      */
-    public List<Valuation> getVAL() {
-        if (val == null) {
-            val = new ArrayList<Valuation>();
+    public List<Valuation> getValuation() {
+        if (valuation == null) {
+            valuation = new ArrayList<Valuation>();
         }
-        return this.val;
+        return this.valuation;
     }
 
 }

@@ -4,7 +4,7 @@
   <xs:include schemaLocation="types_sub.xsd"/>
   <xs:complexType name="Valuations">
     <xs:sequence>
-      <xs:element name="VAL" type="Valuation" maxOccurs="unbounded"/>
+      <xs:element name="valuation" type="Valuation" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Valuation">
@@ -44,7 +44,7 @@
       <xs:element name="vacantEffectiveAreaTrade" type="Area" minOccurs="0"/>
       <xs:element name="valuationDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
       <xs:element name="energyRating" type="EnergyRating" minOccurs="0"/>
-      <xs:element name="extensionMap" type="iTYPE_EXTENSION_MAP" minOccurs="0"/>
+      <xs:element name="extensionMap" type="ExtensionMap" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="objectIdSender" type="iTYPE_STRING"/>
     <xs:attribute name="objectIdReceiver" type="iTYPE_STRING"/>

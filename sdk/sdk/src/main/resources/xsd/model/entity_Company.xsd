@@ -7,17 +7,17 @@
   <xs:include schemaLocation="entity_Property.xsd"/>
   <xs:complexType name="Companies">
     <xs:sequence>
-      <xs:element name="COM" type="Company" maxOccurs="unbounded"/>
+      <xs:element name="company" type="Company" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Company">
     <xs:sequence>
       <xs:element name="currency" type="iTYPE_CURRENCY" minOccurs="0"/>
       <xs:element name="note" type="iTYPE_STRING" minOccurs="0"/>
-      <xs:element name="extensionMap" type="iTYPE_EXTENSION_MAP" minOccurs="0"/>
-      <xs:element name="LIST_OF_PROP" type="Properties" minOccurs="0"/>
-      <xs:element name="LIST_OF_REC" type="Records" minOccurs="0"/>
-      <xs:element name="LIST_OF_ACC" type="Accounts" minOccurs="0"/>
+      <xs:element name="extensionMap" type="ExtensionMap" minOccurs="0"/>
+      <xs:element name="properties" type="Properties" minOccurs="0"/>
+      <xs:element name="records" type="Records" minOccurs="0"/>
+      <xs:element name="accounts" type="Accounts" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="objectIdSender" type="iTYPE_STRING"/>
     <xs:attribute name="objectIdReceiver" type="iTYPE_STRING"/>

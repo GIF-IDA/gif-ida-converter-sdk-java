@@ -5,21 +5,21 @@
 Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-Generiert: 2015.07.03 um 01:14:56 PM CEST 
+Generiert: 2015.07.27 um 11:43:50 AM CEST 
 
   -->
   <jaxb:bindings scd="x-schema::">
     <jaxb:schemaBindings map="false">
       <jaxb:package name="org.zgif.model"/>
     </jaxb:schemaBindings>
-    <jaxb:bindings scd="~fTYPE_MANIFEST">
-      <jaxb:class ref="org.zgif.model.FTYPEMANIFEST"/>
+    <jaxb:bindings scd="~Manifest">
+      <jaxb:class ref="org.zgif.model.Manifest"/>
     </jaxb:bindings>
-    <jaxb:bindings scd="~fTYPE_PERIODS">
-      <jaxb:class ref="org.zgif.model.FTYPEPERIODS"/>
+    <jaxb:bindings scd="~Periods">
+      <jaxb:class ref="org.zgif.model.Periods"/>
     </jaxb:bindings>
-    <jaxb:bindings scd="~fTYPE_META">
-      <jaxb:class ref="org.zgif.model.FTYPEMETA"/>
+    <jaxb:bindings scd="~Meta">
+      <jaxb:class ref="org.zgif.model.Meta"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Land">
       <jaxb:class ref="org.zgif.model.Land"/>
@@ -30,11 +30,14 @@ Generiert: 2015.07.03 um 01:14:56 PM CEST
     <jaxb:bindings scd="~Property">
       <jaxb:class ref="org.zgif.model.Property"/>
     </jaxb:bindings>
-    <jaxb:bindings scd="~LIST_OF_TUNIT">
-      <jaxb:class ref="org.zgif.model.LISTOFTUNIT"/>
+    <jaxb:bindings scd="~Data">
+      <jaxb:class ref="org.zgif.model.Data"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Lease">
       <jaxb:class ref="org.zgif.model.Lease"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~TermUnits">
+      <jaxb:class ref="org.zgif.model.TermUnits"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Project">
       <jaxb:class ref="org.zgif.model.Project"/>
@@ -42,20 +45,20 @@ Generiert: 2015.07.03 um 01:14:56 PM CEST
     <jaxb:bindings scd="~BookEntry">
       <jaxb:class ref="org.zgif.model.BookEntry"/>
     </jaxb:bindings>
-    <jaxb:bindings scd="~iTYPE_EXTENSION_MAP_KEY">
-      <jaxb:class ref="org.zgif.model.ITYPEEXTENSIONMAPKEY"/>
-    </jaxb:bindings>
     <jaxb:bindings scd="~Companies">
       <jaxb:class ref="org.zgif.model.Companies"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Term">
       <jaxb:class ref="org.zgif.model.Term"/>
     </jaxb:bindings>
-    <jaxb:bindings scd="~LIST_OF_HUNIT">
-      <jaxb:class ref="org.zgif.model.LISTOFHUNIT"/>
+    <jaxb:bindings scd="~ExtensionMap">
+      <jaxb:class ref="org.zgif.model.ExtensionMap"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~ServiceContract">
       <jaxb:class ref="org.zgif.model.ServiceContract"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~ExtensionMapKey">
+      <jaxb:class ref="org.zgif.model.ExtensionMapKey"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Unit">
       <jaxb:class ref="org.zgif.model.Unit"/>
@@ -66,32 +69,32 @@ Generiert: 2015.07.03 um 01:14:56 PM CEST
     <jaxb:bindings scd="~BookEntries">
       <jaxb:class ref="org.zgif.model.BookEntries"/>
     </jaxb:bindings>
-    <jaxb:bindings scd="~iTYPE_EXTENSION_SUB_MAP">
-      <jaxb:class ref="org.zgif.model.ITYPEEXTENSIONSUBMAP"/>
-    </jaxb:bindings>
     <jaxb:bindings scd="~Lands">
       <jaxb:class ref="org.zgif.model.Lands"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~ServiceContracts">
       <jaxb:class ref="org.zgif.model.ServiceContracts"/>
     </jaxb:bindings>
-    <jaxb:bindings scd="~fTYPE_ZGIF">
-      <jaxb:class ref="org.zgif.model.FTYPEZGIF"/>
+    <jaxb:bindings scd="~HashUnits">
+      <jaxb:class ref="org.zgif.model.HashUnits"/>
     </jaxb:bindings>
-    <jaxb:bindings scd="~LIST_OF_HREC">
-      <jaxb:class ref="org.zgif.model.LISTOFHREC"/>
+    <jaxb:bindings scd="~HashRecord">
+      <jaxb:class ref="org.zgif.model.HashRecord"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Address">
       <jaxb:class ref="org.zgif.model.Address"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~ExtensionSubMap">
+      <jaxb:class ref="org.zgif.model.ExtensionSubMap"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~ExtensionSubList">
+      <jaxb:class ref="org.zgif.model.ExtensionSubList"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Area">
       <jaxb:class ref="org.zgif.model.Area"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Leases">
       <jaxb:class ref="org.zgif.model.Leases"/>
-    </jaxb:bindings>
-    <jaxb:bindings scd="~HREC">
-      <jaxb:class ref="org.zgif.model.HREC"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Projects">
       <jaxb:class ref="org.zgif.model.Projects"/>
@@ -102,14 +105,17 @@ Generiert: 2015.07.03 um 01:14:56 PM CEST
     <jaxb:bindings scd="~Records">
       <jaxb:class ref="org.zgif.model.Records"/>
     </jaxb:bindings>
+    <jaxb:bindings scd="~ZGif">
+      <jaxb:class ref="org.zgif.model.ZGif"/>
+    </jaxb:bindings>
+    <jaxb:bindings scd="~HashRecords">
+      <jaxb:class ref="org.zgif.model.HashRecords"/>
+    </jaxb:bindings>
     <jaxb:bindings scd="~Valuations">
       <jaxb:class ref="org.zgif.model.Valuations"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Amount">
       <jaxb:class ref="org.zgif.model.Amount"/>
-    </jaxb:bindings>
-    <jaxb:bindings scd="~iTYPE_EXTENSION_SUB_LIST_ITEM">
-      <jaxb:class ref="org.zgif.model.ITYPEEXTENSIONSUBLISTITEM"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Terms">
       <jaxb:class ref="org.zgif.model.Terms"/>
@@ -117,17 +123,11 @@ Generiert: 2015.07.03 um 01:14:56 PM CEST
     <jaxb:bindings scd="~Buildings">
       <jaxb:class ref="org.zgif.model.Buildings"/>
     </jaxb:bindings>
-    <jaxb:bindings scd="~iTYPE_EXTENSION_SUB_LIST">
-      <jaxb:class ref="org.zgif.model.ITYPEEXTENSIONSUBLIST"/>
-    </jaxb:bindings>
     <jaxb:bindings scd="~Valuation">
       <jaxb:class ref="org.zgif.model.Valuation"/>
     </jaxb:bindings>
-    <jaxb:bindings scd="~fTYPE_DATA">
-      <jaxb:class ref="org.zgif.model.FTYPEDATA"/>
-    </jaxb:bindings>
-    <jaxb:bindings scd="~TUNIT">
-      <jaxb:class ref="org.zgif.model.TUNIT"/>
+    <jaxb:bindings scd="~TermUnit">
+      <jaxb:class ref="org.zgif.model.TermUnit"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Account">
       <jaxb:class ref="org.zgif.model.Account"/>
@@ -141,14 +141,14 @@ Generiert: 2015.07.03 um 01:14:56 PM CEST
     <jaxb:bindings scd="~Accounts">
       <jaxb:class ref="org.zgif.model.Accounts"/>
     </jaxb:bindings>
-    <jaxb:bindings scd="~iTYPE_EXTENSION_MAP">
-      <jaxb:class ref="org.zgif.model.ITYPEEXTENSIONMAP"/>
+    <jaxb:bindings scd="~ExtensionSubListItem">
+      <jaxb:class ref="org.zgif.model.ExtensionSubListItem"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~Record">
       <jaxb:class ref="org.zgif.model.Record"/>
     </jaxb:bindings>
-    <jaxb:bindings scd="~HUNIT">
-      <jaxb:class ref="org.zgif.model.HUNIT"/>
+    <jaxb:bindings scd="~HashUnit">
+      <jaxb:class ref="org.zgif.model.HashUnit"/>
     </jaxb:bindings>
     <jaxb:bindings scd="~SyncMode">
       <jaxb:typesafeEnumClass ref="org.zgif.model.SyncMode"/>

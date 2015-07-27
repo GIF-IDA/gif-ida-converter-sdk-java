@@ -1,19 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2015 Martin Fluegge (Berlin, Germany) and others..
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *  
- * Contributors:
- *    Martin Fluegge - initial API and implementation and/or initial documentation
- *  
- *******************************************************************************/
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.03 um 01:14:56 PM CEST 
+// Generiert: 2015.07.27 um 11:43:51 AM CEST 
 //
 
 
@@ -22,7 +11,6 @@ package org.zgif.model;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -38,10 +26,10 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="currency" type="{}iTYPE_CURRENCY" minOccurs="0"/>
  *         &lt;element name="note" type="{}iTYPE_STRING" minOccurs="0"/>
- *         &lt;element name="extensionMap" type="{}iTYPE_EXTENSION_MAP" minOccurs="0"/>
- *         &lt;element name="LIST_OF_PROP" type="{}Properties" minOccurs="0"/>
- *         &lt;element name="LIST_OF_REC" type="{}Records" minOccurs="0"/>
- *         &lt;element name="LIST_OF_ACC" type="{}Accounts" minOccurs="0"/>
+ *         &lt;element name="extensionMap" type="{}ExtensionMap" minOccurs="0"/>
+ *         &lt;element name="properties" type="{}Properties" minOccurs="0"/>
+ *         &lt;element name="records" type="{}Records" minOccurs="0"/>
+ *         &lt;element name="accounts" type="{}Accounts" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="objectIdSender" type="{}iTYPE_STRING" />
  *       &lt;attribute name="objectIdReceiver" type="{}iTYPE_STRING" />
@@ -60,21 +48,18 @@ import javax.xml.bind.annotation.XmlType;
     "currency",
     "note",
     "extensionMap",
-    "listofprop",
-    "listofrec",
-    "listofacc"
+    "properties",
+    "records",
+    "accounts"
 })
 public class Company {
 
     protected String currency;
     protected String note;
-    protected ITYPEEXTENSIONMAP extensionMap;
-    @XmlElement(name = "LIST_OF_PROP")
-    protected Properties listofprop;
-    @XmlElement(name = "LIST_OF_REC")
-    protected Records listofrec;
-    @XmlElement(name = "LIST_OF_ACC")
-    protected Accounts listofacc;
+    protected ExtensionMap extensionMap;
+    protected Properties properties;
+    protected Records records;
+    protected Accounts accounts;
     @XmlAttribute(name = "objectIdSender")
     protected String objectIdSender;
     @XmlAttribute(name = "objectIdReceiver")
@@ -139,10 +124,10 @@ public class Company {
      * 
      * @return
      *     possible object is
-     *     {@link ITYPEEXTENSIONMAP }
+     *     {@link ExtensionMap }
      *     
      */
-    public ITYPEEXTENSIONMAP getExtensionMap() {
+    public ExtensionMap getExtensionMap() {
         return extensionMap;
     }
 
@@ -151,83 +136,83 @@ public class Company {
      * 
      * @param value
      *     allowed object is
-     *     {@link ITYPEEXTENSIONMAP }
+     *     {@link ExtensionMap }
      *     
      */
-    public void setExtensionMap(ITYPEEXTENSIONMAP value) {
+    public void setExtensionMap(ExtensionMap value) {
         this.extensionMap = value;
     }
 
     /**
-     * Ruft den Wert der listofprop-Eigenschaft ab.
+     * Ruft den Wert der properties-Eigenschaft ab.
      * 
      * @return
      *     possible object is
      *     {@link Properties }
      *     
      */
-    public Properties getLISTOFPROP() {
-        return listofprop;
+    public Properties getProperties() {
+        return properties;
     }
 
     /**
-     * Legt den Wert der listofprop-Eigenschaft fest.
+     * Legt den Wert der properties-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
      *     {@link Properties }
      *     
      */
-    public void setLISTOFPROP(Properties value) {
-        this.listofprop = value;
+    public void setProperties(Properties value) {
+        this.properties = value;
     }
 
     /**
-     * Ruft den Wert der listofrec-Eigenschaft ab.
+     * Ruft den Wert der records-Eigenschaft ab.
      * 
      * @return
      *     possible object is
      *     {@link Records }
      *     
      */
-    public Records getLISTOFREC() {
-        return listofrec;
+    public Records getRecords() {
+        return records;
     }
 
     /**
-     * Legt den Wert der listofrec-Eigenschaft fest.
+     * Legt den Wert der records-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
      *     {@link Records }
      *     
      */
-    public void setLISTOFREC(Records value) {
-        this.listofrec = value;
+    public void setRecords(Records value) {
+        this.records = value;
     }
 
     /**
-     * Ruft den Wert der listofacc-Eigenschaft ab.
+     * Ruft den Wert der accounts-Eigenschaft ab.
      * 
      * @return
      *     possible object is
      *     {@link Accounts }
      *     
      */
-    public Accounts getLISTOFACC() {
-        return listofacc;
+    public Accounts getAccounts() {
+        return accounts;
     }
 
     /**
-     * Legt den Wert der listofacc-Eigenschaft fest.
+     * Legt den Wert der accounts-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
      *     {@link Accounts }
      *     
      */
-    public void setLISTOFACC(Accounts value) {
-        this.listofacc = value;
+    public void setAccounts(Accounts value) {
+        this.accounts = value;
     }
 
     /**

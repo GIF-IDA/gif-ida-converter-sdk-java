@@ -10,7 +10,7 @@
 			<jaxb:package name="org.zgif.model" />
 		</jaxb:schemaBindings>
 	</jaxb:bindings>
-
+	
 
 
 </jaxb:bindings>

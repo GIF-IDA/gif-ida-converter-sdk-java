@@ -1,19 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2015 Martin Fluegge (Berlin, Germany) and others..
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *  
- * Contributors:
- *    Martin Fluegge - initial API and implementation and/or initial documentation
- *  
- *******************************************************************************/
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.03 um 01:14:56 PM CEST 
+// Generiert: 2015.07.27 um 11:43:51 AM CEST 
 //
 
 
@@ -24,7 +13,6 @@ import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -125,16 +113,16 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="vacancyOperatingCosts" type="{}Amount" minOccurs="0"/>
  *         &lt;element name="valueIncreasingReconstructCosts" type="{}Amount" minOccurs="0"/>
  *         &lt;element name="address" type="{}Address" minOccurs="0"/>
- *         &lt;element name="extensionMap" type="{}iTYPE_EXTENSION_MAP" minOccurs="0"/>
- *         &lt;element name="LIST_OF_UNIT" type="{}Units" minOccurs="0"/>
- *         &lt;element name="LIST_OF_PROJ" type="{}Projects" minOccurs="0"/>
- *         &lt;element name="LIST_OF_LAND" type="{}Lands" minOccurs="0"/>
- *         &lt;element name="LIST_OF_BUILD" type="{}Buildings" minOccurs="0"/>
- *         &lt;element name="LIST_OF_LEASE" type="{}Leases" minOccurs="0"/>
- *         &lt;element name="LIST_OF_CON" type="{}ServiceContracts" minOccurs="0"/>
- *         &lt;element name="LIST_OF_VAL" type="{}Valuations" minOccurs="0"/>
- *         &lt;element name="LIST_OF_REC" type="{}Records" minOccurs="0"/>
- *         &lt;element name="LIST_OF_ACC" type="{}Accounts" minOccurs="0"/>
+ *         &lt;element name="extensionMap" type="{}ExtensionMap" minOccurs="0"/>
+ *         &lt;element name="units" type="{}Units" minOccurs="0"/>
+ *         &lt;element name="projects" type="{}Projects" minOccurs="0"/>
+ *         &lt;element name="lands" type="{}Lands" minOccurs="0"/>
+ *         &lt;element name="buildings" type="{}Buildings" minOccurs="0"/>
+ *         &lt;element name="leases" type="{}Leases" minOccurs="0"/>
+ *         &lt;element name="serviceContracts" type="{}ServiceContracts" minOccurs="0"/>
+ *         &lt;element name="valuations" type="{}Valuations" minOccurs="0"/>
+ *         &lt;element name="records" type="{}Records" minOccurs="0"/>
+ *         &lt;element name="accounts" type="{}Accounts" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="objectIdSender" type="{}iTYPE_STRING" />
  *       &lt;attribute name="objectIdReceiver" type="{}iTYPE_STRING" />
@@ -238,15 +226,15 @@ import javax.xml.bind.annotation.XmlType;
     "valueIncreasingReconstructCosts",
     "address",
     "extensionMap",
-    "listofunit",
-    "listofproj",
-    "listofland",
-    "listofbuild",
-    "listoflease",
-    "listofcon",
-    "listofval",
-    "listofrec",
-    "listofacc"
+    "units",
+    "projects",
+    "lands",
+    "buildings",
+    "leases",
+    "serviceContracts",
+    "valuations",
+    "records",
+    "accounts"
 })
 public class Property {
 
@@ -337,25 +325,16 @@ public class Property {
     protected Amount vacancyOperatingCosts;
     protected Amount valueIncreasingReconstructCosts;
     protected Address address;
-    protected ITYPEEXTENSIONMAP extensionMap;
-    @XmlElement(name = "LIST_OF_UNIT")
-    protected Units listofunit;
-    @XmlElement(name = "LIST_OF_PROJ")
-    protected Projects listofproj;
-    @XmlElement(name = "LIST_OF_LAND")
-    protected Lands listofland;
-    @XmlElement(name = "LIST_OF_BUILD")
-    protected Buildings listofbuild;
-    @XmlElement(name = "LIST_OF_LEASE")
-    protected Leases listoflease;
-    @XmlElement(name = "LIST_OF_CON")
-    protected ServiceContracts listofcon;
-    @XmlElement(name = "LIST_OF_VAL")
-    protected Valuations listofval;
-    @XmlElement(name = "LIST_OF_REC")
-    protected Records listofrec;
-    @XmlElement(name = "LIST_OF_ACC")
-    protected Accounts listofacc;
+    protected ExtensionMap extensionMap;
+    protected Units units;
+    protected Projects projects;
+    protected Lands lands;
+    protected Buildings buildings;
+    protected Leases leases;
+    protected ServiceContracts serviceContracts;
+    protected Valuations valuations;
+    protected Records records;
+    protected Accounts accounts;
     @XmlAttribute(name = "objectIdSender")
     protected String objectIdSender;
     @XmlAttribute(name = "objectIdReceiver")
@@ -2460,10 +2439,10 @@ public class Property {
      * 
      * @return
      *     possible object is
-     *     {@link ITYPEEXTENSIONMAP }
+     *     {@link ExtensionMap }
      *     
      */
-    public ITYPEEXTENSIONMAP getExtensionMap() {
+    public ExtensionMap getExtensionMap() {
         return extensionMap;
     }
 
@@ -2472,227 +2451,227 @@ public class Property {
      * 
      * @param value
      *     allowed object is
-     *     {@link ITYPEEXTENSIONMAP }
+     *     {@link ExtensionMap }
      *     
      */
-    public void setExtensionMap(ITYPEEXTENSIONMAP value) {
+    public void setExtensionMap(ExtensionMap value) {
         this.extensionMap = value;
     }
 
     /**
-     * Ruft den Wert der listofunit-Eigenschaft ab.
+     * Ruft den Wert der units-Eigenschaft ab.
      * 
      * @return
      *     possible object is
      *     {@link Units }
      *     
      */
-    public Units getLISTOFUNIT() {
-        return listofunit;
+    public Units getUnits() {
+        return units;
     }
 
     /**
-     * Legt den Wert der listofunit-Eigenschaft fest.
+     * Legt den Wert der units-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
      *     {@link Units }
      *     
      */
-    public void setLISTOFUNIT(Units value) {
-        this.listofunit = value;
+    public void setUnits(Units value) {
+        this.units = value;
     }
 
     /**
-     * Ruft den Wert der listofproj-Eigenschaft ab.
+     * Ruft den Wert der projects-Eigenschaft ab.
      * 
      * @return
      *     possible object is
      *     {@link Projects }
      *     
      */
-    public Projects getLISTOFPROJ() {
-        return listofproj;
+    public Projects getProjects() {
+        return projects;
     }
 
     /**
-     * Legt den Wert der listofproj-Eigenschaft fest.
+     * Legt den Wert der projects-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
      *     {@link Projects }
      *     
      */
-    public void setLISTOFPROJ(Projects value) {
-        this.listofproj = value;
+    public void setProjects(Projects value) {
+        this.projects = value;
     }
 
     /**
-     * Ruft den Wert der listofland-Eigenschaft ab.
+     * Ruft den Wert der lands-Eigenschaft ab.
      * 
      * @return
      *     possible object is
      *     {@link Lands }
      *     
      */
-    public Lands getLISTOFLAND() {
-        return listofland;
+    public Lands getLands() {
+        return lands;
     }
 
     /**
-     * Legt den Wert der listofland-Eigenschaft fest.
+     * Legt den Wert der lands-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
      *     {@link Lands }
      *     
      */
-    public void setLISTOFLAND(Lands value) {
-        this.listofland = value;
+    public void setLands(Lands value) {
+        this.lands = value;
     }
 
     /**
-     * Ruft den Wert der listofbuild-Eigenschaft ab.
+     * Ruft den Wert der buildings-Eigenschaft ab.
      * 
      * @return
      *     possible object is
      *     {@link Buildings }
      *     
      */
-    public Buildings getLISTOFBUILD() {
-        return listofbuild;
+    public Buildings getBuildings() {
+        return buildings;
     }
 
     /**
-     * Legt den Wert der listofbuild-Eigenschaft fest.
+     * Legt den Wert der buildings-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
      *     {@link Buildings }
      *     
      */
-    public void setLISTOFBUILD(Buildings value) {
-        this.listofbuild = value;
+    public void setBuildings(Buildings value) {
+        this.buildings = value;
     }
 
     /**
-     * Ruft den Wert der listoflease-Eigenschaft ab.
+     * Ruft den Wert der leases-Eigenschaft ab.
      * 
      * @return
      *     possible object is
      *     {@link Leases }
      *     
      */
-    public Leases getLISTOFLEASE() {
-        return listoflease;
+    public Leases getLeases() {
+        return leases;
     }
 
     /**
-     * Legt den Wert der listoflease-Eigenschaft fest.
+     * Legt den Wert der leases-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
      *     {@link Leases }
      *     
      */
-    public void setLISTOFLEASE(Leases value) {
-        this.listoflease = value;
+    public void setLeases(Leases value) {
+        this.leases = value;
     }
 
     /**
-     * Ruft den Wert der listofcon-Eigenschaft ab.
+     * Ruft den Wert der serviceContracts-Eigenschaft ab.
      * 
      * @return
      *     possible object is
      *     {@link ServiceContracts }
      *     
      */
-    public ServiceContracts getLISTOFCON() {
-        return listofcon;
+    public ServiceContracts getServiceContracts() {
+        return serviceContracts;
     }
 
     /**
-     * Legt den Wert der listofcon-Eigenschaft fest.
+     * Legt den Wert der serviceContracts-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
      *     {@link ServiceContracts }
      *     
      */
-    public void setLISTOFCON(ServiceContracts value) {
-        this.listofcon = value;
+    public void setServiceContracts(ServiceContracts value) {
+        this.serviceContracts = value;
     }
 
     /**
-     * Ruft den Wert der listofval-Eigenschaft ab.
+     * Ruft den Wert der valuations-Eigenschaft ab.
      * 
      * @return
      *     possible object is
      *     {@link Valuations }
      *     
      */
-    public Valuations getLISTOFVAL() {
-        return listofval;
+    public Valuations getValuations() {
+        return valuations;
     }
 
     /**
-     * Legt den Wert der listofval-Eigenschaft fest.
+     * Legt den Wert der valuations-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
      *     {@link Valuations }
      *     
      */
-    public void setLISTOFVAL(Valuations value) {
-        this.listofval = value;
+    public void setValuations(Valuations value) {
+        this.valuations = value;
     }
 
     /**
-     * Ruft den Wert der listofrec-Eigenschaft ab.
+     * Ruft den Wert der records-Eigenschaft ab.
      * 
      * @return
      *     possible object is
      *     {@link Records }
      *     
      */
-    public Records getLISTOFREC() {
-        return listofrec;
+    public Records getRecords() {
+        return records;
     }
 
     /**
-     * Legt den Wert der listofrec-Eigenschaft fest.
+     * Legt den Wert der records-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
      *     {@link Records }
      *     
      */
-    public void setLISTOFREC(Records value) {
-        this.listofrec = value;
+    public void setRecords(Records value) {
+        this.records = value;
     }
 
     /**
-     * Ruft den Wert der listofacc-Eigenschaft ab.
+     * Ruft den Wert der accounts-Eigenschaft ab.
      * 
      * @return
      *     possible object is
      *     {@link Accounts }
      *     
      */
-    public Accounts getLISTOFACC() {
-        return listofacc;
+    public Accounts getAccounts() {
+        return accounts;
     }
 
     /**
-     * Legt den Wert der listofacc-Eigenschaft fest.
+     * Legt den Wert der accounts-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
      *     {@link Accounts }
      *     
      */
-    public void setLISTOFACC(Accounts value) {
-        this.listofacc = value;
+    public void setAccounts(Accounts value) {
+        this.accounts = value;
     }
 
     /**

@@ -1,19 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2015 Martin Fluegge (Berlin, Germany) and others..
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *  
- * Contributors:
- *    Martin Fluegge - initial API and implementation and/or initial documentation
- *  
- *******************************************************************************/
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.03 um 01:14:56 PM CEST 
+// Generiert: 2015.07.27 um 11:43:51 AM CEST 
 //
 
 
@@ -71,7 +60,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="vacantEffectiveAreaTrade" type="{}Area" minOccurs="0"/>
  *         &lt;element name="valuationDate" type="{}iTYPE_LOCALDATE" minOccurs="0"/>
  *         &lt;element name="energyRating" type="{}EnergyRating" minOccurs="0"/>
- *         &lt;element name="extensionMap" type="{}iTYPE_EXTENSION_MAP" minOccurs="0"/>
+ *         &lt;element name="extensionMap" type="{}ExtensionMap" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="objectIdSender" type="{}iTYPE_STRING" />
  *       &lt;attribute name="objectIdReceiver" type="{}iTYPE_STRING" />
@@ -161,7 +150,7 @@ public class Valuation {
     protected Area vacantEffectiveAreaTrade;
     protected String valuationDate;
     protected EnergyRating energyRating;
-    protected ITYPEEXTENSIONMAP extensionMap;
+    protected ExtensionMap extensionMap;
     @XmlAttribute(name = "objectIdSender")
     protected String objectIdSender;
     @XmlAttribute(name = "objectIdReceiver")
@@ -1018,10 +1007,10 @@ public class Valuation {
      * 
      * @return
      *     possible object is
-     *     {@link ITYPEEXTENSIONMAP }
+     *     {@link ExtensionMap }
      *     
      */
-    public ITYPEEXTENSIONMAP getExtensionMap() {
+    public ExtensionMap getExtensionMap() {
         return extensionMap;
     }
 
@@ -1030,10 +1019,10 @@ public class Valuation {
      * 
      * @param value
      *     allowed object is
-     *     {@link ITYPEEXTENSIONMAP }
+     *     {@link ExtensionMap }
      *     
      */
-    public void setExtensionMap(ITYPEEXTENSIONMAP value) {
+    public void setExtensionMap(ExtensionMap value) {
         this.extensionMap = value;
     }
 

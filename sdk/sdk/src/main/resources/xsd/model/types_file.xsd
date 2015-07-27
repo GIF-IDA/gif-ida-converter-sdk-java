@@ -5,7 +5,7 @@
   <xs:include schemaLocation="entity_Company.xsd"/>
   <xs:include schemaLocation="entity_Property.xsd"/>
   <xs:include schemaLocation="entity_Account.xsd"/>
-  <xs:complexType name="fTYPE_MANIFEST">
+  <xs:complexType name="Manifest">
     <xs:sequence>
       <xs:element name="file-entry" minOccurs="0" maxOccurs="unbounded">
         <xs:complexType>
@@ -15,7 +15,7 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="fTYPE_META">
+  <xs:complexType name="Meta">
     <xs:sequence>
       <xs:element name="format">
         <xs:simpleType>
@@ -33,10 +33,10 @@
       <xs:element name="creator" type="iTYPE_STRING"/>
       <xs:element name="validator" type="iTYPE_STRING" minOccurs="0"/>
       <xs:element name="description" type="iTYPE_STRING" minOccurs="0"/>
-      <xs:element name="extension_map" type="iTYPE_EXTENSION_MAP" minOccurs="0"/>
+      <xs:element name="extension_map" type="ExtensionMap" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="fTYPE_PERIODS">
+  <xs:complexType name="Periods">
     <xs:sequence>
       <xs:element name="period" minOccurs="0" maxOccurs="unbounded">
         <xs:complexType>
@@ -56,25 +56,25 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="fTYPE_DATA">
+  <xs:complexType name="Data">
     <xs:choice>
       <xs:sequence>
-        <xs:element name="LIST_OF_COM" type="Companies"/>
+        <xs:element name="companies" type="Companies"/>
       </xs:sequence>
       <xs:sequence>
-        <xs:element name="LIST_OF_PROP" type="Properties"/>
+        <xs:element name="properties" type="Properties"/>
       </xs:sequence>
       <xs:sequence>
-        <xs:element name="LIST_OF_ACC" type="Accounts"/>
+        <xs:element name="accounts" type="Accounts"/>
       </xs:sequence>
     </xs:choice>
   </xs:complexType>
-  <xs:complexType name="fTYPE_ZGIF">
+  <xs:complexType name="ZGif">
     <xs:sequence>
-      <xs:element name="manifest" type="fTYPE_MANIFEST"/>
-      <xs:element name="periods" type="fTYPE_PERIODS"/>
-      <xs:element name="meta" type="fTYPE_META"/>
-      <xs:element name="maindata" type="fTYPE_DATA"/>
+      <xs:element name="manifest" type="Manifest"/>
+      <xs:element name="periods" type="Periods"/>
+      <xs:element name="meta" type="Meta"/>
+      <xs:element name="maindata" type="Data"/>
     </xs:sequence>
     <xs:attribute name="filePath" type="iTYPE_STRING"/>
     <xs:attribute name="mimetype" type="iTYPE_STRING"/>

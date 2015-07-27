@@ -4,7 +4,7 @@
   <xs:include schemaLocation="types_sub.xsd"/>
   <xs:complexType name="Projects">
     <xs:sequence>
-      <xs:element name="PROJ" type="Project" maxOccurs="unbounded"/>
+      <xs:element name="project" type="Project" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Project">
@@ -26,7 +26,7 @@
       <xs:element name="serviceType" type="ServiceType" minOccurs="0"/>
       <xs:element name="specifications" type="iTYPE_STRING" minOccurs="0"/>
       <xs:element name="address" type="Address" minOccurs="0"/>
-      <xs:element name="extensionMap" type="iTYPE_EXTENSION_MAP" minOccurs="0"/>
+      <xs:element name="extensionMap" type="ExtensionMap" minOccurs="0"/>
     </xs:sequence>
     <xs:attribute name="objectIdSender" type="iTYPE_STRING"/>
     <xs:attribute name="objectIdReceiver" type="iTYPE_STRING"/>

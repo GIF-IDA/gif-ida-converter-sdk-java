@@ -1,19 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2015 Martin Fluegge (Berlin, Germany) and others..
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *  
- * Contributors:
- *    Martin Fluegge - initial API and implementation and/or initial documentation
- *  
- *******************************************************************************/
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.03 um 01:14:56 PM CEST 
+// Generiert: 2015.07.27 um 11:43:51 AM CEST 
 //
 
 
@@ -54,27 +43,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link FTYPEMANIFEST }
+     * Create an instance of {@link Manifest }
      * 
      */
-    public FTYPEMANIFEST createFTYPEMANIFEST() {
-        return new FTYPEMANIFEST();
+    public Manifest createManifest() {
+        return new Manifest();
     }
 
     /**
-     * Create an instance of {@link FTYPEPERIODS }
+     * Create an instance of {@link Periods }
      * 
      */
-    public FTYPEPERIODS createFTYPEPERIODS() {
-        return new FTYPEPERIODS();
+    public Periods createPeriods() {
+        return new Periods();
     }
 
     /**
-     * Create an instance of {@link FTYPEMETA }
+     * Create an instance of {@link Meta }
      * 
      */
-    public FTYPEMETA createFTYPEMETA() {
-        return new FTYPEMETA();
+    public Meta createMeta() {
+        return new Meta();
     }
 
     /**
@@ -102,11 +91,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link LISTOFTUNIT }
+     * Create an instance of {@link Data }
      * 
      */
-    public LISTOFTUNIT createLISTOFTUNIT() {
-        return new LISTOFTUNIT();
+    public Data createData() {
+        return new Data();
     }
 
     /**
@@ -115,6 +104,14 @@ public class ObjectFactory {
      */
     public Lease createLease() {
         return new Lease();
+    }
+
+    /**
+     * Create an instance of {@link TermUnits }
+     * 
+     */
+    public TermUnits createTermUnits() {
+        return new TermUnits();
     }
 
     /**
@@ -134,14 +131,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ITYPEEXTENSIONMAPKEY }
-     * 
-     */
-    public ITYPEEXTENSIONMAPKEY createITYPEEXTENSIONMAPKEY() {
-        return new ITYPEEXTENSIONMAPKEY();
-    }
-
-    /**
      * Create an instance of {@link Companies }
      * 
      */
@@ -158,11 +147,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link LISTOFHUNIT }
+     * Create an instance of {@link ExtensionMap }
      * 
      */
-    public LISTOFHUNIT createLISTOFHUNIT() {
-        return new LISTOFHUNIT();
+    public ExtensionMap createExtensionMap() {
+        return new ExtensionMap();
     }
 
     /**
@@ -171,6 +160,14 @@ public class ObjectFactory {
      */
     public ServiceContract createServiceContract() {
         return new ServiceContract();
+    }
+
+    /**
+     * Create an instance of {@link ExtensionMapKey }
+     * 
+     */
+    public ExtensionMapKey createExtensionMapKey() {
+        return new ExtensionMapKey();
     }
 
     /**
@@ -198,14 +195,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ITYPEEXTENSIONSUBMAP }
-     * 
-     */
-    public ITYPEEXTENSIONSUBMAP createITYPEEXTENSIONSUBMAP() {
-        return new ITYPEEXTENSIONSUBMAP();
-    }
-
-    /**
      * Create an instance of {@link Lands }
      * 
      */
@@ -222,19 +211,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link FTYPEZGIF }
+     * Create an instance of {@link HashUnits }
      * 
      */
-    public FTYPEZGIF createFTYPEZGIF() {
-        return new FTYPEZGIF();
+    public HashUnits createHashUnits() {
+        return new HashUnits();
     }
 
     /**
-     * Create an instance of {@link LISTOFHREC }
+     * Create an instance of {@link HashRecord }
      * 
      */
-    public LISTOFHREC createLISTOFHREC() {
-        return new LISTOFHREC();
+    public HashRecord createHashRecord() {
+        return new HashRecord();
     }
 
     /**
@@ -243,6 +232,22 @@ public class ObjectFactory {
      */
     public Address createAddress() {
         return new Address();
+    }
+
+    /**
+     * Create an instance of {@link ExtensionSubMap }
+     * 
+     */
+    public ExtensionSubMap createExtensionSubMap() {
+        return new ExtensionSubMap();
+    }
+
+    /**
+     * Create an instance of {@link ExtensionSubList }
+     * 
+     */
+    public ExtensionSubList createExtensionSubList() {
+        return new ExtensionSubList();
     }
 
     /**
@@ -259,14 +264,6 @@ public class ObjectFactory {
      */
     public Leases createLeases() {
         return new Leases();
-    }
-
-    /**
-     * Create an instance of {@link HREC }
-     * 
-     */
-    public HREC createHREC() {
-        return new HREC();
     }
 
     /**
@@ -294,6 +291,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ZGif }
+     * 
+     */
+    public ZGif createZGif() {
+        return new ZGif();
+    }
+
+    /**
+     * Create an instance of {@link HashRecords }
+     * 
+     */
+    public HashRecords createHashRecords() {
+        return new HashRecords();
+    }
+
+    /**
      * Create an instance of {@link Valuations }
      * 
      */
@@ -307,14 +320,6 @@ public class ObjectFactory {
      */
     public Amount createAmount() {
         return new Amount();
-    }
-
-    /**
-     * Create an instance of {@link ITYPEEXTENSIONSUBLISTITEM }
-     * 
-     */
-    public ITYPEEXTENSIONSUBLISTITEM createITYPEEXTENSIONSUBLISTITEM() {
-        return new ITYPEEXTENSIONSUBLISTITEM();
     }
 
     /**
@@ -334,14 +339,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ITYPEEXTENSIONSUBLIST }
-     * 
-     */
-    public ITYPEEXTENSIONSUBLIST createITYPEEXTENSIONSUBLIST() {
-        return new ITYPEEXTENSIONSUBLIST();
-    }
-
-    /**
      * Create an instance of {@link Valuation }
      * 
      */
@@ -350,19 +347,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link FTYPEDATA }
+     * Create an instance of {@link TermUnit }
      * 
      */
-    public FTYPEDATA createFTYPEDATA() {
-        return new FTYPEDATA();
-    }
-
-    /**
-     * Create an instance of {@link TUNIT }
-     * 
-     */
-    public TUNIT createTUNIT() {
-        return new TUNIT();
+    public TermUnit createTermUnit() {
+        return new TermUnit();
     }
 
     /**
@@ -398,11 +387,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ITYPEEXTENSIONMAP }
+     * Create an instance of {@link ExtensionSubListItem }
      * 
      */
-    public ITYPEEXTENSIONMAP createITYPEEXTENSIONMAP() {
-        return new ITYPEEXTENSIONMAP();
+    public ExtensionSubListItem createExtensionSubListItem() {
+        return new ExtensionSubListItem();
     }
 
     /**
@@ -414,54 +403,54 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link HUNIT }
+     * Create an instance of {@link HashUnit }
      * 
      */
-    public HUNIT createHUNIT() {
-        return new HUNIT();
+    public HashUnit createHashUnit() {
+        return new HashUnit();
     }
 
     /**
-     * Create an instance of {@link FTYPEMANIFEST.FileEntry }
+     * Create an instance of {@link Manifest.FileEntry }
      * 
      */
-    public FTYPEMANIFEST.FileEntry createFTYPEMANIFESTFileEntry() {
-        return new FTYPEMANIFEST.FileEntry();
+    public Manifest.FileEntry createManifestFileEntry() {
+        return new Manifest.FileEntry();
     }
 
     /**
-     * Create an instance of {@link FTYPEPERIODS.Period }
+     * Create an instance of {@link Periods.Period }
      * 
      */
-    public FTYPEPERIODS.Period createFTYPEPERIODSPeriod() {
-        return new FTYPEPERIODS.Period();
+    public Periods.Period createPeriodsPeriod() {
+        return new Periods.Period();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FTYPEPERIODS }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Periods }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "", name = "periods")
-    public JAXBElement<FTYPEPERIODS> createPeriods(FTYPEPERIODS value) {
-        return new JAXBElement<FTYPEPERIODS>(_Periods_QNAME, FTYPEPERIODS.class, null, value);
+    public JAXBElement<Periods> createPeriods(Periods value) {
+        return new JAXBElement<Periods>(_Periods_QNAME, Periods.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FTYPEMANIFEST }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Manifest }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "", name = "manifest")
-    public JAXBElement<FTYPEMANIFEST> createManifest(FTYPEMANIFEST value) {
-        return new JAXBElement<FTYPEMANIFEST>(_Manifest_QNAME, FTYPEMANIFEST.class, null, value);
+    public JAXBElement<Manifest> createManifest(Manifest value) {
+        return new JAXBElement<Manifest>(_Manifest_QNAME, Manifest.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FTYPEMETA }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Meta }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "", name = "meta")
-    public JAXBElement<FTYPEMETA> createMeta(FTYPEMETA value) {
-        return new JAXBElement<FTYPEMETA>(_Meta_QNAME, FTYPEMETA.class, null, value);
+    public JAXBElement<Meta> createMeta(Meta value) {
+        return new JAXBElement<Meta>(_Meta_QNAME, Meta.class, null, value);
     }
 
 }

@@ -5,7 +5,7 @@
   <xs:element name="data">
     <xs:complexType>
       <xs:complexContent>
-        <xs:extension base="fTYPE_ZGIF">
+        <xs:extension base="ZGif">
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>

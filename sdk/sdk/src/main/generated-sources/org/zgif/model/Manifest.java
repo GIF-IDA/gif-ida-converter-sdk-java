@@ -1,19 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2015 Martin Fluegge (Berlin, Germany) and others..
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *  
- * Contributors:
- *    Martin Fluegge - initial API and implementation and/or initial documentation
- *  
- *******************************************************************************/
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.03 um 01:14:56 PM CEST 
+// Generiert: 2015.07.27 um 11:43:51 AM CEST 
 //
 
 
@@ -29,12 +18,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für fTYPE_MANIFEST complex type.
+ * <p>Java-Klasse für Manifest complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
- * &lt;complexType name="fTYPE_MANIFEST">
+ * &lt;complexType name="Manifest">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -57,13 +46,13 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "fTYPE_MANIFEST", propOrder = {
+@XmlType(name = "Manifest", propOrder = {
     "fileEntry"
 })
-public class FTYPEMANIFEST {
+public class Manifest {
 
     @XmlElement(name = "file-entry")
-    protected List<FTYPEMANIFEST.FileEntry> fileEntry;
+    protected List<Manifest.FileEntry> fileEntry;
 
     /**
      * Gets the value of the fileEntry property.
@@ -83,13 +72,13 @@ public class FTYPEMANIFEST {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link FTYPEMANIFEST.FileEntry }
+     * {@link Manifest.FileEntry }
      * 
      * 
      */
-    public List<FTYPEMANIFEST.FileEntry> getFileEntry() {
+    public List<Manifest.FileEntry> getFileEntry() {
         if (fileEntry == null) {
-            fileEntry = new ArrayList<FTYPEMANIFEST.FileEntry>();
+            fileEntry = new ArrayList<Manifest.FileEntry>();
         }
         return this.fileEntry;
     }

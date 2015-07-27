@@ -60,38 +60,38 @@
       <xs:pattern value="[0-9]{3}"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="iTYPE_EXTENSION_MAP">
+  <xs:complexType name="ExtensionMap">
     <xs:sequence>
-      <xs:element name="KEY" type="iTYPE_EXTENSION_MAP_KEY" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="SUB_MAP" type="iTYPE_EXTENSION_SUB_MAP" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="SUB_LIST" type="iTYPE_EXTENSION_SUB_LIST" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="key" type="ExtensionMapKey" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="subMap" type="ExtensionSubMap" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="subList" type="ExtensionSubList" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="iTYPE_EXTENSION_MAP_KEY">
+  <xs:complexType name="ExtensionMapKey">
     <xs:simpleContent>
       <xs:extension base="iTYPE_STRING">
-        <xs:attribute name="NAME" type="iTYPE_EXTENSION_NAME" use="required"/>
+        <xs:attribute name="name" type="ExtensionName" use="required"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:simpleType name="iTYPE_EXTENSION_NAME">
+  <xs:simpleType name="ExtensionName">
     <xs:restriction base="iTYPE_STRING"/>
   </xs:simpleType>
-  <xs:complexType name="iTYPE_EXTENSION_SUB_MAP">
+  <xs:complexType name="ExtensionSubMap">
     <xs:sequence>
-      <xs:element name="KEY" type="iTYPE_EXTENSION_MAP_KEY" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="SUB_MAP" type="iTYPE_EXTENSION_SUB_MAP" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="SUB_LIST" type="iTYPE_EXTENSION_SUB_LIST" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="key" type="ExtensionMapKey" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="subMap" type="ExtensionSubMap" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="subList" type="ExtensionSubList" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
-    <xs:attribute name="NAME" type="iTYPE_EXTENSION_NAME" use="required"/>
+    <xs:attribute name="name" type="ExtensionName" use="required"/>
   </xs:complexType>
-  <xs:complexType name="iTYPE_EXTENSION_SUB_LIST">
+  <xs:complexType name="ExtensionSubList">
     <xs:sequence>
-      <xs:element name="ITEM" type="iTYPE_EXTENSION_SUB_LIST_ITEM" maxOccurs="unbounded"/>
+      <xs:element name="item" type="ExtensionSubListItem" maxOccurs="unbounded"/>
     </xs:sequence>
-    <xs:attribute name="NAME" type="iTYPE_EXTENSION_NAME"/>
+    <xs:attribute name="name" type="ExtensionName"/>
   </xs:complexType>
-  <xs:complexType name="iTYPE_EXTENSION_SUB_LIST_ITEM">
+  <xs:complexType name="ExtensionSubListItem">
     <xs:simpleContent>
       <xs:extension base="iTYPE_STRING"/>
     </xs:simpleContent>

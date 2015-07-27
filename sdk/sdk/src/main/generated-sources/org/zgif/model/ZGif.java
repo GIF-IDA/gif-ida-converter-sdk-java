@@ -1,19 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2015 Martin Fluegge (Berlin, Germany) and others..
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *  
- * Contributors:
- *    Martin Fluegge - initial API and implementation and/or initial documentation
- *  
- *******************************************************************************/
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.03 um 01:14:56 PM CEST 
+// Generiert: 2015.07.27 um 11:43:51 AM CEST 
 //
 
 
@@ -27,19 +16,19 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für fTYPE_ZGIF complex type.
+ * <p>Java-Klasse für ZGif complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
- * &lt;complexType name="fTYPE_ZGIF">
+ * &lt;complexType name="ZGif">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="manifest" type="{}fTYPE_MANIFEST"/>
- *         &lt;element name="periods" type="{}fTYPE_PERIODS"/>
- *         &lt;element name="meta" type="{}fTYPE_META"/>
- *         &lt;element name="maindata" type="{}fTYPE_DATA"/>
+ *         &lt;element name="manifest" type="{}Manifest"/>
+ *         &lt;element name="periods" type="{}Periods"/>
+ *         &lt;element name="meta" type="{}Meta"/>
+ *         &lt;element name="maindata" type="{}Data"/>
  *       &lt;/sequence>
  *       &lt;attribute name="filePath" type="{}iTYPE_STRING" />
  *       &lt;attribute name="mimetype" type="{}iTYPE_STRING" />
@@ -52,22 +41,22 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "fTYPE_ZGIF", propOrder = {
+@XmlType(name = "ZGif", propOrder = {
     "manifest",
     "periods",
     "meta",
     "maindata"
 })
-public class FTYPEZGIF {
+public class ZGif {
 
     @XmlElement(required = true)
-    protected FTYPEMANIFEST manifest;
+    protected Manifest manifest;
     @XmlElement(required = true)
-    protected FTYPEPERIODS periods;
+    protected Periods periods;
     @XmlElement(required = true)
-    protected FTYPEMETA meta;
+    protected Meta meta;
     @XmlElement(required = true)
-    protected FTYPEDATA maindata;
+    protected Data maindata;
     @XmlAttribute(name = "filePath")
     protected String filePath;
     @XmlAttribute(name = "mimetype")
@@ -80,10 +69,10 @@ public class FTYPEZGIF {
      * 
      * @return
      *     possible object is
-     *     {@link FTYPEMANIFEST }
+     *     {@link Manifest }
      *     
      */
-    public FTYPEMANIFEST getManifest() {
+    public Manifest getManifest() {
         return manifest;
     }
 
@@ -92,10 +81,10 @@ public class FTYPEZGIF {
      * 
      * @param value
      *     allowed object is
-     *     {@link FTYPEMANIFEST }
+     *     {@link Manifest }
      *     
      */
-    public void setManifest(FTYPEMANIFEST value) {
+    public void setManifest(Manifest value) {
         this.manifest = value;
     }
 
@@ -104,10 +93,10 @@ public class FTYPEZGIF {
      * 
      * @return
      *     possible object is
-     *     {@link FTYPEPERIODS }
+     *     {@link Periods }
      *     
      */
-    public FTYPEPERIODS getPeriods() {
+    public Periods getPeriods() {
         return periods;
     }
 
@@ -116,10 +105,10 @@ public class FTYPEZGIF {
      * 
      * @param value
      *     allowed object is
-     *     {@link FTYPEPERIODS }
+     *     {@link Periods }
      *     
      */
-    public void setPeriods(FTYPEPERIODS value) {
+    public void setPeriods(Periods value) {
         this.periods = value;
     }
 
@@ -128,10 +117,10 @@ public class FTYPEZGIF {
      * 
      * @return
      *     possible object is
-     *     {@link FTYPEMETA }
+     *     {@link Meta }
      *     
      */
-    public FTYPEMETA getMeta() {
+    public Meta getMeta() {
         return meta;
     }
 
@@ -140,10 +129,10 @@ public class FTYPEZGIF {
      * 
      * @param value
      *     allowed object is
-     *     {@link FTYPEMETA }
+     *     {@link Meta }
      *     
      */
-    public void setMeta(FTYPEMETA value) {
+    public void setMeta(Meta value) {
         this.meta = value;
     }
 
@@ -152,10 +141,10 @@ public class FTYPEZGIF {
      * 
      * @return
      *     possible object is
-     *     {@link FTYPEDATA }
+     *     {@link Data }
      *     
      */
-    public FTYPEDATA getMaindata() {
+    public Data getMaindata() {
         return maindata;
     }
 
@@ -164,10 +153,10 @@ public class FTYPEZGIF {
      * 
      * @param value
      *     allowed object is
-     *     {@link FTYPEDATA }
+     *     {@link Data }
      *     
      */
-    public void setMaindata(FTYPEDATA value) {
+    public void setMaindata(Data value) {
         this.maindata = value;
     }
 

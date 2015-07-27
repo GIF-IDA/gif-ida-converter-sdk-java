@@ -13,7 +13,7 @@
   <xs:include schemaLocation="entity_Record.xsd"/>
   <xs:complexType name="Properties">
     <xs:sequence>
-      <xs:element name="PROP" type="Property" maxOccurs="unbounded"/>
+      <xs:element name="property" type="Property" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Property">
@@ -105,16 +105,16 @@
       <xs:element name="vacancyOperatingCosts" type="Amount" minOccurs="0"/>
       <xs:element name="valueIncreasingReconstructCosts" type="Amount" minOccurs="0"/>
       <xs:element name="address" type="Address" minOccurs="0"/>
-      <xs:element name="extensionMap" type="iTYPE_EXTENSION_MAP" minOccurs="0"/>
-      <xs:element name="LIST_OF_UNIT" type="Units" minOccurs="0"/>
-      <xs:element name="LIST_OF_PROJ" type="Projects" minOccurs="0"/>
-      <xs:element name="LIST_OF_LAND" type="Lands" minOccurs="0"/>
-      <xs:element name="LIST_OF_BUILD" type="Buildings" minOccurs="0"/>
-      <xs:element name="LIST_OF_LEASE" type="Leases" minOccurs="0"/>
-      <xs:element name="LIST_OF_CON" type="ServiceContracts" minOccurs="0"/>
-      <xs:element name="LIST_OF_VAL" type="Valuations" minOccurs="0"/>
-      <xs:element name="LIST_OF_REC" type="Records" minOccurs="0"/>
-      <xs:element name="LIST_OF_ACC" type="Accounts" minOccurs="0" />
+      <xs:element name="extensionMap" type="ExtensionMap" minOccurs="0"/>
+      <xs:element name="units" type="Units" minOccurs="0"/>
+      <xs:element name="projects" type="Projects" minOccurs="0"/>
+      <xs:element name="lands" type="Lands" minOccurs="0"/>
+      <xs:element name="buildings" type="Buildings" minOccurs="0"/>
+      <xs:element name="leases" type="Leases" minOccurs="0"/>
+      <xs:element name="serviceContracts" type="ServiceContracts" minOccurs="0"/>
+      <xs:element name="valuations" type="Valuations" minOccurs="0"/>
+      <xs:element name="records" type="Records" minOccurs="0"/>
+      <xs:element name="accounts" type="Accounts" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="objectIdSender" type="iTYPE_STRING"/>
     <xs:attribute name="objectIdReceiver" type="iTYPE_STRING"/>

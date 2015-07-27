@@ -5,7 +5,7 @@
   <xs:element name="data">
     <xs:complexType>
       <xs:complexContent>
-        <xs:extension base="fTYPE_DATA">
+        <xs:extension base="Data">
           <xs:assert test="count(/data/LIST_OF_COM) = 1 or count(/data/LIST_OF_PROP) = 1 or count(/data/LIST_OF_ACC)" />
         </xs:extension>
       </xs:complexContent>

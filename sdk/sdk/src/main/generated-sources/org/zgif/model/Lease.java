@@ -1,19 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2015 Martin Fluegge (Berlin, Germany) and others..
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *  
- * Contributors:
- *    Martin Fluegge - initial API and implementation and/or initial documentation
- *  
- *******************************************************************************/
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.03 um 01:14:56 PM CEST 
+// Generiert: 2015.07.27 um 11:43:51 AM CEST 
 //
 
 
@@ -23,7 +12,6 @@ import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.Duration;
 
@@ -87,9 +75,9 @@ import javax.xml.datatype.Duration;
  *         &lt;element name="turnoverRentCap" type="{}Amount" minOccurs="0"/>
  *         &lt;element name="turnoverReportingInterval" type="{}iTYPE_PERIOD" minOccurs="0"/>
  *         &lt;element name="turnoverSortiment" type="{}iTYPE_STRING" minOccurs="0"/>
- *         &lt;element name="extensionMap" type="{}iTYPE_EXTENSION_MAP" minOccurs="0"/>
- *         &lt;element name="LIST_OF_UNIT" type="{}LIST_OF_TUNIT" minOccurs="0"/>
- *         &lt;element name="LIST_OF_TERM" type="{}Terms" minOccurs="0"/>
+ *         &lt;element name="extensionMap" type="{}ExtensionMap" minOccurs="0"/>
+ *         &lt;element name="termUnits" type="{}TermUnits" minOccurs="0"/>
+ *         &lt;element name="terms" type="{}Terms" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="objectIdSender" type="{}iTYPE_STRING" />
  *       &lt;attribute name="objectIdReceiver" type="{}iTYPE_STRING" />
@@ -155,8 +143,8 @@ import javax.xml.datatype.Duration;
     "turnoverReportingInterval",
     "turnoverSortiment",
     "extensionMap",
-    "listofunit",
-    "listofterm"
+    "termUnits",
+    "terms"
 })
 public class Lease {
 
@@ -209,11 +197,9 @@ public class Lease {
     protected Amount turnoverRentCap;
     protected Duration turnoverReportingInterval;
     protected String turnoverSortiment;
-    protected ITYPEEXTENSIONMAP extensionMap;
-    @XmlElement(name = "LIST_OF_UNIT")
-    protected LISTOFTUNIT listofunit;
-    @XmlElement(name = "LIST_OF_TERM")
-    protected Terms listofterm;
+    protected ExtensionMap extensionMap;
+    protected TermUnits termUnits;
+    protected Terms terms;
     @XmlAttribute(name = "objectIdSender")
     protected String objectIdSender;
     @XmlAttribute(name = "objectIdReceiver")
@@ -1406,10 +1392,10 @@ public class Lease {
      * 
      * @return
      *     possible object is
-     *     {@link ITYPEEXTENSIONMAP }
+     *     {@link ExtensionMap }
      *     
      */
-    public ITYPEEXTENSIONMAP getExtensionMap() {
+    public ExtensionMap getExtensionMap() {
         return extensionMap;
     }
 
@@ -1418,59 +1404,59 @@ public class Lease {
      * 
      * @param value
      *     allowed object is
-     *     {@link ITYPEEXTENSIONMAP }
+     *     {@link ExtensionMap }
      *     
      */
-    public void setExtensionMap(ITYPEEXTENSIONMAP value) {
+    public void setExtensionMap(ExtensionMap value) {
         this.extensionMap = value;
     }
 
     /**
-     * Ruft den Wert der listofunit-Eigenschaft ab.
+     * Ruft den Wert der termUnits-Eigenschaft ab.
      * 
      * @return
      *     possible object is
-     *     {@link LISTOFTUNIT }
+     *     {@link TermUnits }
      *     
      */
-    public LISTOFTUNIT getLISTOFUNIT() {
-        return listofunit;
+    public TermUnits getTermUnits() {
+        return termUnits;
     }
 
     /**
-     * Legt den Wert der listofunit-Eigenschaft fest.
+     * Legt den Wert der termUnits-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
-     *     {@link LISTOFTUNIT }
+     *     {@link TermUnits }
      *     
      */
-    public void setLISTOFUNIT(LISTOFTUNIT value) {
-        this.listofunit = value;
+    public void setTermUnits(TermUnits value) {
+        this.termUnits = value;
     }
 
     /**
-     * Ruft den Wert der listofterm-Eigenschaft ab.
+     * Ruft den Wert der terms-Eigenschaft ab.
      * 
      * @return
      *     possible object is
      *     {@link Terms }
      *     
      */
-    public Terms getLISTOFTERM() {
-        return listofterm;
+    public Terms getTerms() {
+        return terms;
     }
 
     /**
-     * Legt den Wert der listofterm-Eigenschaft fest.
+     * Legt den Wert der terms-Eigenschaft fest.
      * 
      * @param value
      *     allowed object is
      *     {@link Terms }
      *     
      */
-    public void setLISTOFTERM(Terms value) {
-        this.listofterm = value;
+    public void setTerms(Terms value) {
+        this.terms = value;
     }
 
     /**

@@ -1,19 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2015 Martin Fluegge (Berlin, Germany) and others..
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *  
- * Contributors:
- *    Martin Fluegge - initial API and implementation and/or initial documentation
- *  
- *******************************************************************************/
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.03 um 01:14:56 PM CEST 
+// Generiert: 2015.07.27 um 11:43:51 AM CEST 
 //
 
 
@@ -28,16 +17,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für LIST_OF_HUNIT complex type.
+ * <p>Java-Klasse für TermUnits complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
- * &lt;complexType name="LIST_OF_HUNIT">
+ * &lt;complexType name="TermUnits">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="UNIT" type="{}HUNIT" maxOccurs="unbounded"/>
+ *         &lt;element name="termUnit" type="{}TermUnit" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -47,41 +36,41 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "LIST_OF_HUNIT", propOrder = {
-    "unit"
+@XmlType(name = "TermUnits", propOrder = {
+    "termUnit"
 })
-public class LISTOFHUNIT {
+public class TermUnits {
 
-    @XmlElement(name = "UNIT", required = true)
-    protected List<HUNIT> unit;
+    @XmlElement(required = true)
+    protected List<TermUnit> termUnit;
 
     /**
-     * Gets the value of the unit property.
+     * Gets the value of the termUnit property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the unit property.
+     * This is why there is not a <CODE>set</CODE> method for the termUnit property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getUNIT().add(newItem);
+     *    getTermUnit().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link HUNIT }
+     * {@link TermUnit }
      * 
      * 
      */
-    public List<HUNIT> getUNIT() {
-        if (unit == null) {
-            unit = new ArrayList<HUNIT>();
+    public List<TermUnit> getTermUnit() {
+        if (termUnit == null) {
+            termUnit = new ArrayList<TermUnit>();
         }
-        return this.unit;
+        return this.termUnit;
     }
 
 }

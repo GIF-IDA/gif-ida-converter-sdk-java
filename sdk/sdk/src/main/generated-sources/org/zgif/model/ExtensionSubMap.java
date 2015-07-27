@@ -1,19 +1,8 @@
-/*******************************************************************************
- * Copyright (c) 2015 Martin Fluegge (Berlin, Germany) and others..
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *  
- * Contributors:
- *    Martin Fluegge - initial API and implementation and/or initial documentation
- *  
- *******************************************************************************/
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.03 um 01:14:56 PM CEST 
+// Generiert: 2015.07.27 um 11:43:51 AM CEST 
 //
 
 
@@ -24,25 +13,24 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für iTYPE_EXTENSION_SUB_MAP complex type.
+ * <p>Java-Klasse für ExtensionSubMap complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
- * &lt;complexType name="iTYPE_EXTENSION_SUB_MAP">
+ * &lt;complexType name="ExtensionSubMap">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="KEY" type="{}iTYPE_EXTENSION_MAP_KEY" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="SUB_MAP" type="{}iTYPE_EXTENSION_SUB_MAP" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="SUB_LIST" type="{}iTYPE_EXTENSION_SUB_LIST" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="key" type="{}ExtensionMapKey" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="subMap" type="{}ExtensionSubMap" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="subList" type="{}ExtensionSubList" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
- *       &lt;attribute name="NAME" use="required" type="{}iTYPE_EXTENSION_NAME" />
+ *       &lt;attribute name="name" use="required" type="{}ExtensionName" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -51,20 +39,17 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "iTYPE_EXTENSION_SUB_MAP", propOrder = {
+@XmlType(name = "ExtensionSubMap", propOrder = {
     "key",
-    "submap",
-    "sublist"
+    "subMap",
+    "subList"
 })
-public class ITYPEEXTENSIONSUBMAP {
+public class ExtensionSubMap {
 
-    @XmlElement(name = "KEY")
-    protected List<ITYPEEXTENSIONMAPKEY> key;
-    @XmlElement(name = "SUB_MAP")
-    protected List<ITYPEEXTENSIONSUBMAP> submap;
-    @XmlElement(name = "SUB_LIST")
-    protected List<ITYPEEXTENSIONSUBLIST> sublist;
-    @XmlAttribute(name = "NAME", required = true)
+    protected List<ExtensionMapKey> key;
+    protected List<ExtensionSubMap> subMap;
+    protected List<ExtensionSubList> subList;
+    @XmlAttribute(name = "name", required = true)
     protected String name;
 
     /**
@@ -79,79 +64,79 @@ public class ITYPEEXTENSIONSUBMAP {
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getKEY().add(newItem);
+     *    getKey().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ITYPEEXTENSIONMAPKEY }
+     * {@link ExtensionMapKey }
      * 
      * 
      */
-    public List<ITYPEEXTENSIONMAPKEY> getKEY() {
+    public List<ExtensionMapKey> getKey() {
         if (key == null) {
-            key = new ArrayList<ITYPEEXTENSIONMAPKEY>();
+            key = new ArrayList<ExtensionMapKey>();
         }
         return this.key;
     }
 
     /**
-     * Gets the value of the submap property.
+     * Gets the value of the subMap property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the submap property.
+     * This is why there is not a <CODE>set</CODE> method for the subMap property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getSUBMAP().add(newItem);
+     *    getSubMap().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ITYPEEXTENSIONSUBMAP }
+     * {@link ExtensionSubMap }
      * 
      * 
      */
-    public List<ITYPEEXTENSIONSUBMAP> getSUBMAP() {
-        if (submap == null) {
-            submap = new ArrayList<ITYPEEXTENSIONSUBMAP>();
+    public List<ExtensionSubMap> getSubMap() {
+        if (subMap == null) {
+            subMap = new ArrayList<ExtensionSubMap>();
         }
-        return this.submap;
+        return this.subMap;
     }
 
     /**
-     * Gets the value of the sublist property.
+     * Gets the value of the subList property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the sublist property.
+     * This is why there is not a <CODE>set</CODE> method for the subList property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getSUBLIST().add(newItem);
+     *    getSubList().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link ITYPEEXTENSIONSUBLIST }
+     * {@link ExtensionSubList }
      * 
      * 
      */
-    public List<ITYPEEXTENSIONSUBLIST> getSUBLIST() {
-        if (sublist == null) {
-            sublist = new ArrayList<ITYPEEXTENSIONSUBLIST>();
+    public List<ExtensionSubList> getSubList() {
+        if (subList == null) {
+            subList = new ArrayList<ExtensionSubList>();
         }
-        return this.sublist;
+        return this.subList;
     }
 
     /**
@@ -162,7 +147,7 @@ public class ITYPEEXTENSIONSUBMAP {
      *     {@link String }
      *     
      */
-    public String getNAME() {
+    public String getName() {
         return name;
     }
 
@@ -174,7 +159,7 @@ public class ITYPEEXTENSIONSUBMAP {
      *     {@link String }
      *     
      */
-    public void setNAME(String value) {
+    public void setName(String value) {
         this.name = value;
     }
 
