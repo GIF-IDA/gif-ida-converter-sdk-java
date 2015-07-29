@@ -14,9 +14,11 @@ package org.zgif.tooling;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -39,6 +41,13 @@ import org.apache.log4j.PatternLayout;
  * 
  */
 public class GenerationPostProcessor {
+
+
+
+
+
+
+
     //@formatter:off
     private List<String> deleteFiles    = Arrays.asList("ObjectFactory.java");
     private List<String> entityNames    = Arrays.asList("Account",
@@ -110,14 +119,32 @@ public class GenerationPostProcessor {
         baseDir = traversalFile(scriptPath, "..", "..", "..", "..", "..", "src", "main", "generated-sources");
         LOG.debug("baseDir=" + baseDir);
 
+        File orgDir = new File(baseDir, "org");
+        if (orgDir.exists()) {
+            LOG.info("delete 'org' dir");
+            boolean isDeleted = deleteFile(orgDir);
+            if (!isDeleted) {
+                LOG.error("cannot delete dir: " + orgDir.getCanonicalPath());
+                return;
+            }
+        }
+
         addPluralToEntityList();
 
-        for (File sourceFile : baseDir.listFiles()) {
+        Boolean arePackagesToClean = false;
+        for (File sourceFile : baseDir.listFiles(new FileFilter() {
+            @Override
+            public boolean accept(File f) {
+                return f.isFile() && f.getName().endsWith(".java");
+            }
+        })) {
+            arePackagesToClean = true;
+
             String fileName = sourceFile.getName();
 
             if (deleteFiles.contains(fileName)) {
                 sourceFile.delete();
-            } else if (sourceFile.isFile() && fileName.endsWith(".java")) {
+            } else {
                 String packageName = null;
 
                 if (packageName == null) {
@@ -164,11 +191,15 @@ public class GenerationPostProcessor {
             }
         }
 
-        cleanupPackage(NODE_PACKAGE);
-        cleanupPackage(ENTITY_PACKAGE);
-        cleanupPackage(GROUP_PACKAGE);
-        cleanupPackage(TYPE_PACKAGE);
-        cleanupPackage(ENUM_PACKAGE);
+        if (arePackagesToClean) {
+            cleanupPackage(NODE_PACKAGE);
+            cleanupPackage(ENTITY_PACKAGE);
+            cleanupPackage(GROUP_PACKAGE);
+            cleanupPackage(TYPE_PACKAGE);
+            cleanupPackage(ENUM_PACKAGE);
+        } else {
+            LOG.warn("no java files found in baseDir");
+        }
     }
 
     public void moveFile(File sourceFile, String packageName) throws Throwable {
@@ -177,6 +208,7 @@ public class GenerationPostProcessor {
 
         File newDir = traversalFile(baseDir.getCanonicalFile(), packageName.split("[.]"));
         File newSourceFile = new File(newDir, fileName);
+
         newDir.mkdirs();
         Boolean renamed = sourceFile.renameTo(newSourceFile);
 
@@ -327,5 +359,31 @@ public class GenerationPostProcessor {
 
         }
         return curFile;
+    }
+
+    public static boolean deleteFile(File file) {
+        if (file.exists()) {
+            if (file.isDirectory()) {
+                if (file.list().length == 0) {
+                    return file.delete();
+                } else {
+                    String files[] = file.list();
+                    for (String subFile : files) {
+                        boolean isDeleted = deleteFile(new File(file, subFile));
+                        if (!isDeleted) {
+                            return false;
+                        }
+                    }
+
+                    if (file.list().length == 0) {
+                        return file.delete();
+                    }
+                }
+            } else {
+                return file.delete();
+            }
+        }
+
+        return false;
     }
 }
