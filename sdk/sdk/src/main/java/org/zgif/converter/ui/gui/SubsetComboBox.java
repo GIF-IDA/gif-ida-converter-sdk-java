@@ -27,8 +27,10 @@ import org.zgif.model.datatype.enumeration.Subset;
  * @author phoudek
  * 
  */
-public class SubsetComboBox extends JComboBox {
-    class SubsetComboBoxModel implements ComboBoxModel {
+public class SubsetComboBox extends JComboBox<Object> {
+    private static final long serialVersionUID = -2060191791068569157L;
+
+    class SubsetComboBoxModel implements ComboBoxModel<Object> {
         Vector<Subset> values   = new Vector<Subset>(Arrays.asList(Subset.values()));
         int            selected = -1;
 
@@ -67,19 +69,19 @@ public class SubsetComboBox extends JComboBox {
 
         public void removeListDataListener(ListDataListener l) {
         }
-        
+
         public Subset getSelectedSubset() {
             return values.elementAt(selected);
         }
     }
 
     private SubsetComboBoxModel model;
-    
+
     public SubsetComboBox() {
         model = new SubsetComboBoxModel();
         this.setModel(model);
     }
-    
+
     public Subset getSelectedSubset() {
         return model.getSelectedSubset();
     }

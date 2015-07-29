@@ -38,7 +38,7 @@ public class UserValidator extends Validator<User> {
 
 	private void validateSex(User user, List<ValidationError> results) {
 		Sex sex = user.getSex();
-		if (!(Sex.MALE == sex || Sex.FEMALE == sex || sex.UNKNOWN == sex)) {
+		if (!(Sex.MALE == sex || Sex.FEMALE == sex || Sex.UNKNOWN == sex)) {
 			createAndAddValidationError(null, "Invalid sex", results);
 		}
 

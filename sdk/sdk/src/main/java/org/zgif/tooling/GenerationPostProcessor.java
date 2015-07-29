@@ -27,23 +27,18 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-import javax.xml.bind.annotation.XmlElement;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
-import org.zgif.model.node.group.ExtensionMap;
 
 /**
  * @author Martin Fluegge
  * 
  */
 public class GenerationPostProcessor {
-
-
     //@formatter:off
     private List<String> deleteFiles    = Arrays.asList("ObjectFactory.java");
     private List<String> entityNames    = Arrays.asList("Account",
@@ -83,6 +78,7 @@ public class GenerationPostProcessor {
                                                         );
     //@formatter:on
 
+    @SuppressWarnings("unused")
     private static final String BASE_PACKAGE    = "org.zgif.model";
     private static final String NODE_PACKAGE    = "org.zgif.model.node";
     private static final String GROUP_PACKAGE   = "org.zgif.model.node.group";
@@ -118,8 +114,8 @@ public class GenerationPostProcessor {
 
         for (File sourceFile : baseDir.listFiles()) {
             String fileName = sourceFile.getName();
-            
-            if(deleteFiles.contains(fileName)) {
+
+            if (deleteFiles.contains(fileName)) {
                 sourceFile.delete();
             } else if (sourceFile.isFile() && fileName.endsWith(".java")) {
                 String packageName = null;
@@ -228,24 +224,22 @@ public class GenerationPostProcessor {
         for (String line = reader.readLine(); line != null; line = reader.readLine()) {
             if (lineBefore.equals("    /**") && line.contains("extensionMap")) {
                 flags.add("xetter_extensionMap");
-                body.append("*/\r\n");
+                body.append("*/");
+                body.append(System.lineSeparator());
             }
             if (lineBefore.equals("    /**") && line.contains("validFrom")) {
                 flags.add("xetter_validFrom");
-                body.append("*/\r\n");
+                body.append("*/");
+                body.append(System.lineSeparator());
             }
             if (lineBefore.equals("    /**") && line.contains("validTo")) {
                 flags.add("xetter_validTo");
-                body.append("*/\r\n");
+                body.append("*/");
+                body.append(System.lineSeparator());
             }
 
-            
-            
-            if (!removeLines.contains(line)
-                && !flags.contains("xetter_extensionMap")
-                && !flags.contains("xetter_validFrom")
-                && !flags.contains("xetter_validTo")
-                ) {
+            if (!removeLines.contains(line) && !flags.contains("xetter_extensionMap") && !flags.contains("xetter_validFrom")
+                && !flags.contains("xetter_validTo")) {
                 for (String modelClass : classPackageMap.keySet()) {
                     if (!modelClass.equals(currentModelClassName) && line.contains(" " + modelClass + " ")) {
                         usedModelClasses.add(modelClass);
@@ -258,7 +252,7 @@ public class GenerationPostProcessor {
                 }
 
                 body.append(line);
-                body.append("\r\n");
+                body.append(System.lineSeparator());
             }
 
             if (flags.contains("xetter_extensionMap") && line.equals("    }")) {
@@ -277,9 +271,9 @@ public class GenerationPostProcessor {
 
         // append package and imports
         BufferedWriter writer = new BufferedWriter(new FileWriter(sourceFile));
-        writer.append("package " + packageName + ";\r\n");
+        writer.append("package " + packageName + ";" + System.lineSeparator());
         for (String usedModel : usedModelClasses) {
-            writer.append("import " + classPackageMap.get(usedModel) + "." + usedModel + ";\r\n");
+            writer.append("import " + classPackageMap.get(usedModel) + "." + usedModel + ";" + System.lineSeparator());
         }
 
         // write body

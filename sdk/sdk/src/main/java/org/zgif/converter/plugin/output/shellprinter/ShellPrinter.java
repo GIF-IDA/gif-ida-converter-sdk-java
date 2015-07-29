@@ -31,8 +31,6 @@ import org.zgif.model.node.Periods.Period;
 import org.zgif.model.node.ZGif;
 import org.zgif.model.node.entity.AbstractEntityNode;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 /**
  * simple export plugin that prints the hierarchy of a zgif object to console
  * 
@@ -78,12 +76,11 @@ public class ShellPrinter implements IExportPlugin {
                     exportPeriods(periods.values());
                 }
             } catch (InvocationTargetException e) {
+                logger.error("", e);
             } catch (IllegalArgumentException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                logger.error("", e);
             } catch (IllegalAccessException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                logger.error("", e);
             }
         }
 
@@ -91,9 +88,9 @@ public class ShellPrinter implements IExportPlugin {
         try {
             getData = zgif.getClass().getMethod("getData");
         } catch (SecurityException e) {
+            logger.error("", e);
         } catch (NoSuchMethodException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.error("", e);
         }
         if (getData != null) {
             try {
@@ -102,12 +99,11 @@ public class ShellPrinter implements IExportPlugin {
                     exportNode(data);
                 }
             } catch (InvocationTargetException e) {
+                logger.error("", e);
             } catch (IllegalArgumentException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                logger.error("", e);
             } catch (IllegalAccessException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                logger.error("", e);
             }
         }
     }
@@ -214,7 +210,7 @@ public class ShellPrinter implements IExportPlugin {
      */
     @Override
     public void load(PluginConfiguration config) {
-        throw new NotImplementedException();
+        throw new RuntimeException("not allowed");
     }
 
     /*

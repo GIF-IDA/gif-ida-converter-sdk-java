@@ -37,8 +37,6 @@ import org.zgif.model.node.Meta;
 import org.zgif.model.node.Periods.Period;
 import org.zgif.model.node.ZGif;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 /**
  * @author phoudek
  * 
@@ -98,7 +96,7 @@ public class ZGifWriter implements IExportPlugin {
      */
     @Override
     public void load(PluginConfiguration config) {
-        throw new NotImplementedException();
+        throw new RuntimeException("not allowed");
     }
 
     /*
@@ -127,6 +125,7 @@ public class ZGifWriter implements IExportPlugin {
 
     // //////////////////////////////////////////////////////////
 
+    @SuppressWarnings({ "unused", "unchecked" })
     private void doExport() {
         zipOut = new ZipOutputStream(config.getStreams().get(PARAMETER_NAME));
         zipOut.setLevel(ZipOutputStream.STORED);
@@ -197,7 +196,7 @@ public class ZGifWriter implements IExportPlugin {
 
         for (Period period : periods) {
             nextZipEntry("periods/" + period.getIdentifier() + ".xml");
-            DataWriter dataWriter = new DataWriter(zipOut);
+            // DataWriter dataWriter = new DataWriter(zipOut);
             // TODO
             // dataWriter.write(period.getData());
         }

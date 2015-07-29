@@ -26,18 +26,18 @@ import javax.swing.JPanel;
  * 
  */
 public class MenuePanel extends JPanel {
-    private SubsetComboBox subsetBox;
-    
+    private static final long serialVersionUID = -2009449360105581730L;
+    private SubsetComboBox    subsetBox;
+
     public MenuePanel() {
         subsetBox = new SubsetComboBox();
-        
+
         this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
         this.add(new JLabel("Subset:"));
         this.add(subsetBox);
         this.add(new JButton("konvertieren"));
     }
 
-    
     public void addSubsetChangedListener(ActionListener listener) {
         subsetBox.addActionListener(listener);
     }

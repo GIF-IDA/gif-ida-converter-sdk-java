@@ -38,10 +38,11 @@ public class CSVToObjectConverter extends BasicConverter {
         convert(pathToCSV);
     }
 
+    @SuppressWarnings("unused")
     private void convert(String pathToCSV) {
-
+        BufferedReader br = null;
         try {
-            BufferedReader br = new BufferedReader(new FileReader(pathToCSV));
+            br = new BufferedReader(new FileReader(pathToCSV));
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
 
@@ -65,6 +66,13 @@ public class CSVToObjectConverter extends BasicConverter {
         } catch (MapperValidationException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                }
+            }
         }
     }
 

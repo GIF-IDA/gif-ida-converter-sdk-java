@@ -58,6 +58,7 @@ public class DataWriter {
         }
     }
 
+    @SuppressWarnings("unchecked")
     private void writeNode(AbstractNode node) throws Exception {
         writer.writeStartElement(getTagnameOfNode(node));
 
@@ -93,7 +94,7 @@ public class DataWriter {
             }
         }
         
-        // write extention map:
+        // TODO: write extention map:
         
         // write sub nodes:
         List<Field> nodelistFields = info.getNodeLists();

@@ -38,12 +38,16 @@ import org.zgif.converter.plugin.input.ImportPluginConfiguration;
  * 
  */
 public class DefaultPluginGui<PluginConfig extends PluginConfiguration> extends PluginComponent<PluginConfig> {
-    class FilePanel extends JPanel {
-        JLabel     lbl  = new JLabel();
-        JTextField tf   = new JTextField();
-        JButton    btn  = new JButton("...");
+    private static final long serialVersionUID = -6392530010065554006L;
 
-        File       file = null;
+    class FilePanel extends JPanel {
+        private static final long serialVersionUID = 7596894558290889532L;
+
+        JLabel                    lbl              = new JLabel();
+        JTextField                tf               = new JTextField();
+        JButton                   btn              = new JButton("...");
+
+        File                      file             = null;
 
         public void openFileDialog() {
             JFileChooser fc = new JFileChooser((file == null) ? USER_DIR : file.getParentFile());
@@ -117,9 +121,6 @@ public class DefaultPluginGui<PluginConfig extends PluginConfiguration> extends 
      */
     public DefaultPluginGui(PluginConfig emptyConfiguration) {
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-
-        String[] ids = { "meta", "periods", "company", "property", "land", "build", "lease", "unit", "term" };
-        int numLines = ids.length;
 
         Set<String> requiredInputStreams = null;
         if (emptyConfiguration instanceof ImportPluginConfiguration) {

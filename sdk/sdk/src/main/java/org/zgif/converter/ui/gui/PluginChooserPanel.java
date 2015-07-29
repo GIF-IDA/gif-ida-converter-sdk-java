@@ -33,6 +33,7 @@ import org.zgif.converter.plugin.input.ImportPluginConfiguration;
  * 
  */
 public class PluginChooserPanel extends JPanel {
+    private static final long serialVersionUID = -5605908822660592177L;
 
     enum PluginChooserType {
         IMPORT, EXPORT
@@ -50,7 +51,7 @@ public class PluginChooserPanel extends JPanel {
 
         this.add(new JLabel(word + "-Plugin:"), new GridBagConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(4, 4,
             4, 4), 0, 0));
-        this.add(new JComboBox(list), new GridBagConstraints(1, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,
+        this.add(new JComboBox<Object>(list), new GridBagConstraints(1, 0, 1, 1, 0, 0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL,
             new Insets(4, 4, 4, 4), 0, 0));
 
         if (type == PluginChooserType.IMPORT) {
@@ -68,7 +69,7 @@ public class PluginChooserPanel extends JPanel {
                     streams.put("term", null);
                 }
             };
-            PluginComponent<ImportPluginConfiguration> x = new DefaultPluginGui(emptyConfig);
+            PluginComponent<ImportPluginConfiguration> x = new DefaultPluginGui<ImportPluginConfiguration>(emptyConfig);
             this.add(x, new GridBagConstraints(0, 1, 2, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(4, 4, 4, 4), 0, 0));
         } else {
             this.add(new JLabel("" + word + "-Plugin wird geladen..."), new GridBagConstraints(0, 1, 2, 1, 1, 1, GridBagConstraints.CENTER,
