@@ -6,7 +6,7 @@
 //
 
 
-package org.zgif.model;
+package org.zgif.model.types;
 
 import org.zgif.model.*;
 import org.zgif.model.types.*;
@@ -18,36 +18,46 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für ObjectCondition.
+ * <p>Java-Klasse für RetailLocationType.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * <p>
  * <pre>
- * &lt;simpleType name="ObjectCondition">
+ * &lt;simpleType name="RetailLocationType">
  *   &lt;restriction base="{}iTYPE_STRING">
- *     &lt;enumeration value="NOT_AVAILABLE"/>
- *     &lt;enumeration value="NEW"/>
- *     &lt;enumeration value="AGE_APPROPRIATE"/>
- *     &lt;enumeration value="IN_NEED_OF_REPAIR"/>
+ *     &lt;enumeration value="HIGH_STREET"/>
+ *     &lt;enumeration value="HIGH_STREET_BORDER_AREA"/>
+ *     &lt;enumeration value="CITY_CENTRE_OTHER"/>
+ *     &lt;enumeration value="SUBURBAN_CENTRE"/>
+ *     &lt;enumeration value="MAJOR_ROUTE"/>
+ *     &lt;enumeration value="SUBURBAN_OTHER"/>
+ *     &lt;enumeration value="NON_URBAN"/>
+ *     &lt;enumeration value="OTHER"/>
+ *     &lt;enumeration value="UNKNOWN"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "ObjectCondition")
+@XmlType(name = "RetailLocationType")
 @XmlEnum
-public enum ObjectCondition {
+public enum RetailLocationType {
 
-    NOT_AVAILABLE,
-    NEW,
-    AGE_APPROPRIATE,
-    IN_NEED_OF_REPAIR;
+    HIGH_STREET,
+    HIGH_STREET_BORDER_AREA,
+    CITY_CENTRE_OTHER,
+    SUBURBAN_CENTRE,
+    MAJOR_ROUTE,
+    SUBURBAN_OTHER,
+    NON_URBAN,
+    OTHER,
+    UNKNOWN;
 
     public String value() {
         return name();
     }
 
-    public static ObjectCondition fromValue(String v) {
+    public static RetailLocationType fromValue(String v) {
         return valueOf(v);
     }
 

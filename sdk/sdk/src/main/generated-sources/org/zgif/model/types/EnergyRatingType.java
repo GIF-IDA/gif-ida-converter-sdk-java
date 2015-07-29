@@ -6,45 +6,44 @@
 //
 
 
-package org.zgif.model;
+package org.zgif.model.types;
+
+import org.zgif.model.*;
+import org.zgif.model.types.*;
+import org.zgif.model.*;
+
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für EncumbranceType.
+ * <p>Java-Klasse für EnergyRatingType.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * <p>
  * <pre>
- * &lt;simpleType name="EncumbranceType">
+ * &lt;simpleType name="EnergyRatingType">
  *   &lt;restriction base="{}iTYPE_STRING">
- *     &lt;enumeration value="MORTGAGE"/>
- *     &lt;enumeration value="LAND_CHARGE"/>
- *     &lt;enumeration value="ANNUITY_CHARGE"/>
- *     &lt;enumeration value="OTHER"/>
- *     &lt;enumeration value="NOT_SPECIFIED"/>
+ *     &lt;enumeration value="USAGE_DEPENDING"/>
+ *     &lt;enumeration value="REQUIREMENTS_DEPENDING"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "EncumbranceType")
+@XmlType(name = "EnergyRatingType")
 @XmlEnum
-public enum EncumbranceType {
+public enum EnergyRatingType {
 
-    MORTGAGE,
-    LAND_CHARGE,
-    ANNUITY_CHARGE,
-    OTHER,
-    NOT_SPECIFIED;
+    USAGE_DEPENDING,
+    REQUIREMENTS_DEPENDING;
 
     public String value() {
         return name();
     }
 
-    public static EncumbranceType fromValue(String v) {
+    public static EnergyRatingType fromValue(String v) {
         return valueOf(v);
     }
 

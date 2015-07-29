@@ -6,7 +6,7 @@
 //
 
 
-package org.zgif.model;
+package org.zgif.model.types;
 
 import org.zgif.model.*;
 import org.zgif.model.types.*;
@@ -18,36 +18,40 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für ObjectCondition.
+ * <p>Java-Klasse für DepositType.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * <p>
  * <pre>
- * &lt;simpleType name="ObjectCondition">
+ * &lt;simpleType name="DepositType">
  *   &lt;restriction base="{}iTYPE_STRING">
  *     &lt;enumeration value="NOT_AVAILABLE"/>
- *     &lt;enumeration value="NEW"/>
- *     &lt;enumeration value="AGE_APPROPRIATE"/>
- *     &lt;enumeration value="IN_NEED_OF_REPAIR"/>
+ *     &lt;enumeration value="CASH_BOND"/>
+ *     &lt;enumeration value="BONDED_SAVINGS_ACCOUNT_PASS_BOOK"/>
+ *     &lt;enumeration value="ASSIGNMENT_FOR_SECURITY"/>
+ *     &lt;enumeration value="GUARANTEE_OF_PAYMENT_OF_A_LOAN"/>
+ *     &lt;enumeration value="GUARANTEE_PAYMENT_INSURANCE"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "ObjectCondition")
+@XmlType(name = "DepositType")
 @XmlEnum
-public enum ObjectCondition {
+public enum DepositType {
 
     NOT_AVAILABLE,
-    NEW,
-    AGE_APPROPRIATE,
-    IN_NEED_OF_REPAIR;
+    CASH_BOND,
+    BONDED_SAVINGS_ACCOUNT_PASS_BOOK,
+    ASSIGNMENT_FOR_SECURITY,
+    GUARANTEE_OF_PAYMENT_OF_A_LOAN,
+    GUARANTEE_PAYMENT_INSURANCE;
 
     public String value() {
         return name();
     }
 
-    public static ObjectCondition fromValue(String v) {
+    public static DepositType fromValue(String v) {
         return valueOf(v);
     }
 

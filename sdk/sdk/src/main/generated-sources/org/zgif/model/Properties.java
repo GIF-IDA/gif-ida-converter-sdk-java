@@ -8,6 +8,11 @@
 
 package org.zgif.model;
 
+import org.zgif.model.*;
+import org.zgif.model.types.*;
+import org.zgif.model.*;
+
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;

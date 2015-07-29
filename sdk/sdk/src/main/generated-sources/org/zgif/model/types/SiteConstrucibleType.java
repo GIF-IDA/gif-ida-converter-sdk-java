@@ -6,39 +6,46 @@
 //
 
 
-package org.zgif.model;
+package org.zgif.model.types;
+
+import org.zgif.model.*;
+import org.zgif.model.types.*;
+import org.zgif.model.*;
+
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für EnergyRatingType.
+ * <p>Java-Klasse für SiteConstrucibleType.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * <p>
  * <pre>
- * &lt;simpleType name="EnergyRatingType">
+ * &lt;simpleType name="SiteConstrucibleType">
  *   &lt;restriction base="{}iTYPE_STRING">
- *     &lt;enumeration value="USAGE_DEPENDING"/>
- *     &lt;enumeration value="REQUIREMENTS_DEPENDING"/>
+ *     &lt;enumeration value="CONSTRUCTIONPLAN"/>
+ *     &lt;enumeration value="NEIGHBOURCONSTRUCTION"/>
+ *     &lt;enumeration value="EXTERNALAREA"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "EnergyRatingType")
+@XmlType(name = "SiteConstrucibleType")
 @XmlEnum
-public enum EnergyRatingType {
+public enum SiteConstrucibleType {
 
-    USAGE_DEPENDING,
-    REQUIREMENTS_DEPENDING;
+    CONSTRUCTIONPLAN,
+    NEIGHBOURCONSTRUCTION,
+    EXTERNALAREA;
 
     public String value() {
         return name();
     }
 
-    public static EnergyRatingType fromValue(String v) {
+    public static SiteConstrucibleType fromValue(String v) {
         return valueOf(v);
     }
 

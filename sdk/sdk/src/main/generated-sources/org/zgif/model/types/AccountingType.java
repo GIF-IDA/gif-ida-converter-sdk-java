@@ -6,47 +6,46 @@
 //
 
 
-package org.zgif.model;
+package org.zgif.model.types;
+
+import org.zgif.model.*;
+import org.zgif.model.types.*;
+import org.zgif.model.*;
+
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für DepositType.
+ * <p>Java-Klasse für AccountingType.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * <p>
  * <pre>
- * &lt;simpleType name="DepositType">
+ * &lt;simpleType name="AccountingType">
  *   &lt;restriction base="{}iTYPE_STRING">
- *     &lt;enumeration value="NOT_AVAILABLE"/>
- *     &lt;enumeration value="CASH_BOND"/>
- *     &lt;enumeration value="BONDED_SAVINGS_ACCOUNT_PASS_BOOK"/>
- *     &lt;enumeration value="ASSIGNMENT_FOR_SECURITY"/>
- *     &lt;enumeration value="GUARANTEE_OF_PAYMENT_OF_A_LOAN"/>
- *     &lt;enumeration value="GUARANTEE_PAYMENT_INSURANCE"/>
+ *     &lt;enumeration value="INVOICE_FOR_PARTIAL_DELIVERY"/>
+ *     &lt;enumeration value="FINAL_INVOICE"/>
+ *     &lt;enumeration value="INDIVIDUAL_PAYMENT_PLAN"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "DepositType")
+@XmlType(name = "AccountingType")
 @XmlEnum
-public enum DepositType {
+public enum AccountingType {
 
-    NOT_AVAILABLE,
-    CASH_BOND,
-    BONDED_SAVINGS_ACCOUNT_PASS_BOOK,
-    ASSIGNMENT_FOR_SECURITY,
-    GUARANTEE_OF_PAYMENT_OF_A_LOAN,
-    GUARANTEE_PAYMENT_INSURANCE;
+    INVOICE_FOR_PARTIAL_DELIVERY,
+    FINAL_INVOICE,
+    INDIVIDUAL_PAYMENT_PLAN;
 
     public String value() {
         return name();
     }
 
-    public static DepositType fromValue(String v) {
+    public static AccountingType fromValue(String v) {
         return valueOf(v);
     }
 

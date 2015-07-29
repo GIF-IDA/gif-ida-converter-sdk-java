@@ -6,45 +6,46 @@
 //
 
 
-package org.zgif.model;
+package org.zgif.model.types;
+
+import org.zgif.model.*;
+import org.zgif.model.types.*;
+import org.zgif.model.*;
+
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für MonumentsType.
+ * <p>Java-Klasse für HeatingType.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * <p>
  * <pre>
- * &lt;simpleType name="MonumentsType">
+ * &lt;simpleType name="HeatingType">
  *   &lt;restriction base="{}iTYPE_STRING">
- *     &lt;enumeration value="NO"/>
- *     &lt;enumeration value="NOT_AVAILABLE"/>
- *     &lt;enumeration value="SINGLE"/>
- *     &lt;enumeration value="ENSEMBLE"/>
- *     &lt;enumeration value="OTHERS"/>
+ *     &lt;enumeration value="CENTRAL_HEATING"/>
+ *     &lt;enumeration value="SINGLE_STORY_GAS_HEATING"/>
+ *     &lt;enumeration value="OTHER"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "MonumentsType")
+@XmlType(name = "HeatingType")
 @XmlEnum
-public enum MonumentsType {
+public enum HeatingType {
 
-    NO,
-    NOT_AVAILABLE,
-    SINGLE,
-    ENSEMBLE,
-    OTHERS;
+    CENTRAL_HEATING,
+    SINGLE_STORY_GAS_HEATING,
+    OTHER;
 
     public String value() {
         return name();
     }
 
-    public static MonumentsType fromValue(String v) {
+    public static HeatingType fromValue(String v) {
         return valueOf(v);
     }
 

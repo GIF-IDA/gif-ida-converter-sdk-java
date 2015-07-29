@@ -6,41 +6,46 @@
 //
 
 
-package org.zgif.model;
+package org.zgif.model.types;
+
+import org.zgif.model.*;
+import org.zgif.model.types.*;
+import org.zgif.model.*;
+
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für SiteConstrucibleType.
+ * <p>Java-Klasse für DepositIncreaseType.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * <p>
  * <pre>
- * &lt;simpleType name="SiteConstrucibleType">
+ * &lt;simpleType name="DepositIncreaseType">
  *   &lt;restriction base="{}iTYPE_STRING">
- *     &lt;enumeration value="CONSTRUCTIONPLAN"/>
- *     &lt;enumeration value="NEIGHBOURCONSTRUCTION"/>
- *     &lt;enumeration value="EXTERNALAREA"/>
+ *     &lt;enumeration value="NONE"/>
+ *     &lt;enumeration value="INDEX"/>
+ *     &lt;enumeration value="SCALE"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "SiteConstrucibleType")
+@XmlType(name = "DepositIncreaseType")
 @XmlEnum
-public enum SiteConstrucibleType {
+public enum DepositIncreaseType {
 
-    CONSTRUCTIONPLAN,
-    NEIGHBOURCONSTRUCTION,
-    EXTERNALAREA;
+    NONE,
+    INDEX,
+    SCALE;
 
     public String value() {
         return name();
     }
 
-    public static SiteConstrucibleType fromValue(String v) {
+    public static DepositIncreaseType fromValue(String v) {
         return valueOf(v);
     }
 

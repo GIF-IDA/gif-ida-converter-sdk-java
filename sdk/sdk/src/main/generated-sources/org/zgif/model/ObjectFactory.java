@@ -8,6 +8,11 @@
 
 package org.zgif.model;
 
+import org.zgif.model.*;
+import org.zgif.model.types.*;
+import org.zgif.model.*;
+
+
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;

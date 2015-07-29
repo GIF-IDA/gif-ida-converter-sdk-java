@@ -6,45 +6,50 @@
 //
 
 
-package org.zgif.model;
+package org.zgif.model.types;
+
+import org.zgif.model.*;
+import org.zgif.model.types.*;
+import org.zgif.model.*;
+
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für PeriodValueType.
+ * <p>Java-Klasse für EncumbranceType.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * <p>
  * <pre>
- * &lt;simpleType name="PeriodValueType">
+ * &lt;simpleType name="EncumbranceType">
  *   &lt;restriction base="{}iTYPE_STRING">
- *     &lt;enumeration value="ACTUAL"/>
- *     &lt;enumeration value="PLAN"/>
- *     &lt;enumeration value="FORECAST"/>
- *     &lt;enumeration value="BUDGET"/>
+ *     &lt;enumeration value="MORTGAGE"/>
+ *     &lt;enumeration value="LAND_CHARGE"/>
+ *     &lt;enumeration value="ANNUITY_CHARGE"/>
  *     &lt;enumeration value="OTHER"/>
+ *     &lt;enumeration value="NOT_SPECIFIED"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "PeriodValueType")
+@XmlType(name = "EncumbranceType")
 @XmlEnum
-public enum PeriodValueType {
+public enum EncumbranceType {
 
-    ACTUAL,
-    PLAN,
-    FORECAST,
-    BUDGET,
-    OTHER;
+    MORTGAGE,
+    LAND_CHARGE,
+    ANNUITY_CHARGE,
+    OTHER,
+    NOT_SPECIFIED;
 
     public String value() {
         return name();
     }
 
-    public static PeriodValueType fromValue(String v) {
+    public static EncumbranceType fromValue(String v) {
         return valueOf(v);
     }
 

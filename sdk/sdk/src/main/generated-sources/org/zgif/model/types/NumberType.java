@@ -6,47 +6,46 @@
 //
 
 
-package org.zgif.model;
+package org.zgif.model.types;
+
+import org.zgif.model.*;
+import org.zgif.model.types.*;
+import org.zgif.model.*;
+
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für ProjectType.
+ * <p>Java-Klasse für NumberType.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * <p>
  * <pre>
- * &lt;simpleType name="ProjectType">
+ * &lt;simpleType name="NumberType">
  *   &lt;restriction base="{}iTYPE_STRING">
- *     &lt;enumeration value="NONE"/>
- *     &lt;enumeration value="MAINTENANCE"/>
- *     &lt;enumeration value="INSPECTION"/>
- *     &lt;enumeration value="REPAIR"/>
- *     &lt;enumeration value="OPTIMIZATION"/>
- *     &lt;enumeration value="OTHER"/>
+ *     &lt;enumeration value="NOT_SPECIFIED"/>
+ *     &lt;enumeration value="PERCENT"/>
+ *     &lt;enumeration value="ABSOLUTE"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "ProjectType")
+@XmlType(name = "NumberType")
 @XmlEnum
-public enum ProjectType {
+public enum NumberType {
 
-    NONE,
-    MAINTENANCE,
-    INSPECTION,
-    REPAIR,
-    OPTIMIZATION,
-    OTHER;
+    NOT_SPECIFIED,
+    PERCENT,
+    ABSOLUTE;
 
     public String value() {
         return name();
     }
 
-    public static ProjectType fromValue(String v) {
+    public static NumberType fromValue(String v) {
         return valueOf(v);
     }
 

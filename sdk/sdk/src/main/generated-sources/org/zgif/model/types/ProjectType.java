@@ -6,41 +6,52 @@
 //
 
 
-package org.zgif.model;
+package org.zgif.model.types;
+
+import org.zgif.model.*;
+import org.zgif.model.types.*;
+import org.zgif.model.*;
+
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für DepositIncreaseType.
+ * <p>Java-Klasse für ProjectType.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * <p>
  * <pre>
- * &lt;simpleType name="DepositIncreaseType">
+ * &lt;simpleType name="ProjectType">
  *   &lt;restriction base="{}iTYPE_STRING">
  *     &lt;enumeration value="NONE"/>
- *     &lt;enumeration value="INDEX"/>
- *     &lt;enumeration value="SCALE"/>
+ *     &lt;enumeration value="MAINTENANCE"/>
+ *     &lt;enumeration value="INSPECTION"/>
+ *     &lt;enumeration value="REPAIR"/>
+ *     &lt;enumeration value="OPTIMIZATION"/>
+ *     &lt;enumeration value="OTHER"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "DepositIncreaseType")
+@XmlType(name = "ProjectType")
 @XmlEnum
-public enum DepositIncreaseType {
+public enum ProjectType {
 
     NONE,
-    INDEX,
-    SCALE;
+    MAINTENANCE,
+    INSPECTION,
+    REPAIR,
+    OPTIMIZATION,
+    OTHER;
 
     public String value() {
         return name();
     }
 
-    public static DepositIncreaseType fromValue(String v) {
+    public static ProjectType fromValue(String v) {
         return valueOf(v);
     }
 

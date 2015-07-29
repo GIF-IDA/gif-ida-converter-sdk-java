@@ -6,45 +6,52 @@
 //
 
 
-package org.zgif.model;
+package org.zgif.model.types;
+
+import org.zgif.model.*;
+import org.zgif.model.types.*;
+import org.zgif.model.*;
+
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für ServiceType.
+ * <p>Java-Klasse für PortfolioType.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * <p>
  * <pre>
- * &lt;simpleType name="ServiceType">
+ * &lt;simpleType name="PortfolioType">
  *   &lt;restriction base="{}iTYPE_STRING">
- *     &lt;enumeration value="NOT_SPECIFIED"/>
- *     &lt;enumeration value="LIFT_MAINTENACE"/>
- *     &lt;enumeration value="GUARDING"/>
- *     &lt;enumeration value="GARDENING"/>
- *     &lt;enumeration value="WINTER_SERVICE"/>
+ *     &lt;enumeration value="INSURANCE"/>
+ *     &lt;enumeration value="OPEN_PROPERTY_FUND"/>
+ *     &lt;enumeration value="PENSIONS_FUND"/>
+ *     &lt;enumeration value="REAL_ESTATE_COMPANIES"/>
+ *     &lt;enumeration value="UNLISTED_REAL_ESTATE_COMPANIES"/>
+ *     &lt;enumeration value="OTHER"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "ServiceType")
+@XmlType(name = "PortfolioType")
 @XmlEnum
-public enum ServiceType {
+public enum PortfolioType {
 
-    NOT_SPECIFIED,
-    LIFT_MAINTENACE,
-    GUARDING,
-    GARDENING,
-    WINTER_SERVICE;
+    INSURANCE,
+    OPEN_PROPERTY_FUND,
+    PENSIONS_FUND,
+    REAL_ESTATE_COMPANIES,
+    UNLISTED_REAL_ESTATE_COMPANIES,
+    OTHER;
 
     public String value() {
         return name();
     }
 
-    public static ServiceType fromValue(String v) {
+    public static PortfolioType fromValue(String v) {
         return valueOf(v);
     }
 

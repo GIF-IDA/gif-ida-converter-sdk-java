@@ -6,41 +6,50 @@
 //
 
 
-package org.zgif.model;
+package org.zgif.model.types;
+
+import org.zgif.model.*;
+import org.zgif.model.types.*;
+import org.zgif.model.*;
+
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für AdjustmentType.
+ * <p>Java-Klasse für ServiceType.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * <p>
  * <pre>
- * &lt;simpleType name="AdjustmentType">
+ * &lt;simpleType name="ServiceType">
  *   &lt;restriction base="{}iTYPE_STRING">
- *     &lt;enumeration value="INDEX_ADJUSTMENT"/>
- *     &lt;enumeration value="INDEX"/>
- *     &lt;enumeration value="OTHER"/>
+ *     &lt;enumeration value="NOT_SPECIFIED"/>
+ *     &lt;enumeration value="LIFT_MAINTENACE"/>
+ *     &lt;enumeration value="GUARDING"/>
+ *     &lt;enumeration value="GARDENING"/>
+ *     &lt;enumeration value="WINTER_SERVICE"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "AdjustmentType")
+@XmlType(name = "ServiceType")
 @XmlEnum
-public enum AdjustmentType {
+public enum ServiceType {
 
-    INDEX_ADJUSTMENT,
-    INDEX,
-    OTHER;
+    NOT_SPECIFIED,
+    LIFT_MAINTENACE,
+    GUARDING,
+    GARDENING,
+    WINTER_SERVICE;
 
     public String value() {
         return name();
     }
 
-    public static AdjustmentType fromValue(String v) {
+    public static ServiceType fromValue(String v) {
         return valueOf(v);
     }
 

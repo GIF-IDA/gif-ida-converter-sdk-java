@@ -166,7 +166,7 @@ Contributors:
 						</executions>
 						<configuration>
 							<schemaDirectory>${resourcesDir}</schemaDirectory>
-							<catalog>${resourcesDir}/de/is24/common/webservice/xml/catalog.cat</catalog>
+							<!-- <catalog>${resourcesDir}/de/is24/common/webservice/xml/catalog.cat</catalog>-->
 							<catalogResolver>org.jvnet.jaxb2.maven2.resolver.tools.ClasspathCatalogResolver</catalogResolver>
 							<schemaIncludes>
 								<schemaInclude>**/*.xsd</schemaInclude>

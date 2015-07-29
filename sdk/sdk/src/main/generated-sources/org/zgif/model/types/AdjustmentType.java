@@ -6,55 +6,46 @@
 //
 
 
-package org.zgif.model;
+package org.zgif.model.types;
+
+import org.zgif.model.*;
+import org.zgif.model.types.*;
+import org.zgif.model.*;
+
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für ApartmentType.
+ * <p>Java-Klasse für AdjustmentType.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * <p>
  * <pre>
- * &lt;simpleType name="ApartmentType">
+ * &lt;simpleType name="AdjustmentType">
  *   &lt;restriction base="{}iTYPE_STRING">
- *     &lt;enumeration value="ROOF_STOREY"/>
- *     &lt;enumeration value="LOFT"/>
- *     &lt;enumeration value="MAISONETTE"/>
- *     &lt;enumeration value="PENTHOUSE"/>
- *     &lt;enumeration value="TERRACED_FLAT"/>
- *     &lt;enumeration value="GROUND_FLAT"/>
- *     &lt;enumeration value="APARTMENT"/>
- *     &lt;enumeration value="RAISED_GROUND_FLOOR"/>
- *     &lt;enumeration value="HALF_BASEMENT"/>
+ *     &lt;enumeration value="INDEX_ADJUSTMENT"/>
+ *     &lt;enumeration value="INDEX"/>
  *     &lt;enumeration value="OTHER"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "ApartmentType")
+@XmlType(name = "AdjustmentType")
 @XmlEnum
-public enum ApartmentType {
+public enum AdjustmentType {
 
-    ROOF_STOREY,
-    LOFT,
-    MAISONETTE,
-    PENTHOUSE,
-    TERRACED_FLAT,
-    GROUND_FLAT,
-    APARTMENT,
-    RAISED_GROUND_FLOOR,
-    HALF_BASEMENT,
+    INDEX_ADJUSTMENT,
+    INDEX,
     OTHER;
 
     public String value() {
         return name();
     }
 
-    public static ApartmentType fromValue(String v) {
+    public static AdjustmentType fromValue(String v) {
         return valueOf(v);
     }
 

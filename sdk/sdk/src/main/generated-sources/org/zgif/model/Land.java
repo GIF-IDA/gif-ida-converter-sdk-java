@@ -8,6 +8,11 @@
 
 package org.zgif.model;
 
+import org.zgif.model.*;
+import org.zgif.model.types.*;
+import org.zgif.model.*;
+
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;

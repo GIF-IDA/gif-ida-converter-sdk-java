@@ -6,47 +6,50 @@
 //
 
 
-package org.zgif.model;
+package org.zgif.model.types;
+
+import org.zgif.model.*;
+import org.zgif.model.types.*;
+import org.zgif.model.*;
+
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für ParkingSpaceType.
+ * <p>Java-Klasse für MonumentsType.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * <p>
  * <pre>
- * &lt;simpleType name="ParkingSpaceType">
+ * &lt;simpleType name="MonumentsType">
  *   &lt;restriction base="{}iTYPE_STRING">
+ *     &lt;enumeration value="NO"/>
  *     &lt;enumeration value="NOT_AVAILABLE"/>
- *     &lt;enumeration value="OUTDOOR"/>
- *     &lt;enumeration value="UNDERGROUND"/>
- *     &lt;enumeration value="CARPORT"/>
- *     &lt;enumeration value="GARAGE"/>
- *     &lt;enumeration value="CAR_PARK"/>
+ *     &lt;enumeration value="SINGLE"/>
+ *     &lt;enumeration value="ENSEMBLE"/>
+ *     &lt;enumeration value="OTHERS"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "ParkingSpaceType")
+@XmlType(name = "MonumentsType")
 @XmlEnum
-public enum ParkingSpaceType {
+public enum MonumentsType {
 
+    NO,
     NOT_AVAILABLE,
-    OUTDOOR,
-    UNDERGROUND,
-    CARPORT,
-    GARAGE,
-    CAR_PARK;
+    SINGLE,
+    ENSEMBLE,
+    OTHERS;
 
     public String value() {
         return name();
     }
 
-    public static ParkingSpaceType fromValue(String v) {
+    public static MonumentsType fromValue(String v) {
         return valueOf(v);
     }
 

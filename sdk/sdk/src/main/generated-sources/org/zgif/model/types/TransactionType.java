@@ -6,41 +6,46 @@
 //
 
 
-package org.zgif.model;
+package org.zgif.model.types;
+
+import org.zgif.model.*;
+import org.zgif.model.types.*;
+import org.zgif.model.*;
+
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für HeatingType.
+ * <p>Java-Klasse für TransactionType.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * <p>
  * <pre>
- * &lt;simpleType name="HeatingType">
+ * &lt;simpleType name="TransactionType">
  *   &lt;restriction base="{}iTYPE_STRING">
- *     &lt;enumeration value="CENTRAL_HEATING"/>
- *     &lt;enumeration value="SINGLE_STORY_GAS_HEATING"/>
- *     &lt;enumeration value="OTHER"/>
+ *     &lt;enumeration value="RECEIPT"/>
+ *     &lt;enumeration value="BALANCE"/>
+ *     &lt;enumeration value="NOT_SPECIFIED"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "HeatingType")
+@XmlType(name = "TransactionType")
 @XmlEnum
-public enum HeatingType {
+public enum TransactionType {
 
-    CENTRAL_HEATING,
-    SINGLE_STORY_GAS_HEATING,
-    OTHER;
+    RECEIPT,
+    BALANCE,
+    NOT_SPECIFIED;
 
     public String value() {
         return name();
     }
 
-    public static HeatingType fromValue(String v) {
+    public static TransactionType fromValue(String v) {
         return valueOf(v);
     }
 

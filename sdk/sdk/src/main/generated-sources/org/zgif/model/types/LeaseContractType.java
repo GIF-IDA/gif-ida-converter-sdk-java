@@ -6,47 +6,48 @@
 //
 
 
-package org.zgif.model;
+package org.zgif.model.types;
+
+import org.zgif.model.*;
+import org.zgif.model.types.*;
+import org.zgif.model.*;
+
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für LoanType.
+ * <p>Java-Klasse für LeaseContractType.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * <p>
  * <pre>
- * &lt;simpleType name="LoanType">
+ * &lt;simpleType name="LeaseContractType">
  *   &lt;restriction base="{}iTYPE_STRING">
- *     &lt;enumeration value="ANNUITY"/>
- *     &lt;enumeration value="REDEEMABLE"/>
- *     &lt;enumeration value="FIXED_INTEREST"/>
- *     &lt;enumeration value="VARIABLE_INTEREST"/>
- *     &lt;enumeration value="OTHER"/>
  *     &lt;enumeration value="NOT_SPECIFIED"/>
+ *     &lt;enumeration value="SINGLE_NET"/>
+ *     &lt;enumeration value="DOUBLE_NET"/>
+ *     &lt;enumeration value="TRIPLE_NET"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "LoanType")
+@XmlType(name = "LeaseContractType")
 @XmlEnum
-public enum LoanType {
+public enum LeaseContractType {
 
-    ANNUITY,
-    REDEEMABLE,
-    FIXED_INTEREST,
-    VARIABLE_INTEREST,
-    OTHER,
-    NOT_SPECIFIED;
+    NOT_SPECIFIED,
+    SINGLE_NET,
+    DOUBLE_NET,
+    TRIPLE_NET;
 
     public String value() {
         return name();
     }
 
-    public static LoanType fromValue(String v) {
+    public static LeaseContractType fromValue(String v) {
         return valueOf(v);
     }
 

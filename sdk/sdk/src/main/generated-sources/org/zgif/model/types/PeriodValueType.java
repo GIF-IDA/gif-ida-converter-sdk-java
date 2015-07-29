@@ -6,43 +6,50 @@
 //
 
 
-package org.zgif.model;
+package org.zgif.model.types;
+
+import org.zgif.model.*;
+import org.zgif.model.types.*;
+import org.zgif.model.*;
+
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse für LeaseContractType.
+ * <p>Java-Klasse für PeriodValueType.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * <p>
  * <pre>
- * &lt;simpleType name="LeaseContractType">
+ * &lt;simpleType name="PeriodValueType">
  *   &lt;restriction base="{}iTYPE_STRING">
- *     &lt;enumeration value="NOT_SPECIFIED"/>
- *     &lt;enumeration value="SINGLE_NET"/>
- *     &lt;enumeration value="DOUBLE_NET"/>
- *     &lt;enumeration value="TRIPLE_NET"/>
+ *     &lt;enumeration value="ACTUAL"/>
+ *     &lt;enumeration value="PLAN"/>
+ *     &lt;enumeration value="FORECAST"/>
+ *     &lt;enumeration value="BUDGET"/>
+ *     &lt;enumeration value="OTHER"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "LeaseContractType")
+@XmlType(name = "PeriodValueType")
 @XmlEnum
-public enum LeaseContractType {
+public enum PeriodValueType {
 
-    NOT_SPECIFIED,
-    SINGLE_NET,
-    DOUBLE_NET,
-    TRIPLE_NET;
+    ACTUAL,
+    PLAN,
+    FORECAST,
+    BUDGET,
+    OTHER;
 
     public String value() {
         return name();
     }
 
-    public static LeaseContractType fromValue(String v) {
+    public static PeriodValueType fromValue(String v) {
         return valueOf(v);
     }
 
