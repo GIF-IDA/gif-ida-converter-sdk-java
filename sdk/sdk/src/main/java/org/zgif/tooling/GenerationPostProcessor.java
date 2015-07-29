@@ -11,22 +11,31 @@
  *******************************************************************************/
 package org.zgif.tooling;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
+import java.util.regex.Pattern;
+
+import javax.xml.bind.annotation.XmlElement;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
+import org.zgif.model.node.group.ExtensionMap;
 
 /**
  * @author Martin Fluegge
@@ -34,237 +43,295 @@ import org.apache.commons.logging.LogFactory;
  */
 public class GenerationPostProcessor {
 
-	private static final Log LOG = LogFactory.getLog(GenerationPostProcessor.class);
-	private String basePackage = "org.zgif.model";
 
-	public static void main(String[] args) {
-		new GenerationPostProcessor().run();
-	}
+    //@formatter:off
+    private List<String> deleteFiles    = Arrays.asList("ObjectFactory.java");
+    private List<String> entityNames    = Arrays.asList("Account",
+                                                        "BookEntry",
+                                                        "Building",
+                                                        "Company",
+                                                        "Land",
+                                                        "Lease",
+                                                        "Project",
+                                                        "Property",
+                                                        "Record",
+                                                        "ServiceContract",
+                                                        "Term",
+                                                        "Unit",
+                                                        "Valuation"
+                                                       );
+    private List<String> subEntityNames = Arrays.asList("Address",
+                                                        "EnergyRating",
+                                                        "ExtensionMap",
+                                                        "ExtensionMapKey",
+                                                        "ExtensionSubList",
+                                                        "ExtensionSubListItem",
+                                                        "ExtensionSubMap"
+                                                        );
+    private List<String> typeNames      = Arrays.asList("Amount",
+                                                        "Area"
+                                                       );
+    private List<String> nodeNames      = Arrays.asList("Data",
+                                                        "Manifest",
+                                                        "Meta",
+                                                        "Periods",
+                                                        "ZGif"
+                                                        );
+    
+    private List<String> removeLines    = Arrays.asList("    @XmlElement(name = \"extension_map\")",
+                                                        "    protected ExtensionMap extensionMap;"
+                                                        );
+    //@formatter:on
 
-	public void run() {
+    private static final String BASE_PACKAGE    = "org.zgif.model";
+    private static final String NODE_PACKAGE    = "org.zgif.model.node";
+    private static final String GROUP_PACKAGE   = "org.zgif.model.node.group";
+    private static final String ENTITY_PACKAGE  = "org.zgif.model.node.entity";
+    private static final String TYPE_PACKAGE    = "org.zgif.model.datatype";
+    private static final String ENUM_PACKAGE    = "org.zgif.model.datatype.enumeration";
 
-		Map<String, String> mapping = new HashMap<String, String>();
+    private static final Logger ROOT_LOGGER     = Logger.getRootLogger();
+    private static final Log    LOG             = LogFactory.getLog(GenerationPostProcessor.class);
 
-		mapping.put("Account.java", basePackage + ".entity");
-		mapping.put("AccountingStandard.java", basePackage + ".types");
-		mapping.put("AccountingType.java", basePackage + ".types");
-		mapping.put("Accounts.java", basePackage + ".entity");
-		mapping.put("Address.java", basePackage);
-		mapping.put("AdjustmentType.java", basePackage + ".types");
-		mapping.put("Amount.java", basePackage);
-		mapping.put("ApartmentType.java", basePackage + ".types");
-		mapping.put("Area.java", basePackage);
-		mapping.put("AreaMeasurement.java", basePackage + ".types");
-		mapping.put("AreaType.java", basePackage + ".types");
-		mapping.put("AssetAccountType.java", basePackage + ".types");
-		mapping.put("AssetCategory.java", basePackage + ".types");
-		mapping.put("BillStatus.java", basePackage + ".types");
-		mapping.put("BookEntries.java", basePackage);
-		mapping.put("BookEntry.java", basePackage + ".entity");
-		mapping.put("Building.java", basePackage + ".entity");
-		mapping.put("BuildingType.java", basePackage + ".types");
-		mapping.put("Buildings.java", basePackage + ".entity");
-		mapping.put("Companies.java", basePackage + ".entity");
-		mapping.put("Company.java", basePackage + ".entity");
-		mapping.put("ConditionType.java", basePackage + ".types");
-		mapping.put("ContractOption.java", basePackage + ".types");
-		mapping.put("Country.java", basePackage + ".types");
-		mapping.put("Data.java", basePackage);
-		mapping.put("DepositIncreaseType.java", basePackage + ".types");
-		mapping.put("DepositType.java", basePackage + ".types");
-		mapping.put("DevelopmentState.java", basePackage + ".types");
-		mapping.put("DunningLevel.java", basePackage + ".types");
-		mapping.put("EncumbranceType.java", basePackage + ".types");
-		mapping.put("EnergyEfficiencyCategory.java", basePackage + ".types");
-		mapping.put("EnergyRating.java", basePackage);
-		mapping.put("EnergyRatingCategory.java", basePackage + ".types");
-		mapping.put("EnergyRatingType.java", basePackage + ".types");
-		mapping.put("EnergySource.java", basePackage);
-		mapping.put("ExtensionMap.java", basePackage);
-		mapping.put("ExtensionMapKey.java", basePackage);
-		mapping.put("ExtensionSubList.java", basePackage);
-		mapping.put("ExtensionSubListItem.java", basePackage);
-		mapping.put("ExtensionSubMap.java", basePackage);
-		mapping.put("HashRecord.java", basePackage);
-		mapping.put("HashRecords.java", basePackage);
-		mapping.put("HashUnit.java", basePackage);
-		mapping.put("HashUnits.java", basePackage);
-		mapping.put("HeatingType.java", basePackage + ".types");
-		mapping.put("IndexAdjustmentDirection.java", basePackage + ".types");
-		mapping.put("IndexRow.java", basePackage + ".types");
-		mapping.put("IndexationMethod.java", basePackage);
-		mapping.put("InteriorQuality.java", basePackage + ".types");
-		mapping.put("IssuanceReason.java", basePackage + ".types");
-		mapping.put("Land.java", basePackage + ".entity");
-		mapping.put("Lands.java", basePackage + ".entity");
-		mapping.put("Lease.java", basePackage + ".entity");
-		mapping.put("LeaseContractType.java", basePackage + ".types");
-		mapping.put("Leases.java", basePackage);
-		mapping.put("LegitTerminationDeadline.java", basePackage + ".types");
-		mapping.put("LoanType.java", basePackage + ".types");
-		mapping.put("LocationType.java", basePackage + ".types");
-		mapping.put("Manifest.java", basePackage);
-		mapping.put("MassUnit.java", basePackage + ".types");
-		mapping.put("Meta.java", basePackage);
-		mapping.put("Month.java", basePackage + ".types");
-		mapping.put("MonumentsType.java", basePackage + ".types");
-		mapping.put("NumberType.java", basePackage + ".types");
-		mapping.put("ObjectCondition.java", basePackage + ".types");
-		mapping.put("ObjectFactory.java", basePackage);
-		mapping.put("OccupancyState.java", basePackage + ".types");
-		mapping.put("OwnershipType.java", basePackage + ".types");
-		mapping.put("OptRate.java", basePackage + ".types");
-		mapping.put("ParkingSpaceType.java", basePackage + ".types");
-		mapping.put("PeriodValueType.java", basePackage + ".types");
-		mapping.put("Periods.java", basePackage);
-		mapping.put("PortfolioType.java", basePackage + ".types");
-		mapping.put("Project.java", basePackage + ".entity");
-		mapping.put("ProjectType.java", basePackage + ".types");
-		mapping.put("Projects.java", basePackage + ".entity");
-		mapping.put("Properties.java", basePackage + ".entity");
-		mapping.put("Property.java", basePackage + ".entity");
-		mapping.put("Record.java", basePackage + ".entity");
-		mapping.put("RecordCategory.java", basePackage + ".types");
-		mapping.put("Records.java", basePackage + ".entity");
-		mapping.put("RentIncreaseType.java", basePackage + ".types");
-		mapping.put("RestorationStatus.java", basePackage);
-		mapping.put("RetailLocationType.java", basePackage + ".types");
-		mapping.put("RiskSegment.java", basePackage + ".types");
-		mapping.put("Sector.java", basePackage + ".types");
-		mapping.put("ServiceContract.java", basePackage);
-		mapping.put("ServiceContracts.java", basePackage);
-		mapping.put("ServiceType.java", basePackage + ".types");
-		mapping.put("SiteConstrucibleType.java", basePackage + ".types");
-		mapping.put("SyncMode.java", basePackage + ".types");
-		mapping.put("Term.java", basePackage + ".entity");
-		mapping.put("TermUnit.java", basePackage + ".entity");
-		mapping.put("TermUnits.java", basePackage + ".entity");
-		mapping.put("Terms.java", basePackage + ".entity");
-		mapping.put("TransactionType.java", basePackage + ".types");
-		mapping.put("Unit.java", basePackage + ".entity");
-		mapping.put("Units.java", basePackage + ".entity");
-		mapping.put("UseType.java", basePackage + ".types");
-		mapping.put("VacancyReason.java", basePackage + ".types");
-		mapping.put("Valuation.java", basePackage);
-		mapping.put("ValuationMethod.java", basePackage + ".types");
-		mapping.put("Valuations.java", basePackage);
-		mapping.put("ZGif.java", basePackage);
+    private File                baseDir;
+    private Map<String, String> classPackageMap = new HashMap<String, String>();
 
-		Set<String> subPackages = new HashSet<String>();
-		for (String pack : mapping.values()) {
-			subPackages.add(pack);
+    public static void main(String[] args) throws Throwable {
+        if (!ROOT_LOGGER.getAllAppenders().hasMoreElements()) {
+            PatternLayout layout = new PatternLayout("%d{ISO8601} %-5p [%t] %c: %m%n");
+            ConsoleAppender consoleAppender = new ConsoleAppender(layout);
+            ROOT_LOGGER.addAppender(consoleAppender);
+            ROOT_LOGGER.setLevel(Level.ALL);
+        }
 
-		}
+        new GenerationPostProcessor().run();
+    }
 
-		LOG.info("Starting post processing");
+    public void run() throws Throwable {
+        LOG.info("Starting post processing");
 
-		URL resource = this.getClass().getResource("");
+        File scriptPath = new File(getClass().getResource("").toURI());
+        baseDir = traversalFile(scriptPath, "..", "..", "..", "..", "..", "src", "main", "generated-sources");
+        LOG.debug("baseDir=" + baseDir);
 
-		String path = resource.getPath().replace("target/classes/org/zgif/tooling/", "");
-		path += "src/main/generated-sources/org/zgif/model";
+        addPluralToEntityList();
 
-		System.out.println("BaseFolder=" + path);
+        for (File sourceFile : baseDir.listFiles()) {
+            String fileName = sourceFile.getName();
+            
+            if(deleteFiles.contains(fileName)) {
+                sourceFile.delete();
+            } else if (sourceFile.isFile() && fileName.endsWith(".java")) {
+                String packageName = null;
 
-		File folder = new File(path);
-		File[] listFiles = folder.listFiles();
-		Arrays.sort(listFiles);
-		for (File file : listFiles) {
+                if (packageName == null) {
+                    for (String nodeName : nodeNames) {
+                        if (fileName.equals(nodeName + ".java")) {
+                            packageName = NODE_PACKAGE;
+                        }
+                    }
+                }
 
-			// System.out.println("mapping.put(\"" + file.getName() +
-			// "\", basePackage);");
-			if (file.isDirectory()) {
-				continue;
-			}
+                if (packageName == null) {
+                    for (String entityName : entityNames) {
+                        if (fileName.endsWith(entityName + ".java")) {
+                            packageName = ENTITY_PACKAGE;
+                        }
+                    }
+                }
 
-			System.out.println(file.getAbsolutePath());
+                if (packageName == null) {
+                    for (String subEntityName : subEntityNames) {
+                        if (fileName.equals(subEntityName + ".java")) {
+                            packageName = GROUP_PACKAGE;
+                        }
+                    }
+                }
 
-			String newPackage = mapping.get(file.getName());
+                if (packageName == null) {
+                    for (String typeName : typeNames) {
+                        if (fileName.equals(typeName + ".java")) {
+                            packageName = TYPE_PACKAGE;
+                        }
+                    }
+                }
 
-			String targetFolder = "";
+                if (packageName == null) {
+                    if (fileContains(sourceFile, "public enum .*")) {
+                        packageName = ENUM_PACKAGE;
+                    }
+                }
 
-			if (newPackage != null) {
-				targetFolder = newPackage.replace(basePackage, "").replace(".", "/");
-			} else {
-				targetFolder = "";
-			}
+                if (packageName != null) {
+                    moveFile(sourceFile, packageName);
+                }
+            }
+        }
 
-			String pathAndFolder = path + targetFolder;
-			System.out.println("Moving " + file.getName() + " to " + pathAndFolder);
-			try {
+        cleanupPackage(NODE_PACKAGE);
+        cleanupPackage(ENTITY_PACKAGE);
+        cleanupPackage(GROUP_PACKAGE);
+        cleanupPackage(TYPE_PACKAGE);
+        cleanupPackage(ENUM_PACKAGE);
+    }
 
-				postProcess(path, file, targetFolder, pathAndFolder, newPackage, subPackages);
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-		}
+    public void moveFile(File sourceFile, String packageName) throws Throwable {
+        String fileName = sourceFile.getName();
+        LOG.info("move file '" + fileName + "' to package: " + packageName);
 
-		//
-		// File resourcesFile = new File(targetBasePath);
-		//
-		// try (BufferedReader br = new BufferedReader(new
-		// FileReader(resourcesFile))) {
-		// StringBuilder sb = new StringBuilder();
-		// String line = br.readLine();
-		//
-		// while (line != null) {
-		//
-		// if
-		// (line.contains("public JAXBElement<RealtorContactDetails> createRealtorContactDetail(RealtorContactDetails value)"))
-		// {
-		// line = line.replace("createRealtorContactDetail",
-		// "createRealtorContactDetails");
-		// }
-		//
-		// sb.append(line);
-		// sb.append(System.lineSeparator());
-		// line = br.readLine();
-		// }
-		// String everything = sb.toString();
-		// FileOutputStream fos = new FileOutputStream(resourcesFile);
-		// fos.write(everything.getBytes());
-		// fos.close();
-		// } catch (IOException e) {
-		// throw new RuntimeException(e);
-		// }
-	}
+        File newDir = traversalFile(baseDir.getCanonicalFile(), packageName.split("[.]"));
+        File newSourceFile = new File(newDir, fileName);
+        newDir.mkdirs();
+        Boolean renamed = sourceFile.renameTo(newSourceFile);
 
-	private void postProcess(String path, File file, String targetFolder, String pathAndFolder, String newPackage, Set<String> subPackages) throws IOException {
-		File newFolder = new File(pathAndFolder);
+        if (renamed) {
+            classPackageMap.put(fileName.substring(0, fileName.length() - 5), packageName);
+        }
+    }
 
-		if (!newFolder.exists()) {
-			System.out.println("Creating folder " + path + "/" + targetFolder);
-			newFolder.mkdir();
-		}
+    public void cleanupPackage(String packageName) throws Throwable {
+        LOG.info("cleanup package: " + packageName);
 
-		String fromPathString = file.getPath();
-		String toPathString = pathAndFolder + "/" + file.getName();
+        File packageDir = traversalFile(baseDir.getCanonicalFile(), packageName.split("[.]"));
+        for (File sourceFile : packageDir.listFiles()) {
+            if (sourceFile.isFile() && sourceFile.getName().endsWith(".java")) {
+                rewriteFile(sourceFile, packageName);
+            }
+        }
+    }
 
-		// System.out.println(fromPathString);
-		// System.out.println(toPathString);
+    public void rewriteFile(File sourceFile, String packageName) throws Throwable {
+        final String fileName = sourceFile.getName();
+        final String currentModelClassName = fileName.substring(0, fileName.length() - 5);
 
-		Path pathFrom = Paths.get(fromPathString);
-		Path pathTo = Paths.get(toPathString);
+        final String linePublicClass = "public class " + currentModelClassName + " {";
+        String classExtension = null;
+        if (packageName.equals(NODE_PACKAGE)) {
+            classExtension = "AbstractNode";
+        } else if (packageName.equals(ENTITY_PACKAGE)) {
+            classExtension = "AbstractEntityNode";
+        } else if (packageName.equals(GROUP_PACKAGE)) {
+            classExtension = "AbstractGroupNode";
+        }
 
-		if (!fromPathString.equals(toPathString)) {
-			Files.move(pathFrom, pathTo);
-		}
-		// replace content
-		Charset charset = StandardCharsets.UTF_8;
+        // backup File
+        File tmpFile = new File(sourceFile.getParent(), fileName + ".bak");
+        sourceFile.renameTo(tmpFile);
 
-		String content = new String(Files.readAllBytes(pathTo), charset);
+        // read file
+        BufferedReader reader = new BufferedReader(new FileReader(tmpFile));
+        Set<String> usedModelClasses = new HashSet<String>();
 
-		if (newPackage == null || "null".equals(newPackage)) {
-			newPackage = basePackage;
-		}
+        StringBuilder body = new StringBuilder((int) tmpFile.length());
+        String lineBefore = "";
+        Set<String> flags = new HashSet<String>();
+        for (String line = reader.readLine(); line != null; line = reader.readLine()) {
+            if (lineBefore.equals("    /**") && line.contains("extensionMap")) {
+                flags.add("xetter_extensionMap");
+                body.append("*/\r\n");
+            }
+            if (lineBefore.equals("    /**") && line.contains("validFrom")) {
+                flags.add("xetter_validFrom");
+                body.append("*/\r\n");
+            }
+            if (lineBefore.equals("    /**") && line.contains("validTo")) {
+                flags.add("xetter_validTo");
+                body.append("*/\r\n");
+            }
 
-		String subPackagesString = "";
-		for (String subPack : subPackages) {
-			subPackagesString += "import " + subPack + ".*;" + System.lineSeparator();
-		}
+            
+            
+            if (!removeLines.contains(line)
+                && !flags.contains("xetter_extensionMap")
+                && !flags.contains("xetter_validFrom")
+                && !flags.contains("xetter_validTo")
+                ) {
+                for (String modelClass : classPackageMap.keySet()) {
+                    if (!modelClass.equals(currentModelClassName) && line.contains(" " + modelClass + " ")) {
+                        usedModelClasses.add(modelClass);
+                    }
+                }
 
-		content = content.replaceAll("package " + basePackage + ";", "package " + newPackage + ";" + System.lineSeparator() + System.lineSeparator()
-				+ "import " + basePackage + ".*;" + System.lineSeparator() + subPackagesString);
-		Files.write(pathTo, content.getBytes(charset));
+                if (classExtension != null && !flags.contains("PublicClassPassed") && line.equals(linePublicClass)) {
+                    line = line.substring(0, line.length() - 1) + "extends " + classExtension + " {";
+                    flags.add("PublicClassPassed");
+                }
 
-	}
+                body.append(line);
+                body.append("\r\n");
+            }
+
+            if (flags.contains("xetter_extensionMap") && line.equals("    }")) {
+                flags.remove("xetter_extensionMap");
+            }
+            if (flags.contains("xetter_validFrom") && line.equals("    }")) {
+                flags.remove("xetter_validFrom");
+            }
+            if (flags.contains("xetter_validTo") && line.equals("    }")) {
+                flags.remove("xetter_validTo");
+            }
+
+            lineBefore = line;
+        }
+        reader.close();
+
+        // append package and imports
+        BufferedWriter writer = new BufferedWriter(new FileWriter(sourceFile));
+        writer.append("package " + packageName + ";\r\n");
+        for (String usedModel : usedModelClasses) {
+            writer.append("import " + classPackageMap.get(usedModel) + "." + usedModel + ";\r\n");
+        }
+
+        // write body
+        writer.append(body.toString());
+        writer.close();
+
+        // delete original file
+        tmpFile.delete();
+    }
+
+    private void addPluralToEntityList() {
+        List<String> entityPluralNames = new ArrayList<String>();
+        for (String entity : entityNames) {
+
+            if (entity.endsWith("y")) {
+                entity = entity.substring(0, entity.length() - 1) + "ie";
+            }
+
+            entityPluralNames.add(entity + "s");
+        }
+
+        entityPluralNames.addAll(entityNames);
+        entityNames = entityPluralNames;
+    }
+
+    public static Boolean fileContains(File file, String regex) throws FileNotFoundException {
+        final Scanner scanner = new Scanner(file);
+        Boolean found = false;
+
+        while (scanner.hasNextLine() && !found) {
+            final String lineFromFile = scanner.nextLine();
+            if (Pattern.matches(regex, lineFromFile)) {
+                found = true;
+            }
+        }
+        scanner.close();
+
+        return found;
+    }
+
+    public static File traversalFile(File base, String... nodes) {
+        File curFile = base;
+        for (String curNode : nodes) {
+            if (curNode.equals("..")) {
+                curFile = curFile.getParentFile();
+            } else if (curNode.equals(".")) {
+                // nothing to do
+            } else {
+                curFile = new File(curFile, curNode);
+            }
+
+        }
+        return curFile;
+    }
 }

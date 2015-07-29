@@ -13,7 +13,7 @@ package org.zgif.converter.plugin.input;
 
 import org.zgif.converter.plugin.IPlugin;
 import org.zgif.converter.plugin.PluginComponent;
-import org.zgif.model.node.AbstractZGif;
+import org.zgif.model.node.ZGif;
 
 /**
  * interface for an import plugin
@@ -35,5 +35,5 @@ public interface IImportPlugin extends IPlugin {
 	 * 
 	 * @return zgif object
 	 */
-	public AbstractZGif getZgif();
+	public ZGif getZgif();
 }

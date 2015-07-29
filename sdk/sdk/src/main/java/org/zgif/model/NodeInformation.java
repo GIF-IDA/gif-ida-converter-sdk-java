@@ -9,8 +9,6 @@ import java.util.Collections;
 import java.util.List;
 
 import org.zgif.model.annotation.DataField;
-import org.zgif.model.annotation.GroupNode;
-import org.zgif.model.annotation.NodeList;
 import org.zgif.model.node.AbstractNode;
 
 /**
@@ -25,9 +23,9 @@ public class NodeInformation {
     private List<Field> groupNodes;
     private List<Field> nodeLists;
 
-    public NodeInformation(AbstractNode node) {
+    public NodeInformation(Class<? extends AbstractNode> clazz) {
 
-        collectAllFieldsOfClass(node.getClass());
+        collectAllFieldsOfClass(clazz);
 
         List<Field> attributeFields = new ArrayList<Field>();
         List<Field> dataFields = new ArrayList<Field>();
@@ -36,22 +34,22 @@ public class NodeInformation {
 
         for (Field field : this.fields) {
             DataField datafield = field.getAnnotation(DataField.class);
-            GroupNode groupnode = field.getAnnotation(GroupNode.class);
-            NodeList nodeList = field.getAnnotation(NodeList.class);
+//            GroupNode groupnode = field.getAnnotation(GroupNode.class);
+//            NodeList nodeList = field.getAnnotation(NodeList.class);
 
             if (datafield != null) {
-                if (datafield.isAttribute()) {
-                    attributeFields.add(field);
-                } else {
-                    dataFields.add(field);
-                }
+//                if (datafield.isAttribute()) {
+//                    attributeFields.add(field);
+//                } else {
+//                    dataFields.add(field);
+//                }
             }
-            if (groupnode != null) {
-                groupNodes.add(field);
-            }
-            if (nodeList != null) {
-                nodeLists.add(field);
-            }
+//            if (groupnode != null) {
+//                groupNodes.add(field);
+//            }
+//            if (nodeList != null) {
+//                nodeLists.add(field);
+//            }
         }
 
         this.attributeFields = Collections.unmodifiableList(attributeFields);

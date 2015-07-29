@@ -11,6 +11,8 @@
  *******************************************************************************/
 package org.zgif.model.node;
 
+import org.zgif.model.node.group.ExtensionMap;
+
 
 
 public class AbstractNode {

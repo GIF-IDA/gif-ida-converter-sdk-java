@@ -32,10 +32,10 @@ import org.zgif.converter.plugin.output.ExportPluginConfiguration;
 import org.zgif.converter.plugin.output.IExportPlugin;
 import org.zgif.converter.ui.gui.DefaultPluginGui;
 import org.zgif.model.datatype.enumeration.Subset;
-import org.zgif.model.node.AbstractDataRoot;
-import org.zgif.model.node.AbstractZGif;
+import org.zgif.model.node.Data;
 import org.zgif.model.node.Meta;
-import org.zgif.model.node.Period;
+import org.zgif.model.node.Periods.Period;
+import org.zgif.model.node.ZGif;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
@@ -49,7 +49,7 @@ public class ZGifWriter implements IExportPlugin {
     public static final Subset[]      SUPPORTED_SUBSETS = Subset.values();
     private static String             PARAMETER_NAME    = "zgif";
 
-    private AbstractZGif              zgif              = null;
+    private ZGif                      zgif              = null;
     private ZipOutputStream           zipOut;
     private List<String>              fileList          = new ArrayList<String>();
     private ExportPluginConfiguration config;
@@ -109,7 +109,7 @@ public class ZGifWriter implements IExportPlugin {
      * .plugin.PluginConfiguration, org.zgif.model.node.AbstractZGif)
      */
     @Override
-    public void load(ExportPluginConfiguration config, AbstractZGif zgif) {
+    public void load(ExportPluginConfiguration config, ZGif zgif) {
         this.zgif = zgif;
         this.config = config;
 
@@ -148,10 +148,10 @@ public class ZGifWriter implements IExportPlugin {
             metaWriter.write(meta);
 
             Method getData = null;
-            AbstractDataRoot data = null;
+            Data data = null;
             try {
                 getData = zgif.getClass().getMethod("getData");
-                data = (AbstractDataRoot) getData.invoke(zgif);
+                data = (Data) getData.invoke(zgif);
             } catch (Exception e) {
             }
             if (data != null) {
@@ -159,10 +159,10 @@ public class ZGifWriter implements IExportPlugin {
             }
 
             Method getPeriods = null;
-            Map<String, Period<?>> periods = null;
+            Map<String, Period> periods = null;
             try {
                 getPeriods = zgif.getClass().getMethod("getPeriods");
-                periods = (Map<String, Period<?>>) getPeriods.invoke(zgif);
+                periods = (Map<String, Period>) getPeriods.invoke(zgif);
             } catch (Exception e) {
             }
             exportPeriods(periods.values());
@@ -187,18 +187,19 @@ public class ZGifWriter implements IExportPlugin {
         fileList.add(path);
     }
 
-    private void exportData(AbstractDataRoot data, String path) throws IOException {
+    private void exportData(Data data, String path) throws IOException {
         nextZipEntry(path);
         DataWriter dataWriter = new DataWriter(zipOut);
         dataWriter.write(data);
     }
 
-    private void exportPeriods(Collection<Period<?>> periods) throws IOException {
+    private void exportPeriods(Collection<Period> periods) throws IOException {
 
-        for (Period<?> period : periods) {
+        for (Period period : periods) {
             nextZipEntry("periods/" + period.getIdentifier() + ".xml");
             DataWriter dataWriter = new DataWriter(zipOut);
-            dataWriter.write(period.getData());
+            // TODO
+            // dataWriter.write(period.getData());
         }
 
         nextZipEntry("periods.xml");

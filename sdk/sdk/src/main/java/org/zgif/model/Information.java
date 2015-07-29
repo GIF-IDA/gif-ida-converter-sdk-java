@@ -12,30 +12,96 @@
 package org.zgif.model;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
 import org.zgif.model.annotation.DataField;
 import org.zgif.model.annotation.Node;
 import org.zgif.model.node.AbstractNode;
+import org.zgif.model.node.Data;
 
 public class Information {
-
+    
     private Information() {
     }
+
+    private static Map<Class<? extends Data>, Map< Class<? extends AbstractNode>, List<List<Class<? extends AbstractNode>>>>> allHierarchicalParentClasses = new HashMap<Class<? extends Data>, Map< Class<? extends AbstractNode>, List<List<Class<? extends AbstractNode>>>>>();
+    //
+    //private static Map<Map<Class<AbstractRoot>, List<List<Class<AbstractNode>>>> allHierarchicalParentClasses = new HashMap<Pair, List<List<Class<AbstractNode>>>>();
 
     /**
      * 
      * @param nodeClass
      * @return
      */
-    public static Class<?>[] getParentClassesOfNode(Class<?> nodeClass) {
+    public static Class<AbstractNode>[] getParentClassesOfNode(Class<AbstractNode> nodeClass) {
         Node nodeAnno = getAnnotationOfNode(nodeClass);
         if (nodeAnno == null) {
             return null;
         }
 
-        return (Class<?>[]) nodeAnno.parentNodes();
+        return (Class<AbstractNode>[]) nodeAnno.parentNodes();
+    }
+    
+    private static void initializeHierarchicalParentClasses(Class<? extends Data> rootClass) {
+        Map<Class<? extends AbstractNode>, List<List<Class<AbstractNode>>>> x = new HashMap<Class<? extends AbstractNode>, List<List<Class<AbstractNode>>>>();
+        
+        List<Class<? extends AbstractNode>> curWay = new ArrayList<Class<? extends AbstractNode>>();
+        curWay.add(rootClass);
+        
+        List<Field> nodeListFields = new NodeInformation(rootClass).getNodeLists();
+        for (Field nodeListField : nodeListFields) {
+            ParameterizedType pt = (ParameterizedType) nodeListField.getGenericType();
+            String typeName = pt.getActualTypeArguments()[1].toString().substring(6);
+          
+            Class<? extends AbstractNode> curNode;
+            try {
+                curNode = (Class<? extends AbstractNode>) Class.forName(typeName);
+                List<List<Class<AbstractNode>>> way = x.get(curNode);
+                
+            } catch (ClassNotFoundException e) {
+            }
+            
+            
+            
+            /*
+            if(typeName.endsWith(nextParentClass.getSimpleName().replaceFirst("Abstract", ""))) {
+                String typeNameCSV = typeName.substring(typeName.lastIndexOf(".") + 1).toUpperCase();
+                String nextParentObjectId = originalCSV.get(typeNameCSV + ".OBJECT_ID_SENDER");
+
+                PropertyDescriptor pd = new PropertyDescriptor(nodeListField.getName(), curParent.getClass());
+                Method getListMethod = pd.getReadMethod();
+                Map<String, AbstractNode> listOfNodes = (Map<String, AbstractNode>) getListMethod.invoke(curParent);
+                AbstractNode nextParent = listOfNodes.get(nextParentObjectId);
+                curParent = nextParent;
+            }
+            */
+        }
+        
+//        pair.root
+        
+//        Class<AbstractNode>[] directParents = getParentClassesOfNode(nodeClass);
+//        for (int i = 0; i < directParents.length; i++) {
+//            Class<AbstractNode> directParent = directParents[i];
+//            
+////            getAllHierarchicalParentClassesOfNode(directParent);
+//        }
+//        
+        
+    }
+    
+    public static List<List<Class<? extends AbstractNode>>> getHierarchicalParentClassesOfNode(Class<? extends Data> rootClass, Class<? extends AbstractNode> childClass) {
+        
+        if(!allHierarchicalParentClasses.containsKey(rootClass)) {
+            initializeHierarchicalParentClasses(rootClass);
+        }
+        
+        return allHierarchicalParentClasses.get(rootClass).get(childClass);
     }
 
     /**

@@ -13,7 +13,7 @@ package org.zgif.converter.plugin.output;
 
 import org.zgif.converter.plugin.IPlugin;
 import org.zgif.converter.plugin.PluginComponent;
-import org.zgif.model.node.AbstractZGif;
+import org.zgif.model.node.ZGif;
 
 /**
  * interface for an import plugin
@@ -24,7 +24,7 @@ import org.zgif.model.node.AbstractZGif;
 public interface IExportPlugin extends IPlugin {
     public ExportPluginConfiguration getRequiredConfigurationArguments();    
     
-    public void load(ExportPluginConfiguration config, AbstractZGif zgif);
+    public void load(ExportPluginConfiguration config, ZGif zgif);
 
     public PluginComponent<ExportPluginConfiguration> getConfigGui();
 }

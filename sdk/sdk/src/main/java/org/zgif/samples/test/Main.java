@@ -9,7 +9,6 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 import org.zgif.converter.sdk.MapperValidationException;
-import org.zgif.model.subset_5_1.ZGif;
 
 /**
  * @author Martin Fluegge
@@ -43,9 +42,6 @@ public class Main {
 		property2.getBuilding().getUnits().get(0).setZahl(456);
 
 		System.out.println(property2.getUnits().get(0).getZahl());
-
-		ZGif zgif;
-		// zgif.getPeriods().get(0).getData().getListOfProp().get("12").getArchValidTo();
 
 	}
 

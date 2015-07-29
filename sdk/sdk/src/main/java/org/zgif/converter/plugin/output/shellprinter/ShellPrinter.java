@@ -21,14 +21,14 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.zgif.converter.plugin.PluginComponent;
 import org.zgif.converter.plugin.PluginConfiguration;
-import org.zgif.converter.plugin.output.IExportPlugin;
 import org.zgif.converter.plugin.output.ExportPluginConfiguration;
+import org.zgif.converter.plugin.output.IExportPlugin;
 import org.zgif.model.datatype.enumeration.Subset;
-import org.zgif.model.node.AbstractDataRoot;
 import org.zgif.model.node.AbstractNode;
-import org.zgif.model.node.AbstractZGif;
+import org.zgif.model.node.Data;
 import org.zgif.model.node.Meta;
-import org.zgif.model.node.Period;
+import org.zgif.model.node.Periods.Period;
+import org.zgif.model.node.ZGif;
 import org.zgif.model.node.entity.AbstractEntityNode;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -43,7 +43,7 @@ public class ShellPrinter implements IExportPlugin {
     private static Logger        logger            = Logger.getLogger(ShellPrinter.class);
     public static final Subset[] SUPPORTED_SUBSETS = Subset.values();
 
-    protected AbstractZGif       zgif              = null;
+    protected ZGif               zgif              = null;
 
     private String               prefix            = "";
 
@@ -73,7 +73,7 @@ public class ShellPrinter implements IExportPlugin {
         if (getPeriods != null) {
             try {
                 @SuppressWarnings("unchecked")
-                Map<String, Period<?>> periods = (Map<String, Period<?>>) getPeriods.invoke(zgif);
+                Map<String, Period> periods = (Map<String, Period>) getPeriods.invoke(zgif);
                 if (periods != null) {
                     exportPeriods(periods.values());
                 }
@@ -97,7 +97,7 @@ public class ShellPrinter implements IExportPlugin {
         }
         if (getData != null) {
             try {
-                AbstractDataRoot data = (AbstractDataRoot) getData.invoke(zgif);
+                Data data = (Data) getData.invoke(zgif);
                 if (data != null) {
                     exportNode(data);
                 }
@@ -112,14 +112,15 @@ public class ShellPrinter implements IExportPlugin {
         }
     }
 
-    private void exportPeriods(Collection<Period<?>> periods) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+    private void exportPeriods(Collection<Period> periods) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         if (periods != null && periods.size() > 0) {
             prefix += "  ";
             // System.out.println(prefix + periods.size() + "x Periods:");
-            for (Period<?> period : periods) {
+            for (Period period : periods) {
                 System.out.println(prefix + "- Period " + period.toString() + " (" + period.getIdentifier() + "; " + period.getFrom() + "->" + period.getTo()
                     + ")");
-                exportNode(period.getData());
+                // TODO
+                // exportNode(period.getData());
             }
             prefix = prefix.substring(2);
         }
@@ -181,7 +182,7 @@ public class ShellPrinter implements IExportPlugin {
      * .plugin.PluginConfiguration, org.zgif.model.node.AbstractZGif)
      */
     @Override
-    public void load(ExportPluginConfiguration config, AbstractZGif zgif) {
+    public void load(ExportPluginConfiguration config, ZGif zgif) {
         this.zgif = zgif;
         doExport();
     }

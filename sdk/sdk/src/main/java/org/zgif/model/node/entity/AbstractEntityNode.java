@@ -11,22 +11,23 @@
  *******************************************************************************/
 package org.zgif.model.node.entity;
 
+import javax.xml.bind.annotation.XmlAttribute;
+
 import org.joda.time.LocalDate;
-import org.zgif.model.annotation.DataField;
-import org.zgif.model.annotation.Node;
+import org.zgif.model.annotation.ObjectIdentifier;
 import org.zgif.model.node.AbstractNode;
 
-@Node(parentNodes={})
 public abstract class AbstractEntityNode extends AbstractNode {
-    @DataField(wikiPageName = "", isAttribute = true, isObjectIdentifier = true)
+    @ObjectIdentifier
+    @XmlAttribute
     private String    objectIdSender;
-    @DataField(wikiPageName = "", isAttribute = true)
+    @XmlAttribute
     private String    objectIdReceiver;
-    @DataField(wikiPageName = "", isAttribute = true)
+    @XmlAttribute
     private LocalDate validFrom;
-    @DataField(wikiPageName = "", isAttribute = true)
+    @XmlAttribute
     private LocalDate validTo;
-    @DataField(wikiPageName = "", isAttribute = true)
+    @XmlAttribute
     private String    label;
 
     public String getObjectIdSender() {

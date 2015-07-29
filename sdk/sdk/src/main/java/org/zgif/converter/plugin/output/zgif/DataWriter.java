@@ -18,8 +18,8 @@ import org.apache.log4j.Logger;
 import org.zgif.model.NodeInformation;
 import org.zgif.model.datatype.Amount;
 import org.zgif.model.datatype.Area;
-import org.zgif.model.node.AbstractDataRoot;
 import org.zgif.model.node.AbstractNode;
+import org.zgif.model.node.Data;
 import org.zgif.model.node.group.AbstractGroupNode;
 
 /**
@@ -42,7 +42,7 @@ public class DataWriter {
         this.outStream = outStream;
     }
 
-    public void write(AbstractDataRoot data) {
+    public void write(Data data) {
         XMLOutputFactory factory = XMLOutputFactory.newInstance();
         
         try {
@@ -61,7 +61,7 @@ public class DataWriter {
     private void writeNode(AbstractNode node) throws Exception {
         writer.writeStartElement(getTagnameOfNode(node));
 
-        NodeInformation info = new NodeInformation(node);
+        NodeInformation info = new NodeInformation(node.getClass());
         
         // write attributes:
         List<Field> attributeFields = info.getAttributeFields();
@@ -133,7 +133,7 @@ public class DataWriter {
         if(value instanceof Area) {
             Area area = (Area) value;
 
-            writer.writeAttribute("areaMessurement", area.getAreaMessurement().toString());
+            writer.writeAttribute("areaMessurement", area.getAreaMeasurement().toString());
             writer.writeAttribute("areaType", area.getAreaType().toString());
             
             setValue = area.getValue().toString();

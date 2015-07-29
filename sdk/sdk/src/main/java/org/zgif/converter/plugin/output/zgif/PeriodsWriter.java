@@ -11,8 +11,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
 import org.apache.log4j.Logger;
-import org.zgif.model.node.Meta;
-import org.zgif.model.node.Period;
+import org.zgif.model.node.Periods.Period;
 
 /**
  * @author Pascal Houdek
@@ -29,7 +28,7 @@ public class PeriodsWriter {
         this.outStream = outStream;
     }
 
-    public void write(Collection<Period<?>> periods) {
+    public void write(Collection<Period> periods) {
 
         
         
@@ -40,12 +39,12 @@ public class PeriodsWriter {
             writer.writeStartDocument();
             writer.writeStartElement("periods");
 
-            for (Period<?> period : periods) {
+            for (Period period : periods) {
                 writer.writeStartElement("period");
                 writer.writeAttribute("periodType", period.getPeriodType().toString());
                 writer.writeAttribute("valueType", period.getValueType().toString());
-                if(period.getValueTypeLabel() != null) {
-                    writer.writeAttribute("periodTypeLabel", period.getValueTypeLabel());
+                if(period.getValueTypeName() != null) {
+                    writer.writeAttribute("periodTypeName", period.getValueTypeName());
                 }
                 writer.writeAttribute("from", period.getFrom().toString());
                 writer.writeAttribute("to", period.getTo().toString());

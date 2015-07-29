@@ -14,10 +14,6 @@
  */
 package org.zgif.converter.ui.shell;
 
-import java.beans.IntrospectionException;
-import java.beans.PropertyDescriptor;
-import java.io.IOException;
-import java.lang.reflect.Method;
 import java.util.Properties;
 
 import org.apache.commons.cli.CommandLine;
@@ -25,7 +21,6 @@ import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
-import org.apache.commons.cli.ParseException;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -34,8 +29,7 @@ import org.zgif.converter.plugin.input.IImportPlugin;
 import org.zgif.converter.plugin.input.ImportPluginConfiguration;
 import org.zgif.converter.plugin.output.ExportPluginConfiguration;
 import org.zgif.converter.plugin.output.IExportPlugin;
-import org.zgif.model.node.AbstractZGif;
-import org.zgif.model.subset_5_1.entity.Building;
+import org.zgif.model.node.ZGif;
 
 /**
  * @author phoudek
@@ -100,7 +94,7 @@ public class ShellMain {
             Properties importProps = cmd.getOptionProperties("import");
             ImportPluginConfiguration importConfig = ImportPluginConfiguration.getConfigFromProperties(importProps);
             importPlugin.load(importConfig);
-            AbstractZGif zgif = importPlugin.getZgif();
+            ZGif zgif = importPlugin.getZgif();
             importPlugin.unload();
     
             Properties exportProps = cmd.getOptionProperties("export");
