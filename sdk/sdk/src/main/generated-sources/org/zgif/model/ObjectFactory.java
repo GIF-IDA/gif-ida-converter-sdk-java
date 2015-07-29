@@ -1,3 +1,14 @@
+/*******************************************************************************
+ * Copyright (c) 2015 Martin Fluegge (Berlin, Germany) and others..
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *  
+ * Contributors:
+ *    Martin Fluegge - initial API and implementation and/or initial documentation
+ *  
+ *******************************************************************************/
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
@@ -8,15 +19,33 @@
 
 package org.zgif.model;
 
-import org.zgif.model.*;
-import org.zgif.model.types.*;
-import org.zgif.model.*;
-
-
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
+
+import org.zgif.model.entity.Account;
+import org.zgif.model.entity.Accounts;
+import org.zgif.model.entity.BookEntry;
+import org.zgif.model.entity.Building;
+import org.zgif.model.entity.Buildings;
+import org.zgif.model.entity.Companies;
+import org.zgif.model.entity.Company;
+import org.zgif.model.entity.Land;
+import org.zgif.model.entity.Lands;
+import org.zgif.model.entity.Lease;
+import org.zgif.model.entity.Project;
+import org.zgif.model.entity.Projects;
+import org.zgif.model.entity.Properties;
+import org.zgif.model.entity.Property;
+import org.zgif.model.entity.Record;
+import org.zgif.model.entity.Records;
+import org.zgif.model.entity.Term;
+import org.zgif.model.entity.TermUnit;
+import org.zgif.model.entity.TermUnits;
+import org.zgif.model.entity.Terms;
+import org.zgif.model.entity.Unit;
+import org.zgif.model.entity.Units;
 
 
 /**
