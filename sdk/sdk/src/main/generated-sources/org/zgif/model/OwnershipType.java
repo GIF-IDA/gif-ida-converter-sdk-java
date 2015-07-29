@@ -5,18 +5,20 @@
 // Generiert: 2015.07.27 um 11:43:51 AM CEST 
 //
 
-
 package org.zgif.model;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java-Klasse für OwnershipType.
- * 
- * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * <p>
+ * Java-Klasse für OwnershipType.
+ * 
+ * <p>
+ * Das folgende Schemafragment gibt den erwarteten Content an, der in dieser
+ * Klasse enthalten ist.
+ * <p>
+ * 
  * <pre>
  * &lt;simpleType name="OwnershipType">
  *   &lt;restriction base="{}iTYPE_STRING">
@@ -33,17 +35,14 @@ import javax.xml.bind.annotation.XmlType;
 @XmlEnum
 public enum OwnershipType {
 
-    DIRECT_PROPERTY,
-    LEASEHOLD,
-    OTHER,
-    FREEHOLDER;
+	DIRECT_PROPERTY, LEASEHOLD, OTHER, FREEHOLDER;
 
-    public String value() {
-        return name();
-    }
+	public String value() {
+		return name();
+	}
 
-    public static OwnershipType fromValue(String v) {
-        return valueOf(v);
-    }
+	public static OwnershipType fromValue(String v) {
+		return valueOf(v);
+	}
 
 }
