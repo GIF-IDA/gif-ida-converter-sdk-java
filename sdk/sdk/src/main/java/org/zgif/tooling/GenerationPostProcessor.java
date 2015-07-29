@@ -119,20 +119,25 @@ public class GenerationPostProcessor {
         baseDir = traversalFile(scriptPath, "..", "..", "..", "..", "..", "src", "main", "generated-sources");
         LOG.debug("baseDir=" + baseDir);
 
-        File orgDir = new File(baseDir, "org");
-        if (orgDir.exists()) {
-            LOG.info("delete 'org' dir");
-            boolean isDeleted = deleteFile(orgDir);
+        File modelBaseDir = traversalFile(baseDir, BASE_PACKAGE.split("[.]"));
+        for (File subDir : modelBaseDir.listFiles(new FileFilter() {
+            @Override
+            public boolean accept(File f) {
+                return f.isDirectory();
+            }
+        })) {
+            LOG.info("delete dir: " + subDir);
+            boolean isDeleted = deleteFile(subDir);
             if (!isDeleted) {
-                LOG.error("cannot delete dir: " + orgDir.getCanonicalPath());
-                return;
+                LOG.error("cannot delete dir: " + subDir.getCanonicalPath());
+                throw new Exception("cannot delete dir: " + subDir.getCanonicalPath());
             }
         }
 
         addPluralToEntityList();
 
         Boolean arePackagesToClean = false;
-        for (File sourceFile : baseDir.listFiles(new FileFilter() {
+        for (File sourceFile : modelBaseDir.listFiles(new FileFilter() {
             @Override
             public boolean accept(File f) {
                 return f.isFile() && f.getName().endsWith(".java");
@@ -199,6 +204,7 @@ public class GenerationPostProcessor {
             cleanupPackage(ENUM_PACKAGE);
         } else {
             LOG.warn("no java files found in baseDir");
+            throw new Exception("no java files found in baseDir");
         }
     }
 
