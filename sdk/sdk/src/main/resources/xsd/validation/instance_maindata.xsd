@@ -6,7 +6,7 @@
     <xs:complexType>
       <xs:complexContent>
         <xs:extension base="Data">
-          <xs:assert test="count(/data/LIST_OF_COM) = 1 or count(/data/LIST_OF_PROP) = 1 or count(/data/LIST_OF_ACC)" />
+          <xs:assert test="count(/data/Companies) = 1 or count(/data/Properties) = 1 or count(/data/Accounta) = 1" />
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>

@@ -6,27 +6,29 @@
     <xs:complexType>
       <xs:complexContent>
         <xs:extension base="Data">
-          <xs:assert test="count(/data/LIST_OF_ACC) = 1" />
+          <xs:assert test="count(/data/Properties) = 0" />
+          <xs:assert test="count(/data/Accounts)  = 1" />
+          <xs:assert test="count(/data/Companies)  = 0" />
           
-          <xs:assert test="count(//BOOK)  >= 0" />
-          <xs:assert test="count(//ACC)   >= 0" />
-          <xs:assert test="count(//REC)   = 0" />
+          <xs:assert test="count(//BookEntry)  >= 0" />
+          <xs:assert test="count(//Account)   >= 0" />
+          <xs:assert test="count(//Record)   = 0" />
           
-          <xs:assert test="count(//ACC[@objectIdSender]) = count(//ACC)" />
-          <xs:assert test="count(//ACC[value]) = count(//ACC)" />
-          <xs:assert test="count(//ACC[balancePosition]) = count(//ACC)" />
-          <xs:assert test="count(//ACC[accountingStandard]) = count(//ACC)" />
+          <xs:assert test="count(//Account[@objectIdSender]) = count(//Account)" />
+          <xs:assert test="count(//Account[value]) = count(//Account)" />
+          <xs:assert test="count(//Account[balancePosition]) = count(//Account)" />
+          <xs:assert test="count(//Account[accountingStandard]) = count(//Account)" />
           
-          <xs:assert test="count(//BOOK[@objectIdSender]) = count(//BOOK)" />
-          <xs:assert test="count(//BOOK[balancePosition]) = count(//BOOK)" />
-          <xs:assert test="count(//BOOK[text]) = count(//BOOK)" />
-          <xs:assert test="count(//BOOK[transactionType]) = count(//BOOK)" />
-          <xs:assert test="count(//BOOK[currency]) = count(//BOOK)" />
-          <xs:assert test="count(//BOOK[netValue]) = count(//BOOK)" />
-          <xs:assert test="count(//BOOK[grossValue]) = count(//BOOK)" />
-          <xs:assert test="count(//BOOK[vatValue]) = count(//BOOK)" />
-          <xs:assert test="count(//BOOK[vat]) = count(//BOOK)" />
-          <xs:assert test="count(//BOOK[accountingStandard]) = count(//BOOK)" />
+          <xs:assert test="count(//BookEntry[@objectIdSender]) = count(//BookEntry)" />
+          <xs:assert test="count(//BookEntry[balancePosition]) = count(//BookEntry)" />
+          <xs:assert test="count(//BookEntry[text]) = count(//BookEntry)" />
+          <xs:assert test="count(//BookEntry[transactionType]) = count(//BookEntry)" />
+          <xs:assert test="count(//BookEntry[currency]) = count(//BookEntry)" />
+          <xs:assert test="count(//BookEntry[netValue]) = count(//BookEntry)" />
+          <xs:assert test="count(//BookEntry[grossValue]) = count(//BookEntry)" />
+          <xs:assert test="count(//BookEntry[vatValue]) = count(//BookEntry)" />
+          <xs:assert test="count(//BookEntry[vat]) = count(//BookEntry)" />
+          <xs:assert test="count(//BookEntry[accountingStandard]) = count(//BookEntry)" />
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
