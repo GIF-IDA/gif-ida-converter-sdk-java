@@ -93,8 +93,9 @@ public class ThirdTierModelSourceGenerator {
         DataWriter dataWriter = new DataWriter(subsetDir, nodePackage, subset);
         Map<Class<AbstractEntityNode>, EntityWriter> entityWriters = new HashMap<Class<AbstractEntityNode>, EntityWriter>();
         for (String line = reader.readLine(); line != null; line = reader.readLine()) {
-            // state = getStateByLine(line, state);
             if (line.matches(".*\"count\\(/data/[a-zA-Z]{4,15}s\\)\\s+= [01].*")) {
+                LOG.debug("datainfo - " + line);
+                
                 if (line.matches(".*\\s+= 1.*")) {
                     String[] parts = line.split(" or ");
                     for (String part : parts) {
@@ -111,17 +112,16 @@ public class ThirdTierModelSourceGenerator {
                         dataWriter.addRootEntity(entityClass, Duty.NOT);
                     }
                 }
-
-                LOG.debug("datainfo - " + line);
             } else if (line.matches(".*\"count\\(//[a-zA-Z]{4,15}\\)\\s+[>]?= .*")) {
-                String className = line.substring(line.indexOf("//") + 2, line.lastIndexOf(")"));
-                Class<AbstractEntityNode> entityClass = (Class<AbstractEntityNode>) Class.forName("org.zgif.model.node.entity." + className);
+                LOG.debug("entity info - " + line);
+                
+                if (line.contains(">= 0")) {
+                    String className = line.substring(line.indexOf("//") + 2, line.lastIndexOf(")"));
+                    Class<AbstractEntityNode> entityClass = (Class<AbstractEntityNode>) Class.forName("org.zgif.model.node.entity." + className);
 
-                if (line.contains(">=")) {
                     new EntityWriter(subsetDir, entityPackage, subset, entityClass, null).close();
                 }
 
-                LOG.debug("entity info - " + line);
             } else if (line.matches(".*\"count\\(//[a-zA-Z]{4,15}(/[a-zA-Z]+)?\\[.*\\]\\)\\s+= .*")) {
                 LOG.debug("datafield info - " + line);
             } else {
