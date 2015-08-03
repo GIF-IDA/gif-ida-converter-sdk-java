@@ -1,45 +1,44 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.1">
-  <xs:include schemaLocation="types_internal.xsd"/>
-  <xs:include schemaLocation="types_enumeration.xsd"/>
-  <xs:include schemaLocation="types_sub.xsd"/>
+  <xs:include schemaLocation="types_internal.xsd" />
+  <xs:include schemaLocation="types_enumeration.xsd" />
+  <xs:include schemaLocation="types_sub.xsd" />
   <xs:complexType name="Lands">
     <xs:sequence>
-      <xs:element name="land" type="Land" maxOccurs="unbounded"/>
+      <xs:element name="land" type="Land" maxOccurs="unbounded" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Land">
-    <xs:sequence>
-      <xs:element name="areaMeasurement" type="AreaMeasurement" minOccurs="0"/>
-      <xs:element name="areaType" type="AreaType" minOccurs="0"/>
-      <xs:element name="assetAccountType" type="AssetAccountType" minOccurs="0"/>
-      <xs:element name="buildingPermission" type="iTYPE_BOOLEAN" minOccurs="0"/>
-      <xs:element name="courtage" type="Amount" minOccurs="0"/>
-      <xs:element name="demolition" type="iTYPE_BOOLEAN" minOccurs="0"/>
-      <xs:element name="fairValue" type="Amount" minOccurs="0"/>
-      <xs:element name="gfz" type="iTYPE_DECIMAL" minOccurs="0"/>
-      <xs:element name="grz" type="iTYPE_DECIMAL" minOccurs="0"/>
-      <xs:element name="monumentProtectionCategory" type="MonumentsType" minOccurs="0"/>
-      <xs:element name="numberOfParkingSpaces" type="iTYPE_INTEGER" minOccurs="0"/>
-      <xs:element name="ownerOccupation" type="iTYPE_BOOLEAN" minOccurs="0"/>
-      <xs:element name="plotArea" type="Area" minOccurs="0"/>
-      <xs:element name="propertyManager" type="iTYPE_STRING" minOccurs="0"/>
-      <xs:element name="purchaseDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
-      <xs:element name="purchaseGrossPrice" type="Amount" minOccurs="0"/>
-      <xs:element name="purchaseNetPrice" type="Amount" minOccurs="0"/>
-      <xs:element name="riskStyle" type="RiskSegment" minOccurs="0"/>
-      <xs:element name="saleGrossPrice" type="Amount" minOccurs="0"/>
-      <xs:element name="saleNetPrice" type="Amount" minOccurs="0"/>
-      <xs:element name="shortTermConstructible" type="iTYPE_BOOLEAN" minOccurs="0"/>
-      <xs:element name="siteConstructibleType" type="iTYPE_STRING" minOccurs="0"/>
-      <xs:element name="siteDevelopmentType" type="iTYPE_STRING" minOccurs="0"/>
-      <xs:element name="address" type="Address" minOccurs="0"/>
-      <xs:element name="extensionMap" type="ExtensionMap" minOccurs="0"/>
-      <xs:element name="hashUnits" type="HashUnits" minOccurs="0"/>
-    </xs:sequence>
-    <xs:attribute name="objectIdSender" type="iTYPE_STRING"/>
-    <xs:attribute name="objectIdReceiver" type="iTYPE_STRING"/>
-    <xs:attribute name="validFrom" type="iTYPE_LOCALDATE"/>
-    <xs:attribute name="validTo" type="iTYPE_LOCALDATE"/>
-    <xs:attribute name="label" type="iTYPE_STRING"/>
+    <xs:complexContent>
+      <xs:extension base="AbstractEntityNode">
+        <xs:sequence>
+          <xs:element name="areaMeasurement" type="AreaMeasurement" minOccurs="0" />
+          <xs:element name="areaType" type="AreaType" minOccurs="0" />
+          <xs:element name="assetAccountType" type="AssetAccountType" minOccurs="0" />
+          <xs:element name="buildingPermission" type="iTYPE_BOOLEAN" minOccurs="0" />
+          <xs:element name="courtage" type="Amount" minOccurs="0" />
+          <xs:element name="demolition" type="iTYPE_BOOLEAN" minOccurs="0" />
+          <xs:element name="fairValue" type="Amount" minOccurs="0" />
+          <xs:element name="gfz" type="iTYPE_DECIMAL" minOccurs="0" />
+          <xs:element name="grz" type="iTYPE_DECIMAL" minOccurs="0" />
+          <xs:element name="monumentProtectionCategory" type="MonumentsType" minOccurs="0" />
+          <xs:element name="numberOfParkingSpaces" type="iTYPE_INTEGER" minOccurs="0" />
+          <xs:element name="ownerOccupation" type="iTYPE_BOOLEAN" minOccurs="0" />
+          <xs:element name="plotArea" type="Area" minOccurs="0" />
+          <xs:element name="propertyManager" type="iTYPE_STRING" minOccurs="0" />
+          <xs:element name="purchaseDate" type="iTYPE_LOCALDATE" minOccurs="0" />
+          <xs:element name="purchaseGrossPrice" type="Amount" minOccurs="0" />
+          <xs:element name="purchaseNetPrice" type="Amount" minOccurs="0" />
+          <xs:element name="riskStyle" type="RiskSegment" minOccurs="0" />
+          <xs:element name="saleGrossPrice" type="Amount" minOccurs="0" />
+          <xs:element name="saleNetPrice" type="Amount" minOccurs="0" />
+          <xs:element name="shortTermConstructible" type="iTYPE_BOOLEAN" minOccurs="0" />
+          <xs:element name="siteConstructibleType" type="iTYPE_STRING" minOccurs="0" />
+          <xs:element name="siteDevelopmentType" type="iTYPE_STRING" minOccurs="0" />
+          <xs:element name="address" type="Address" minOccurs="0" />
+          <xs:element name="extensionMap" type="ExtensionMap" minOccurs="0" />
+          <xs:element name="hashUnits" type="HashUnits" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 </xs:schema>

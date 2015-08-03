@@ -1,77 +1,76 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.1">
-  <xs:include schemaLocation="types_internal.xsd"/>
-  <xs:include schemaLocation="types_enumeration.xsd"/>
-  <xs:include schemaLocation="types_sub.xsd"/>
-  <xs:include schemaLocation="entity_Unit.xsd"/>
+  <xs:include schemaLocation="types_internal.xsd" />
+  <xs:include schemaLocation="types_enumeration.xsd" />
+  <xs:include schemaLocation="types_sub.xsd" />
+  <xs:include schemaLocation="entity_Unit.xsd" />
   <xs:complexType name="Terms">
     <xs:sequence>
-      <xs:element name="term" type="Term" maxOccurs="unbounded"/>
+      <xs:element name="term" type="Term" maxOccurs="unbounded" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Term">
-    <xs:sequence>
-      <xs:element name="baseIndex" type="iTYPE_DOUBLE" minOccurs="0"/>
-      <xs:element name="beginningRentConsession" type="iTYPE_LOCALDATE" minOccurs="0"/>
-      <xs:element name="breakOption" type="iTYPE_LOCALDATE" minOccurs="0"/>
-      <xs:element name="conditionAmount" type="Amount" minOccurs="0"/>
-      <xs:element name="conditionType" type="ConditionType" minOccurs="0"/>
-      <xs:element name="contractCompletionDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
-      <xs:element name="contractOption" type="ContractOption" minOccurs="0"/>
-      <xs:element name="currency" type="iTYPE_CURRENCY" minOccurs="0"/>
-      <xs:element name="deltaGraduatedRent" type="Amount" minOccurs="0"/>
-      <xs:element name="depositAgreed" type="iTYPE_BOOLEAN" minOccurs="0"/>
-      <xs:element name="depositAmount" type="Amount" minOccurs="0"/>
-      <xs:element name="depositIncreaseType" type="DepositIncreaseType" minOccurs="0"/>
-      <xs:element name="depositPayed" type="iTYPE_BOOLEAN" minOccurs="0"/>
-      <xs:element name="depositType" type="DepositType" minOccurs="0"/>
-      <xs:element name="dmiendOption" type="iTYPE_LOCALDATE" minOccurs="0"/>
-      <xs:element name="endRentConcession" type="iTYPE_LOCALDATE" minOccurs="0"/>
-      <xs:element name="freeFrom" type="iTYPE_LOCALDATE" minOccurs="0"/>
-      <xs:element name="graduateRentBegin" type="iTYPE_LOCALDATE" minOccurs="0"/>
-      <xs:element name="heatingCosts" type="Amount" minOccurs="0"/>
-      <xs:element name="heatingCostsInServiceCharge" type="iTYPE_BOOLEAN" minOccurs="0"/>
-      <xs:element name="incomeLoss" type="Amount" minOccurs="0"/>
-      <xs:element name="indexAdjustmentBegin" type="iTYPE_LOCALDATE" minOccurs="0"/>
-      <xs:element name="indexAdjustmentDirection" type="IndexAdjustmentDirection" minOccurs="0"/>
-      <xs:element name="indexAdjustmentValueType" type="NumberType" minOccurs="0"/>
-      <xs:element name="indexBaseYear" type="iTYPE_LOCALDATE" minOccurs="0"/>
-      <xs:element name="indexCountry" type="Country" minOccurs="0"/>
-      <xs:element name="indexMinimumAdjustmentInPercent" type="iTYPE_DOUBLE" minOccurs="0"/>
-      <xs:element name="indexMinimumAdjustmentInPoints" type="iTYPE_DOUBLE" minOccurs="0"/>
-      <xs:element name="indexModificationMethod" type="IndexationMethod" minOccurs="0"/>
-      <xs:element name="indexPassthrough" type="iTYPE_DOUBLE" minOccurs="0"/>
-      <xs:element name="indexRow" type="IndexRow" minOccurs="0"/>
-      <xs:element name="interiorQuality" type="InteriorQuality" minOccurs="0"/>
-      <xs:element name="lastRentAdjustmentDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
-      <xs:element name="leasedArea" type="Area" minOccurs="0"/>
-      <xs:element name="occupancyState" type="OccupancyState" minOccurs="0"/>
-      <xs:element name="optRate" type="OptRate" minOccurs="0"/>
-      <xs:element name="parkingSpaceCosts" type="Amount" minOccurs="0"/>
-      <xs:element name="payment" type="Amount" minOccurs="0"/>
-      <xs:element name="rentAdjustmentDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
-      <xs:element name="rentAdjustmentDelay" type="iTYPE_PERIOD" minOccurs="0"/>
-      <xs:element name="rentAdjustmentFrequence" type="iTYPE_PERIOD" minOccurs="0"/>
-      <xs:element name="rentConcession" type="Amount" minOccurs="0"/>
-      <xs:element name="rentIncreasePercentage" type="iTYPE_DOUBLE" minOccurs="0"/>
-      <xs:element name="rentIncreaseType" type="RentIncreaseType" minOccurs="0"/>
-      <xs:element name="terminated" type="iTYPE_BOOLEAN" minOccurs="0"/>
-      <xs:element name="terminationDuration" type="iTYPE_PERIOD" minOccurs="0"/>
-      <xs:element name="terminationReceiptDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
-      <xs:element name="turnoverAdjType" type="NumberType" minOccurs="0"/>
-      <xs:element name="turnoverCertificate" type="iTYPE_BOOLEAN" minOccurs="0"/>
-      <xs:element name="turnoverMinimum" type="Amount" minOccurs="0"/>
-      <xs:element name="turnoverRentCap" type="Amount" minOccurs="0"/>
-      <xs:element name="turnoverReportingInterval" type="iTYPE_PERIOD" minOccurs="0"/>
-      <xs:element name="turnoverSortiment" type="iTYPE_STRING" minOccurs="0"/>
-      <xs:element name="useType" type="UseType" minOccurs="0"/>
-      <xs:element name="vacancyDuration" type="iTYPE_PERIOD" minOccurs="0"/>
-      <xs:element name="extensionMap" type="ExtensionMap" minOccurs="0"/>
-    </xs:sequence>
-    <xs:attribute name="objectIdSender" type="iTYPE_STRING"/>
-    <xs:attribute name="objectIdReceiver" type="iTYPE_STRING"/>
-    <xs:attribute name="validFrom" type="iTYPE_LOCALDATE"/>
-    <xs:attribute name="validTo" type="iTYPE_LOCALDATE"/>
-    <xs:attribute name="label" type="iTYPE_STRING"/>
-  <!--   <xs:attribute name="conditionType" type="ConditionType"/>-->
+    <xs:complexContent>
+      <xs:extension base="AbstractEntityNode">
+        <xs:sequence>
+          <xs:element name="baseIndex" type="iTYPE_DOUBLE" minOccurs="0" />
+          <xs:element name="beginningRentConsession" type="iTYPE_LOCALDATE" minOccurs="0" />
+          <xs:element name="breakOption" type="iTYPE_LOCALDATE" minOccurs="0" />
+          <xs:element name="conditionAmount" type="Amount" minOccurs="0" />
+          <xs:element name="conditionType" type="ConditionType" minOccurs="0" />
+          <xs:element name="contractCompletionDate" type="iTYPE_LOCALDATE" minOccurs="0" />
+          <xs:element name="contractOption" type="ContractOption" minOccurs="0" />
+          <xs:element name="currency" type="iTYPE_CURRENCY" minOccurs="0" />
+          <xs:element name="deltaGraduatedRent" type="Amount" minOccurs="0" />
+          <xs:element name="depositAgreed" type="iTYPE_BOOLEAN" minOccurs="0" />
+          <xs:element name="depositAmount" type="Amount" minOccurs="0" />
+          <xs:element name="depositIncreaseType" type="DepositIncreaseType" minOccurs="0" />
+          <xs:element name="depositPayed" type="iTYPE_BOOLEAN" minOccurs="0" />
+          <xs:element name="depositType" type="DepositType" minOccurs="0" />
+          <xs:element name="dmiendOption" type="iTYPE_LOCALDATE" minOccurs="0" />
+          <xs:element name="endRentConcession" type="iTYPE_LOCALDATE" minOccurs="0" />
+          <xs:element name="freeFrom" type="iTYPE_LOCALDATE" minOccurs="0" />
+          <xs:element name="graduateRentBegin" type="iTYPE_LOCALDATE" minOccurs="0" />
+          <xs:element name="heatingCosts" type="Amount" minOccurs="0" />
+          <xs:element name="heatingCostsInServiceCharge" type="iTYPE_BOOLEAN" minOccurs="0" />
+          <xs:element name="incomeLoss" type="Amount" minOccurs="0" />
+          <xs:element name="indexAdjustmentBegin" type="iTYPE_LOCALDATE" minOccurs="0" />
+          <xs:element name="indexAdjustmentDirection" type="IndexAdjustmentDirection" minOccurs="0" />
+          <xs:element name="indexAdjustmentValueType" type="NumberType" minOccurs="0" />
+          <xs:element name="indexBaseYear" type="iTYPE_LOCALDATE" minOccurs="0" />
+          <xs:element name="indexCountry" type="Country" minOccurs="0" />
+          <xs:element name="indexMinimumAdjustmentInPercent" type="iTYPE_DOUBLE" minOccurs="0" />
+          <xs:element name="indexMinimumAdjustmentInPoints" type="iTYPE_DOUBLE" minOccurs="0" />
+          <xs:element name="indexModificationMethod" type="IndexationMethod" minOccurs="0" />
+          <xs:element name="indexPassthrough" type="iTYPE_DOUBLE" minOccurs="0" />
+          <xs:element name="indexRow" type="IndexRow" minOccurs="0" />
+          <xs:element name="interiorQuality" type="InteriorQuality" minOccurs="0" />
+          <xs:element name="lastRentAdjustmentDate" type="iTYPE_LOCALDATE" minOccurs="0" />
+          <xs:element name="leasedArea" type="Area" minOccurs="0" />
+          <xs:element name="occupancyState" type="OccupancyState" minOccurs="0" />
+          <xs:element name="optRate" type="OptRate" minOccurs="0" />
+          <xs:element name="parkingSpaceCosts" type="Amount" minOccurs="0" />
+          <xs:element name="payment" type="Amount" minOccurs="0" />
+          <xs:element name="rentAdjustmentDate" type="iTYPE_LOCALDATE" minOccurs="0" />
+          <xs:element name="rentAdjustmentDelay" type="iTYPE_PERIOD" minOccurs="0" />
+          <xs:element name="rentAdjustmentFrequence" type="iTYPE_PERIOD" minOccurs="0" />
+          <xs:element name="rentConcession" type="Amount" minOccurs="0" />
+          <xs:element name="rentIncreasePercentage" type="iTYPE_DOUBLE" minOccurs="0" />
+          <xs:element name="rentIncreaseType" type="RentIncreaseType" minOccurs="0" />
+          <xs:element name="terminated" type="iTYPE_BOOLEAN" minOccurs="0" />
+          <xs:element name="terminationDuration" type="iTYPE_PERIOD" minOccurs="0" />
+          <xs:element name="terminationReceiptDate" type="iTYPE_LOCALDATE" minOccurs="0" />
+          <xs:element name="turnoverAdjType" type="NumberType" minOccurs="0" />
+          <xs:element name="turnoverCertificate" type="iTYPE_BOOLEAN" minOccurs="0" />
+          <xs:element name="turnoverMinimum" type="Amount" minOccurs="0" />
+          <xs:element name="turnoverRentCap" type="Amount" minOccurs="0" />
+          <xs:element name="turnoverReportingInterval" type="iTYPE_PERIOD" minOccurs="0" />
+          <xs:element name="turnoverSortiment" type="iTYPE_STRING" minOccurs="0" />
+          <xs:element name="useType" type="UseType" minOccurs="0" />
+          <xs:element name="vacancyDuration" type="iTYPE_PERIOD" minOccurs="0" />
+          <xs:element name="extensionMap" type="ExtensionMap" minOccurs="0" />
+        </xs:sequence>
+        <!-- <xs:attribute name="conditionType" type="ConditionType"/> -->
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 </xs:schema>

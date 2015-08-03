@@ -1,32 +1,31 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.1">
-  <xs:include schemaLocation="types_internal.xsd"/>
-  <xs:include schemaLocation="types_enumeration.xsd"/>
-  <xs:include schemaLocation="types_sub.xsd"/>
+  <xs:include schemaLocation="types_internal.xsd" />
+  <xs:include schemaLocation="types_enumeration.xsd" />
+  <xs:include schemaLocation="types_sub.xsd" />
   <xs:complexType name="ServiceContracts">
     <xs:sequence>
-      <xs:element name="serviceContract" type="ServiceContract" maxOccurs="unbounded"/>
+      <xs:element name="serviceContract" type="ServiceContract" maxOccurs="unbounded" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="ServiceContract">
-    <xs:sequence>
-      <xs:element name="contractCompletionDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
-      <xs:element name="contractExtensionDuration" type="iTYPE_PERIOD" minOccurs="0"/>
-      <xs:element name="contractOption" type="ContractOption" minOccurs="0"/>
-      <xs:element name="creditor" type="iTYPE_STRING" minOccurs="0"/>
-      <xs:element name="firstPaymentDate" type="iTYPE_LOCALDATE" minOccurs="0"/>
-      <xs:element name="netAmountPerPayment" type="Amount" minOccurs="0"/>
-      <xs:element name="paymentPattern" type="iTYPE_PERIOD" minOccurs="0"/>
-      <xs:element name="paymentsPerYear" type="iTYPE_INTEGER" minOccurs="0"/>
-      <xs:element name="serviceType" type="ServiceType" minOccurs="0"/>
-      <xs:element name="specifications" type="iTYPE_STRING" minOccurs="0"/>
-      <xs:element name="terminated" type="iTYPE_BOOLEAN" minOccurs="0"/>
-      <xs:element name="terminationLegitDeadline" type="LegitTerminationDeadline" minOccurs="0"/>
-      <xs:element name="extensionMap" type="ExtensionMap" minOccurs="0"/>
-    </xs:sequence>
-    <xs:attribute name="objectIdSender" type="iTYPE_STRING"/>
-    <xs:attribute name="objectIdReceiver" type="iTYPE_STRING"/>
-    <xs:attribute name="validFrom" type="iTYPE_LOCALDATE"/>
-    <xs:attribute name="validTo" type="iTYPE_LOCALDATE"/>
-    <xs:attribute name="label" type="iTYPE_STRING"/>
+    <xs:complexContent>
+      <xs:extension base="AbstractEntityNode">
+        <xs:sequence>
+          <xs:element name="contractCompletionDate" type="iTYPE_LOCALDATE" minOccurs="0" />
+          <xs:element name="contractExtensionDuration" type="iTYPE_PERIOD" minOccurs="0" />
+          <xs:element name="contractOption" type="ContractOption" minOccurs="0" />
+          <xs:element name="creditor" type="iTYPE_STRING" minOccurs="0" />
+          <xs:element name="firstPaymentDate" type="iTYPE_LOCALDATE" minOccurs="0" />
+          <xs:element name="netAmountPerPayment" type="Amount" minOccurs="0" />
+          <xs:element name="paymentPattern" type="iTYPE_PERIOD" minOccurs="0" />
+          <xs:element name="paymentsPerYear" type="iTYPE_INTEGER" minOccurs="0" />
+          <xs:element name="serviceType" type="ServiceType" minOccurs="0" />
+          <xs:element name="specifications" type="iTYPE_STRING" minOccurs="0" />
+          <xs:element name="terminated" type="iTYPE_BOOLEAN" minOccurs="0" />
+          <xs:element name="terminationLegitDeadline" type="LegitTerminationDeadline" minOccurs="0" />
+          <xs:element name="extensionMap" type="ExtensionMap" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 </xs:schema>

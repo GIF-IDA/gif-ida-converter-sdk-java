@@ -1,36 +1,38 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.1">
-  <xs:include schemaLocation="types_internal.xsd"/>
-  <xs:include schemaLocation="types_enumeration.xsd"/>
-  <xs:include schemaLocation="types_sub.xsd"/>
+  <xs:include schemaLocation="types_internal.xsd" />
+  <xs:include schemaLocation="types_enumeration.xsd" />
+  <xs:include schemaLocation="types_sub.xsd" />
   <xs:complexType name="HashRecord">
-    <xs:all/>
-    <xs:attribute name="hash" type="iTYPE_STRING"/>
+    <xs:all />
+    <xs:attribute name="hash" type="iTYPE_STRING" />
   </xs:complexType>
   <xs:complexType name="Record">
-    <xs:sequence>
-      <xs:element name="accountingStandard" type="AccountingStandard" minOccurs="0"/>
-      <xs:element name="category" type="RecordCategory" minOccurs="0"/>
-      <xs:element name="date" type="iTYPE_LOCALDATE" minOccurs="0"/>
-      <xs:element name="grossValue" type="Amount" minOccurs="0"/>
-      <xs:element name="netValue" type="Amount" minOccurs="0"/>
-      <xs:element name="paymentPeriod" type="iTYPE_PERIOD" minOccurs="0"/>
-      <xs:element name="status" type="BillStatus" minOccurs="0"/>
-      <xs:element name="text" type="iTYPE_STRING" minOccurs="0"/>
-      <xs:element name="vat" type="Amount" minOccurs="0"/>
-      <xs:element name="vatValue" type="Amount" minOccurs="0"/>
-      <xs:element name="extensionMap" type="ExtensionMap" minOccurs="0"/>
-    </xs:sequence>
-    <xs:attribute name="objectIdSender" type="iTYPE_STRING"/>
-    <xs:attribute name="objectIdReceiver" type="iTYPE_STRING"/>
+    <xs:complexContent>
+      <xs:extension base="AbstractEntityNode">
+        <xs:sequence>
+          <xs:element name="accountingStandard" type="AccountingStandard" minOccurs="0" />
+          <xs:element name="category" type="RecordCategory" minOccurs="0" />
+          <xs:element name="date" type="iTYPE_LOCALDATE" minOccurs="0" />
+          <xs:element name="grossValue" type="Amount" minOccurs="0" />
+          <xs:element name="netValue" type="Amount" minOccurs="0" />
+          <xs:element name="paymentPeriod" type="iTYPE_PERIOD" minOccurs="0" />
+          <xs:element name="status" type="BillStatus" minOccurs="0" />
+          <xs:element name="text" type="iTYPE_STRING" minOccurs="0" />
+          <xs:element name="vat" type="Amount" minOccurs="0" />
+          <xs:element name="vatValue" type="Amount" minOccurs="0" />
+          <xs:element name="extensionMap" type="ExtensionMap" minOccurs="0" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="HashRecords">
     <xs:sequence>
-      <xs:element name="hashRecord" type="HashRecord" maxOccurs="unbounded"/>
+      <xs:element name="hashRecord" type="HashRecord" maxOccurs="unbounded" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="Records">
     <xs:sequence>
-      <xs:element name="record" type="Record" maxOccurs="unbounded"/>
+      <xs:element name="record" type="Record" maxOccurs="unbounded" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
