@@ -1,64 +1,56 @@
+<!-- Copyright (c) 2015 Martin Fluegge (Berlin, Germany) and others.. All rights reserved. This program and the accompanying materials are made 
+  available under the terms of the Eclipse Public License v1.0 which accompanies this distribution, and is available at http://www.eclipse.org/legal/epl-v10.html 
+  Contributors: Martin Fluegge - initial API and implementation and/or initial documentation -->
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>de.gif-ev.ida.converter</groupId>
+  <artifactId>csv</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>csv</name>
 
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>de.gif-ev.ida.converter</groupId>
-	<artifactId>csv</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>csv</name>
+  <dependencies>
+    <dependency>
+      <groupId>de.gif-ev.ida.converter</groupId>
+      <artifactId>sdk</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
 
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+    </dependency>
 
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-jdk14</artifactId>
+      <version>1.6.2</version>
+    </dependency>
 
-	<properties>
-		<jaxb.output.directory>${basedir}/src/main/generated-sources/</jaxb.output.directory>
-		<resourcesDir>${basedir}/src/main/resources/xsd/model</resourcesDir>
-	</properties>
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.1</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
 
-	<dependencies>
-
-		<dependency>
-			<groupId>de.gif-ev.ida.converter</groupId>
-			<artifactId>sdk</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-jdk14</artifactId>
-			<version>1.6.2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.1</version>
-			<scope>provided</scope>
-		</dependency>
-
-	</dependencies>
-
-	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>2.3.2</version>
-					<configuration>
-						<source>1.6</source>
-						<target>1.6</target>
-						<compilerArgument></compilerArgument>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
-
-
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>2.3.2</version>
+          <configuration>
+            <source>1.7</source>
+            <target>1.7</target>
+            <compilerArgument></compilerArgument>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 
 </project>

@@ -9,7 +9,7 @@
  *    Martin Fluegge - initial API and implementation and/or initial documentation
  *  
  *******************************************************************************/
-package org.zgif.tooling;
+package org.zgif.converter.tooling;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

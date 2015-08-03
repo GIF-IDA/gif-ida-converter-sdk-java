@@ -30,7 +30,6 @@ import org.zgif.converter.plugin.PluginComponent;
 import org.zgif.converter.plugin.PluginConfiguration;
 import org.zgif.converter.plugin.output.ExportPluginConfiguration;
 import org.zgif.converter.plugin.output.IExportPlugin;
-import org.zgif.converter.ui.gui.DefaultPluginGui;
 import org.zgif.model.datatype.enumeration.Subset;
 import org.zgif.model.node.Data;
 import org.zgif.model.node.Meta;
@@ -85,7 +84,10 @@ public class ZGifWriter implements IExportPlugin {
      */
     @Override
     public PluginComponent<ExportPluginConfiguration> getConfigGui() {
-        return new DefaultPluginGui<ExportPluginConfiguration>(getRequiredConfigurationArguments());
+        // TODO: abhängigkeiten auflösen
+        // return new
+        // DefaultPluginGui<ExportPluginConfiguration>(getRequiredConfigurationArguments());
+        return null;
     }
 
     /*
