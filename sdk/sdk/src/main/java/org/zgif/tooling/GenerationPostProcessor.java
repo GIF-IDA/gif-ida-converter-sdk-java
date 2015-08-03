@@ -289,8 +289,10 @@ public class GenerationPostProcessor {
                     flags.add("PublicClassPassed");
                 }
 
-                body.append(line);
-                body.append(System.lineSeparator());
+                if(!line.startsWith("package")) {
+                    body.append(line);
+                    body.append(System.lineSeparator());
+                }
             }
 
             if (flags.contains("xetter_extensionMap") && line.equals("    }")) {
@@ -309,7 +311,7 @@ public class GenerationPostProcessor {
 
         // append package and imports
         BufferedWriter writer = new BufferedWriter(new FileWriter(sourceFile));
-        writer.append("package " + packageName + ";" + System.lineSeparator());
+        writer.append("package " + packageName + ";" + System.lineSeparator() + System.lineSeparator());
         for (String usedModel : usedModelClasses) {
             writer.append("import " + classPackageMap.get(usedModel) + "." + usedModel + ";" + System.lineSeparator());
         }
