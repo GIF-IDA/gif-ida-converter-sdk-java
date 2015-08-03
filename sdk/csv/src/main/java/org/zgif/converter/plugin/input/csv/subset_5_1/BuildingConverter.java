@@ -6,12 +6,11 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.zgif.converter.plugin.input.csv.CSVLine;
 import org.zgif.converter.plugin.input.csv.NodeConverter;
-import org.zgif.model.node.Period;
-import org.zgif.model.subset_5_1.DataRoot;
-import org.zgif.model.subset_5_1.ZGif;
-import org.zgif.model.subset_5_1.entity.Building;
-import org.zgif.model.subset_5_1.entity.Company;
-import org.zgif.model.subset_5_1.entity.Property;
+import org.zgif.model.node.Periods.Period;
+import org.zgif.model.node.ZGif;
+import org.zgif.model.node.entity.Building;
+import org.zgif.model.node.entity.Company;
+import org.zgif.model.node.entity.Property;
 
 /**
  * converter for building zgif object
@@ -31,13 +30,15 @@ public class BuildingConverter extends NodeConverter<Building> {
      */
     @Override
     public void connectObjectWithZGif(Building building, CSVLine<Building> csvLine) {
+        super.connectObjectWithZGif(building, csvLine);
+        
         ZGif zgif = (ZGif) descriptor.getZgif();
 
         String periodIdentifier = csvLine.getOriginalFields().get("PERIOD.IDENTIFIER");
         String companyObjectId = csvLine.getOriginalFields().get("COMPANY.OBJECT_ID_SENDER");
         String propertyObjectId = csvLine.getOriginalFields().get("PROPERTY.OBJECT_ID_SENDER");
 
-        Period<DataRoot> period = zgif.getPeriods().get(periodIdentifier);
+        Period period = zgif.getPeriods().getPeriod().get(periodIdentifier);
         DataRoot root = period.getData();
 
         Map<String, Company> companies = root.getListOfCom();

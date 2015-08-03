@@ -20,8 +20,8 @@ import org.zgif.converter.sdk.ITransformer;
 import org.zgif.converter.sdk.impl.BasicConverter;
 import org.zgif.converter.ui.gui.DefaultPluginGui;
 import org.zgif.model.datatype.enumeration.Subset;
-import org.zgif.model.node.AbstractZGif;
 import org.zgif.model.node.Meta;
+import org.zgif.model.node.ZGif;
 
 /**
  * Converter converts serveral csv data streams to the internal zgif object
@@ -35,7 +35,7 @@ public class Converter extends BasicConverter implements IImportPlugin {
 
     public static final Subset[] SUPPORTED_SUBSETS = { Subset.S5_1 };
 
-    private AbstractZGif         zgif              = null;
+    private ZGif                 zgif              = null;
 
     /**
      * @author phoudek
@@ -55,59 +55,6 @@ public class Converter extends BasicConverter implements IImportPlugin {
         zgif = metaConverterDescr.getZgif();
         Meta meta = zgif.getMeta();
 
-        switch (meta.getProcess()) {
-        case S4_1:
-
-            break;
-        case S5_1:
-            convert_5_1((org.zgif.model.subset_5_1.ZGif) zgif, myDesc);
-            break;
-
-        default:
-            break;
-        }
-    }
-
-    /**
-     * @author phoudek
-     * @return there is no transformer class for a zgif object, return value is
-     *         always <code>null</code>
-     */
-    @Override
-    public ITransformer<?, ?> getTransformer() {
-        return null;
-    }
-
-    /**
-     * creates the zgif instance depending on the subset
-     * 
-     * @param subset
-     * @return zigf object
-     */
-    public static AbstractZGif getZGifBySubset(Subset subset) {
-        AbstractZGif zgif = null;
-        switch (subset) {
-        case S5_1:
-            zgif = new org.zgif.model.subset_5_1.ZGif();
-            break;
-
-        default:
-            break;
-        }
-
-        return zgif;
-    }
-
-    /**
-     * converter method for the subset 5.1
-     * 
-     * @author phoudek
-     * @param zgif
-     *            zgif instance for subset 5.1
-     * @param myDesc
-     *            descriptor containing the csv data streams
-     */
-    private void convert_5_1(org.zgif.model.subset_5_1.ZGif zgif, ConverterDescriptor myDesc) {
         PeriodConverter periodConverter = new PeriodConverter();
         NodeConverterDescriptor periodConverterDescr = new NodeConverterDescriptor();
         periodConverterDescr.setCsvStream(myDesc.getCsvStreamPeriods());
@@ -137,7 +84,17 @@ public class Converter extends BasicConverter implements IImportPlugin {
         unitConverterDesc.setCsvStream(myDesc.getCsvStreamUnit());
         unitConverterDesc.setZgif(zgif);
         unitConverter.convertData(unitConverterDesc);
-        
+
+    }
+
+    /**
+     * @author phoudek
+     * @return there is no transformer class for a zgif object, return value is
+     *         always <code>null</code>
+     */
+    @Override
+    public ITransformer<?, ?> getTransformer() {
+        return null;
     }
 
     /**
@@ -146,7 +103,7 @@ public class Converter extends BasicConverter implements IImportPlugin {
      * @author phoudek
      * @return zgif object
      */
-    public AbstractZGif getZgif() {
+    public ZGif getZgif() {
         return this.zgif;
     }
 

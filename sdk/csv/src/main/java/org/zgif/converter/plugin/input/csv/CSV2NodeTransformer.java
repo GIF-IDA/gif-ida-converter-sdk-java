@@ -2,6 +2,7 @@ package org.zgif.converter.plugin.input.csv;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.HashMap;
 import java.util.Locale;
@@ -16,8 +17,7 @@ import org.zgif.converter.sdk.ITransformContext;
 import org.zgif.converter.sdk.impl.BasicTransformer;
 import org.zgif.model.datatype.Amount;
 import org.zgif.model.datatype.Area;
-import org.zgif.model.datatype.Country;
-import org.zgif.model.datatype.enumeration.AreaMessurement;
+import org.zgif.model.datatype.enumeration.AreaMeasurement;
 import org.zgif.model.datatype.enumeration.AreaType;
 import org.zgif.model.datatype.enumeration.Subset;
 import org.zgif.model.node.AbstractNode;
@@ -91,7 +91,7 @@ public class CSV2NodeTransformer<NodeType extends AbstractNode> extends BasicTra
                     methodInvokeObject = (NodeType) getNestedObjectMethod.invoke(object);
                 }
                 if (methodInvokeObject == null) {
-                    Class invokeObjectClass = Class.forName(AbstractGroupNode.class.getPackage().getName() + "." + objectName);
+                    Class<?> invokeObjectClass = Class.forName(AbstractGroupNode.class.getPackage().getName() + "." + objectName);
                     methodInvokeObject = (NodeType) invokeObjectClass.newInstance();
                     Method setNestedObjectMethod = getMethodDeep(object.getClass(), "set" + objectName, invokeObjectClass);
                     setNestedObjectMethod.invoke(object, methodInvokeObject);
@@ -140,26 +140,44 @@ public class CSV2NodeTransformer<NodeType extends AbstractNode> extends BasicTra
                     setValue = Locale.GERMANY;
                 } else if (Amount.class.isAssignableFrom(targetType)) {
                     String[] parts = value.split(" ");
-                    if(parts.length == 1) {
-                        setValue = new Amount(Double.parseDouble(parts[0]), Currency.getInstance("EUR"));;
-                    } else if(parts.length == 2) {
-                        setValue = new Amount(Double.parseDouble(parts[0]), Currency.getInstance(parts[1]));;
+                    if (parts.length == 1) {
+                        Amount amount = new Amount();
+                        amount.setValue(BigDecimal.valueOf(Double.parseDouble(parts[0])));
+                        amount.setCurrency("EUR");
+                        setValue = amount;
+                    } else if (parts.length == 2) {
+                        Amount amount = new Amount();
+                        amount.setValue(BigDecimal.valueOf(Double.parseDouble(parts[0])));
+                        amount.setCurrency(parts[1]);
+                        setValue = amount;
                     } else {
                         logger.warn("invalid value '" + value + "' for type '" + targetType + "' - value will be set to empty");
                     }
                 } else if (Area.class.isAssignableFrom(targetType)) {
                     String[] parts = value.split(" ");
-                    if(parts.length == 1) {
-                        setValue = new Area(Double.parseDouble(parts[0]), AreaMessurement.NOT_SPECIFIED, AreaType.NOT_SPECIFIED);
-                    } else if(parts.length == 2) {
-                        setValue = new Area(Double.parseDouble(parts[0]), AreaMessurement.valueOf(parts[1]), AreaType.NOT_SPECIFIED);
-                    } else if(parts.length == 3) {
-                            setValue = new Area(Double.parseDouble(parts[0]), AreaMessurement.valueOf(parts[1]), AreaType.valueOf(parts[2]));;
+                    if (parts.length == 1) {
+                        Area area = new Area();
+                        area.setValue(BigDecimal.valueOf(Double.parseDouble(parts[0])));
+                        area.setAreaMeasurement(AreaMeasurement.NOT_SPECIFIED);
+                        area.setAreaType(AreaType.NOT_SPECIFIED);
+                        setValue = area;
+                    } else if (parts.length == 2) {
+                        Area area = new Area();
+                        area.setValue(BigDecimal.valueOf(Double.parseDouble(parts[0])));
+                        area.setAreaMeasurement(AreaMeasurement.valueOf(parts[1]));
+                        area.setAreaType(AreaType.NOT_SPECIFIED);
+                        setValue = area;
+                    } else if (parts.length == 3) {
+                        Area area = new Area();
+                        area.setValue(BigDecimal.valueOf(Double.parseDouble(parts[0])));
+                        area.setAreaMeasurement(AreaMeasurement.valueOf(parts[1]));
+                        area.setAreaType(AreaType.valueOf(parts[2]));
+                        setValue = area;
                     } else {
                         logger.warn("invalid value '" + value + "' for type '" + targetType + "' - value will be set to empty");
                     }
-                } else if (Country.class.isAssignableFrom(targetType)) {
-                    setValue = new Country(value);
+//                } else if (Country.class.isAssignableFrom(targetType)) {
+//                    setValue = new Country(value);
                 } else if (targetType.getPackage() == Subset.class.getPackage()) {
                     // type is enumeration:
                     try {

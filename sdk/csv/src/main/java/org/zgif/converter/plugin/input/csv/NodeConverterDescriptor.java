@@ -3,11 +3,11 @@ package org.zgif.converter.plugin.input.csv;
 import java.io.InputStream;
 
 import org.zgif.converter.sdk.IConverterDescriptor;
-import org.zgif.model.node.AbstractZGif;
+import org.zgif.model.node.ZGif;
 
 public class NodeConverterDescriptor implements IConverterDescriptor {
 	private InputStream csvStream;
-	private AbstractZGif zgif;
+	private ZGif zgif;
 
 	public InputStream getCsvStream() {
 		return csvStream;
@@ -17,11 +17,11 @@ public class NodeConverterDescriptor implements IConverterDescriptor {
 		this.csvStream = csvStream;
 	}
 
-    public AbstractZGif getZgif() {
+    public ZGif getZgif() {
         return zgif;
     }
 
-    public void setZgif(AbstractZGif zgif) {
+    public void setZgif(ZGif zgif) {
         this.zgif = zgif;
     }
 }

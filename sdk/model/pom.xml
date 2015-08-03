@@ -117,7 +117,7 @@
                   <goal>java</goal>
                 </goals>
                 <configuration>
-                  <mainClass>org.zgif.tooling.GenerationPostProcessor</mainClass>
+                  <mainClass>org.zgif.model.tools.GenerationPostProcessor</mainClass>
                 </configuration>
               </execution>
             </executions>
