@@ -1,11 +1,12 @@
 package org.zgif.model.node;
+
+import org.zgif.model.node.AbstractNode;
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Ã„nderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.27 um 11:43:51 AM CEST 
+// Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
+// Generiert: 2015.08.04 um 01:06:08 PM CEST 
 //
-
 
 
 
@@ -19,14 +20,14 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Java-Klasse fÃ¼r Meta complex type.
+ * <p>Java-Klasse für Meta complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="Meta">
  *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *     &lt;extension base="{}AbstractNode">
  *       &lt;sequence>
  *         &lt;element name="format">
  *           &lt;simpleType>
@@ -46,7 +47,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="description" type="{}iTYPE_STRING" minOccurs="0"/>
  *         &lt;element name="extension_map" type="{}ExtensionMap" minOccurs="0"/>
  *       &lt;/sequence>
- *     &lt;/restriction>
+ *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -67,7 +68,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "description",
     "extensionMap"
 })
-public class Meta extends AbstractNode {
+public class Meta
+    extends AbstractNode
+{
 
     @XmlElement(required = true)
     protected String format;

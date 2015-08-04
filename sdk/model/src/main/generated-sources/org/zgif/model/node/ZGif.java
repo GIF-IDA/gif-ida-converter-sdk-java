@@ -1,15 +1,16 @@
 package org.zgif.model.node;
-import org.zgif.model.node.Periods;
+
+import org.zgif.model.node.entity.Periods;
 import org.zgif.model.node.Meta;
+import org.zgif.model.node.AbstractNode;
 import org.zgif.model.node.Data;
 import org.zgif.model.node.Manifest;
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Ã„nderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.27 um 11:43:51 AM CEST 
+// Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
+// Generiert: 2015.08.04 um 01:06:08 PM CEST 
 //
-
 
 
 
@@ -21,14 +22,14 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse fÃ¼r ZGif complex type.
+ * <p>Java-Klasse für ZGif complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="ZGif">
  *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *     &lt;extension base="{}AbstractNode">
  *       &lt;sequence>
  *         &lt;element name="manifest" type="{}Manifest"/>
  *         &lt;element name="periods" type="{}Periods"/>
@@ -38,7 +39,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;attribute name="filePath" type="{}iTYPE_STRING" />
  *       &lt;attribute name="mimetype" type="{}iTYPE_STRING" />
  *       &lt;attribute name="type" type="{}iTYPE_STRING" />
- *     &lt;/restriction>
+ *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -52,7 +53,9 @@ import javax.xml.bind.annotation.XmlType;
     "meta",
     "maindata"
 })
-public class ZGif extends AbstractNode {
+public class ZGif
+    extends AbstractNode
+{
 
     @XmlElement(required = true)
     protected Manifest manifest;

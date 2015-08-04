@@ -1,11 +1,12 @@
 package org.zgif.model.node;
+
+import org.zgif.model.node.AbstractNode;
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Ã„nderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.27 um 11:43:51 AM CEST 
+// Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
+// Generiert: 2015.08.04 um 01:06:08 PM CEST 
 //
-
 
 
 
@@ -19,14 +20,14 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse fÃ¼r Manifest complex type.
+ * <p>Java-Klasse für Manifest complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="Manifest">
  *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *     &lt;extension base="{}AbstractNode">
  *       &lt;sequence>
  *         &lt;element name="file-entry" maxOccurs="unbounded" minOccurs="0">
  *           &lt;complexType>
@@ -39,7 +40,7 @@ import javax.xml.bind.annotation.XmlType;
  *           &lt;/complexType>
  *         &lt;/element>
  *       &lt;/sequence>
- *     &lt;/restriction>
+ *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -50,7 +51,9 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "Manifest", propOrder = {
     "fileEntry"
 })
-public class Manifest extends AbstractNode {
+public class Manifest
+    extends AbstractNode
+{
 
     @XmlElement(name = "file-entry")
     protected List<Manifest.FileEntry> fileEntry;
@@ -86,7 +89,7 @@ public class Manifest extends AbstractNode {
 
 
     /**
-     * <p>Java-Klasse fÃ¼r anonymous complex type.
+     * <p>Java-Klasse für anonymous complex type.
      * 
      * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
      * 

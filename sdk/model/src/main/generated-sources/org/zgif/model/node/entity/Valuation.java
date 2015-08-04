@@ -1,34 +1,34 @@
 package org.zgif.model.node.entity;
+
 import org.zgif.model.datatype.Area;
 import org.zgif.model.datatype.enumeration.ValuationMethod;
 import org.zgif.model.datatype.Amount;
 import org.zgif.model.node.group.EnergyRating;
+import org.zgif.model.node.entity.AbstractEntityNode;
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Ã„nderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.27 um 11:43:51 AM CEST 
+// Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
+// Generiert: 2015.08.04 um 01:06:08 PM CEST 
 //
-
 
 
 
 import java.math.BigDecimal;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse fÃ¼r Valuation complex type.
+ * <p>Java-Klasse für Valuation complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="Valuation">
  *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *     &lt;extension base="{}AbstractEntityNode">
  *       &lt;sequence>
  *         &lt;element name="buildingInDevelopmentState" type="{}iTYPE_BOOLEAN" minOccurs="0"/>
  *         &lt;element name="contractRentDebit" type="{}Amount" minOccurs="0"/>
@@ -67,12 +67,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="energyRating" type="{}EnergyRating" minOccurs="0"/>
  *         &lt;element name="extensionMap" type="{}ExtensionMap" minOccurs="0"/>
  *       &lt;/sequence>
- *       &lt;attribute name="objectIdSender" type="{}iTYPE_STRING" />
- *       &lt;attribute name="objectIdReceiver" type="{}iTYPE_STRING" />
- *       &lt;attribute name="validFrom" type="{}iTYPE_LOCALDATE" />
- *       &lt;attribute name="validTo" type="{}iTYPE_LOCALDATE" />
- *       &lt;attribute name="label" type="{}iTYPE_STRING" />
- *     &lt;/restriction>
+ *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -118,7 +113,9 @@ import javax.xml.bind.annotation.XmlType;
     "energyRating",
     "extensionMap"
 })
-public class Valuation extends AbstractEntityNode {
+public class Valuation
+    extends AbstractEntityNode
+{
 
     protected Boolean buildingInDevelopmentState;
     protected Amount contractRentDebit;
@@ -155,16 +152,6 @@ public class Valuation extends AbstractEntityNode {
     protected Area vacantEffectiveAreaTrade;
     protected String valuationDate;
     protected EnergyRating energyRating;
-    @XmlAttribute(name = "objectIdSender")
-    protected String objectIdSender;
-    @XmlAttribute(name = "objectIdReceiver")
-    protected String objectIdReceiver;
-    @XmlAttribute(name = "validFrom")
-    protected String validFrom;
-    @XmlAttribute(name = "validTo")
-    protected String validTo;
-    @XmlAttribute(name = "label")
-    protected String label;
 
     /**
      * Ruft den Wert der buildingInDevelopmentState-Eigenschaft ab.
@@ -1011,89 +998,5 @@ public class Valuation extends AbstractEntityNode {
 
     /**
 */
-
-    /**
-     * Ruft den Wert der objectIdSender-Eigenschaft ab.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getObjectIdSender() {
-        return objectIdSender;
-    }
-
-    /**
-     * Legt den Wert der objectIdSender-Eigenschaft fest.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setObjectIdSender(String value) {
-        this.objectIdSender = value;
-    }
-
-    /**
-     * Ruft den Wert der objectIdReceiver-Eigenschaft ab.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getObjectIdReceiver() {
-        return objectIdReceiver;
-    }
-
-    /**
-     * Legt den Wert der objectIdReceiver-Eigenschaft fest.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setObjectIdReceiver(String value) {
-        this.objectIdReceiver = value;
-    }
-
-    /**
-*/
-
-    /**
-*/
-
-    /**
-*/
-
-    /**
-*/
-
-    /**
-     * Ruft den Wert der label-Eigenschaft ab.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getLabel() {
-        return label;
-    }
-
-    /**
-     * Legt den Wert der label-Eigenschaft fest.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setLabel(String value) {
-        this.label = value;
-    }
 
 }

@@ -107,6 +107,12 @@
     </xs:restriction>
   </xs:simpleType>
 
+  <xs:complexType abstract="true" name="AbstractGroupNode">
+    <xs:complexContent>
+      <xs:extension base="AbstractNode">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType abstract="true" name="AbstractEntityNode">
     <xs:complexContent>
       <xs:extension base="AbstractNode">

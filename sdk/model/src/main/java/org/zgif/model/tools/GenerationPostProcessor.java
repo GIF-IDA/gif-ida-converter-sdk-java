@@ -18,14 +18,12 @@ import java.io.FileFilter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.FilenameFilter;
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.Set;
 import java.util.regex.Pattern;
 
@@ -43,51 +41,17 @@ import org.apache.log4j.PatternLayout;
 public class GenerationPostProcessor {
 
 
-
-
-
-
-
     //@formatter:off
     private List<String> deleteFiles    = Arrays.asList("ObjectFactory.java");
-    private List<String> entityNames    = Arrays.asList("Account",
-                                                        "BookEntry",
-                                                        "Building",
-                                                        "Company",
-                                                        "Land",
-                                                        "Lease",
-                                                        "Project",
-                                                        "Property",
-                                                        "Record",
-                                                        "ServiceContract",
-                                                        "Term",
-                                                        "Unit",
-                                                        "Valuation"
-                                                       );
-    private List<String> subEntityNames = Arrays.asList("Address",
-                                                        "EnergyRating",
-                                                        "ExtensionMap",
-                                                        "ExtensionMapKey",
-                                                        "ExtensionSubList",
-                                                        "ExtensionSubListItem",
-                                                        "ExtensionSubMap"
-                                                        );
     private List<String> typeNames      = Arrays.asList("Amount",
                                                         "Area"
                                                        );
-    private List<String> nodeNames      = Arrays.asList("Data",
-                                                        "Manifest",
-                                                        "Meta",
-                                                        "Periods",
-                                                        "ZGif"
-                                                        );
     
     private List<String> removeLines    = Arrays.asList("    @XmlElement(name = \"extension_map\")",
                                                         "    protected ExtensionMap extensionMap;"
                                                         );
     //@formatter:on
 
-    @SuppressWarnings("unused")
     private static final String BASE_PACKAGE    = "org.zgif.model";
     private static final String NODE_PACKAGE    = "org.zgif.model.node";
     private static final String GROUP_PACKAGE   = "org.zgif.model.node.group";
@@ -116,7 +80,7 @@ public class GenerationPostProcessor {
         LOG.info("Starting post processing");
 
         File scriptPath = new File(getClass().getResource("").toURI());
-        baseDir = traversalFile(scriptPath, "..", "..", "..", "..", "..", "src", "main", "generated-sources");
+        baseDir = traversalFile(scriptPath, "..", "..", "..", "..", "..", "..", "src", "main", "generated-sources");
         LOG.debug("baseDir=" + baseDir);
 
         File modelBaseDir = traversalFile(baseDir, BASE_PACKAGE.split("[.]"));
@@ -133,8 +97,6 @@ public class GenerationPostProcessor {
                 throw new Exception("cannot delete dir: " + subDir.getCanonicalPath());
             }
         }
-
-        addPluralToEntityList();
 
         Boolean arePackagesToClean = false;
         for (File sourceFile : modelBaseDir.listFiles(new FileFilter() {
@@ -153,30 +115,6 @@ public class GenerationPostProcessor {
                 String packageName = null;
 
                 if (packageName == null) {
-                    for (String nodeName : nodeNames) {
-                        if (fileName.equals(nodeName + ".java")) {
-                            packageName = NODE_PACKAGE;
-                        }
-                    }
-                }
-
-                if (packageName == null) {
-                    for (String entityName : entityNames) {
-                        if (fileName.endsWith(entityName + ".java")) {
-                            packageName = ENTITY_PACKAGE;
-                        }
-                    }
-                }
-
-                if (packageName == null) {
-                    for (String subEntityName : subEntityNames) {
-                        if (fileName.equals(subEntityName + ".java")) {
-                            packageName = GROUP_PACKAGE;
-                        }
-                    }
-                }
-
-                if (packageName == null) {
                     for (String typeName : typeNames) {
                         if (fileName.equals(typeName + ".java")) {
                             packageName = TYPE_PACKAGE;
@@ -185,8 +123,34 @@ public class GenerationPostProcessor {
                 }
 
                 if (packageName == null) {
-                    if (fileContains(sourceFile, "public enum .*")) {
+                    if (fileName.equals("AbstractGroupNode.java") || fileContains(sourceFile, ".*extends AbstractGroupNode.*", ".*protected.*;")) {
+                        packageName = GROUP_PACKAGE;
+                    }
+                }
+
+                if (packageName == null) {
+                    if (fileName.equals("AbstractEntityNode.java") || fileContains(sourceFile, ".*extends AbstractEntityNode.*", ".*protected.*;")) {
+                        packageName = ENTITY_PACKAGE;
+                    }
+                }
+                
+                if (packageName == null) {
+                    if (fileName.equals("AbstractNode.java") || fileContains(sourceFile, ".*extends AbstractNode.*", ".*protected.*;")) {
+                        packageName = NODE_PACKAGE;
+                    }
+                }
+
+                if (packageName == null) {
+                    if (fileContains(sourceFile, "public enum .*", ".*protected.*;")) {
                         packageName = ENUM_PACKAGE;
+                    }
+                }
+
+                // TODO: bad workaround until other bugs with generating are
+                // completed
+                if (packageName == null) {
+                    if (fileName.startsWith("Hash") || fileName.startsWith("Term") || fileName.endsWith("s.java")) {
+                        packageName = ENTITY_PACKAGE;
                     }
                 }
 
@@ -202,6 +166,7 @@ public class GenerationPostProcessor {
             cleanupPackage(GROUP_PACKAGE);
             cleanupPackage(TYPE_PACKAGE);
             cleanupPackage(ENUM_PACKAGE);
+            cleanupPackage(BASE_PACKAGE);
         } else {
             LOG.warn("no java files found in baseDir");
             throw new Exception("no java files found in baseDir");
@@ -227,9 +192,12 @@ public class GenerationPostProcessor {
         LOG.info("cleanup package: " + packageName);
 
         File packageDir = traversalFile(baseDir.getCanonicalFile(), packageName.split("[.]"));
-        for (File sourceFile : packageDir.listFiles()) {
-            if (sourceFile.isFile() && sourceFile.getName().endsWith(".java")) {
-                rewriteFile(sourceFile, packageName);
+        LOG.debug("packageDir=" + packageDir);
+        if (packageDir.exists()) {
+            for (File sourceFile : packageDir.listFiles()) {
+                if (sourceFile.isFile() && sourceFile.getName().endsWith(".java")) {
+                    rewriteFile(sourceFile, packageName);
+                }
             }
         }
     }
@@ -238,14 +206,19 @@ public class GenerationPostProcessor {
         final String fileName = sourceFile.getName();
         final String currentModelClassName = fileName.substring(0, fileName.length() - 5);
 
+        Set<String> usedModelClasses = new HashSet<String>();
+
         final String linePublicClass = "public class " + currentModelClassName + " {";
         String classExtension = null;
         if (packageName.equals(NODE_PACKAGE)) {
             classExtension = "AbstractNode";
+            usedModelClasses.add("AbstractNode");
         } else if (packageName.equals(ENTITY_PACKAGE)) {
             classExtension = "AbstractEntityNode";
+            usedModelClasses.add("AbstractEntityNode");
         } else if (packageName.equals(GROUP_PACKAGE)) {
             classExtension = "AbstractGroupNode";
+            usedModelClasses.add("AbstractGroupNode");
         }
 
         // backup File
@@ -254,7 +227,6 @@ public class GenerationPostProcessor {
 
         // read file
         BufferedReader reader = new BufferedReader(new FileReader(tmpFile));
-        Set<String> usedModelClasses = new HashSet<String>();
 
         StringBuilder body = new StringBuilder((int) tmpFile.length());
         String lineBefore = "";
@@ -279,7 +251,7 @@ public class GenerationPostProcessor {
             if (!removeLines.contains(line) && !flags.contains("xetter_extensionMap") && !flags.contains("xetter_validFrom")
                 && !flags.contains("xetter_validTo")) {
                 for (String modelClass : classPackageMap.keySet()) {
-                    if (!modelClass.equals(currentModelClassName) && line.contains(" " + modelClass + " ")) {
+                    if (!modelClass.equals(currentModelClassName) && (line.contains(" " + modelClass + " ") || line.contains(modelClass + ".class") || line.contains("extends " + modelClass))) {
                         usedModelClasses.add(modelClass);
                     }
                 }
@@ -289,7 +261,7 @@ public class GenerationPostProcessor {
                     flags.add("PublicClassPassed");
                 }
 
-                if(!line.startsWith("package")) {
+                if (!line.startsWith("package")) {
                     body.append(line);
                     body.append(System.lineSeparator());
                 }
@@ -324,32 +296,32 @@ public class GenerationPostProcessor {
         tmpFile.delete();
     }
 
-    private void addPluralToEntityList() {
-        List<String> entityPluralNames = new ArrayList<String>();
-        for (String entity : entityNames) {
-
-            if (entity.endsWith("y")) {
-                entity = entity.substring(0, entity.length() - 1) + "ie";
-            }
-
-            entityPluralNames.add(entity + "s");
-        }
-
-        entityPluralNames.addAll(entityNames);
-        entityNames = entityPluralNames;
-    }
-
-    public static Boolean fileContains(File file, String regex) throws FileNotFoundException {
-        final Scanner scanner = new Scanner(file);
+    // public static Boolean fileContains(File file, String regex) throws
+    // FileNotFoundException {
+    // fileContains(file, regex, null);
+    // }
+    public static Boolean fileContains(File file, String regex, String stopRegex) throws FileNotFoundException {
+        final BufferedReader reader = new BufferedReader(new FileReader(file));
         Boolean found = false;
 
-        while (scanner.hasNextLine() && !found) {
-            final String lineFromFile = scanner.nextLine();
-            if (Pattern.matches(regex, lineFromFile)) {
-                found = true;
+        try {
+            for (String line = reader.readLine(); line != null; line = reader.readLine()) {
+                if (Pattern.matches(regex, line)) {
+                    found = true;
+                    break;
+                }
+                if (stopRegex != null && Pattern.matches(stopRegex, line)) {
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            LOG.warn("unable to read " + file.getAbsolutePath(), e);
+        } finally {
+            try {
+                reader.close();
+            } catch (IOException e) {
             }
         }
-        scanner.close();
 
         return found;
     }

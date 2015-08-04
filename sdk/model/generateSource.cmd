@@ -1,3 +1,5 @@
+rmdir /S /Q src\main\generated-sources
+mkdir src\main\generated-sources
 @ECHO ON
 call mvn clean
 @ECHO ON
@@ -11,7 +13,7 @@ goto eof
 
 :postProcessSources
 @ECHO ON
-call mvn install -P postProcessSources
+call mvn -e install -P postProcessSources
 goto eof
 
 

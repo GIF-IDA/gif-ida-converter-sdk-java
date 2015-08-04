@@ -1,14 +1,15 @@
 package org.zgif.model.node;
+
+import org.zgif.model.node.AbstractNode;
 import org.zgif.model.node.entity.Companies;
 import org.zgif.model.node.entity.Properties;
 import org.zgif.model.node.entity.Accounts;
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Ã„nderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.27 um 11:43:51 AM CEST 
+// Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
+// Generiert: 2015.08.04 um 01:06:08 PM CEST 
 //
-
 
 
 
@@ -18,14 +19,14 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse fÃ¼r Data complex type.
+ * <p>Java-Klasse für Data complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="Data">
  *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *     &lt;extension base="{}AbstractNode">
  *       &lt;choice>
  *         &lt;sequence>
  *           &lt;element name="companies" type="{}Companies"/>
@@ -37,7 +38,7 @@ import javax.xml.bind.annotation.XmlType;
  *           &lt;element name="accounts" type="{}Accounts"/>
  *         &lt;/sequence>
  *       &lt;/choice>
- *     &lt;/restriction>
+ *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -50,7 +51,9 @@ import javax.xml.bind.annotation.XmlType;
     "properties",
     "accounts"
 })
-public class Data extends AbstractNode {
+public class Data
+    extends AbstractNode
+{
 
     protected Companies companies;
     protected Properties properties;

@@ -1,11 +1,11 @@
-package org.zgif.model.node.group;
+package org.zgif.model;
+
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Ã„nderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.27 um 11:43:51 AM CEST 
+// Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
+// Generiert: 2015.08.04 um 01:06:08 PM CEST 
 //
-
 
 
 
@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlValue;
 
 
 /**
- * <p>Java-Klasse fÃ¼r ExtensionSubListItem complex type.
+ * <p>Java-Klasse für ExtensionSubListItem complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlValue;
 @XmlType(name = "ExtensionSubListItem", propOrder = {
     "value"
 })
-public class ExtensionSubListItem extends AbstractGroupNode {
+public class ExtensionSubListItem {
 
     @XmlValue
     protected String value;

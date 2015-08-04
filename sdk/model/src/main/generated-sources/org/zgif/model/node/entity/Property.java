@@ -1,9 +1,11 @@
 package org.zgif.model.node.entity;
+
 import org.zgif.model.datatype.enumeration.OwnershipType;
 import org.zgif.model.node.group.Address;
 import org.zgif.model.datatype.enumeration.AssetCategory;
 import org.zgif.model.node.entity.Projects;
 import org.zgif.model.datatype.enumeration.InteriorQuality;
+import org.zgif.model.node.entity.AbstractEntityNode;
 import org.zgif.model.datatype.enumeration.AreaType;
 import org.zgif.model.datatype.enumeration.PortfolioType;
 import org.zgif.model.datatype.enumeration.BuildingType;
@@ -30,10 +32,9 @@ import org.zgif.model.node.entity.Accounts;
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Ã„nderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.27 um 11:43:51 AM CEST 
+// Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
+// Generiert: 2015.08.04 um 01:06:08 PM CEST 
 //
-
 
 
 
@@ -41,19 +42,18 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse fÃ¼r Property complex type.
+ * <p>Java-Klasse für Property complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="Property">
  *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *     &lt;extension base="{}AbstractEntityNode">
  *       &lt;sequence>
  *         &lt;element name="administrationCosts" type="{}Amount" minOccurs="0"/>
  *         &lt;element name="airconditioning" type="{}iTYPE_BOOLEAN" minOccurs="0"/>
@@ -153,12 +153,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="records" type="{}Records" minOccurs="0"/>
  *         &lt;element name="accounts" type="{}Accounts" minOccurs="0"/>
  *       &lt;/sequence>
- *       &lt;attribute name="objectIdSender" type="{}iTYPE_STRING" />
- *       &lt;attribute name="objectIdReceiver" type="{}iTYPE_STRING" />
- *       &lt;attribute name="validFrom" type="{}iTYPE_LOCALDATE" />
- *       &lt;attribute name="validTo" type="{}iTYPE_LOCALDATE" />
- *       &lt;attribute name="label" type="{}iTYPE_STRING" />
- *     &lt;/restriction>
+ *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -265,7 +260,9 @@ import javax.xml.bind.annotation.XmlType;
     "records",
     "accounts"
 })
-public class Property extends AbstractEntityNode {
+public class Property
+    extends AbstractEntityNode
+{
 
     protected Amount administrationCosts;
     protected Boolean airconditioning;
@@ -363,16 +360,6 @@ public class Property extends AbstractEntityNode {
     protected Valuations valuations;
     protected Records records;
     protected Accounts accounts;
-    @XmlAttribute(name = "objectIdSender")
-    protected String objectIdSender;
-    @XmlAttribute(name = "objectIdReceiver")
-    protected String objectIdReceiver;
-    @XmlAttribute(name = "validFrom")
-    protected String validFrom;
-    @XmlAttribute(name = "validTo")
-    protected String validTo;
-    @XmlAttribute(name = "label")
-    protected String label;
 
     /**
      * Ruft den Wert der administrationCosts-Eigenschaft ab.
@@ -2682,90 +2669,6 @@ public class Property extends AbstractEntityNode {
      */
     public void setAccounts(Accounts value) {
         this.accounts = value;
-    }
-
-    /**
-     * Ruft den Wert der objectIdSender-Eigenschaft ab.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getObjectIdSender() {
-        return objectIdSender;
-    }
-
-    /**
-     * Legt den Wert der objectIdSender-Eigenschaft fest.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setObjectIdSender(String value) {
-        this.objectIdSender = value;
-    }
-
-    /**
-     * Ruft den Wert der objectIdReceiver-Eigenschaft ab.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getObjectIdReceiver() {
-        return objectIdReceiver;
-    }
-
-    /**
-     * Legt den Wert der objectIdReceiver-Eigenschaft fest.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setObjectIdReceiver(String value) {
-        this.objectIdReceiver = value;
-    }
-
-    /**
-*/
-
-    /**
-*/
-
-    /**
-*/
-
-    /**
-*/
-
-    /**
-     * Ruft den Wert der label-Eigenschaft ab.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getLabel() {
-        return label;
-    }
-
-    /**
-     * Legt den Wert der label-Eigenschaft fest.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setLabel(String value) {
-        this.label = value;
     }
 
 }

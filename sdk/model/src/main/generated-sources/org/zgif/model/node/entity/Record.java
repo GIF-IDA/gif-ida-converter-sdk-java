@@ -1,34 +1,34 @@
 package org.zgif.model.node.entity;
+
 import org.zgif.model.datatype.Amount;
 import org.zgif.model.datatype.enumeration.RecordCategory;
 import org.zgif.model.datatype.enumeration.BillStatus;
+import org.zgif.model.node.entity.AbstractEntityNode;
 import org.zgif.model.datatype.enumeration.AccountingStandard;
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Ã„nderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.27 um 11:43:51 AM CEST 
+// Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
+// Generiert: 2015.08.04 um 01:06:08 PM CEST 
 //
-
 
 
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.Duration;
 
 
 /**
- * <p>Java-Klasse fÃ¼r Record complex type.
+ * <p>Java-Klasse für Record complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="Record">
  *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *     &lt;extension base="{}AbstractEntityNode">
  *       &lt;sequence>
  *         &lt;element name="accountingStandard" type="{}AccountingStandard" minOccurs="0"/>
  *         &lt;element name="category" type="{}RecordCategory" minOccurs="0"/>
@@ -42,9 +42,7 @@ import javax.xml.datatype.Duration;
  *         &lt;element name="vatValue" type="{}Amount" minOccurs="0"/>
  *         &lt;element name="extensionMap" type="{}ExtensionMap" minOccurs="0"/>
  *       &lt;/sequence>
- *       &lt;attribute name="objectIdSender" type="{}iTYPE_STRING" />
- *       &lt;attribute name="objectIdReceiver" type="{}iTYPE_STRING" />
- *     &lt;/restriction>
+ *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -65,7 +63,9 @@ import javax.xml.datatype.Duration;
     "vatValue",
     "extensionMap"
 })
-public class Record extends AbstractEntityNode {
+public class Record
+    extends AbstractEntityNode
+{
 
     protected AccountingStandard accountingStandard;
     protected RecordCategory category;
@@ -77,10 +77,6 @@ public class Record extends AbstractEntityNode {
     protected String text;
     protected Amount vat;
     protected Amount vatValue;
-    @XmlAttribute(name = "objectIdSender")
-    protected String objectIdSender;
-    @XmlAttribute(name = "objectIdReceiver")
-    protected String objectIdReceiver;
 
     /**
      * Ruft den Wert der accountingStandard-Eigenschaft ab.
@@ -327,53 +323,5 @@ public class Record extends AbstractEntityNode {
 
     /**
 */
-
-    /**
-     * Ruft den Wert der objectIdSender-Eigenschaft ab.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getObjectIdSender() {
-        return objectIdSender;
-    }
-
-    /**
-     * Legt den Wert der objectIdSender-Eigenschaft fest.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setObjectIdSender(String value) {
-        this.objectIdSender = value;
-    }
-
-    /**
-     * Ruft den Wert der objectIdReceiver-Eigenschaft ab.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getObjectIdReceiver() {
-        return objectIdReceiver;
-    }
-
-    /**
-     * Legt den Wert der objectIdReceiver-Eigenschaft fest.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setObjectIdReceiver(String value) {
-        this.objectIdReceiver = value;
-    }
 
 }

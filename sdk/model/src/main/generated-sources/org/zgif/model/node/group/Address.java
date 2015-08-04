@@ -1,12 +1,13 @@
 package org.zgif.model.node.group;
+
 import org.zgif.model.datatype.enumeration.Country;
+import org.zgif.model.node.group.AbstractGroupNode;
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Ã„nderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.27 um 11:43:51 AM CEST 
+// Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
+// Generiert: 2015.08.04 um 01:06:08 PM CEST 
 //
-
 
 
 
@@ -17,14 +18,14 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse fÃ¼r Address complex type.
+ * <p>Java-Klasse für Address complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
  * <pre>
  * &lt;complexType name="Address">
  *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *     &lt;extension base="{}AbstractGroupNode">
  *       &lt;all>
  *         &lt;element name="label" type="{}iTYPE_STRING" minOccurs="0"/>
  *         &lt;element name="floorLocation" type="{}iTYPE_STRING" minOccurs="0"/>
@@ -40,7 +41,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="longitude" type="{}iTYPE_DOUBLE" minOccurs="0"/>
  *         &lt;element name="isPublic" type="{}iTYPE_BOOLEAN" minOccurs="0"/>
  *       &lt;/all>
- *     &lt;/restriction>
+ *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
@@ -49,9 +50,23 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Address", propOrder = {
-
+    "label",
+    "floorLocation",
+    "floor",
+    "housenumber",
+    "street",
+    "district",
+    "zip",
+    "city",
+    "region",
+    "country",
+    "latitude",
+    "longitude",
+    "isPublic"
 })
-public class Address extends AbstractGroupNode {
+public class Address
+    extends AbstractGroupNode
+{
 
     protected String label;
     protected String floorLocation;

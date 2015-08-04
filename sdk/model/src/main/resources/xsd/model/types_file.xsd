@@ -7,7 +7,7 @@
   <xs:include schemaLocation="entity_Account.xsd" />
   <xs:complexType name="Manifest">
     <xs:complexContent>
-      <xs:extension base="AbstractEntityNode">
+      <xs:extension base="AbstractNode">
         <xs:sequence>
           <xs:element name="file-entry" minOccurs="0" maxOccurs="unbounded">
             <xs:complexType>
@@ -21,7 +21,7 @@
   </xs:complexType>
   <xs:complexType name="Meta">
     <xs:complexContent>
-      <xs:extension base="AbstractEntityNode">
+      <xs:extension base="AbstractNode">
         <xs:sequence>
           <xs:element name="format">
             <xs:simpleType>
@@ -51,7 +51,7 @@
   </xs:complexType>
   <xs:complexType name="Data">
     <xs:complexContent>
-      <xs:extension base="AbstractEntityNode">
+      <xs:extension base="AbstractNode">
         <xs:choice>
           <xs:sequence>
             <xs:element name="companies" type="Companies" />
@@ -68,7 +68,7 @@
   </xs:complexType>
   <xs:complexType name="ZGif">
     <xs:complexContent>
-      <xs:extension base="AbstractEntityNode">
+      <xs:extension base="AbstractNode">
         <xs:sequence>
           <xs:element name="manifest" type="Manifest" />
           <xs:element name="periods" type="Periods" />

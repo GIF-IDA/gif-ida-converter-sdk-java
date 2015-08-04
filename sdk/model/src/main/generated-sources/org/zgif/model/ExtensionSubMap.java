@@ -1,13 +1,11 @@
-package org.zgif.model.node.group;
-import org.zgif.model.node.group.ExtensionSubList;
-import org.zgif.model.node.group.ExtensionMapKey;
+package org.zgif.model;
+
 //
 // Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.7 generiert 
 // Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Ã„nderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
-// Generiert: 2015.07.27 um 11:43:51 AM CEST 
+// Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
+// Generiert: 2015.08.04 um 01:06:08 PM CEST 
 //
-
 
 
 
@@ -20,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java-Klasse fÃ¼r ExtensionSubMap complex type.
+ * <p>Java-Klasse für ExtensionSubMap complex type.
  * 
  * <p>Das folgende Schemafragment gibt den erwarteten Content an, der in dieser Klasse enthalten ist.
  * 
@@ -47,7 +45,7 @@ import javax.xml.bind.annotation.XmlType;
     "subMap",
     "subList"
 })
-public class ExtensionSubMap extends AbstractGroupNode {
+public class ExtensionSubMap {
 
     protected List<ExtensionMapKey> key;
     protected List<ExtensionSubMap> subMap;

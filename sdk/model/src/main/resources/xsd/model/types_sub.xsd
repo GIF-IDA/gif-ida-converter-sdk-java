@@ -515,33 +515,41 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="Address">
-    <xs:all>
-      <xs:element name="label" type="iTYPE_STRING" minOccurs="0" />
-      <xs:element name="floorLocation" type="iTYPE_STRING" minOccurs="0" />
-      <xs:element name="floor" type="iTYPE_STRING" minOccurs="0" />
-      <xs:element name="housenumber" type="iTYPE_STRING" minOccurs="0" />
-      <xs:element name="street" type="iTYPE_STRING" minOccurs="0" />
-      <xs:element name="district" type="iTYPE_STRING" minOccurs="0" />
-      <xs:element name="zip" type="iTYPE_STRING" minOccurs="0" />
-      <xs:element name="city" type="iTYPE_STRING" minOccurs="0" />
-      <xs:element name="region" type="iTYPE_STRING" minOccurs="0" />
-      <xs:element name="country" type="Country" minOccurs="0" />
-      <xs:element name="latitude" type="iTYPE_DOUBLE" minOccurs="0" />
-      <xs:element name="longitude" type="iTYPE_DOUBLE" minOccurs="0" />
-      <xs:element name="isPublic" type="iTYPE_BOOLEAN" minOccurs="0" />
-    </xs:all>
+    <xs:complexContent>
+      <xs:extension base="AbstractGroupNode">
+        <xs:all>
+          <xs:element name="label" type="iTYPE_STRING" minOccurs="0" />
+          <xs:element name="floorLocation" type="iTYPE_STRING" minOccurs="0" />
+          <xs:element name="floor" type="iTYPE_STRING" minOccurs="0" />
+          <xs:element name="housenumber" type="iTYPE_STRING" minOccurs="0" />
+          <xs:element name="street" type="iTYPE_STRING" minOccurs="0" />
+          <xs:element name="district" type="iTYPE_STRING" minOccurs="0" />
+          <xs:element name="zip" type="iTYPE_STRING" minOccurs="0" />
+          <xs:element name="city" type="iTYPE_STRING" minOccurs="0" />
+          <xs:element name="region" type="iTYPE_STRING" minOccurs="0" />
+          <xs:element name="country" type="Country" minOccurs="0" />
+          <xs:element name="latitude" type="iTYPE_DOUBLE" minOccurs="0" />
+          <xs:element name="longitude" type="iTYPE_DOUBLE" minOccurs="0" />
+          <xs:element name="isPublic" type="iTYPE_BOOLEAN" minOccurs="0" />
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="EnergyRating">
-    <xs:all>
-      <xs:element name="date" type="iTYPE_LOCALDATE" minOccurs="0" />
-      <xs:element name="reason" type="IssuanceReason" minOccurs="0" />
-      <xs:element name="ratingType" type="EnergyRatingType" minOccurs="0" />
-      <xs:element name="ratingCategory" type="EnergyRatingCategory" minOccurs="0" />
-      <xs:element name="energyEfficiencyClass" type="EnergyEfficiencyCategory" minOccurs="0" />
-      <xs:element name="energyConsumption" type="iTYPE_DOUBLE" minOccurs="0" />
-      <xs:element name="co2Emission" type="iTYPE_DOUBLE" minOccurs="0" />
-      <xs:element name="primaryEnergyDemand" type="iTYPE_DOUBLE" minOccurs="0" />
-    </xs:all>
+    <xs:complexContent>
+      <xs:extension base="AbstractGroupNode">
+        <xs:all>
+          <xs:element name="date" type="iTYPE_LOCALDATE" minOccurs="0" />
+          <xs:element name="reason" type="IssuanceReason" minOccurs="0" />
+          <xs:element name="ratingType" type="EnergyRatingType" minOccurs="0" />
+          <xs:element name="ratingCategory" type="EnergyRatingCategory" minOccurs="0" />
+          <xs:element name="energyEfficiencyClass" type="EnergyEfficiencyCategory" minOccurs="0" />
+          <xs:element name="energyConsumption" type="iTYPE_DOUBLE" minOccurs="0" />
+          <xs:element name="co2Emission" type="iTYPE_DOUBLE" minOccurs="0" />
+          <xs:element name="primaryEnergyDemand" type="iTYPE_DOUBLE" minOccurs="0" />
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
   <xs:complexType name="Period">

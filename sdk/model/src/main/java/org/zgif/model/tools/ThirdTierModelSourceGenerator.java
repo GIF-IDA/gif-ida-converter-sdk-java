@@ -61,7 +61,7 @@ public class ThirdTierModelSourceGenerator {
     public void run() throws Throwable {
         File scriptPath = new File(getClass().getResource("").toURI());
         LOG.debug(scriptPath);
-        mainDir = traversalFile(scriptPath, "..", "..", "..", "..", "..", "src", "main");
+        mainDir = traversalFile(scriptPath, "..", "..", "..", "..", "..", "..", "src", "main");
         sourcesDir = traversalFile(mainDir, "generated-sources");
 
         File xsdDir = traversalFile(mainDir, "resources", "xsd", "validation");
