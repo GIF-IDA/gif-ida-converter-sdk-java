@@ -4,19 +4,19 @@
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
- *  
+ *
  * Contributors:
  *    Martin Fluegge - initial API and implementation and/or initial documentation
- *  
+ *
  *******************************************************************************/
 package org.zgif.validator;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import org.zgif.converter.sdk.ValidationError;
 import org.zgif.converter.sdk.impl.Validator;
 import org.zgif.model.node.entity.Unit;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BasicUnitValidator extends Validator<Unit> {
 
@@ -26,7 +26,7 @@ public class BasicUnitValidator extends Validator<Unit> {
 		List<ValidationError> results = new ArrayList<ValidationError>();
 
 		validateObjectIdSender(unit, results);
-		
+
 		return results;
 	}
 
@@ -39,5 +39,5 @@ public class BasicUnitValidator extends Validator<Unit> {
 			createAndAddValidationError(null, "objectIdSender must be not empty", results);
 		}
 	}
-	
+
 }
