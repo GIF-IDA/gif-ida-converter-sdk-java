@@ -20,9 +20,9 @@ import org.zgif.converter.sdk.impl.BasicConverter;
 import org.zgif.model.Information;
 import org.zgif.model.NodeInformation;
 import org.zgif.model.annotation.DataField;
-import org.zgif.model.node.AbstractDataRoot;
+//import org.zgif.model.node.AbstractDataRoot;
 import org.zgif.model.node.AbstractNode;
-import org.zgif.model.node.AbstractZGif;
+//import org.zgif.model.node.AbstractZGif;
 import org.zgif.model.node.Period;
 
 /***basic generic converter for every sub object/node of a zgif object,e.g.*company,property,unit,lease,...**
@@ -92,7 +92,12 @@ abstract public class NodeConverter<Node extends AbstractNode> extends BasicConv
          * @param csvLine
          *            the original csv data line
          */
-        public void connectObjectWithZGif(Node object, CSVLine<Node> csvLine) {
+
+		public void connectObjectWithZGif(Node object, CSVLine<Node> csvLine) {
+        }
+		
+		 /*  
+  public void connectObjectWithZGif(Node object, CSVLine<Node> csvLine) {
             try {
                 AbstractZGif zgif = descriptor.getZgif();
 
@@ -245,6 +250,8 @@ abstract public class NodeConverter<Node extends AbstractNode> extends BasicConv
 
  }
 
+*/
+ 
         /**
          * @return returns the Transformer for transforming a csv line to a zgif
          *         node object

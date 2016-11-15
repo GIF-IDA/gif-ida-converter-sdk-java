@@ -32,18 +32,18 @@ public class CompanyConverter extends NodeConverter<Company> {
     public void connectObjectWithZGif(Company company, CSVLine<Company> csvLine) {
         ZGif zgif = (ZGif) descriptor.getZgif();
         String periodIdentifier = csvLine.getOriginalFields().get("PERIOD.IDENTIFIER");
-        Period<DataRoot> period = zgif.getPeriods().get(periodIdentifier);
+        Period/*<DataRoot>*/ period = null; //zgif.getPeriods().get(periodIdentifier); TODO method not found
 
-        DataRoot root = period.getData();
+        DataRoot root = null; //period.getData(); TODO method not found
         if (root == null) {
             root = new DataRoot();
-            period.setData(root);
+            //period.setData(root); TODO method not found
         }
 
-        Map<String, Company> mapOfCom = root.getListOfCom();
+        Map<String, Company> mapOfCom = null; //root.getListOfCom(); TODO method not found
         if (mapOfCom == null) {
             mapOfCom = new HashMap<String, Company>();
-            root.setListOfCom(mapOfCom);
+            //root.setListOfCom(mapOfCom); TODO method not found
         }
 
         mapOfCom.put(company.getObjectIdSender(), company);

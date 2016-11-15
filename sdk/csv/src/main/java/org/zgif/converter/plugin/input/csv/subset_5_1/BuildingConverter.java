@@ -39,17 +39,17 @@ public class BuildingConverter extends NodeConverter<Building> {
         String companyObjectId = csvLine.getOriginalFields().get("COMPANY.OBJECT_ID_SENDER");
         String propertyObjectId = csvLine.getOriginalFields().get("PROPERTY.OBJECT_ID_SENDER");
 
-        Period period = zgif.getPeriods().getPeriod().get(periodIdentifier);
-        DataRoot root = period.getData();
+        Period period = zgif.getPeriods().getPeriod().get(Integer.valueOf(periodIdentifier));
+        DataRoot root = null; //period.getData(); // TODO: Method not found
 
-        Map<String, Company> companies = root.getListOfCom();
+        Map<String, Company> companies = null; //root.getListOfCom(); TODO: Method not found
         Company company = companies.get(companyObjectId);
 
         Map<String, Property> properties = null;
         if (company != null) {
-            properties = company.getListOfProp();
+            properties = null; //company.getListOfProp(); // TODO: Method not found
         } else {
-            properties = root.getListOfProp();
+            properties = null; //root.getListOfProp(); TODO: Method not found
         }
         Property property = null;
         if (properties != null) {
@@ -57,10 +57,10 @@ public class BuildingConverter extends NodeConverter<Building> {
         }
 
         if (property != null) {
-            Map<String, Building> mapOfBuild = property.getListOfBuild();
+            Map<String, Building> mapOfBuild = null; //property.getListOfBuild(); TODO: Method not found
             if (mapOfBuild == null) {
                 mapOfBuild = new HashMap<String, Building>();
-                property.setListOfBuild(mapOfBuild);
+                //property.setListOfBuild(mapOfBuild); TODO: Method not found
             }
             mapOfBuild.put(building.getObjectIdSender(), building);
         } else {

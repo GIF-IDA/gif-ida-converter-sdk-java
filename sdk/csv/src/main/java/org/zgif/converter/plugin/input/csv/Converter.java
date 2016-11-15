@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.joda.time.convert.PeriodConverter;
 import org.zgif.converter.plugin.PluginComponent;
 import org.zgif.converter.plugin.PluginConfiguration;
 import org.zgif.converter.plugin.input.ImportPluginConfiguration;
@@ -14,6 +13,8 @@ import org.zgif.converter.plugin.input.csv.subset_5_1.BuildingConverter;
 import org.zgif.converter.plugin.input.csv.subset_5_1.CompanyConverter;
 import org.zgif.converter.plugin.input.csv.subset_5_1.PropertyConverter;
 import org.zgif.converter.plugin.input.csv.subset_5_1.UnitConverter;
+import org.zgif.converter.plugin.input.csv.subset_5_1.PeriodConverter;
+import org.zgif.converter.plugin.input.IImportPlugin;
 import org.zgif.converter.sdk.IConverterDescriptor;
 import org.zgif.converter.sdk.ITransformer;
 import org.zgif.converter.sdk.impl.BasicConverter;

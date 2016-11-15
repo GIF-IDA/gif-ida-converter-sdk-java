@@ -8,7 +8,10 @@ import org.zgif.converter.plugin.input.csv.CSVLine;
 import org.zgif.converter.plugin.input.csv.NodeConverter;
 import org.zgif.model.node.Period;
 import org.zgif.model.node.ZGif;
+import org.zgif.model.node.entity.Building;
 import org.zgif.model.node.entity.Company;
+import org.zgif.model.node.entity.Lease;
+import org.zgif.model.node.entity.Property;
 import org.zgif.model.node.entity.Unit;
 
 /**
@@ -38,49 +41,49 @@ public class UnitConverter extends NodeConverter<Unit> {
         String buildingObjectId = csvLine.getOriginalFields().get("BUILDING.OBJECT_ID_SENDER");
         String leaseObjectId = csvLine.getOriginalFields().get("LEASE.OBJECT_ID_SENDER");
 
-        Period<DataRoot> period = zgif.getPeriods().get(periodIdentifier);
-        DataRoot root = period.getData();
+        Period/*<DataRoot>*/ period = null; //zgif.getPeriods().get(periodIdentifier);   TODO: Method not found
+        DataRoot root = null; //period.getData(); TODO method not found
 
-        Map<String, Company> companies = root.getListOfCom();
+        Map<String, Company> companies = null; //root.getListOfCom(); TODO: Method not found
         Company company = companies.get(companyObjectId);
 
         Map<String, Property> properties = null;
         if (company != null) {
-            properties = company.getListOfProp();
+            properties = null; //company.getListOfProp(); TODO method not found
         } else {
-            properties = root.getListOfProp();
+            properties = null; //root.getListOfProp(); TODO method not found
         }
         Property property = null;
         if (properties != null) {
             property = properties.get(propertyObjectId);
         }
 
-        Map<String, Building> buildings = property.getListOfBuild();
+        Map<String, Building> buildings = null; //property.getListOfBuild(); TODO method not found
         Building building = null;
         if (buildings != null) {
             building = buildings.get(buildingObjectId);
         }
         if (building != null) {
-            Map<String, Unit> mapOfUnit = building.getListOfUnit();
+            Map<String, Unit> mapOfUnit = null; //building.getListOfUnit(); TODO method not found
             if (mapOfUnit == null) {
                 mapOfUnit = new HashMap<String, Unit>();
-                building.setListOfUnit(mapOfUnit);
+                //building.setListOfUnit(mapOfUnit); TODO method not found
             }
             mapOfUnit.put(unit.getObjectIdSender(), unit);
         } else {
             logger.warn("parent building does not exists");
         }
 
-        Map<String, Lease> leases = property.getListOfLease();
+        Map<String, Lease> leases = null; //property.getListOfLease(); TODO method not found
         Lease lease = null;
         if (leases != null) {
             lease = leases.get(leaseObjectId);
         }
         if (lease != null) {
-            Map<String, Unit> mapOfUnit = lease.getListOfUnit();
+            Map<String, Unit> mapOfUnit = null; //lease.getListOfUnit();  TODO method not found
             if (mapOfUnit == null) {
                 mapOfUnit = new HashMap<String, Unit>();
-                lease.setListOfUnit(mapOfUnit);
+                //lease.setListOfUnit(mapOfUnit); TODO method not found
             }
             mapOfUnit.put(unit.getObjectIdSender(), unit);
         } else {

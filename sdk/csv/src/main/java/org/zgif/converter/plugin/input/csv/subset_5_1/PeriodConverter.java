@@ -14,12 +14,12 @@ import org.zgif.model.node.ZGif;
  * @author phoudek
  *
  */
-public class PeriodConverter extends NodeConverter<Period<DataRoot>> {
-    private static final Period<DataRoot> t = new Period<DataRoot>();
+public class PeriodConverter extends NodeConverter<Period/*<DataRoot>*/> {
+    private static final Period/*<DataRoot>*/ t = new Period/*<DataRoot>*/();
 
     @SuppressWarnings("unchecked")
     public PeriodConverter() {
-        super((Class<Period<DataRoot>>) t.getClass());
+        super((Class<Period/*<DataRoot>*/>) t.getClass());
     }
 
     /**
@@ -27,13 +27,13 @@ public class PeriodConverter extends NodeConverter<Period<DataRoot>> {
      *      CSVLine)
      */
     @Override
-    public void connectObjectWithZGif(Period<DataRoot> period, CSVLine<Period<DataRoot>> csvLine) {
+    public void connectObjectWithZGif(Period/*<DataRoot>*/ period, CSVLine<Period/*<DataRoot>*/> csvLine) {
         ZGif zgif = (ZGif) descriptor.getZgif();
-        Map<String, Period<DataRoot>> periods = zgif.getPeriods();
+        Map<String, Period/*<DataRoot>*/> periods = null; //zgif.getPeriods(); TODO cannot be converted
 
         if (periods == null) {
-            periods = new HashMap<String, Period<DataRoot>>();
-            zgif.setPeriods(periods);
+            periods = new HashMap<String, Period/*<DataRoot>*/>();
+            //zgif.setPeriods(periods); // TODO cannot be converted
         }
 
         periods.put(period.getIdentifier(), period);
